@@ -10,7 +10,7 @@ function listPosts()
     $postManager = new \JForteroche\Blog\Model\PostManager();
     $posts = $postManager->getPosts();
 
-    require('view/listPostsView.php');
+    require(VIEW.'/listPostsView.php');
 }
 
 function post()
@@ -22,7 +22,7 @@ function post()
     $title_content = htmlspecialchars($post['author_post_title']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/postView.php');
+    require(VIEW.'/postView.php');
 }
 
 function postEdit($ID_post, $author_post_content)

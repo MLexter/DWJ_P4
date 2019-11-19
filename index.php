@@ -5,9 +5,9 @@ session_start();
 
 require('_config.php');
 
-require('controller/staticControl.php');
-require('controller/postControl.php');
-require('controller/adminControl.php'); 
+require(CONTROLLER.'/staticControl.php');
+require(CONTROLLER.'/postControl.php');
+require(CONTROLLER.'/adminControl.php'); 
 
 
 try {
@@ -68,26 +68,6 @@ try {
         showMainIndex();
     }
 
-    /*if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
-            listPosts();
-        } elseif ($_GET['action'] == 'post') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                post();
-            } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }
-
-        if ($_GET['action'] == 'aboutView') {
-            showAboutView();
-        }
-        if ($_GET['action'] == 'contactView') {
-            showContactView();
-        }
-    } else {
-        showMainIndex();
-    }*/
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
 }

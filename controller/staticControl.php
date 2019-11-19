@@ -1,27 +1,27 @@
 <?php
 
 // Chargement des classes
-require_once('model/PostManager.php');
+require_once(MODEL.'/PostManager.php');
 
 function showMainIndex()
 {
-    require('view/main.php');
+    require(VIEW.'main.php');
 }
 
 function showAboutView() {
-    require('view/aboutView.php');
+    require(VIEW.'aboutView.php');
 }
 
 function showCommentView() {
-    require('view/postView.php');
+    require(VIEW.'postView.php');
 }
 
 function showConnexionView() 
 {
-    require('view/connexionView.php');
+    require(VIEW.'connexionView.php');
 }
 
 function showEditCommentView()
 {
-    require('view/editComment.php');
+    require(VIEW.'editComment.php');
 }
