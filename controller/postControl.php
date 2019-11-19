@@ -2,8 +2,8 @@
 
 
 // Chargement des classes
-require_once('model/PostManager.php');
-require_once('model/CommentManager.php');
+require_once(MODEL.'PostManager.php');
+require_once(MODEL.'CommentManager.php');
 
 function listPosts()
 {
@@ -15,8 +15,6 @@ function listPosts()
 
 function post()
 {
-
-    
     $postManager = new \JForteroche\Blog\Model\PostManager();
     $commentManager = new \JForteroche\Blog\Model\CommentManager();
     

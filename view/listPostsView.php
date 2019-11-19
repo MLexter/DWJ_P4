@@ -11,10 +11,10 @@
     while ($data = $posts->fetch()) {
         ?>
         <div class="post_thumbnail">
-            <h3>
-                <?php htmlspecialchars($data['author_post_title']) ?>
-                <em>le <?php $data['creation_date_fr'] ?></em>
-            </h3>
+        <h2 id="thumbail-title">
+                <?= htmlspecialchars($data['author_post_title']) ?>
+                <em>le <?= $data['creation_date_fr'] ?></em>
+            </h2>
 
             <p>
                 <?php nl2br(htmlspecialchars($data['author_post_content'])) ?>

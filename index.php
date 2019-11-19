@@ -3,12 +3,11 @@
 <?php
 session_start();
 
+require('_config.php');
+
 require('controller/staticControl.php');
 require('controller/postControl.php');
-require('controller/adminControl.php'); ?>
-
-
-<?php
+require('controller/adminControl.php'); 
 
 
 try {
