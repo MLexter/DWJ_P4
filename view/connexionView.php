@@ -1,0 +1,25 @@
+<?php $title_content = 'Connexion à l\'espace d\'administration'; ?>
+
+<?php ob_start(); ?>
+
+<div id="main-connexion-screen">
+    <div id="connexion_container">
+        <div id="connexion_form">
+            <h1>Connectez-vous à votre espace:</h1>
+            <br />
+            <form action="index.php?action=connexionCheck" method="POST">
+                <label for="id_connexion">Identifiant :</label>
+                    <input type="text" name="ID_login" class="connexion_inputs" placeholder="Saisissez votre identifiant">
+                    <br />
+                    <label for="password">Mot de passe :</label>
+                        <input type="password" name="password" class="connexion_inputs" placeholder="Tapez votre mot de passe">
+                    
+                        <input type="submit" value="Connexion">
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php $body_content = ob_get_clean(); ?>
+
+<?php require('layouts/template.php'); ?>
