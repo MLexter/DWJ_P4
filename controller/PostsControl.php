@@ -1,11 +1,14 @@
 <?php
 
 
+
 // Chargement des classes
 require_once(MODEL.'PostManager.php');
 require_once(MODEL.'CommentManager.php');
 
-function listPosts()
+class PostsControl
+{
+public function listPosts()
 {
     $postManager = new \JForteroche\Blog\Model\PostManager();
     $posts = $postManager->getPosts();
@@ -13,7 +16,7 @@ function listPosts()
     require(VIEW.'/listPostsView.php');
 }
 
-function post()
+public function post()
 {
     $postManager = new \JForteroche\Blog\Model\PostManager();
     $commentManager = new \JForteroche\Blog\Model\CommentManager();
@@ -25,7 +28,7 @@ function post()
     require(VIEW.'/postView.php');
 }
 
-function postEdit($ID_post, $author_post_content)
+public function postEdit($ID_post, $author_post_content)
 {
         $modifiedContent = new \JForteroche\Blog\Model\PostManager();
 
@@ -41,13 +44,15 @@ function postEdit($ID_post, $author_post_content)
         }
 }
 
-function contentLimiter()
+public function contentLimiter()
 {
     // Récuperer le nombre de caractères de l'article
     // au X ieme caratctère, remplacer la suite par '...' et ajouter un 'Lire la suite'
 
     $contentLenght = '';
 
+
+}
 
 }
 
