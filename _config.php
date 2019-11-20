@@ -14,6 +14,7 @@ define('ROOT', $root . '/P4_blog_ecrivain/');
 define('CONTROLLER', ROOT.'controller/');
 define('MODEL', ROOT.'model/');
 define('VIEW', ROOT.'view/');
+define('CLASSES', ROOT.'classes/');
 
 define('ASSETCSS', HOST.'public/css/');
 define('ASSETJS', HOST.'public/js/');
