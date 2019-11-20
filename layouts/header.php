@@ -10,8 +10,8 @@
 
     <div id="menu_container">
         <ul id="main-menu">
-            <li class="item-menu-header"><a href="index.php">Accueil</a></li>
-            <li class="item-menu-header"><a href="index.php?action=listPosts">Livres</a></li>
+            <li class="item-menu-header"><a href="<?php echo HOST; ?>home">Accueil</a></li>
+            <li class="item-menu-header"><a href="<?php echo HOST; ?>book">Livres</a></li>
             <li class="item-menu-header"><a href="index.php?action=aboutView">A propos</a></li>
             <li class="item-menu-header"><a href="#">Contact</a></li>
         </ul>

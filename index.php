@@ -3,18 +3,18 @@
 <?php
 session_start();
 
-require('_config.php');
-
-require(CONTROLLER.'/staticControl.php');
-require(CONTROLLER.'/adminControl.php'); 
-
-
 try {
+
+    
+include_once('_config.php');
+
+AutomaticLoading::start();
+
+
 
 
 $request = $_GET['action'];
 
-include_once(CLASSES.'Router.php');
 
 $router = new Router($request);
 $router->renderController();

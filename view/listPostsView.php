@@ -34,7 +34,7 @@
                 ?>
 
                 <br />
-                <a href="index.php?action=post&amp;id=<?= $data['ID_post'] ?>">Lire la suite</a>
+                <a href="<?php echo HOST; ?>readBook&amp;id=<?= $data['ID_post'] ?>">Lire la suite</a>
 
                 <a href="index.php?action=editView&amp;id=<?= $data['ID_post'] ?>">Modifier ce chapitre</a>
 
