@@ -10,12 +10,12 @@ require(CONTROLLER.'/postControl.php');
 require(CONTROLLER.'/adminControl.php'); 
 
 
-// try {
+try {
 
 
 $request = $_GET['action'];
 
-include_once(CLASSES.'/Router.php');
+include_once(CLASSES.'Router.php');
 
 $router = new Router($request);
 $router->renderController();
@@ -77,6 +77,6 @@ $router->renderController();
 //         showMainIndex();
 //     }
 
-// } catch (Exception $e) {
-//     echo 'Erreur : ' . $e->getMessage();
-// }
+} catch (Exception $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
