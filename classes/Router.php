@@ -1,5 +1,4 @@
 <?php
-include_once(CONTROLLER.'mainControl.php');
 // include_once(CONTROLLER.'PostsControl.php');
 
 /** Création des routes et trouver le controller */
@@ -7,9 +6,11 @@ class Router
 {
     private $request;
     private $routes = [ 
-                        "home" => ["controller" => 'Home', "method" => 'showMain'],
-                        "book" => ["controller" => 'PostsControl', "method" => 'listPosts'],
-                        "readBook" => ["controller" => 'PostsControl', "method" => 'post'],
+                        "home" =>       ["controller" => 'StaticControl', "method" => 'showMain'],
+                        "about" =>      ["controller" => 'StaticControl', "method" => 'showAbout'],
+                        "book" =>       ["controller" => 'PostsControl', "method" => 'listPosts'],
+                        "readBook" =>   ["controller" => 'PostsControl', "method" => 'post'],
+
     ];
 
 

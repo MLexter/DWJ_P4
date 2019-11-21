@@ -2,7 +2,7 @@
 
 namespace JForteroche\Blog\Model;
 
-require_once("model/Manager.php");
+require_once(MODEL.'Manager.php');
 
 class PostManager extends Manager
 {
@@ -43,7 +43,7 @@ class PostManager extends Manager
         return $affectedLines;
     }
 
-    public function deleteAuthorPost($ID_post) 
+    public function deleteAuthorPost($postId) 
     {
         $db = $this->dbConnect();
         $req = $db->execute('DELETE FROM `posts_author` WHERE `posts_author`.`ID_post` = $ID_post');

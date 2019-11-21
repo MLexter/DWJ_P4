@@ -1,25 +1,21 @@
-
-
 <?php
+
 session_start();
-
-try {
-
-    
 include_once('_config.php');
 
-AutomaticLoading::start();
-
-
-
-
-$request = $_GET['action'];
-
-
-$router = new Router($request);
-$router->renderController();
-
-
+try {
+    
+    AutomaticLoading::start();
+    
+    $request = $_GET['action'];
+    
+    $router = new Router($request);
+    $router->renderController();
+    
+} catch (Exception $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
+    
 //     if (!empty($_GET['action'])) {
 //         switch ($_GET['action']) {
 //             case 'listPosts':
@@ -75,7 +71,3 @@ $router->renderController();
 //     } else {
 //         showMainIndex();
 //     }
-
-} catch (Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
-}

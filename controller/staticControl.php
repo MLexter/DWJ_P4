@@ -1,27 +1,27 @@
 <?php
 
-// Chargement des classes
-require_once(MODEL.'/PostManager.php');
 
-function showMainIndex()
+
+class StaticControl
 {
-    require(VIEW.'main.php');
-}
+    public function showMain()
+    {
+        include(VIEW.'main.php');
 
-function showAboutView() {
-    require(VIEW.'aboutView.php');
-}
 
-function showCommentView() {
-    require(VIEW.'postView.php');
-}
+        // $viewToDisplay = new ViewRenderer('home');
+        // $viewToDisplay->renderView();
 
-function showConnexionView() 
-{
-    require(VIEW.'connexionView.php');
-}
+    }
 
-function showEditCommentView()
-{
-    require(VIEW.'editComment.php');
+
+    public function showAbout()
+    {
+        include(VIEW.'aboutView.php');
+    }
+
+    public function showContact()
+    {
+        include(VIEW . 'contact.php');
+    }
 }
