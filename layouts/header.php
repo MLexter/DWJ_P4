@@ -4,7 +4,7 @@
         </div>
         <div id="JF_text_logo_container">
             <h1 id="logo_site_name">JEAN FORTEROCHE</h1>
-            <h3>Le blog de l'auteur</h3>
+            <h2>Le blog de l'auteur</h2>
         </div>
     </div>
 

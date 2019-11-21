@@ -93,6 +93,27 @@ body {
     height: 87vh;
 }
 
+
+
+
+/* ########## EDIT POST ########## */
+
+div#main-editView {
+    height: 87vh;
+}
+
+#authorPostContent {
+    width: 60%;
+    min-height: 500px;
+}
+
+#edit_container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+
 /* ########## HEADER ########## */
 
 #logo_site_name {
@@ -104,12 +125,11 @@ body {
     display: flex;
     text-align: center;
     align-items: center;
-    margin: 10px 20px;
-}
+    margin: 6px 20px;}
 
-h3 {
+/* h3 {
     color: white;
-}
+} */
 
 #menu_container #main-menu li a {
     color: white;

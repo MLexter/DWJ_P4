@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 
 class ViewRenderer
@@ -16,9 +16,9 @@ class ViewRenderer
     {
         $template = $this->template;
         ob_start();
-        include(LAYOUTS.$template.'.php');
+        include(VIEW.$template.'.php');
         $body_content = ob_get_clean();
         include_once(LAYOUTS.'template.php');
     }
     
-} -->
+}

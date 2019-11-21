@@ -6,9 +6,9 @@ class StaticControl
 {
     public function showMain()
     {
-        include(VIEW.'main.php');
-        // $viewToDisplay = new ViewRenderer('home');
-        // $viewToDisplay->renderView();
+        // include(VIEW.'main.php');
+        $viewToDisplay = new ViewRenderer('main');
+        $viewToDisplay->renderView();
     }
 
 

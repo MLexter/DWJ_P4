@@ -6,12 +6,14 @@ class Router
 {
     private $request;
     private $routes = [ 
-                        "home" =>       ["controller" => 'StaticControl', "method" => 'showMain'],
-                        "about" =>      ["controller" => 'StaticControl', "method" => 'showAbout'],
-                        "connexion" =>   ["controller" => 'StaticControl', "method" => 'showConnexion'],
-                        "book" =>       ["controller" => 'PostsControl', "method" => 'listPosts'],
-                        "readBook" =>   ["controller" => 'PostsControl', "method" => 'post'],
-                        "edit-post" =>   ["controller" => 'PostsControl', "method" => 'post'],
+                        "home" =>           ["controller" => 'StaticControl', "method" => 'showMain'],
+                        "about" =>          ["controller" => 'StaticControl', "method" => 'showAbout'],
+                        "connexion" =>      ["controller" => 'StaticControl', "method" => 'showConnexion'],
+                        "book" =>           ["controller" => 'PostsControl', "method" => 'listPosts'],
+                        "readBook" =>       ["controller" => 'PostsControl', "method" => 'post'],
+                        "edit-post" =>      ["controller" => 'PostsControl', "method" => 'editChapter'],
+                        "update" =>         ["controller" => 'PostsControl', "method" => 'updateChapter'],
+
 
 
 

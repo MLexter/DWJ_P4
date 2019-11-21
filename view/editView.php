@@ -7,22 +7,21 @@ $title = 'Modifier un chapitre' ?>
 <div id="main-editView">
     <div id="edit_container">
         <h1>Modifier un chapitre</h1>
-        <p><a href="index.php">Retour à l'écran principal</a></p>
-
-
-
-        <h2>Modifier un chapitre</h2>
+        <p><a href="<?= HOST; ?>home">Retour à l'écran principal</a></p>
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
-        <form action="index.php?action=postEdit&amp;id=<?= $post['ID_post'] ?>" method="POST">
+        <form action="<?= HOST; ?>edit-post/update" method="POST">
             <div>
-                <p>Auteur : <?= $post['author'] ?></p>
+                <label for="post-title" ><h3>Titre du chapitre :</h3></label>
+                <input type="text" name="author_post_title" value="<?= $post['author_post_title'] ?>">
+                <br />
+                <label for="chapter-content"><h3>Contenu du chapitre:</h3></label>
                 <textarea id="authorPostContent" name="author_post_content"><?= $post['author_post_content'] ?></textarea>
             </div>
             <div>
                 <button>
-                    <a href="index.php?action=listPostView">Annuler</a>
+                    <a href="<?= HOST; ?>book">Annuler</a>
                 </button> 
                 <input type="submit" value="Modifier" />
             </div>
@@ -33,4 +32,4 @@ $title = 'Modifier un chapitre' ?>
 
 <?php $body_content = ob_get_clean(); ?>
 
-<?php require('layouts/template.php'); ?>
+<?php require(LAYOUTS.'template.php'); ?>
