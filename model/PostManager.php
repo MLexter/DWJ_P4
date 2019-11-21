@@ -2,7 +2,7 @@
 
 namespace JForteroche\Blog\Model;
 
-require_once("model/Manager.php");
+require_once(MODEL.'Manager.php');
 
 class PostManager extends Manager
 {
@@ -25,13 +25,15 @@ class PostManager extends Manager
         return $post;
     }
 
-    public function updatePost($postId)
+    public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE posts_author SET author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
-        $modifiedPost = $req->execute(array($postId));
+        $req = $db->execute('UPDATE posts_author SET author_post_title = :author_post_title, author_post_content = :author_post_content, date_post_author = NOW() WHERE ID_post = :id', 
+        array('id'                  => $postId,
+              'author_post_title'   => $author_post_title,
+              'author_post_content' => $author_post_content));
  
-        return $modifiedPost;
+
     }
 
     public function addPost($ID_post, $author_post_content)
@@ -43,7 +45,7 @@ class PostManager extends Manager
         return $affectedLines;
     }
 
-    public function deleteAuthorPost($ID_post) 
+    public function deleteAuthorPost($postId) 
     {
         $db = $this->dbConnect();
         $req = $db->execute('DELETE FROM `posts_author` WHERE `posts_author`.`ID_post` = $ID_post');

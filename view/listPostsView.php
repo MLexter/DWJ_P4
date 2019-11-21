@@ -11,10 +11,10 @@
     while ($data = $posts->fetch()) {
         ?>
         <div class="post_thumbnail">
-            <h3>
-                <?php htmlspecialchars($data['author_post_title']) ?>
-                <em>le <?php $data['creation_date_fr'] ?></em>
-            </h3>
+        <h2 id="thumbail-title">
+                <?= htmlspecialchars($data['author_post_title']) ?>
+                <em>le <?= $data['creation_date_fr'] ?></em>
+            </h2>
 
             <p>
                 <?php nl2br(htmlspecialchars($data['author_post_content'])) ?>
@@ -25,7 +25,7 @@
 
                     if (!empty($dataContent)) {
                         if (strlen($dataContent) > 350) {
-                            $shorterContent = substr($dataContent, 0, 1000);
+                            $shorterContent = substr($dataContent, 0, 500);
                             echo $shorterContent . '...';
                         };
                     } else {
@@ -34,9 +34,9 @@
                 ?>
 
                 <br />
-                <a href="index.php?action=post&amp;id=<?= $data['ID_post'] ?>">Lire la suite</a>
+                <a href="<?= HOST; ?>readBook&amp;id=<?= $data['ID_post'] ?>">Lire la suite</a>
 
-                <a href="index.php?action=editView&amp;id=<?= $data['ID_post'] ?>">Modifier ce chapitre</a>
+                <a href="<?= HOST; ?>edit-post&amp;id=<?= $data['ID_post'] ?>">Modifier ce chapitre</a>
 
             </p>
         </div>
