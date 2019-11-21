@@ -28,19 +28,20 @@ public function post()
     require(VIEW.'/postView.php');
 }
 
-public function postEdit($ID_post, $author_post_content)
+
+
+public function postEdit($postId)
 {
         $modifiedContent = new \JForteroche\Blog\Model\PostManager();
 
-
-        $newPost = $modifiedContent->modifyAuthorPost($ID_post, $author_post_content);
+        $newPost = $modifiedContent->updatePost($postId);
 
         if ($modifiedContent === false) {
 
             throw new Exception('Impossible de modifier ce chapitre !');
         } else {
             echo 'CONTENU : ' . $_POST['author_post_content'];
-            header('Location: index.php?action=listPosts&id=' . $ID_post);
+            header('Location:'.HOST.'readBook&id=' . $postId);
         }
 }
 

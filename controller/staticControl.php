@@ -7,11 +7,8 @@ class StaticControl
     public function showMain()
     {
         include(VIEW.'main.php');
-
-
         // $viewToDisplay = new ViewRenderer('home');
         // $viewToDisplay->renderView();
-
     }
 
 
@@ -20,8 +17,14 @@ class StaticControl
         include(VIEW.'aboutView.php');
     }
 
+
     public function showContact()
     {
         include(VIEW . 'contact.php');
+    }
+
+    public function showConnexion()
+    {
+        include(VIEW.'connexionView.php');
     }
 }

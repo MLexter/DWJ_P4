@@ -21,6 +21,7 @@ class AutomaticLoading
         define('MODEL',      ROOT . 'model/');
         define('VIEW',       ROOT . 'view/');
         define('CLASSES',    ROOT . 'classes/');
+        define('LAYOUTS',    ROOT . 'layouts/');
 
         define('ASSETCSS',   HOST . 'public/css/');
         define('ASSETJS',    HOST . 'public/js/');

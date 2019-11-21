@@ -8,8 +8,12 @@ class Router
     private $routes = [ 
                         "home" =>       ["controller" => 'StaticControl', "method" => 'showMain'],
                         "about" =>      ["controller" => 'StaticControl', "method" => 'showAbout'],
+                        "connexion" =>   ["controller" => 'StaticControl', "method" => 'showConnexion'],
                         "book" =>       ["controller" => 'PostsControl', "method" => 'listPosts'],
                         "readBook" =>   ["controller" => 'PostsControl', "method" => 'post'],
+                        "edit-post" =>   ["controller" => 'PostsControl', "method" => 'post'],
+
+
 
     ];
 

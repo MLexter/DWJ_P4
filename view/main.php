@@ -10,4 +10,4 @@
     </div>
     <?php $body_content = ob_get_clean(); ?>
 
-    <?php require('layouts/template.php'); ?>
+    <?php require(LAYOUTS.'template.php'); ?>
