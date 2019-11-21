@@ -93,6 +93,13 @@ body {
     height: 87vh;
 }
 
+/* ########## EDIT POST ########## */
+
+div#main-editView {
+    height: 87vh;
+}
+
+
 /* ########## HEADER ########## */
 
 #logo_site_name {
