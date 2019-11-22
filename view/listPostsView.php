@@ -24,7 +24,8 @@
                     $dataContent = $data['author_post_content'];
 
                     if (!empty($dataContent)) {
-                        if (strlen($dataContent) > 350) {
+                        if (strlen($dataContent) > 350) 
+                        {
                             $shorterContent = substr($dataContent, 0, 500);
                             echo $shorterContent . '...';
                         };
@@ -45,6 +46,8 @@
     $posts->closeCursor();
     ?>
 </div>
+
+
 <?php $body_content = ob_get_clean(); ?>
 
-<?php require('layouts/template.php'); ?>
+<?php require(LAYOUTS.'template.php'); ?>

@@ -1,6 +1,5 @@
 <?php $title_content = 'A propos de l\'auteur'; ?>
 
-<?php ob_start(); ?>
 
 <div id="main-about">
     <div id="about_container">
@@ -23,6 +22,4 @@
     </div>
 </div>
 
-<?php $body_content = ob_get_clean(); ?>
 
-<?php require('layouts/template.php'); ?>

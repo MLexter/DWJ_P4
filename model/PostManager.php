@@ -25,25 +25,32 @@ class PostManager extends Manager
         return $post;
     }
 
+    public function createPost($postId, $author_post_title, $author_post_content)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO posts_author(ID_post, author, date_post_author, author_post_title, author_post_content) VALUES (?,?,NOW(),?,?)');
+        $newEntry = $req->execute(array($postId, $author_post_title, $author_post_content));
+
+        return $newEntry;
+    }
+
     public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->dbConnect();
-        $req = $db->execute('UPDATE posts_author SET author_post_title = :author_post_title, author_post_content = :author_post_content, date_post_author = NOW() WHERE ID_post = :id', 
-        array('id'                  => $postId,
-              'author_post_title'   => $author_post_title,
-              'author_post_content' => $author_post_content));
- 
-
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
+        $req->execute(array($author_post_title, $author_post_content, $postId));
+        
+        return $req;
     }
 
-    public function addPost($ID_post, $author_post_content)
-    {
-        $db = $this->dbConnect();
-        $newContent = $db->prepare('INSERT INTO posts_author(ID_post, author, author_post_content, date_post_author) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $newContent->execute(array($ID_post, $author_post_content));
+    // public function addPost($ID_post, $author_post_content)
+    // {
+    //     $db = $this->dbConnect();
+    //     $newContent = $db->prepare('INSERT INTO posts_author(ID_post, author, author_post_content, date_post_author) VALUES(?, ?, ?, NOW())');
+    //     $affectedLines = $newContent->execute(array($ID_post, $author_post_content));
 
-        return $affectedLines;
-    }
+    //     return $affectedLines;
+    // }
 
     public function deleteAuthorPost($postId) 
     {

@@ -4,9 +4,10 @@
 
 class StaticControl
 {
+
+
     public function showMain()
     {
-        // include(VIEW.'main.php');
         $viewToDisplay = new ViewRenderer('main');
         $viewToDisplay->renderView();
     }
@@ -14,17 +15,24 @@ class StaticControl
 
     public function showAbout()
     {
-        include(VIEW.'aboutView.php');
+        $viewToDisplay = new ViewRenderer('aboutView');
+        $viewToDisplay->renderView();
     }
 
 
     public function showContact()
     {
-        include(VIEW . 'contact.php');
+        $viewToDisplay = new ViewRenderer('contactView');
+        $viewToDisplay->renderView();
     }
+
 
     public function showConnexion()
     {
-        include(VIEW.'connexionView.php');
+        $viewToDisplay = new ViewRenderer('connexionView');
+        $viewToDisplay->renderView();
     }
+
+    
+
 }
