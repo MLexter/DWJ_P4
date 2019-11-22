@@ -28,12 +28,11 @@ class PostManager extends Manager
     public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->dbConnect();
-        $req = $db->execute('UPDATE posts_author SET author_post_title = :author_post_title, author_post_content = :author_post_content, date_post_author = NOW() WHERE ID_post = :id', 
-        array('id'                  => $postId,
-              'author_post_title'   => $author_post_title,
-              'author_post_content' => $author_post_content));
- 
-
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = :author_post_title, author_post_content = :author_post_content, date_post_author = NOW() WHERE ID_post = :id');
+        $req->execute(array( 
+                            'ID_post'                  => $postId,
+                            'author_post_title'   => $author_post_title,
+                            'author_post_content' => $author_post_content));
     }
 
     public function addPost($ID_post, $author_post_content)

@@ -1,7 +1,5 @@
 <?php $title_content = 'Connexion à l\'espace d\'administration'; ?>
 
-<?php ob_start(); ?>
-
 <div id="main-connexion-screen">
     <div id="connexion_container">
         <div id="connexion_form">
@@ -19,7 +17,3 @@
         </div>
     </div>
 </div>
-
-<?php $body_content = ob_get_clean(); ?>
-
-<?php require('layouts/template.php'); ?>
