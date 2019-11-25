@@ -8,20 +8,21 @@
 
     <?php
 
-    while ($data = $posts->fetch()) {
+    foreach($chapters as $chapter) 
+    {
         ?>
         <div class="post_thumbnail">
         <h2 id="thumbail-title">
-                <?= htmlspecialchars($data['author_post_title']) ?>
-                <em>le <?= $data['creation_date_fr'] ?></em>
+                <?= htmlspecialchars($chapter->getAuthor_post_title()); ?>
+                <em>le <?= $chapter->getDate_post_author(); ?></em>
             </h2>
 
             <p>
-                <?php nl2br(htmlspecialchars($data['author_post_content'])) ?>
+                <?php nl2br(htmlspecialchars($chapter->getAuthor_post_content())); ?>
 
 
                 <?php
-                    $dataContent = $data['author_post_content'];
+                    $dataContent = $chapter->getAuthor_post_content();
 
                     if (!empty($dataContent)) {
                         if (strlen($dataContent) > 350) 
@@ -35,9 +36,9 @@
                 ?>
 
                 <br />
-                <a href="<?= HOST; ?>readBook&amp;id=<?= $data['ID_post'] ?>">Lire la suite</a>
+                <a href="<?= HOST; ?>readBook&amp;id=<?= $chapter->getPostId(); ?>">Lire la suite</a>
 
-                <a href="<?= HOST; ?>edit-post&amp;id=<?= $data['ID_post'] ?>">Modifier ce chapitre</a>
+                <a href="<?= HOST; ?>edit-post&amp;id=<?= $chapter->getPostId(); ?>">Modifier ce chapitre</a>
 
             </p>
         </div>
@@ -50,4 +51,3 @@
 
 <?php $body_content = ob_get_clean(); ?>
 
-<?php require(LAYOUTS.'template.php'); ?>

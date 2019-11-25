@@ -18,6 +18,7 @@ try {
     $router = new Router($request);
     $router->renderController();
 
+
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
 }
