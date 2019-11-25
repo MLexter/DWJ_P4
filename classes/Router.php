@@ -6,7 +6,7 @@ class Router
 {
     private $request;
     private $routes = [
-        "home" =>                     ["controller" => 'StaticControl', "method" => 'showMain'],
+        "" =>                         ["controller" => 'StaticControl', "method" => 'showMain'],
         "about" =>                    ["controller" => 'StaticControl', "method" => 'showAbout'],
         "connexion" =>                ["controller" => 'StaticControl', "method" => 'showConnexion'],
         "book" =>                     ["controller" => 'PostsControl', "method" => 'listPosts'],

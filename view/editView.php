@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Modifier un chapitre' ?>
+$title_content = 'Modifier un chapitre' ?>
 
 <?php ob_start(); ?>
 

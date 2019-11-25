@@ -1,7 +1,7 @@
  
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<p><a href="index.php?action=listPosts">Retour à la liste des dernières lectures</a></p>
+<p><a href="<?= HOST; ?>">Retour à la liste des dernières lectures</a></p>
  
 <div id="main-postView">
     <h3>
