@@ -1,13 +1,13 @@
 <?php
 
-$title = 'Modifier un chapitre' ?>
+$title_content = 'Modifier un chapitre' ?>
 
 <?php ob_start(); ?>
 
 <div id="main-editView">
     <div id="edit_container">
         <h1>Modifier un chapitre</h1>
-        <p><a href="<?= HOST; ?>home">Retour à l'écran principal</a></p>
+        <p><a href="<?= HOST; ?>">Retour à l'écran principal</a></p>
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
