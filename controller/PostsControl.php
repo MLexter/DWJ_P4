@@ -2,7 +2,7 @@
 
 // Chargement des classes
 
-namespace JForteroche\Blog\Model;
+// namespace JForteroche\Blog\Model;
 
 require_once(MODEL . 'PostManager.php');
 require_once(MODEL . 'CommentManager.php');

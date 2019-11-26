@@ -8,21 +8,21 @@
 
     <?php
 
-    foreach($chapters as $chapter) 
+    foreach($posts as $post) 
     {
         ?>
         <div class="post_thumbnail">
         <h2 id="thumbail-title">
-                <?= htmlspecialchars($chapter->getAuthor_post_title()); ?>
-                <em>le <?= $chapter->getDate_post_author(); ?></em>
+                <?= htmlspecialchars($post->getAuthor_post_title()); ?>
+                <em>le <?= $post->getDate_post_author(); ?></em>
             </h2>
 
             <p>
-                <?php nl2br(htmlspecialchars($chapter->getAuthor_post_content())); ?>
+                <?php nl2br(htmlspecialchars($post->getAuthor_post_content())); ?>
 
 
                 <?php
-                    $dataContent = $chapter->getAuthor_post_content();
+                    $dataContent = $post->getAuthor_post_content();
 
                     if (!empty($dataContent)) {
                         if (strlen($dataContent) > 350) 
@@ -36,18 +36,20 @@
                 ?>
 
                 <br />
-                <a href="<?= HOST; ?>readBook&amp;id=<?= $chapter->getPostId(); ?>">Lire la suite</a>
+                <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire la suite</a>
 
-                <a href="<?= HOST; ?>edit-post&amp;id=<?= $chapter->getPostId(); ?>">Modifier ce chapitre</a>
+                <a href="<?= HOST; ?>edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
 
             </p>
         </div>
     <?php
     }
-    $posts->closeCursor();
+    // $posts->closeCursor();
     ?>
 </div>
 
 
 <?php $body_content = ob_get_clean(); ?>
+
+<?php require(LAYOUTS.'template.php'); ?>
 

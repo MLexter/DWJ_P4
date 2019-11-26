@@ -1,5 +1,5 @@
 <?php
-// include_once(CONTROLLER.'PostsControl.php');
+include_once(CONTROLLER.'PostsControl.php');
 
 /** Création des routes et trouver le controller */
 class Router
