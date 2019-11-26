@@ -20,33 +20,12 @@
             ?>
             <div class="post_thumbnail">
                 <h2 id="thumbail-title">
-                    <?= htmlspecialchars($post->getAuthor_post_title()); ?>
-                    <em>le <?= $post->getDate_post_author(); ?></em>
+                        <?= htmlspecialchars($post->getAuthor_post_title()); ?>
                 </h2>
-
-                <p>
-                    <?php nl2br(htmlspecialchars($post->getAuthor_post_content())); ?>
+                <a href="<?= HOST; ?>edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a>
 
 
-                    <?php
-                        $dataContent = $post->getAuthor_post_content();
-
-                        if (!empty($dataContent)) {
-                            if (strlen($dataContent) > 350) {
-                                $shorterContent = substr($dataContent, 0, 500);
-                                echo $shorterContent . '...';
-                            };
-                        } else {
-                            echo 'Erreur: pas de texte !';
-                        }
-                        ?>
-
-                    <br />
-                    <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire la suite</a>
-
-                    <a href="<?= HOST; ?>edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
-
-                </p>
+                
             </div>
         <?php
         }

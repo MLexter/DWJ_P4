@@ -171,6 +171,9 @@ div#main-editView {
 #footer-container {
     background-color: #002f44;
     height: auto;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
 }
 
 #footer_infos {
@@ -229,5 +232,13 @@ div#main-editView {
 /* ########## CONNEXION PAGE ########## */
 
 #main-connexion-screen {
+    height: 87vh;
+}
+
+
+
+/* ########## ADMIN PAGE ########## */
+
+#main-admin-page {
     height: 87vh;
 }

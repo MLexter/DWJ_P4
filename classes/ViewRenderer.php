@@ -12,7 +12,7 @@ class ViewRenderer
     }
 
 
-    public function renderView()
+    public function renderView($posts = null)
     {
         $template = $this->template;
         ob_start();

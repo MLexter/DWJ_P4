@@ -37,9 +37,6 @@
 
                 <br />
                 <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire la suite</a>
-
-                <a href="<?= HOST; ?>edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
-
             </p>
         </div>
     <?php
