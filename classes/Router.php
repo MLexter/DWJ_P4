@@ -5,7 +5,8 @@ include_once(CONTROLLER.'PostsControl.php');
 class Router
 {
     private $request;
-    private $routes = [
+    private $routes = 
+    [
         "" =>                         ["controller" => 'StaticControl', "method" => 'showMain'],
         "about" =>                    ["controller" => 'StaticControl', "method" => 'showAbout'],
         "connexion" =>                ["controller" => 'StaticControl', "method" => 'showConnexion'],
@@ -13,7 +14,7 @@ class Router
         "readBook" =>                 ["controller" => 'PostsControl', "method" => 'post'],
         "edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],
         "edit-post/update" =>         ["controller" => 'PostsControl', "method" => 'updateChapter'],
-
+        "admin/add-post" =>           ["controller" => 'PostsControl', "method" => 'createPost'],
 
     ];
 

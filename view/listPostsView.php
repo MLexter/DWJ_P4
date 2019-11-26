@@ -44,7 +44,6 @@
         </div>
     <?php
     }
-    // $posts->closeCursor();
     ?>
 </div>
 
