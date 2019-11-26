@@ -1,11 +1,27 @@
 <?php
 
+require_once(MODEL . 'PostManager.php');
+require_once(MODEL . 'CommentManager.php');
 
-class Administration
+class AdminControl
 {
     private $username;
     private $password;
 
+    public function showMainAdmin()
+    {
+        $postManager = new \JForteroche\Blog\Model\PostManager();
+        $posts = $postManager->getPosts();
+
+
+        $viewToDisplay = new ViewRenderer('adminView');
+        $viewToDisplay->renderView($posts);
+        // include(VIEW.'adminView.php');
+
+
+    }
+
+    
     function chekData()
     {
         // vérifier que les 2 inputs sont remplis + expressions régulières
