@@ -3,9 +3,9 @@
 namespace JForteroche\Blog\Model;
 use \PDO;
 
-require_once(MODEL.'Manager.php');
+require_once(MODEL.'Post.php');
 
-class CommentManager extends Manager
+class CommentManager extends Post
 {
 
     private $db;

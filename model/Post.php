@@ -2,7 +2,7 @@
 
 namespace JForteroche\Blog\Model;
 
-class Manager
+class Post
 {
     private $postId;
     private $author_post_title;

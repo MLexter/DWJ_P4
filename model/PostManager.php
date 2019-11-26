@@ -26,7 +26,7 @@ class PostManager
         $req->execute();
 
         while ($posts = $req->fetch(PDO::FETCH_ASSOC)) {
-            $chapter = new Manager();
+            $chapter = new Post();
             $chapter->setPostId($posts['ID_post']);
             $chapter->setAuthor_post_title($posts['author_post_title']);
             $chapter->setAuthor_post_content($posts['author_post_content']);
@@ -58,11 +58,11 @@ class PostManager
         return $newEntry;
     }
 
-    public function updatePost($postId, $author_post_title, $author_post_content)
+    public function updatePost($postId)
     {
         $db = $this->db;
         $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
-        $updatedPost = $req->execute(array($author_post_title, $author_post_content, $postId));
+        $updatedPost = $req->execute(array($postId));
 
         return $updatedPost;
     }
