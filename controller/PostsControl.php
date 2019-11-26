@@ -24,7 +24,6 @@ class PostsControl
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
 
         $post = $postManager->getPost($_GET['id']);
-        $title_content = htmlspecialchars($post['author_post_title']);
         $comments = $commentManager->getComments($_GET['id']);
 
         require(VIEW . '/postView.php');

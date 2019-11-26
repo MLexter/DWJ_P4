@@ -1,5 +1,9 @@
  
 <?php ob_start(); ?>
+
+<?php $title_content = 'Billet simple pour l\'Alaska'; ?>
+
+
 <h1>Billet simple pour l'Alaska</h1>
 <p><a href="<?= HOST; ?>">Retour à la liste des dernières lectures</a></p>
  

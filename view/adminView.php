@@ -8,7 +8,7 @@
     </div>
 
     <div id="new_chapter">
-        <a href="<?= HOST; ?>addPost">
+        <a href="<?= HOST; ?>admin/add-post">
             <h2>Ajouter un nouveau chapitre</h2>
         </a>
     </div>
