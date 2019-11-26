@@ -1,6 +1,5 @@
 <?php $title_content = 'Jean Forteroche: Liste des chapitres'; ?>
 
-<?php ob_start(); ?>
 
 <div id="main-listPosts">
     <h1>Billet simple pour l'Alaska</h1>
@@ -45,7 +44,4 @@
 </div>
 
 
-<?php $body_content = ob_get_clean(); ?>
-
-<?php require(LAYOUTS.'template.php'); ?>
 

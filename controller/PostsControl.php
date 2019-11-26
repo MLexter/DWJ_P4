@@ -15,7 +15,9 @@ class PostsControl
         $postManager = new \JForteroche\Blog\Model\PostManager();
         $posts = $postManager->getPosts();
 
-        require(VIEW . '/listPostsView.php');
+        $viewToDisplay = new ViewRenderer('listPostsView');
+        $viewToDisplay->renderView($posts);
+        // require(VIEW . '/listPostsView.php');
     }
 
     public function post()
@@ -26,12 +28,17 @@ class PostsControl
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
 
+        // $viewToDisplay = new ViewRenderer('postView');
+        // $viewToDisplay->renderView($post);
         require(VIEW . '/postView.php');
     }
 
 
     public function createPost()
-    { }
+    { 
+        $manageContent = new Post();
+        $newEntry = $manageContent->createChapter();
+    }
 
 
 
