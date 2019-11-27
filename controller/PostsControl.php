@@ -10,7 +10,7 @@ require_once(MODEL . 'CommentManager.php');
 class PostsControl
 {
 
-    public function listPosts()
+    public function getAllPosts()
     {
         $postManager = new \JForteroche\Blog\Model\PostManager();
         $posts = $postManager->getPosts();
@@ -20,7 +20,7 @@ class PostsControl
         // require(VIEW . '/listPostsView.php');
     }
 
-    public function post()
+    public function getPostById()
     {
         $postManager = new \JForteroche\Blog\Model\PostManager();
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
@@ -28,9 +28,10 @@ class PostsControl
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
 
-        // $viewToDisplay = new ViewRenderer('postView');
-        // $viewToDisplay->renderView($post);
-        require(VIEW . '/postView.php');
+        $viewToDisplay = new ViewRenderer('postView');
+        $viewToDisplay->renderView($post);
+        // var_dump($post); exit();
+        // require(VIEW . '/postView.php');
     }
 
 

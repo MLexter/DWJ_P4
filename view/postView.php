@@ -1,5 +1,4 @@
  
-<?php ob_start(); ?>
 
 <?php $title_content = 'Billet simple pour l\'Alaska'; ?>
 
@@ -9,18 +8,20 @@
  
 <div id="main-postView">
     <h3>
-        <?= htmlspecialchars($post['author_post_title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
+        <?= htmlspecialchars($posts->getAuthor_post_title()); ?>
+
+
+        <em>le <?= $posts->getDate_post_author(); ?></em>
     </h3>
      
     <p>
-        <?= nl2br(htmlspecialchars($post['author_post_content'])) ?>
+        <?= nl2br(htmlspecialchars($posts->getAuthor_post_content())); ?>
     </p>
 </div>
  
 <h2>Commentaires</h2>
  
-<form action="index.php?action=addComment&amp;id=<?= $post['ID_post'] ?>" method="post">
+<form action="#" method="post">
     <div>
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author" />
@@ -32,9 +33,9 @@
     <div>
         <input type="submit" value="Ajouter" />
     </div>
-</form>
+</form> 
  
-<?php
+<!-- <?php
 while ($comment = $comments->fetch())
 {
 ?>
@@ -42,12 +43,7 @@ while ($comment = $comments->fetch())
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?> </p>
 <?php
 }
-?>
+?> --> -->
 
-<!-- TODO: Si vérifications sont ok en tant qu'admin -> afficher le link 'Modifier ce chapitre'  -->
 
-<a href="index.php?action=editView&amp;id=<?= $post['ID_post'] ?>">Modifier ce chapitre</a>
-
-<?php $body_content = ob_get_clean(); ?>
- 
-<?php require('layouts/template.php'); ?>
+<?php require(LAYOUTS.'template.php'); ?>
