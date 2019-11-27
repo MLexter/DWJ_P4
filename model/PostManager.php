@@ -41,12 +41,18 @@ class PostManager
     public function getPost($postId)
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT ID_post, author_post_title, author_post_content, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author WHERE ID_post = ?');
-        $req->execute(array($postId));
+        $req = $db->prepare('SELECT ID_post, author_post_title, author_post_content, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author WHERE ID_post = :id');
+        $req->bindValue('id', $postId, PDO::PARAM_INT);
+        $req->execute();
 
-        $post = $req->fetch();
+        $post = $req->fetch(PDO::FETCH_ASSOC);
+        $chapter = new Post();
+            $chapter->setPostId($post['ID_post']);
+            $chapter->setAuthor_post_title($post['author_post_title']);
+            $chapter->setAuthor_post_content($post['author_post_content']);
+            $chapter->setDate_post_author($post['creation_date_fr']);
 
-        return $post;
+        return $chapter;
     }
 
     public function createPost($postId, $author_post_title, $author_post_content)

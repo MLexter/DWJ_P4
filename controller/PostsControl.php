@@ -28,9 +28,10 @@ class PostsControl
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
 
-        // $viewToDisplay = new ViewRenderer('postView');
-        // $viewToDisplay->renderView($post);
-        require(VIEW . '/postView.php');
+        $viewToDisplay = new ViewRenderer('postView');
+        $viewToDisplay->renderView($post);
+        // var_dump($post); exit();
+        // require(VIEW . '/postView.php');
     }
 
 
