@@ -58,11 +58,12 @@ class PostManager
         return $newEntry;
     }
 
-    public function updatePost($postId)
+    public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->db;
-        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
-        $updatedPost = $req->execute(array($postId));
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = :id');
+        $req->bindValue('id', $postId, PDO::PARAM_INT);
+        $updatedPost = $req->execute(array($author_post_title, $author_post_content));
 
         return $updatedPost;
     }

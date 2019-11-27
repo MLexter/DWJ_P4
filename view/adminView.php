@@ -22,7 +22,7 @@
                 <h2 id="thumbail-title">
                         <?= htmlspecialchars($post->getAuthor_post_title()); ?>
                 </h2>
-                <a href="<?= HOST; ?>edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a>
+                <a href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a>
 
 
                 

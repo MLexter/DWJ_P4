@@ -86,11 +86,19 @@ body {
     margin: 20px auto;
 }
 
-/* ########## LAST POST ########## */
+
+
+/* ########## POST DETAIL ########## */
 
 
 #main-postView {
-    height: 87vh;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    margin-top: 5%;
+    border: 2px solid;
+    padding: 20px;
+}
 }
 
 

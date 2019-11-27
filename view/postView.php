@@ -44,10 +44,6 @@ while ($comment = $comments->fetch())
 }
 ?>
 
-<!-- TODO: Si vérifications sont ok en tant qu'admin -> afficher le link 'Modifier ce chapitre'  -->
-
-<a href="index.php?action=editView&amp;id=<?= $post['ID_post'] ?>">Modifier ce chapitre</a>
-
 <?php $body_content = ob_get_clean(); ?>
  
 <?php require('layouts/template.php'); ?>
