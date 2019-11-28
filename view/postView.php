@@ -35,15 +35,13 @@
     </div>
 </form> 
  
-<!-- <?php
-while ($comment = $comments->fetch())
-{
-?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?> </p>
-<?php
-}
-?> --> -->
+<?php /* while ($comment = $comments->fetch()) : */ ?>
 
 
-<?php require(LAYOUTS.'template.php'); ?>
+ 
+
+<?php /* endwhile; */ ?> 
+
+
+
+

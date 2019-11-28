@@ -47,10 +47,8 @@ class PostsControl
     {
         if ($_POST['author_post_title']) {
             
-            echo $_POST['author_post_title'];
-
             $insertContent = new \JForteroche\Blog\Model\PostManager();
-            $insertContent->updatePost($_GET['id'], $_POST['author_post_title'], $_POST['author_post_content']);
+            $insertContent->updatePost($_POST['postId'], $_POST['author_post_title'], $_POST['author_post_content']);
 
             // if ($insertContent === false) {
                 

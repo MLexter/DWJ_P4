@@ -12,6 +12,7 @@ $title_content = 'Modifier un chapitre' ?>
 
         <form action="<?= HOST; ?>edit-post/update" method="POST">
             <div>
+                <input type="hidden" name="postId" value="<?= $post->getPostId(); ?>">
                 <label for="post-title" ><h3>Titre du chapitre :</h3></label>
                 <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>">
                 <br />

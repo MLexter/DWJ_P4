@@ -38,6 +38,7 @@ class PostManager
         return $chapters;
     }
 
+
     public function getPost($postId)
     {
         $db = $this->db;
@@ -64,11 +65,11 @@ class PostManager
         return $newEntry;
     }
 
-    public function updatePost($postId)
+    public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->db;
         $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
-        $updatedPost = $req->execute(array($postId));
+        $updatedPost = $req->execute(array($author_post_title, $author_post_content, $postId));
 
         return $updatedPost;
     }
