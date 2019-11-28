@@ -2,7 +2,6 @@
 
 $title_content = 'Modifier un chapitre' ?>
 
-<?php ob_start(); ?>
 
 <div id="main-editView">
     <div id="edit_container">
@@ -14,10 +13,10 @@ $title_content = 'Modifier un chapitre' ?>
         <form action="<?= HOST; ?>edit-post/update" method="POST">
             <div>
                 <label for="post-title" ><h3>Titre du chapitre :</h3></label>
-                <input type="text" name="author_post_title" value="<?= $post['author_post_title'] ?>">
+                <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>">
                 <br />
                 <label for="chapter-content"><h3>Contenu du chapitre:</h3></label>
-                <textarea id="authorPostContent" name="author_post_content"><?= $post['author_post_content'] ?></textarea>
+                <textarea id="authorPostContent" name="author_post_content"><?= $post->getAuthor_post_content(); ?></textarea>
             </div>
             <div>
                 <button>
@@ -30,6 +29,3 @@ $title_content = 'Modifier un chapitre' ?>
 </div>
 
 
-<?php $body_content = ob_get_clean(); ?>
-
-<?php require(LAYOUTS.'template.php'); ?>

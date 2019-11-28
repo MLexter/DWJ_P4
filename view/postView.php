@@ -8,14 +8,14 @@
  
 <div id="main-postView">
     <h3>
-        <?= htmlspecialchars($posts->getAuthor_post_title()); ?>
+        <?= htmlspecialchars($post->getAuthor_post_title()); ?>
 
 
-        <em>le <?= $posts->getDate_post_author(); ?></em>
+        <em>le <?= $post->getDate_post_author(); ?></em>
     </h3>
      
     <p>
-        <?= nl2br(htmlspecialchars($posts->getAuthor_post_content())); ?>
+        <?= nl2br(htmlspecialchars($post->getAuthor_post_content())); ?>
     </p>
 </div>
  

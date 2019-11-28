@@ -16,7 +16,7 @@ class PostsControl
         $posts = $postManager->getPosts();
 
         $viewToDisplay = new ViewRenderer('listPostsView');
-        $viewToDisplay->renderView($posts);
+        $viewToDisplay->renderView(array('posts' => $posts));
         // require(VIEW . '/listPostsView.php');
     }
 
@@ -29,7 +29,7 @@ class PostsControl
         $comments = $commentManager->getComments($_GET['id']);
 
         $viewToDisplay = new ViewRenderer('postView');
-        $viewToDisplay->renderView($post);
+        $viewToDisplay->renderView(array('post' => $post));
         // var_dump($post); exit();
         // require(VIEW . '/postView.php');
     }
@@ -66,7 +66,9 @@ class PostsControl
         $postManager = new \JForteroche\Blog\Model\PostManager();
         $post = $postManager->getPost($_GET['id']);
         
-        require(VIEW.'editView.php');
+        $viewToDisplay = new ViewRenderer('editView');
+        $viewToDisplay->renderView(array('post' => $post));
+        // require(VIEW.'editView.php');
     }
 
     

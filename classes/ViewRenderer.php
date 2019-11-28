@@ -12,8 +12,10 @@ class ViewRenderer
     }
 
 
-    public function renderView($posts = null)
+    public function renderView($parameters = array())
     {
+        extract($parameters);
+
         $template = $this->template;
         ob_start();
         include(VIEW.$template.'.php');
