@@ -78,16 +78,16 @@ class PostManager
     public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->db;
-
         $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
         $updatedPost = $req->execute(array($author_post_title, $author_post_content, $postId));
 
         return $updatedPost;
     }
 
-    public function deleteAuthorPost($postId)
+    public function deletePost($postId)
     {
         $db = $this->db;
-        $req = $db->execute('DELETE FROM `posts_author` WHERE `posts_author`.`ID_post` = $ID_post');
+        $req = $db->prepare('DELETE FROM posts_author WHERE ID_post = ?');
+        $req->execute(array($postId));
     }
 }

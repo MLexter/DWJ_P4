@@ -17,6 +17,8 @@ class Router
         "admin/create" =>             ["controller" => 'StaticControl', "method" => 'showcreateChapter'],
         "admin/create-valid" =>       ["controller" => 'PostsControl', "method" => 'createChapter'],
         "admin/dashboard" =>          ["controller" => 'AdminControl', "method" => 'showMainAdmin'],
+        "admin/delete-post" =>        ["controller" => 'PostsControl', "method" => 'deleteChapter'],
+
 
 
     ];

@@ -37,13 +37,11 @@ class PostsControl
         {
             if (!empty($_POST['author_post_title']) AND !empty($_POST['author_post_content']))
             {
-                
             $titleChapter = htmlspecialchars($_POST['author_post_title']);
             $contentChapter = htmlspecialchars($_POST['author_post_content']);
 
             $createContent = new \JForteroche\Blog\Model\PostManager();
             $newEntry = $createContent->newPost($titleChapter, $contentChapter);
-
             } else {
                 echo 'Vous donner un titre et un contenu à votre chapitre.';
             }
@@ -63,6 +61,8 @@ class PostsControl
             header('Location:' . HOST . 'book');
     }
 
+
+
     public function editChapter()
     {
         $postManager = new \JForteroche\Blog\Model\PostManager();
@@ -72,5 +72,17 @@ class PostsControl
         $viewToDisplay->renderView(array('post' => $post));
     }
 
-    
+
+
+    public function deleteChapter()
+    {
+        $postId = htmlspecialchars($_GET['id']);
+
+        $postManager = new \JForteroche\Blog\Model\PostManager();
+        // Vérifier que l'action de suppression avec un message d'alerte avant de valider le traitement de la suppression du post de la db
+        $post = $postManager->deletePost($postId);
+        
+        header('Location:' . HOST . 'admin/dashboard');
+    }
+
 }
