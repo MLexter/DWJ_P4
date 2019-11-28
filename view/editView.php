@@ -10,14 +10,14 @@ $title_content = 'Modifier un chapitre' ?>
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
-        <form action="<?= HOST; ?>edit-post/update" method="POST">
+        <form action="<?= HOST; ?>admin/post-update" method="POST">
             <div>
                 <input type="hidden" name="postId" value="<?= $post->getPostId(); ?>">
                 <label for="post-title" ><h3>Titre du chapitre :</h3></label>
-                <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>">
+                <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
                 <br />
                 <label for="chapter-content"><h3>Contenu du chapitre:</h3></label>
-                <textarea id="authorPostContent" name="author_post_content"><?= $post->getAuthor_post_content(); ?></textarea>
+                <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
             </div>
             <div>
                 <button>

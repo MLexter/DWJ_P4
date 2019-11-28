@@ -12,11 +12,11 @@ class Router
         "connexion" =>                ["controller" => 'StaticControl', "method" => 'showConnexion'],
         "book" =>                     ["controller" => 'PostsControl', "method" => 'getAllPosts'],
         "readBook" =>                 ["controller" => 'PostsControl', "method" => 'getPostById'],
-        "edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],
-        "edit-post/update" =>         ["controller" => 'PostsControl', "method" => 'updateChapter'],
+        "admin/edit-post" =>          ["controller" => 'PostsControl', "method" => 'editChapter'],
+        "admin/post-update" =>        ["controller" => 'PostsControl', "method" => 'updateChapter'],
         "admin/create" =>             ["controller" => 'StaticControl', "method" => 'showcreateChapter'],
         "admin/create-valid" =>       ["controller" => 'PostsControl', "method" => 'createChapter'],
-        "admin" =>                    ["controller" => 'AdminControl', "method" => 'showMainAdmin'],
+        "admin/dashboard" =>          ["controller" => 'AdminControl', "method" => 'showMainAdmin'],
 
 
     ];
