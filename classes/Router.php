@@ -14,7 +14,8 @@ class Router
         "readBook" =>                 ["controller" => 'PostsControl', "method" => 'getPostById'],
         "edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],
         "edit-post/update" =>         ["controller" => 'PostsControl', "method" => 'updateChapter'],
-        "admin/create" =>             ["controller" => 'PostsControl', "method" => 'createPost'],
+        "admin/create" =>             ["controller" => 'StaticControl', "method" => 'showcreateChapter'],
+        "admin/create-valid" =>       ["controller" => 'PostsControl', "method" => 'createChapter'],
         "admin" =>                    ["controller" => 'AdminControl', "method" => 'showMainAdmin'],
 
 

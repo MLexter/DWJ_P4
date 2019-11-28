@@ -33,6 +33,12 @@ class StaticControl
         $viewToDisplay->renderView();
     }
 
+    public function showCreateChapter()
+        {
+        
+        $viewToDisplay = new ViewRenderer('createPostView');
+        $viewToDisplay->renderView();
+    }
     
 
 }

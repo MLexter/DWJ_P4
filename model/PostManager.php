@@ -56,18 +56,29 @@ class PostManager
         return $chapter;
     }
 
-    public function createPost($postId, $author_post_title, $author_post_content)
+    public function newPost($author_post_title, $author_post_content)
     {
         $db = $this->db;
-        $req = $db->prepare('INSERT INTO posts_author(ID_post, date_post_author, author_post_title, author_post_content) VALUES (?,NOW(),?,?)');
-        $newEntry = $req->execute(array($postId, $author_post_title, $author_post_content));
+        $req = $db->prepare('INSERT INTO posts_author(date_post_author, author_post_title, author_post_content) VALUES (NOW(),?,?)');
 
-        return $newEntry;
+
+        $req->execute(array($author_post_title, $author_post_content));
+ 
+        $createPost = $req->fetch(PDO::FETCH_ASSOC);
+        $chapter = new Post();
+            $chapter->setPostId($createPost['ID_post']);
+            $chapter->setAuthor_post_title($createPost['author_post_title']);
+            $chapter->setAuthor_post_content($createPost['author_post_content']);
+            $chapter->setDate_post_author($createPost['creation_date_fr']);
+
+
+        return $chapter;
     }
 
     public function updatePost($postId, $author_post_title, $author_post_content)
     {
         $db = $this->db;
+
         $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
         $updatedPost = $req->execute(array($author_post_title, $author_post_content, $postId));
 

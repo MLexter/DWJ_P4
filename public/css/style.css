@@ -90,11 +90,23 @@ body {
 
 
 #main-postView {
-    height: 87vh;
+    height: auto;
+    width: 70%;
+    margin: auto;
+    border: 2px solid;
+    padding: 20px;
 }
 
 
+/* ########## CREATE POST ########## */
 
+div#main-createNewPostView {
+    height: 87vh;
+}
+
+#creation_container {
+    text-align: center;
+}
 
 /* ########## EDIT POST ########## */
 
