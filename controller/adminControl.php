@@ -3,6 +3,8 @@
 require_once(MODEL . 'PostManager.php');
 require_once(MODEL . 'CommentManager.php');
 
+
+
 class AdminControl
 {
     private $username;
@@ -15,9 +17,8 @@ class AdminControl
 
 
         $viewToDisplay = new ViewRenderer('adminView');
-        $viewToDisplay->renderView($posts);
+        $viewToDisplay->renderView(array('posts' =>$posts));
         // include(VIEW.'adminView.php');
-
 
     }
 
