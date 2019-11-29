@@ -26,7 +26,7 @@ class PostsControl
         $comments = $commentManager->getComments($_GET['id']);
 
         $viewToDisplay = new ViewRenderer('postView');
-        $viewToDisplay->renderView(array('post' => $post));  
+        $viewToDisplay->renderView(array('post' => $post, 'comments' => $comments));  
     }
 
 
@@ -43,7 +43,7 @@ class PostsControl
             $createContent = new \JForteroche\Blog\Model\PostManager();
             $newEntry = $createContent->newPost($titleChapter, $contentChapter);
             } else {
-                echo 'Vous donner un titre et un contenu à votre chapitre.';
+                echo 'Vous devez donner un titre et un contenu à votre chapitre.';
             }
         }
         header('Location:' . HOST . 'admin');

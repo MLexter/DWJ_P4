@@ -18,11 +18,11 @@ class CommentManager extends Post
     }
 
 
-    public function getComments($ID_post)
+    public function getComments($ID_comment)
     {
         $db = $this->db;
-        $comments = $db->prepare('SELECT ID_post, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-        $comments->execute(array($ID_post));
+        $comments = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments->execute(array($ID_comment));
 
         return $comments;
     }
@@ -30,20 +30,30 @@ class CommentManager extends Post
     public function getComment($id)
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT ID_post, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id = ?');
+        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id = ?');
         $req->execute(array($id));
         $comment = $req->fetch();
  
         return $comment;
     }
 
-    public function postComment($ID_post, $author, $comment)
+    public function createComment($ID_comment, $author_comment, $content_comment)
     {
         $db = $this->db;
-        $comments = $db->prepare('INSERT INTO comments(ID_post, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($ID_post, $author, $comment));
+        $comments = $db->prepare('INSERT INTO comments(ID_comment, author_comment, comment_content, comment_date) VALUES(?, ?, ?, NOW())');
 
-        return $affectedLines;
+        $newEntry = $comments->execute(array($ID_comment, $author_comment, $content_comment));
+
+        $createComment = $comments->fetch(PDO::FETCH_ASSOC);
+        $comment = new Comment();
+            $comment->setID_comment($createComment['ID_comment']);
+            $comment->setAuthor_comment($createComment['author_comment']);
+            $comment->setContent_comment($createComment['content_comment']);
+            $comment->setComment_date($createComment['creation_date_fr']);
+
+
+        return $createComment;
+
     }
 
 
