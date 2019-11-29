@@ -33,18 +33,16 @@
              <textarea id="content_comment" name="comment_content" required></textarea>
          </div>
          <div>
-             <input type="submit" value="Ajouter" />
+             <input type="submit" value="Ajouter" name="submit_comment" />
          </div>
      </form>
 
-     <?php while ($comment = $comments->fetch()) : ?>
+     <?php foreach($comments as $comment) : ?>
 
     <div id="comment_box">
-        <p>  <?= $comment->getID_comment() ?>       </p>
-        <p>  <?= $coment->getAuhtor_comment() ?>    </p>
-        <p>  <?= $comment->getContent_comment() ?>  </p>
+        
     </div>
  </div>
 
 
- <?php endwhile; ?>
+     <?php endforeach; ?>
