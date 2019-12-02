@@ -9,12 +9,12 @@ class CommentControl
 
     function postComment()
     {
-        if (isset($_POST['submit_commentaire'])) {
-            if (isset($_POST['author_comment'], $_POST['content_comment']) AND !empty($_POST['author_comment']) AND !empty($_POST['content_comment'])) {
+        if (isset($_POST['submit_comment'])) {
+            if (isset($_POST['comment_author'], $_POST['comment_content']) AND !empty($_POST['comment_author']) AND !empty($_POST['comment_content'])) {
                 
                 $ID_chapter = htmlspecialchars($_GET['id']);
-                $author_comment = htmlspecialchars($_POST['author_comment']);
-                $content_comment = htmlspecialchars($_POST['content_comment']);
+                $author_comment = htmlspecialchars($_POST['comment_author']);
+                $content_comment = htmlspecialchars($_POST['comment_content']);
 
                 if (strlen($author_comment) < 30) {
                     $commentManager = new \JForteroche\Blog\Model\CommentManager();

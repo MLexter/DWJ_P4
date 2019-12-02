@@ -21,7 +21,7 @@
 
      <h2>Commentaires</h2>
 
-     <form action="<?= HOST; ?>post-comment" method="post">
+     <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
          <div>
              <input type="hidden" name="id_post_comment">
 
@@ -40,7 +40,9 @@
      <?php foreach($comments as $comment) : ?>
 
     <div id="comment_box">
-        
+        <p>  <?= $comment->getAuthor_comment() ?>   </p>
+        <p>  <?= $comment->getCreation_date_comment() ?>   </p>
+        <p>  <?= $comment->getContent_comment() ?>  </p>
     </div>
  </div>
 
