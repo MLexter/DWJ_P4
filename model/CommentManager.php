@@ -34,8 +34,10 @@ class CommentManager
 
             $commentsData[] = $commentData;
         }
-
+        if (isset($commentsData))
+        {
         return $commentsData;
+        }
     }
 
     // public function getComment($ID_chapter)

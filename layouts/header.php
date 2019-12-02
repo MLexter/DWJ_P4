@@ -4,7 +4,7 @@
         </div>
         <div id="JF_text_logo_container">
             <h1 id="logo_site_name">JEAN FORTEROCHE</h1>
-            <h2>Le blog de l'auteur</h2>
+            <h2 id="sub_logo_title">Le blog de l'auteur</h2>
         </div>
     </div>
 
@@ -15,6 +15,5 @@
             <li class="item-menu-header"><a href="<?php echo HOST; ?>about">A propos</a></li>
             <li class="item-menu-header"><a href="<?php echo HOST; ?>contact">Contact</a></li>
         </ul>
-
     </div>
 </div>

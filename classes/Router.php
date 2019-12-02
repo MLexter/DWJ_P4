@@ -19,8 +19,9 @@ class Router
         "admin/dashboard" =>          ["controller" => 'AdminControl', "method" => 'showMainAdmin'],
         "admin/delete-post" =>        ["controller" => 'PostsControl', "method" => 'deleteChapter'],
         "post-comment" =>             ["controller" => 'CommentControl', "method" => 'postComment'],
+        "admin/manage-comments" =>    ["controller" => 'CommentControl', "method" => 'manageComments'],
 
-
+        
 
     ];
 

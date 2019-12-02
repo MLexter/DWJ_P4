@@ -9,6 +9,8 @@ body {
 
 #main-position {
     height: auto;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* ########### MAIN INDEX ########## */
@@ -79,11 +81,14 @@ body {
 
 /* ########## POSTS OVERALL ########## */
 
+#main-title_description {
+    text-align: center;
+}
+
 .post_thumbnail {
     border: 2px solid;
     padding: 20px;
-    width: 55%;
-    margin: 20px auto;
+    margin-bottom: 30px;
 }
 
 /* ########## LAST POST ########## */
@@ -104,9 +109,8 @@ div#main-createNewPostView {
     height: 87vh;
 }
 
-#creation_container {
-    text-align: center;
-}
+/* #creation_container {
+} */
 
 /* ########## EDIT POST ########## */
 
@@ -122,7 +126,6 @@ div#main-editView {
 #edit_container {
     width: 80%;
     margin: auto;
-    text-align: center;
 }
 
 
@@ -133,9 +136,13 @@ div#main-editView {
     color: white;
 }
 
+#sub_logo_title {
+    color: white;
+    text-align: center;
+}
+
 #logo_site_container {
     display: flex;
-    text-align: center;
     align-items: center;
     margin: 6px 20px;}
 
@@ -232,7 +239,6 @@ div#main-editView {
 }
 
 #about_text_content {
-    text-align: center;
     margin-left: 3em;
     color: white;
 }
