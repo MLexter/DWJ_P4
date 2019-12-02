@@ -2,15 +2,16 @@
 
 
 <div id="main-listPosts">
-    <h1>Billet simple pour l'Alaska</h1>
-    <p>Dernières lectures</p>
-
+    <div id="main-title_description" class="container col-5">
+        <h1>Billet simple pour l'Alaska</h1>
+        <p>Dernières lectures</p>
+    </div>
     <?php
 
     foreach($posts as $post) 
     {
         ?>
-        <div class="post_thumbnail">
+        <div class="container post_thumbnail">
         <h2 id="thumbail-title">
                 <?= htmlspecialchars($post->getAuthor_post_title()); ?>
                 <em>le <?= $post->getDate_post_author(); ?></em>

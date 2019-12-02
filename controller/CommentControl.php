@@ -32,6 +32,21 @@ class CommentControl
         header('Location: '. HOST . 'book');
     }
 
+    public function manageComments()
+    {
+        if (isset($_GET['id'])) 
+        {
+                
+        $ID_chapitre = htmlspecialchars($_GET['id']);
+
+        $commentManager = new \JForteroche\Blog\Model\CommentManager();
+        $comments = $commentManager->getComments($ID_chapitre);
+
+        $viewToDisplay = new ViewRenderer('manageCommentsView');
+        $viewToDisplay->renderView(array('comments' => $comments));
+        }
+    }
+
     // function viewComment()
     // {
     //         $commentManager = new \JForteroche\Blog\Model\CommentManager();
