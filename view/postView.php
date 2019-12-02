@@ -40,7 +40,9 @@
      <?php foreach($comments as $comment) : ?>
 
     <div id="comment_box">
-        
+        <p>  <?= $comment->getAuthor_comment() ?>   </p>
+        <p>  <?= $comment->getCreation_date_comment() ?>   </p>
+        <p>  <?= $comment->getContent_comment() ?>  </p>
     </div>
  </div>
 
