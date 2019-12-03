@@ -41,44 +41,31 @@ class CommentManager
         }
     }
 
-    // public function getComment($ID_chapter)
-    // {
-    //     $db = $this->db;
-    //     $req = $db->prepare('SELECT author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id_chapter = ?');
-    //     $req->execute(array($ID_chapter));
-    //     $comment = $req->fetch();
- 
-    //     return $comment;
-    // }
-
     public function createComment($ID_chapter, $author_comment, $content_comment)
     {
         $db = $this->db;
         $req = $db->prepare('INSERT INTO comments(author_comment, comment_content, comment_date, id_chapter) VALUES(?, ?, NOW(), ?)');
-
         $req->execute(array($author_comment, $content_comment, $ID_chapter));
 
-        $createComment = $req->fetch(PDO::FETCH_ASSOC);
-
-        
+        $createComment = $req->fetch(PDO::FETCH_ASSOC);   
         $comment = new Comment();
             $comment->setAuthor_comment($createComment['author_comment']);
             $comment->setContent_comment($createComment['comment_content']);
             $comment->setID_chapter($createComment[$ID_chapter]);
-
-            
+       
         return $comment;
 
     }
 
-
-    /*public function updateComment($id, $comment)
+    public function deletePostComment($ID_comment)
     {
         $db = $this->db;
-        $req = $db->prepare('UPDATE comments SET comment = ?, comment_date = NOW() WHERE id = ?');
-        $newComment = $req->execute(array($comment, $id));
- 
-        return $newComment;
+        $req = $db->prepare('DELETE FROM comments WHERE ID_comment = ?');
+        $deleteComment = $req->execute((array($ID_comment)));
+
+        return $deleteComment;
+
+        
     }
-    */
+
 }

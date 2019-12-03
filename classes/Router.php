@@ -20,6 +20,7 @@ class Router
         "admin/delete-post" =>        ["controller" => 'PostsControl', "method" => 'deleteChapter'],
         "post-comment" =>             ["controller" => 'CommentControl', "method" => 'postComment'],
         "admin/manage-comments" =>    ["controller" => 'CommentControl', "method" => 'manageComments'],
+        "admin/delete-comment" =>     ["controller" => 'CommentControl', "method" => 'deleteComment'],
 
         
 

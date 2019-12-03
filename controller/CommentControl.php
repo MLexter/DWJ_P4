@@ -35,8 +35,7 @@ class CommentControl
     public function manageComments()
     {
         if (isset($_GET['id'])) 
-        {
-                
+        {         
         $ID_chapitre = htmlspecialchars($_GET['id']);
 
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
@@ -47,11 +46,16 @@ class CommentControl
         }
     }
 
-    // function viewComment()
-    // {
-    //         $commentManager = new \JForteroche\Blog\Model\CommentManager();
-    //         $comment = $commentManager->getComment($_GET['id']);
+    public function deleteComment()
+    {
+        if (isset($_GET['id']))
+        {
+            $ID_post_comment = $_GET['id'];
+            $commentManager = new \JForteroche\Blog\Model\CommentManager();
+            $comment = $commentManager->deletePostComment($ID_post_comment);
 
-    //         require('view/frontend/editView.php');
-    // }
+            $viewToDisplay = new ViewRenderer('manageCommentsView');
+            $viewToDisplay->renderView();
+        }
+    }
 }

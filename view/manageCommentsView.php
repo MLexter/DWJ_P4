@@ -2,7 +2,7 @@
 
 
 <h1>Gérer les commentaires</h1>
-<p><a href="<?= HOST; ?>admin">Retour à l'écran principal d'administration</a></p>
+<p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
 
 <div id="main-comment-Manager">
     <div id='container_comments'>
@@ -23,10 +23,10 @@
                     foreach ($comments as $comment) { ?>
                         <tbody>
                             <tr>
-                                <th scope="row"><?= $comment->getId_comment() ?></th>
-                                <td><?= $comment->getAuthor_comment() ?></td>
-                                <td><?= $comment->getContent_comment() ?></td>
-                                <td><a href="<?= HOST; ?>admin/delete-comment">Supprimer</a></td>
+                                <th scope="row"><?= $comment->getId_comment(); ?></th>
+                                <td><?= $comment->getAuthor_comment(); ?></td>
+                                <td><?= $comment->getContent_comment(); ?></td>
+                                <td><a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $comment->getId_comment(); ?>">Supprimer</a></td>
                             </tr>
                         </tbody>
                 <?php
