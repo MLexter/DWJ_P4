@@ -8,19 +8,31 @@
     <div id='container_comments'>
         <h2>Commentaires</h2>
 
-        <?php
-        if (isset($comments)) {
-            foreach ($comments as $comment) { ?>
-
-                <div id="comment_box">
-                    <p> <?= $comment->getAuthor_comment() ?> </p>
-                    <p> <?= $comment->getCreation_date_comment() ?> </p>
-                    <p> <?= $comment->getContent_comment() ?> </p>
-                </div>
-
-        <?php
-            }
-        } ?>
-        
+        <div class="container">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Auteur du commentaire</th>
+                        <th scope="col">Commentaire</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <?php
+                if (isset($comments)) {
+                    foreach ($comments as $comment) { ?>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ID auteur</th>
+                                <td><?= $comment->getAuthor_comment() ?></td>
+                                <td><?= $comment->getContent_comment() ?></td>
+                                <td><a href="<?= HOST; ?>admin/delete-comment">Supprimer</a></td>
+                            </tr>
+                        </tbody>
+                <?php
+                    }
+                } ?>
+            </table>
+        </div>
     </div>
 </div>
