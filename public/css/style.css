@@ -93,13 +93,17 @@ body {
 
 /* ########## LAST POST ########## */
 
-
 #main-postView {
     height: auto;
     width: 70%;
     margin: auto;
     border: 2px solid;
     padding: 20px;
+}
+
+#comment-form_container {
+    border: 1px solid grey;
+    padding: 15px;
 }
 
 
@@ -134,6 +138,7 @@ div#main-editView {
 #logo_site_name {
     font-family: 'Aclonica', sans-serif;
     color: white;
+    margin-bottom: auto;
 }
 
 #sub_logo_title {
@@ -144,11 +149,8 @@ div#main-editView {
 #logo_site_container {
     display: flex;
     align-items: center;
-    margin: 6px 20px;}
-
-/* h3 {
-    color: white;
-} */
+    margin: 6px 20px;
+}
 
 #menu_container #main-menu li a {
     color: white;

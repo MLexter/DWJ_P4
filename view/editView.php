@@ -4,7 +4,7 @@ $title_content = 'Modifier un chapitre' ?>
 
 
 <div id="main-editView">
-    <div id="edit_container">
+    <div id="edit_container" class="container">
         <h1>Modifier un chapitre</h1>
         <p><a href="<?= HOST; ?>">Retour à l'écran principal</a></p>
 

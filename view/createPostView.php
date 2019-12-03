@@ -4,7 +4,7 @@ $title_content = 'Ecrire un nouveau chapitre' ?>
 
 
 <div id="main-createNewPostView">
-    <div id="creation_container">
+    <div id="creation_container" class="container">
         <h1>Ecrire un nouveau chapitre</h1>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour au menu d'administration</a></p>
 
