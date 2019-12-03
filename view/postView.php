@@ -23,7 +23,6 @@
 
      <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
          <div>
-             <input type="hidden" name="id_post_comment">
 
              <label for="author">Auteur</label><br />
              <input type="text" id="author_comment" name="comment_author" required />

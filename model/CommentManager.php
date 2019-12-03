@@ -23,11 +23,12 @@ class CommentManager
     public function getComments($ID_chapter)
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, id_chapter FROM comments WHERE id_chapter = ? ORDER BY comment_date_fr DESC');
+        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, id_chapter FROM comments WHERE id_chapter = ? ORDER BY comment_date_fr DESC');
         $req->execute(array($ID_chapter));
 
         while ($comments = $req->fetch(PDO::FETCH_ASSOC)) {
             $commentData = new Comment();
+            $commentData->setId_comment($comments['ID_comment']);
             $commentData->setAuthor_comment($comments['author_comment']);
             $commentData->setContent_comment($comments['comment_content']);
             $commentData->setCreation_date_comment($comments['comment_date_fr']);

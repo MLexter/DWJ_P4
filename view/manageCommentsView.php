@@ -9,7 +9,7 @@
         <h2>Commentaires</h2>
 
         <div class="container">
-            <table class="table">
+            <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">#ID</th>
@@ -23,7 +23,7 @@
                     foreach ($comments as $comment) { ?>
                         <tbody>
                             <tr>
-                                <th scope="row">ID auteur</th>
+                                <th scope="row"><?= $comment->getId_comment() ?></th>
                                 <td><?= $comment->getAuthor_comment() ?></td>
                                 <td><?= $comment->getContent_comment() ?></td>
                                 <td><a href="<?= HOST; ?>admin/delete-comment">Supprimer</a></td>
