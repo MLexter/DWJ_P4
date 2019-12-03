@@ -1,17 +1,15 @@
 <?php $title_content = 'Administration du blog' ?>
 
 <div id="main-admin-page">
-    <div id="admin_container" class="container col-8">
-        <h1>Bienvenue XXX !</h1>
+    <div id="admin_container" class="text-center">
+        <h1>Bienvenue Jean Forteroche</h1>
         <br />
         <p>Pour administrer vos pages, accédez aux options en face de vos chapitres.</p>
         <p>Voici la liste de vos derniers chapitres publiés.</p>
     </div>
 
-    <div id="new_chapter">
-        <a href="<?= HOST; ?>admin/create">
-            <h2>Ajouter un nouveau chapitre</h2>
-        </a>
+    <div id="new_chapter" class="d-flex justify-content-center">
+        <a class="btn btn-primary btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
 
     <div id="container-listposts-admin" class="container">

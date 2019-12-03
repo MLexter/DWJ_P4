@@ -99,11 +99,17 @@ body {
     margin: auto;
     border: 2px solid;
     padding: 20px;
+    margin-bottom: 30px;
+}
+
+#comment_box{
+    padding-bottom: 10px;
 }
 
 #comment-form_container {
     border: 1px solid grey;
     padding: 15px;
+    margin-top: 30px;
 }
 
 
@@ -112,9 +118,6 @@ body {
 div#main-createNewPostView {
     height: 87vh;
 }
-
-/* #creation_container {
-} */
 
 /* ########## EDIT POST ########## */
 
@@ -257,8 +260,19 @@ div#main-editView {
 
 
 
-/* ########## ADMIN PAGE ########## */
+/* ########## ADMIN MAINPAGE ########## */
 
 #main-admin-page {
+    height: 87vh;
+}
+
+#new_chapter {
+    margin: 20px auto;
+}
+
+
+/* ########## ADMIN MANAGE COMMENTS ########## */
+
+#main-comment-Manager {
     height: 87vh;
 }

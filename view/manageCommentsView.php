@@ -1,12 +1,12 @@
 <?php $title_content = 'Gérer les commentaires'; ?>
 
 
-<h1>Gérer les commentaires</h1>
-<p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
 
-<div id="main-comment-Manager">
+<div id="main-comment-Manager" class="text-center">
+    <h1>Gérer les commentaires</h1>
+    <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
     <div id='container_comments'>
-        <h2>Commentaires</h2>
+        <h2>Commentaires du chapitre</h2>
 
         <div class="container">
             <table class="table table-hover">
