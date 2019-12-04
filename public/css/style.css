@@ -81,6 +81,10 @@ body {
 
 /* ########## POSTS OVERALL ########## */
 
+#main-listPosts {
+    min-height: 81.1vh;
+}
+
 #main-title_description {
     margin: 30px auto;
 }
@@ -89,7 +93,6 @@ body {
     border: 2px solid;
     padding: 20px;
     margin-bottom: 30px;
-    width: 65%;
 }
 
 #readmore-link {
@@ -128,9 +131,7 @@ body {
 
 /* ########## CREATE POST ########## */
 
-div#main-createNewPostView {
-    height: 87vh;
-}
+
 
 /* ########## EDIT POST ########## */
 
@@ -276,9 +277,9 @@ div#main-editView {
 
 /* ########## ADMIN MAINPAGE ########## */
 
-/* #main-admin-page {
-    height: 87vh;
-} */
+#main-admin-page {
+    height: 81.1vh;
+}
 
 #new_chapter {
     margin: 20px auto;

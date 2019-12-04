@@ -17,10 +17,10 @@
     </div>
 
     <div id="container-listposts-admin" class="container">
-        <?php
 
-        foreach ($posts as $post) {
-            ?>
+        <?php if (isset($posts)) : ?>
+            <?php foreach ($posts as $post) : ?>
+            
                 <div class="col">
                     <div class="post_thumbnail">
                         <h2 id="thumbail-title">
@@ -29,13 +29,14 @@
                         <a href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a> |
                         <a href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>">Supprimer</a> | 
                         <a href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
-
-
                     </div>
                 </div>
-        <?php
-        }
-        ?>
+            <?php endforeach; ?>
+        <?php else : ?>
+
+            <div class="alert alert-dark text-center" role="alert">Aucun chapitre ! Commencez à écrire quelque chose !</div>
+
+        <?php endif; ?>
     </div>
 </div>
 </div>

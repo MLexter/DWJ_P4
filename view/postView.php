@@ -24,26 +24,20 @@
          <p>N'hésitez pas à donner votre avis sur ce chapitre en postant un commentaire !</p>
      </div>
 
-     <?php
-        if (isset($comments)) 
-        {
-            foreach ($comments as $comment) 
-            { 
-     ?>
+     <?php if (isset($comments)) : ?>
+        
+          <?php  foreach ($comments as $comment) : ?>
              <div id="comment_box" class="container border-bottom">
                  <h4> <?= $comment->getAuthor_comment() ?> </h4>
                  <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
                  <p> <?= $comment->getContent_comment() ?> </p>
                  <a class="btn btn-danger" href="#">Signaler ce commentaire</a>
              </div>
-     <?php
-            }
-        } else { 
-     ?>
+          <?php endforeach; ?>
+     <?php else : ?> 
+    
          <div class="alert alert-dark" role="alert">'Pas de commentaire pour ce chapitre. Soyez le premier à laisser votre avis !'</div>
-     <?php
-        }
-     ?>
+          <?php endif; ?>
  </div>
 
 

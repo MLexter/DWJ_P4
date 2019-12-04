@@ -46,7 +46,7 @@ class PostsControl
                 echo 'Vous devez donner un titre et un contenu à votre chapitre.';
             }
         }
-        header('Location:' . HOST . 'admin');
+        header('Location:' . HOST . 'admin/dashboard');
     }
         
 

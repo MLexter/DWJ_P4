@@ -34,8 +34,10 @@ class PostManager
 
             $chapters[] = $chapter;
         };
-
-        return $chapters;
+        if (isset($chapters)) 
+        {
+            return $chapters;
+        }
     }
 
 
@@ -63,6 +65,34 @@ class PostManager
 
 
         $req->execute(array($author_post_title, $author_post_content));
+
+        // if (isset($_FILES['image_chapter']) AND !empty($_FILES['image_chapter']['name']))
+        // {
+        //     $maxWeightFile = 2097152;
+        //     $validExtensions = array('jpg', 'jpeg', 'png');
+
+        //     if ($_FILES['image_chapter']['size'] <= $maxWeightFile)
+        //     {
+        //         $uploadedExtension = strtolower(substr(strrchr($_FILES['image_chapter']['name'], '.'), 1));
+
+        //         if(in_array($uploadedExtension, $validExtensions))
+        //         {
+        //             $pathToUpload = ROOT . 'public/images/chapters/' . $_FILES['image_chapter'] . '.' . $uploadedExtension;
+        //             $moveUpload = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload);
+
+        //             if ($moveUpload)
+        //             {
+
+        //             } else {
+        //                 $error_upload = 'Erreur pendant l\'envoi de votre image !';
+        //             }
+        //         } else {
+        //             $error_upload = 'Votre photo doit être au format jpg, jpeg ou png.';
+        //         }
+        //     } else {
+        //         $error_upload = 'Votre photo ne doit pas dépaser 2Mo.';
+        //     }
+        // }
  
         $createPost = $req->fetch(PDO::FETCH_ASSOC);
         $chapter = new Post();
