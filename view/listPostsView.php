@@ -13,27 +13,28 @@
         
             <div class="post_thumbnail">
                 <h2 id="thumbail-title">
-                    <?= htmlspecialchars($post->getAuthor_post_title()); ?> <br />
+                    <?= $post->getAuthor_post_title(); ?> <br />
                     <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
                 </h2>
                 <p>
-                <?php nl2br(htmlspecialchars($post->getAuthor_post_content())); ?>
 
                     <?php
                         $dataContent = $post->getAuthor_post_content();
                         if (!empty($dataContent)) 
                         {
-                            if (strlen($dataContent) > 350) 
+                            if (strlen($dataContent) > 500) 
                             {
                                 $shorterContent = substr($dataContent, 0, 500);
                                 echo $shorterContent . '...';
-                            };
+                            } else {
+                                echo $dataContent;
+                            }
                         } 
                         ?>
                 </p>
                 <br />
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-info"><a id="readmore-link" class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire la suite</a>
+                    <button class="btn btn-info"><a id="readmore-link" class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire ce chapitre</a>
                 </div>
             </div>
                 <?php endforeach; ?>

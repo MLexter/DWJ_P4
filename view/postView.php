@@ -7,13 +7,13 @@
 
  <div id="main-postView">
      <h2>
-         <?= htmlspecialchars($post->getAuthor_post_title()); ?>
+         <?= $post->getAuthor_post_title(); ?>
          <br />
          <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
      </h2>
 
      <p>
-         <?= nl2br(htmlspecialchars($post->getAuthor_post_content())); ?>
+         <?= nl2br($post->getAuthor_post_content()); ?>
      </p>
  </div>
 
