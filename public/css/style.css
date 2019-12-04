@@ -82,13 +82,22 @@ body {
 /* ########## POSTS OVERALL ########## */
 
 #main-title_description {
-    text-align: center;
+    margin: 30px auto;
 }
 
 .post_thumbnail {
     border: 2px solid;
     padding: 20px;
     margin-bottom: 30px;
+    width: 65%;
+}
+
+#readmore-link {
+    color: white;
+}
+
+.post_time-text {
+    font-size: 16px;
 }
 
 /* ########## LAST POST ########## */
@@ -109,7 +118,11 @@ body {
 #comment-form_container {
     border: 1px solid grey;
     padding: 15px;
-    margin-top: 30px;
+    margin: 50px auto;
+}
+
+.date_time_comment {
+    font-size: 14px;
 }
 
 
@@ -164,6 +177,7 @@ div#main-editView {
     background-color: #002f44;
     display: flex;
     justify-content: space-between;
+    
 }
 
 #menu_container {
@@ -262,14 +276,24 @@ div#main-editView {
 
 /* ########## ADMIN MAINPAGE ########## */
 
-#main-admin-page {
+/* #main-admin-page {
     height: 87vh;
-}
+} */
 
 #new_chapter {
     margin: 20px auto;
 }
 
+#admin_banner-main {
+    border: 2px solid;
+    margin: 30px auto;
+    height: 100px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
 /* ########## ADMIN MANAGE COMMENTS ########## */
 

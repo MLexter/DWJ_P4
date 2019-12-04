@@ -1,6 +1,10 @@
 <?php $title_content = 'Administration du blog' ?>
 
 <div id="main-admin-page">
+    <div class="container text-center" id="admin_banner-main">
+        <h1>ADMINISTRATION DU BLOG</h1>
+    </div>
+
     <div id="admin_container" class="text-center">
         <h1>Bienvenue Jean Forteroche</h1>
         <br />

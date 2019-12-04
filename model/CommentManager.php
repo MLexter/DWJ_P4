@@ -49,12 +49,11 @@ class CommentManager
 
         $createComment = $req->fetch(PDO::FETCH_ASSOC);   
         $comment = new Comment();
-            $comment->setAuthor_comment($createComment['author_comment']);
-            $comment->setContent_comment($createComment['comment_content']);
-            $comment->setID_chapter($createComment[$ID_chapter]);
-       
-        return $comment;
+        $comment->setAuthor_comment($createComment['author_comment']);
+        $comment->setContent_comment($createComment['comment_content']);
+        $comment->setID_chapter($createComment[$ID_chapter]);
 
+        return $comment;
     }
 
     public function deletePostComment($ID_comment)
