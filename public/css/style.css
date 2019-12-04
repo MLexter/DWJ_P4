@@ -278,7 +278,7 @@ div#main-editView {
 /* ########## ADMIN MAINPAGE ########## */
 
 #main-admin-page {
-    height: 81.1vh;
+    min-height: 81.1vh;
 }
 
 #new_chapter {

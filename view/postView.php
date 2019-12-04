@@ -17,7 +17,7 @@
      </p>
  </div>
 
- <div id="container_comments" class="container">
+ <div id="container_comments">
      <div class="text-center">
          <h3>Espace Commentaires</h3>
 
