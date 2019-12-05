@@ -6,6 +6,10 @@
  </div>
 
  <div id="main-postView">
+     <div>
+         <figure>
+             <img src="<?= ROOT . 'public/images/chapters/' . $post->getChapterImage(); ?>" name="image_chapter" alt="Illustration du chapitre"></figure>
+     </div>
      <h2>
          <?= $post->getAuthor_post_title(); ?>
          <br />
@@ -25,19 +29,19 @@
      </div>
 
      <?php if (isset($comments)) : ?>
-        
-          <?php  foreach ($comments as $comment) : ?>
+
+         <?php foreach ($comments as $comment) : ?>
              <div id="comment_box" class="container border-bottom">
                  <h4> <?= $comment->getAuthor_comment() ?> </h4>
                  <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
                  <p> <?= $comment->getContent_comment() ?> </p>
                  <a class="btn btn-danger" href="#">Signaler ce commentaire</a>
              </div>
-          <?php endforeach; ?>
-     <?php else : ?> 
-    
+         <?php endforeach; ?>
+     <?php else : ?>
+
          <div class="alert alert-dark" role="alert">'Pas de commentaire pour ce chapitre. Soyez le premier à laisser votre avis !'</div>
-          <?php endif; ?>
+     <?php endif; ?>
  </div>
 
 

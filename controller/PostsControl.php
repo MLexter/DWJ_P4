@@ -26,39 +26,72 @@ class PostsControl
         $comments = $commentManager->getComments($_GET['id']);
 
         $viewToDisplay = new ViewRenderer('postView');
-        $viewToDisplay->renderView(array('post' => $post, 'comments' => $comments));  
+        $viewToDisplay->renderView(array('post' => $post, 'comments' => $comments));
     }
 
 
 
     public function createChapter()
-    { 
-        if (isset($_POST['author_post_title'], $_POST['author_post_content']))
+    {
+        if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
         {
-            if (!empty($_POST['author_post_title']) AND !empty($_POST['author_post_content']))
+            if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
             {
-            $titleChapter = htmlspecialchars($_POST['author_post_title']);
-            $contentChapter = htmlspecialchars($_POST['author_post_content']);
+                if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
+                {
+                    // Définition des constantes
+                    $maxWeightFile = 2097152;
+                    $validExtensions = array('jpg', 'jpeg', 'png');
+                    $imageInfos = pathinfo($_FILES['image_chapter']['name']);
+                    $uploadedExtension = $imageInfos['extension'];
+                    $imageName = $imageInfos['filename'];
+                    $imageFile = '' . time() . '' . $imageName . '.' . $uploadedExtension;
 
-            $createContent = new \JForteroche\Blog\Model\PostManager();
-            $newEntry = $createContent->newPost($titleChapter, $contentChapter);
-            } else {
-                echo 'Vous devez donner un titre et un contenu à votre chapitre.';
-            }
+                    $pathToUpload = ROOT . 'public/images/chapters/';
+
+
+                    if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
+                    {
+
+                        if (in_array($uploadedExtension, $validExtensions)) 
+                        {
+                            
+                            
+                            $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
+var_dump($imageChapter); die();
+                            if ($imageChapter)
+                            {
+                                $titleChapter = htmlspecialchars($_POST['author_post_title']);
+                                $contentChapter = htmlspecialchars($_POST['author_post_content']);
+
+                                $createContent = new \JForteroche\Blog\Model\PostManager();
+                                $newEntry = $createContent->newPost($titleChapter, $contentChapter, $imageChapter);
+                            }
+                            
+                        } else {
+                            $error_upload = 'Votre photo doit être au format jpg, jpeg ou png.';
+                        }
+                    } else {
+                        $error_upload = 'Votre photo ne doit pas dépaser 2Mo.';
+                    }
+                } else {
+                    echo 'Vous devez donner un titre, un contenu et une image à votre chapitre.';
+                }
+            }  
         }
         header('Location:' . HOST . 'admin/dashboard');
     }
-        
+
 
 
     public function updateChapter()
     {
         if ($_POST['author_post_title']) {
-            
+
             $insertContent = new \JForteroche\Blog\Model\PostManager();
             $insertContent->updatePost($_POST['postId'], $_POST['author_post_title'], $_POST['author_post_content']);
-            }
-            header('Location:' . HOST . 'book');
+        }
+        header('Location:' . HOST . 'book');
     }
 
 
@@ -67,7 +100,7 @@ class PostsControl
     {
         $postManager = new \JForteroche\Blog\Model\PostManager();
         $post = $postManager->getPost($_GET['id']);
-        
+
         $viewToDisplay = new ViewRenderer('editView');
         $viewToDisplay->renderView(array('post' => $post));
     }
@@ -81,8 +114,7 @@ class PostsControl
         $postManager = new \JForteroche\Blog\Model\PostManager();
         // Vérifier que l'action de suppression avec un message d'alerte avant de valider le traitement de la suppression du post de la db
         $post = $postManager->deletePost($postId);
-        
+
         header('Location:' . HOST . 'admin/dashboard');
     }
-
 }

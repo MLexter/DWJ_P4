@@ -8,6 +8,7 @@ class Post
     private $author_post_title;
     private $author_post_content;
     private $date_post_author;
+    private $chapterImage;
 
     
     
@@ -88,6 +89,26 @@ class Post
     public function setDate_post_author($date_post_author)
     {
         $this->date_post_author = $date_post_author;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of chapterImage
+     */ 
+    public function getChapterImage()
+    {
+        return $this->chapterImage;
+    }
+
+    /**
+     * Set the value of chapterImage
+     *
+     * @return  self
+     */ 
+    public function setChapterImage($chapterImage)
+    {
+        $this->chapterImage = $chapterImage;
 
         return $this;
     }
