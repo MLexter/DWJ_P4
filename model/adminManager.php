@@ -1,21 +1,28 @@
 <?php
 
 namespace JForteroche\Blog\Model;
+use \PDO;
 
-require_once(MODEL.'Manager.php');
-
-class AdminManager extends Manager
-
+class AdminManager
 {
-    
 
-    
+    private $db;
 
-    function connexionChecks()
+
+
+    public function __construct()
     {
+        $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+    }
 
-        // Fonction qui permet de vérifier si l'id et le mot de passe sont bons
-        // Alors on peut basculer le status de connexion à true, sinon false (permettra d'afficher les menus et pages si connecté)
+
+
+    function connexionChecks($ID_user, $hashedUserPassword)
+    {
+        $db = $this->db;
+        $hashedReq = $db->query('SELECT ID_login, pass_admin FROM `admin`')->fetchAll();
+var_dump($hashedReq); die();
+        return $hashedReq;
     }
 
     

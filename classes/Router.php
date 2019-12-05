@@ -21,12 +21,10 @@ class Router
         "post-comment" =>             ["controller" => 'CommentControl', "method" => 'postComment'],
         "admin/manage-comments" =>    ["controller" => 'CommentControl', "method" => 'manageComments'],
         "admin/delete-comment" =>     ["controller" => 'CommentControl', "method" => 'deleteComment'],
+        "admin/connexion" =>          ["controller" => 'AdminControl', "method" => 'verifyConnexionInfos'],
 
         
-
     ];
-
-
 
     public function __construct($request)
     {

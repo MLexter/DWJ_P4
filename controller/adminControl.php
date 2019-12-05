@@ -1,14 +1,13 @@
 <?php
 
-require_once(MODEL . 'PostManager.php');
-require_once(MODEL . 'CommentManager.php');
-
+require_once(MODEL . 'AdminManager.php');
 
 
 class AdminControl
 {
     private $username;
     private $password;
+    
 
     public function showMainAdmin()
     {
@@ -23,10 +22,18 @@ class AdminControl
     }
 
     
-    function chekData()
+    function verifyConnexionInfos()
     {
-        // vérifier que les 2 inputs sont remplis + expressions régulières
-        // Si ok , renvoyer sur fichier ".php" avec fonction qui renvoie l'affichage admin avec redirection
+        $userID = htmlspecialchars($_POST['ID_user']);
+        $password = htmlspecialchars($_POST['password_user']);
+        $hashedUserPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $connexion = new \JForteroche\Blog\Model\AdminManager();
+        $checkValues = $connexion->connexionChecks($userID, $hashedUserPassword);
+
+
+        // $hashMdp = password_hash('LUNETTESNOIRES', PASSWORD_DEFAULT);
+
     }
 
     function adminLogout()
