@@ -1,6 +1,5 @@
 <?php
 
-
 require_once(MODEL . 'AdminManager.php');
 
 
@@ -11,85 +10,56 @@ class AdminControl
     
 
     public function showMainAdmin()
-    {
-        $postManager = new \JForteroche\Blog\Model\PostManager();
-        $posts = $postManager->getPosts();
-
-
-        $viewToDisplay = new ViewRenderer('adminView');
-        $viewToDisplay->renderView(array('posts' =>$posts));
-        // include(VIEW.'adminView.php');
-
+    {       
+                $postManager = new \JForteroche\Blog\Model\PostManager();
+                $posts = $postManager->getPosts();
+                
+                $viewToDisplay = new ViewRenderer('adminView');
+                $viewToDisplay->renderView(array('posts' =>$posts)); 
     }
 
     
     function verifyConnexionInfos()
     {
-        $ID_user = htmlspecialchars($_POST['ID_user']);
-        $password = htmlspecialchars($_POST['password_user']);
-        $hashedUserPassword = password_hash($password, PASSWORD_DEFAULT);
+        
+            if (isset($_POST['ID_user'], $_POST['password_user']))
+            {
+                if (!empty($_POST['ID_user']) AND !empty($_POST['password_user']))
+                {
+                    $ID_user = htmlspecialchars($_POST['ID_user']);
+                    $password = htmlspecialchars($_POST['password_user']);
 
-        $connexion = new \JForteroche\Blog\Model\AdminManager();
-        $checkValues = $connexion->connexionChecks($ID_user, $hashedUserPassword);
+                    $connexion = new \JForteroche\Blog\Model\AdminManager();
+                    $checkValues = $connexion->connexionChecks($ID_user, $password);
+                
 
-        if ($_SESSION['isAdmin'] = true)
-        {
-            header('Location: ' . HOST . 'admin/dashboard');
+                    if ($_SESSION['isAdmin'] = true)
+                    {
+                        header('Location: ' . HOST . 'admin/dashboard');
+                
+                    } else {
+                        $_SESSION['$error_login'] = 'Le mot de passe saisi est incorrect.';               
+                    }
+        
+                } else {
+                    header('Location: ' . HOST . 'connexion');
+                    $_SESSION['$error_login'] = 'Vous devez saisir un identifiant et un mot de passe pour vous connecter.';
 
-        } else {
-            header('Location: ' . HOST . 'connexion');
-
-        }
-
-
+                }    
+            } else {
+                header('Location: ' . HOST . 'connexion');
+            }
+        
         // $hashMdp = password_hash('LUNETTESNOIRES', PASSWORD_DEFAULT);
-
     }
 
-    function adminLogout()
+    function logoutAdmin()
     {
-        // Fonction qui permet de se déconnecter de l'espace admin
+       session_start();
+       $_SESSION = array();
+       session_destroy();
+
+       header('Location: ' . HOST);
     }
 
-
-    
-    /**
-     * Get the value of username
-     */ 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set the value of username
-     *
-     * @return  self
-     */ 
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of password
-     */ 
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set the value of password
-     *
-     * @return  self
-     */ 
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
 }

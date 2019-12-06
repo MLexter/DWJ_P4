@@ -7,7 +7,6 @@ class AdminManager
 {
 
     private $db;
-    public $isAdmin = false;
     public $error_login = "";
 
 
@@ -19,27 +18,35 @@ class AdminManager
 
 
 
-    function connexionChecks($ID_user, $hashedUserPassword)
+    function connexionChecks($ID_user, $password)
     {
         $db = $this->db;
-        $req = $db->query('SELECT `ID_login`, `pass_admin` FROM `admin`');
-
+        $req = $db->prepare('SELECT `username`, `pass_admin` FROM `admin`');
+        $req->execute();
         $getAdminData = $req->fetch();
 
-        if ($ID_user == $getAdminData['ID_login'])
+
+        
+        if ($ID_user == $getAdminData['username']) 
         {
-            if (password_verify($hashedUserPassword, $getAdminData['pass_admin']))
+
+            if (password_verify($password, $getAdminData['pass_admin'])) 
             {
-                $isAdmin = true;
-                
+
+                $_SESSION['isAdmin'] = true;
                 $_SESSION['user_admin'] = $ID_user;
-                $_SESSION['passwd'] = $hashedUserPassword;
-                $_SESSION['isAdmin'] = $isAdmin;
-                var_dump($_SESSION['user_admin']); die();
-            } 
+
+            } else {
+                header('Location: ' . HOST . 'connexion');
+                $_SESSION['$error_login'] = 'Mot de passe incorrect.';
+                exit();
+            }
+
         } else {
-            $isAdmin = false;  
-            $error_login = 'Les identifiants saisis sont incorrects.';
+            header('Location: ' . HOST . 'connexion');
+            $_SESSION['$error_login'] = 'Le nom d\'utilisateur est incorrect';
+            exit();
+            
         }
-    } 
+    }
 }

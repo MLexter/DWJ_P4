@@ -15,8 +15,9 @@
                 <input type="submit" name="submit_connexion" value="Connexion">
 
             </form>
-            <?php if (isset($error_login)) : ?>
-            <div class="alert alert-dark" role="alert"><?= $error_login; ?></div>
+
+            <?php if (isset($_SESSION['$error_login'])) : ?>
+                <div class="alert alert-dark" role="alert"><?= $_SESSION['$error_login']; ?></div>
             <?php endif; ?>
         </div>
     </div>
