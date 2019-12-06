@@ -1,6 +1,4 @@
-<?php
-
-$title_content = 'Ecrire un nouveau chapitre' ?>
+<?php $title_content = 'Ecrire un nouveau chapitre' ?>
 
 
 <div id="main-createNewPostView">

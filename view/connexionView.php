@@ -7,13 +7,17 @@
             <br />
             <form action="<?= HOST; ?>admin/connexion" method="POST">
                 <label for="user_id">Identifiant :</label>
-                    <input type="text" name="ID_user" class="connexion_inputs" placeholder="Saisissez votre identifiant">
-                    <br />
-                    <label for="password_user">Mot de passe :</label>
-                        <input type="password" name="password_user" class="connexion_inputs" placeholder="Tapez votre mot de passe">
-                    
-                        <input type="submit" value="Connexion">
+                <input type="text" name="ID_user" class="connexion_inputs" placeholder="Saisissez votre identifiant">
+                <br />
+                <label for="password_user">Mot de passe :</label>
+                <input type="password" name="password_user" class="connexion_inputs" placeholder="Tapez votre mot de passe">
+
+                <input type="submit" name="submit_connexion" value="Connexion">
+
             </form>
+            <?php if (isset($error_login)) : ?>
+            <div class="alert alert-dark" role="alert"><?= $error_login; ?></div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

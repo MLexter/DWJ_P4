@@ -1,5 +1,6 @@
 <?php
 
+
 require_once(MODEL . 'AdminManager.php');
 
 
@@ -24,12 +25,21 @@ class AdminControl
     
     function verifyConnexionInfos()
     {
-        $userID = htmlspecialchars($_POST['ID_user']);
+        $ID_user = htmlspecialchars($_POST['ID_user']);
         $password = htmlspecialchars($_POST['password_user']);
         $hashedUserPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $connexion = new \JForteroche\Blog\Model\AdminManager();
-        $checkValues = $connexion->connexionChecks($userID, $hashedUserPassword);
+        $checkValues = $connexion->connexionChecks($ID_user, $hashedUserPassword);
+
+        if ($_SESSION['isAdmin'] = true)
+        {
+            header('Location: ' . HOST . 'admin/dashboard');
+
+        } else {
+            header('Location: ' . HOST . 'connexion');
+
+        }
 
 
         // $hashMdp = password_hash('LUNETTESNOIRES', PASSWORD_DEFAULT);
