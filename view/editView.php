@@ -1,6 +1,4 @@
-<?php
-
-$title_content = 'Modifier un chapitre' ?>
+<?php $title_content = 'Modifier un chapitre' ?>
 
 
 <div id="main-editView">
