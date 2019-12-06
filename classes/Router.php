@@ -22,6 +22,8 @@ class Router
         "admin/manage-comments" =>    ["controller" => 'CommentControl', "method" => 'manageComments'],
         "admin/delete-comment" =>     ["controller" => 'CommentControl', "method" => 'deleteComment'],
         "admin/connexion" =>          ["controller" => 'AdminControl', "method" => 'verifyConnexionInfos'],
+        "admin/deconnexion" =>        ["controller" => 'AdminControl', "method" => 'logoutAdmin'],
+
 
         
     ];
