@@ -11,11 +11,20 @@ class AdminControl
 
     public function showMainAdmin()
     {       
+        if(isset($_SESSION['isAdmin']))
+        {
+            if ($_SESSION['isAdmin'] = true)
+            {
+
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $posts = $postManager->getPosts();
                 
                 $viewToDisplay = new ViewRenderer('adminView');
                 $viewToDisplay->renderView(array('posts' =>$posts)); 
+            }
+        } else {
+            header('Location: ' . HOST . 'connexion');
+        }
     }
 
     

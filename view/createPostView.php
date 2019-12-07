@@ -26,6 +26,11 @@
                 <input type="submit" value="Poster ce chapitre" />
             </div>
         </form>
+
+        <?php if (isset($_SESSION['error_upload'])) : ?>
+            <div class="alert alert-warning" role="alert"><?= $_SESSION['error_upload']; ?> </div>
+        <?php endif; ?>
+
     </div>
 </div>
 
