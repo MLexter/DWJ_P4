@@ -26,7 +26,8 @@ class CommentManager
         $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, id_chapter, signal_comment FROM comments WHERE id_chapter = ? ORDER BY comment_date_fr DESC');
         $req->execute(array($ID_chapter));
 
-        while ($comments = $req->fetch(PDO::FETCH_ASSOC)) {
+        while ($comments = $req->fetch(PDO::FETCH_ASSOC)) 
+        {
             $commentData = new Comment();
             $commentData->setId_comment($comments['ID_comment']);
             $commentData->setAuthor_comment($comments['author_comment']);
@@ -65,7 +66,6 @@ class CommentManager
         $req = $db->prepare('DELETE FROM comments WHERE ID_comment = ?');
         $deleteComment = $req->execute((array($ID_comment)));
 
-        return $deleteComment;
     }
 
     public function addCommentSignalment($ID_comment)
@@ -74,14 +74,13 @@ class CommentManager
         $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
         $req->execute(array(1, $ID_comment));
 
-        $newSignalment = $req->fetch();
     }
 
-    public function getAllSignalments($signaledComment)
+    public function getAllSignalments()
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, id_chapter, signal_comment FROM comments WHERE signal_comment = ?');
-        $req->execute(array($signaledComment));
+        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signal_comment FROM comments WHERE signal_comment = 1');
+        $req->execute(array());
 
         while ($retrieveSignalments = $req->fetch(PDO::FETCH_ASSOC)) 
         {
@@ -91,15 +90,28 @@ class CommentManager
             $commentData->setContent_comment($retrieveSignalments['comment_content']);
             $commentData->setCreation_date_comment($retrieveSignalments['comment_date_fr']);
             $commentData->setSignaledComment($retrieveSignalments['signal_comment']);
-
+            
             $commentsData[] = $commentData;
-
-
+            
+        }
+            
             if (isset($commentsData))
             {
                 return $commentsData;
             }
-        }
+    }
+
+
+    public function deleteAllSignaled()
+    {
+        $db = $this->db;
+        $req = $db->prepare('DELETE FROM comments WHERE signal_comment = 1');
+
+        $deleteListSignalments = $req->execute();
+
+        return $deleteListSignalments;
+
+
     }
 
 }

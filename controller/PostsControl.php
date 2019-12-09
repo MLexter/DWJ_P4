@@ -37,8 +37,10 @@ class PostsControl
         {
             if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
             {
+
                 if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
                 {
+
                     // Définition des constantes
                     $maxWeightFile = 2097152;
                     $validExtensions = array('jpg', 'jpeg', 'png');
@@ -49,18 +51,19 @@ class PostsControl
 
                     $pathToUpload = ROOT . 'public/images/chapters/';
 
-
                     if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
                     {
 
+
                         if (in_array($uploadedExtension, $validExtensions)) 
                         {
-                            
+
                             
                             $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
                             
                             if ($imageChapter)
                             {
+
                                 $titleChapter = htmlspecialchars($_POST['author_post_title']);
                                 $contentChapter = htmlspecialchars($_POST['author_post_content']);
 
@@ -69,21 +72,25 @@ class PostsControl
                             }
                             
                         } else {
+
                             header('Location: ' . HOST . 'admin/create');
                             $_SESSION['error_upload'] = 'Votre photo doit être au format jpg, jpeg ou png.';
                             exit();
                         }
                     } else {
+
                         header('Location: ' . HOST . 'admin/create');
                         $_SESSION['error_upload'] = 'Votre photo ne doit pas dépaser 2Mo.';
                         exit();
                     }
                 } else {
+
                     header('Location: ' . HOST . 'admin/create');
                     $_SESSION['error_upload'] = 'Vous devez sélectionner une image à joindre à votre chapitre.';
                     exit();
                 }
             } else {
+
                 header('Location: ' . HOST . 'admin/create');
                 $_SESSION['error_upload'] = 'Vous devez donner un titre, un contenu et une image à votre chapitre.';
                 exit();

@@ -17,6 +17,10 @@
             selector: '#authorPostContent'
         });
     </script>
+
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/1d4b0efeb6.js" crossorigin="anonymous"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo ASSETCSS; ?>style.css" />
 

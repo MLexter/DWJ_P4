@@ -42,7 +42,7 @@
                          <td id="comment-section" class="col-lg-9">
                              <p> <?= $comment->getContent_comment() ?> </p>
 
-                          
+
 
                              <div id="signalment-btn">
                                  <a class="btn btn-danger" href="<?= HOST; ?>signal-comment&amp;comment=<?= $comment->getId_comment() ?>">Signaler ce commentaire</a>

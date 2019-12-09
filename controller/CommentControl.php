@@ -65,16 +65,40 @@ class CommentControl
 
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
         $signalment = $commentManager->addCommentSignalment($comment_ID);
+
     }
 
     public function manageSignalments()
     {
-        $signaledComment = htmlspecialchars($_GET['signal-comment']);
+    
+            $commentManager = new \JForteroche\Blog\Model\CommentManager();
+            $signalmentList = $commentManager->getAllSignalments();
+    
+            $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+            $viewToDisplay->renderView(array('signalmentList' => $signalmentList));
 
+        
+    }
+
+    public function deleteSignaledComment()
+    {
+        if (isset($_GET['id']))
+        {
+            $ID_post_comment = htmlspecialchars($_GET['id']);
+            $commentManager = new \JForteroche\Blog\Model\CommentManager();
+            $comment = $commentManager->deletePostComment($ID_post_comment);
+
+            $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+            $viewToDisplay->renderView();
+        }
+    }
+
+    public function deleteAllSignalments()
+    {
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
-        $signalmentList = $commentManager->getAllSignalments($signaledComment);
+        $deleteSignaledList = $commentManager->deleteAllSignaled();
 
         $viewToDisplay = new ViewRenderer('manageSignalmentsView');
-        $viewToDisplay->renderView(array('signalmentList' => $signalmentList));
+        $viewToDisplay->renderView();
     }
 }
