@@ -63,12 +63,13 @@ class PostsControl
                             
                             if ($imageChapter)
                             {
-
+                                
                                 $titleChapter = htmlspecialchars($_POST['author_post_title']);
                                 $contentChapter = htmlspecialchars($_POST['author_post_content']);
+                                $newImageFile = $imageFile;
 
                                 $createContent = new \JForteroche\Blog\Model\PostManager();
-                                $newEntry = $createContent->newPost($titleChapter, $contentChapter, $imageChapter);
+                                $newEntry = $createContent->newPost($titleChapter, $contentChapter, $newImageFile);
                             }
                             
                         } else {

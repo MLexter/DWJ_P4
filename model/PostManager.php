@@ -22,7 +22,7 @@ class PostManager
     public function getPosts()
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT ID_post, author_post_title, author_post_content, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author ORDER BY date_post_author DESC');
+        $req = $db->prepare('SELECT ID_post, author_post_title, author_post_content, image_chapter, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author ORDER BY date_post_author DESC');
         $req->execute();
 
         while ($posts = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -30,6 +30,7 @@ class PostManager
             $chapter->setPostId($posts['ID_post']);
             $chapter->setAuthor_post_title($posts['author_post_title']);
             $chapter->setAuthor_post_content($posts['author_post_content']);
+            $chapter->setChapter_image($posts['image_chapter']);
             $chapter->setDate_post_author($posts['creation_date_fr']);
 
             $chapters[] = $chapter;
@@ -59,13 +60,13 @@ class PostManager
         return $chapter;
     }
 
-    public function newPost($titleChapter, $contentChapter, $imageChapter)
+    public function newPost($titleChapter, $contentChapter, $newImageFile)
     {
         $db = $this->db;
         $req = $db->prepare('INSERT INTO posts_author(date_post_author, author_post_title, author_post_content, image_chapter) VALUES (NOW(),?,?,?)');
 
 
-        $req->execute(array($titleChapter, $contentChapter, $imageChapter));
+        $req->execute(array($titleChapter, $contentChapter, $newImageFile));
 
         $createPost = $req->fetch(PDO::FETCH_ASSOC);
         $chapter = new Post();

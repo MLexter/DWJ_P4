@@ -11,30 +11,37 @@
 
         <?php foreach ($posts as $post) : ?>
         
-            <div class="post_thumbnail">
-                <h2 id="thumbail-title">
-                    <?= $post->getAuthor_post_title(); ?> <br />
-                    <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
-                </h2>
-                <p>
+            <div class="post_thumbnail d-flex">
+                <figure>
+                    <img id="thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                </figure>
 
-                    <?php
-                        $dataContent = $post->getAuthor_post_content();
-                        if (!empty($dataContent)) 
-                        {
-                            if (strlen($dataContent) > 500) 
+                <div id="content_text_thumbnail">
+
+                    <h2 id="thumbail-title">
+                        <?= $post->getAuthor_post_title(); ?> <br />
+                        <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
+                    </h2>
+                    <p>
+    
+                        <?php
+                            $dataContent = $post->getAuthor_post_content();
+                            if (!empty($dataContent)) 
                             {
-                                $shorterContent = substr($dataContent, 0, 500);
-                                echo $shorterContent . '...';
-                            } else {
-                                echo $dataContent;
-                            }
-                        } 
-                        ?>
-                </p>
-                <br />
-                <div class="d-flex justify-content-end">
-                    <button class="btn btn-info"><a id="readmore-link" class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire ce chapitre</a>
+                                if (strlen($dataContent) > 500) 
+                                {
+                                    $shorterContent = substr($dataContent, 0, 500);
+                                    echo $shorterContent . '...';
+                                } else {
+                                    echo $dataContent;
+                                }
+                            } 
+                            ?>
+                    </p>
+                    <br />
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-info"><a id="readmore-link" class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire ce chapitre</a>
+                    </div>
                 </div>
             </div>
                 <?php endforeach; ?>

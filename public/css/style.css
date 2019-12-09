@@ -95,6 +95,14 @@ body {
     margin-bottom: 30px;
 }
 
+#thumbnail-chapter_image {
+    min-height: 213px;
+}
+
+#content_text_thumbnail {
+    padding-left: 20px;
+}
+
 #readmore-link {
     color: white;
 }
