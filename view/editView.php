@@ -4,7 +4,7 @@
 <div id="main-editView">
     <div id="edit_container" class="container text-center">
         <h1>Modifier un chapitre</h1>
-        <p><a href="<?= HOST; ?>">Retour à l'écran principal</a></p>
+        <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal</a></p>
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 

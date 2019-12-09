@@ -41,31 +41,25 @@ class PostsControl
                 if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
                 {
 
-                    // Définition des constantes
+                    // Define constants to verify uploaded file
                     $maxWeightFile = 2097152;
-                    $validExtensions = array('jpg', 'jpeg', 'png');
+                    $validExtensions = array('jpg', 'jpeg', 'png', 'gif');
                     $imageInfos = pathinfo($_FILES['image_chapter']['name']);
                     $uploadedExtension = $imageInfos['extension'];
-                    $imageName = $imageInfos['filename'];
                     $imageFile = '' . time() . '.' . $uploadedExtension;
 
                     $pathToUpload = ROOT . 'public/images/chapters/';
 
                     if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
                     {
-
-
                         if (in_array($uploadedExtension, $validExtensions)) 
                         {
-
-                            
                             $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
                             
                             if ($imageChapter)
-                            {
-                                
-                                $titleChapter = htmlspecialchars($_POST['author_post_title']);
-                                $contentChapter = htmlspecialchars($_POST['author_post_content']);
+                            {                               
+                                $titleChapter = $_POST['author_post_title'];
+                                $contentChapter = $_POST['author_post_content'];
                                 $newImageFile = $imageFile;
 
                                 $createContent = new \JForteroche\Blog\Model\PostManager();
@@ -98,7 +92,7 @@ class PostsControl
             }  
         }
         header('Location:' . HOST . 'admin/dashboard');
-        $_SESSION['success_upload'] = 'Votre photo a été transférée avec succès !';
+        $_SESSION['success_upload'] = 'Votre chapitre a été publié avec succès !';
     }
 
 

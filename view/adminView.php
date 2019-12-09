@@ -12,13 +12,13 @@
         <p>Voici la liste de vos derniers chapitres publiés.</p>
     </div>
 
-    
-    
+
+
     <div class="alert alert-danger container" role="alert">
         <i class="fas fa-bullhorn"></i>
-            Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>    
+        Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
     </div>
-     
+
 
 
     <div id="new_chapter" class="d-flex justify-content-center">
@@ -30,16 +30,22 @@
         <?php if (isset($posts)) : ?>
             <?php foreach ($posts as $post) : ?>
 
-                <div class="col">
-                    <div class="post_thumbnail">
-                        <h2 id="thumbail-title">
-                            <?= htmlspecialchars($post->getAuthor_post_title()); ?>
-                        </h2>
-                        <a href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a> |
-                        <a href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>">Supprimer</a> |
-                        <a href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
+                    <div class="post_thumbnail d-flex">
+                        <figure>
+                            <img id="admin-thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                        </figure>
+
+                        <div id="title-list">
+                            <h2 id="thumbail-title">
+                                <?= htmlspecialchars($post->getAuthor_post_title()); ?>
+                            </h2>
+
+                            <a href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a> |
+                            <a href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>">Supprimer</a> |
+                            <a href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
+
+                        </div>
                     </div>
-                </div>
             <?php endforeach; ?>
         <?php else : ?>
 

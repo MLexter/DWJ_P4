@@ -126,6 +126,10 @@ body {
     padding-bottom: 10px;
 }
 
+#image-post-chapter {
+    width: 300px;
+}
+
 .comment-row {
     min-height: 150px;
     border: 3px solid #dee2e6;
@@ -314,6 +318,10 @@ div#main-editView {
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+#admin-thumbnail-chapter_image {
+    width: 250px;
 }
 
 

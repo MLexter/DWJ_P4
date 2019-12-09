@@ -8,7 +8,7 @@
  <div id="main-postView">
      <div>
          <figure>
-             <img src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+             <img id="image-post-chapter" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
          </figure>
      </div>
      <h2>
@@ -55,7 +55,7 @@
          <?php endforeach; ?>
      <?php else : ?>
 
-         <div class="alert alert-dark" role="alert">'Pas de commentaire pour ce chapitre. Soyez le premier à laisser votre avis !'</div>
+         <div class="alert alert-dark container text-center" role="alert">Aucun commentaire pour ce chapitre. Soyez le premier à laisser votre avis !</div>
      <?php endif; ?>
  </div>
 
