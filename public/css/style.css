@@ -79,7 +79,7 @@ body {
 }
 
 
-/* ########## POSTS OVERALL ########## */
+/* ########## CHAPTERS OVERALL ########## */
 
 #main-listPosts {
     min-height: 81.1vh;
@@ -103,7 +103,7 @@ body {
     font-size: 16px;
 }
 
-/* ########## LAST POST ########## */
+/* ########## CHAPTER DETAIL ########## */
 
 #main-postView {
     height: auto;
@@ -118,10 +118,22 @@ body {
     padding-bottom: 10px;
 }
 
+.comment-row {
+    min-height: 150px;
+    border: 3px solid #dee2e6;
+    box-shadow: 1px 0px 6px -1.5px;
+}
+
 #comment-form_container {
     border: 1px solid grey;
     padding: 15px;
     margin: 50px auto;
+}
+
+#signalment-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
 .date_time_comment {
@@ -129,11 +141,11 @@ body {
 }
 
 
-/* ########## CREATE POST ########## */
+/* ########## CREATE CHAPTER ########## */
 
 
 
-/* ########## EDIT POST ########## */
+/* ########## EDIT CHAPTER ########## */
 
 div#main-editView {
     height: 87vh;
@@ -296,8 +308,30 @@ div#main-editView {
     padding: 20px;
 }
 
+
 /* ########## ADMIN MANAGE COMMENTS ########## */
 
 #main-comment-Manager {
     height: 87vh;
+}
+
+
+/* ########## ADMIN CONNEXION PAGE ########## */
+
+
+#connexion_container {
+    width: 30%;
+    min-height: 40%;
+    height: auto;
+    border: 2px solid;
+    padding: 20px;
+}
+
+label.connexion_labels {
+    font-size: 1.1em;
+}
+
+.table td, .table th {
+    vertical-align: unset;
+    border-top: unset;
 }

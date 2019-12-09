@@ -63,8 +63,15 @@ class CommentManager
         $deleteComment = $req->execute((array($ID_comment)));
 
         return $deleteComment;
+    }
 
-        
+    public function addCommentSignalment($ID_comment)
+    {
+        $db = $this->db;
+        $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
+        $req->execute(array(1, $ID_comment));
+
+
     }
 
 }

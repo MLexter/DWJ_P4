@@ -6,6 +6,11 @@
  </div>
 
  <div id="main-postView">
+     <!-- <div>
+         <figure>
+             <img src="#" name="image_chapter" alt="Illustration du chapitre">
+         </figure>
+     </div> -->
      <h2>
          <?= $post->getAuthor_post_title(); ?>
          <br />
@@ -25,19 +30,30 @@
      </div>
 
      <?php if (isset($comments)) : ?>
-        
-          <?php  foreach ($comments as $comment) : ?>
-             <div id="comment_box" class="container border-bottom">
-                 <h4> <?= $comment->getAuthor_comment() ?> </h4>
-                 <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
-                 <p> <?= $comment->getContent_comment() ?> </p>
-                 <a class="btn btn-danger" href="#">Signaler ce commentaire</a>
+
+         <?php foreach ($comments as $comment) : ?>
+             <div id="comment_box" class="container">
+                 <table class="table">
+                     <tr class="row comment-row">
+                         <td id="left-section-comment" class="col-md-3">
+                             <h4> <?= $comment->getAuthor_comment() ?> </h4>
+                             <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
+                         </td>
+                         <td id="comment-section" class="col-lg-9">
+                             <p> <?= $comment->getContent_comment() ?> </p>
+                             <div id="signalment-btn">
+                                 <a class="btn btn-danger" href="<?= HOST; ?>signal-comment&amp;comment=<?= $comment->getId_comment() ?>">Signaler ce commentaire</a>
+
+                             </div>
+                         </td>
+                     </tr>
+                 </table>
              </div>
-          <?php endforeach; ?>
-     <?php else : ?> 
-    
+         <?php endforeach; ?>
+     <?php else : ?>
+
          <div class="alert alert-dark" role="alert">'Pas de commentaire pour ce chapitre. Soyez le premier à laisser votre avis !'</div>
-          <?php endif; ?>
+     <?php endif; ?>
  </div>
 
 

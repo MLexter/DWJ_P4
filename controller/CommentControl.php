@@ -58,4 +58,12 @@ class CommentControl
             $viewToDisplay->renderView();
         }
     }
+
+    public function signalComment()
+    {
+        $comment_ID = htmlspecialchars($_GET['comment']);
+
+        $commentManager = new \JForteroche\Blog\Model\CommentManager();
+        $signalment = $commentManager->addCommentSignalment($comment_ID);
+    }
 }

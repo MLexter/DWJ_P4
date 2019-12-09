@@ -32,19 +32,19 @@ class AdminManager
 
             if (password_verify($password, $getAdminData['pass_admin'])) 
             {
-
+                
                 $_SESSION['isAdmin'] = true;
                 $_SESSION['user_admin'] = $ID_user;
 
             } else {
                 header('Location: ' . HOST . 'connexion');
-                $_SESSION['$error_login'] = 'Mot de passe incorrect.';
+                $_SESSION['$error_login'] = 'Le Mot de passe saisi est incorrect.';
                 exit();
             }
 
         } else {
             header('Location: ' . HOST . 'connexion');
-            $_SESSION['$error_login'] = 'Le nom d\'utilisateur est incorrect';
+            $_SESSION['$error_login'] = 'L\'identifiant saisi est incorrect';
             exit();
             
         }
