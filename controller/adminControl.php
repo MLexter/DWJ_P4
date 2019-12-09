@@ -1,6 +1,7 @@
 <?php
 
 require_once(MODEL . 'AdminManager.php');
+require_once(MODEL . 'CommentManager.php');
 
 
 class AdminControl
@@ -18,6 +19,9 @@ class AdminControl
 
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $posts = $postManager->getPosts();
+
+                
+
                 
                 $viewToDisplay = new ViewRenderer('adminView');
                 $viewToDisplay->renderView(array('posts' =>$posts)); 
@@ -70,5 +74,6 @@ class AdminControl
 
        header('Location: ' . HOST);
     }
+
 
 }

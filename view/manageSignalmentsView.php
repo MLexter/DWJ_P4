@@ -12,7 +12,7 @@
         <p>Utilisez les options à votre disposition pour les gérer.</p>
 
         <div class="container">
-            <!-- <a href="admin/delete-all-signalments">Effacer tous les commentaires de la liste</a> -->
+            <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
             <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
@@ -22,9 +22,9 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <?php
-                if (isset($signalmentList)) {
-                    foreach ($signalmentList as $signalment) { ?>
+
+                <?php if (isset($signalmentList)) : ?>
+                    <?php foreach ($signalmentList as $signalment) : ?>
                         <tbody>
                             <tr>
                                 <th scope="row"><?= $signalment->getId_comment(); ?></th>
@@ -33,9 +33,8 @@
                                 <td><a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $signalment->getId_comment(); ?>">Supprimer</a></td>
                             </tr>
                         </tbody>
-                <?php
-                    }
-                } ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </table>
         </div>
     </div>
