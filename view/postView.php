@@ -6,11 +6,11 @@
  </div>
 
  <div id="main-postView">
-     <!-- <div>
+     <div>
          <figure>
-             <img src="#" name="image_chapter" alt="Illustration du chapitre">
+             <img src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
          </figure>
-     </div> -->
+     </div>
      <h2>
          <?= $post->getAuthor_post_title(); ?>
          <br />
