@@ -12,6 +12,10 @@
         <p>Voici la liste de vos derniers chapitres publiés.</p>
     </div>
 
+    <div class="alert alert-danger container" role="alert">
+        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true">Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a></span>
+    </div>
+
     <div id="new_chapter" class="d-flex justify-content-center">
         <a class="btn btn-primary btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
@@ -20,14 +24,14 @@
 
         <?php if (isset($posts)) : ?>
             <?php foreach ($posts as $post) : ?>
-            
+
                 <div class="col">
                     <div class="post_thumbnail">
                         <h2 id="thumbail-title">
                             <?= htmlspecialchars($post->getAuthor_post_title()); ?>
                         </h2>
                         <a href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a> |
-                        <a href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>">Supprimer</a> | 
+                        <a href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>">Supprimer</a> |
                         <a href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
                     </div>
                 </div>

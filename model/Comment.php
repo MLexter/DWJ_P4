@@ -9,6 +9,7 @@ class Comment
     private $author_comment;
     private $content_comment;
     private $creation_date_comment;
+    private $signaledComment;
 
     
 
@@ -108,6 +109,26 @@ class Comment
     public function setId_comment($id_comment)
     {
         $this->id_comment = $id_comment;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of signaledComment
+     */ 
+    public function getSignaledComment()
+    {
+        return $this->signaledComment;
+    }
+
+    /**
+     * Set the value of signaledComment
+     *
+     * @return  self
+     */ 
+    public function setSignaledComment($signaledComment)
+    {
+        $this->signaledComment = $signaledComment;
 
         return $this;
     }

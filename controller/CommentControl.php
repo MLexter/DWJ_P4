@@ -66,4 +66,15 @@ class CommentControl
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
         $signalment = $commentManager->addCommentSignalment($comment_ID);
     }
+
+    public function manageSignalments()
+    {
+        $signaledComment = htmlspecialchars($_GET['signal-comment']);
+
+        $commentManager = new \JForteroche\Blog\Model\CommentManager();
+        $signalmentList = $commentManager->getAllSignalments($signaledComment);
+
+        $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+        $viewToDisplay->renderView(array('signalmentList' => $signalmentList));
+    }
 }
