@@ -13,10 +13,9 @@
         
             <div class="post_thumbnail d-flex">
                 <figure>
-                <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
-                <img id="thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
-            
-                </a>
+                    <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                        <img id="thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">           
+                    </a>
                 </figure>
 
                 <div id="content_text_thumbnail">

@@ -54,14 +54,12 @@ class CommentControl
             $commentManager = new \JForteroche\Blog\Model\CommentManager();
             $comment = $commentManager->deletePostComment($ID_post_comment);
 
-            $viewToDisplay = new ViewRenderer('manageCommentsView');
-            $viewToDisplay->renderView();
         }
     }
 
     public function signalComment()
     {
-        $comment_ID = htmlspecialchars($_GET['comment']);
+        $comment_ID = htmlspecialchars($_GET['comment']); 
 
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
         $signalment = $commentManager->addCommentSignalment($comment_ID);

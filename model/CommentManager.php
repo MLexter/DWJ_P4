@@ -74,6 +74,8 @@ class CommentManager
         $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
         $req->execute(array(1, $ID_comment));
 
+        
+
     }
 
     public function getAllSignalments()

@@ -11,7 +11,7 @@
              <img id="image-post-chapter" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
          </figure>
      </div>
-     <h2>
+     <h2 class="text-center">
          <?= $post->getAuthor_post_title(); ?>
          <br />
          <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
@@ -42,12 +42,10 @@
                          <td id="comment-section" class="col-lg-9">
                              <p> <?= $comment->getContent_comment() ?> </p>
 
+                             <button class="btn btn-danger" id="signalment-btn">
+                                 <a href="<?= HOST; ?>signal-comment&amp;comment=<?= $comment->getId_comment() ?>">Signaler ce commentaire</a>
 
-
-                             <div id="signalment-btn">
-                                 <a class="btn btn-danger" href="<?= HOST; ?>signal-comment&amp;comment=<?= $comment->getId_comment() ?>">Signaler ce commentaire</a>
-
-                             </div>
+                             </button>
                          </td>
                      </tr>
                  </table>
