@@ -8,7 +8,6 @@
     </div>
 
     <?php if (isset($posts)) : ?>
-
         <?php foreach ($posts as $post) : ?>
         
             <div class="post_thumbnail d-flex">
@@ -30,9 +29,9 @@
                             $dataContent = $post->getAuthor_post_content();
                             if (!empty($dataContent)) 
                             {
-                                if (strlen($dataContent) > 500) 
+                                if (strlen($dataContent) > 300) 
                                 {
-                                    $shorterContent = substr($dataContent, 0, 500);
+                                    $shorterContent = substr($dataContent, 0, 300);
                                     echo $shorterContent . '...';
                                 } else {
                                     echo $dataContent;
@@ -41,15 +40,15 @@
                             ?>
                     </p>
                     <br />
-                    <div class="d-flex justify-content-end">
-                        <button class="btn btn-info"><a id="readmore-link" class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Lire ce chapitre</a>
+                    <div class="d-flex justify-content-end">                       
+                            <a id="readmore-link" class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                                <button class="btn btn-info">Lire ce chapitre</button>
+                            </a>                   
                     </div>
                 </div>
             </div>
                 <?php endforeach; ?>
             <?php else : ?>
-</div>
-                        
-        <div class="alert alert-dark text-center" role="alert">Aucun chapitre à afficher !</div>
-                        
+</div>                
+                <div class="alert alert-dark text-center" role="alert">Aucun chapitre à afficher !</div>               
     <?php endif; ?>             

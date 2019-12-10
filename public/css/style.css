@@ -96,7 +96,8 @@ body {
 }
 
 #thumbnail-chapter_image {
-    min-height: 213px;
+    max-height: 300px;
+    max-width: 300px;
 }
 
 #content_text_thumbnail {
@@ -114,21 +115,25 @@ body {
 
 /* ########## CHAPTER DETAIL ########## */
 
-#main-postView {
+
+
+#chapter_content {
     height: auto;
-    width: 70%;
-    margin: auto;
-    border: 2px solid;
+    border-left: 2px solid;
     padding: 20px;
-    margin-bottom: 30px;
+    margin: 30px auto;
 }
 
 #comment_box{
     padding-bottom: 10px;
 }
 
-#image-post-chapter {
-    width: 300px;
+.img-fluid {
+    max-width: 60%;
+}
+
+#comment_part_title {
+    margin: 50px auto;
 }
 
 .comment-row {
@@ -149,7 +154,7 @@ body {
     bottom: 10px;
 }
 
-.signalment-link {
+.signalment_link {
     color: white;
 }
 
