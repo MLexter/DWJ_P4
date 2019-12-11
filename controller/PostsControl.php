@@ -37,6 +37,11 @@ class PostsControl
         {
             if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
             {
+                $titleChapter = $_POST['author_post_title'];
+                $_SESSION['author_post_title'] = $titleChapter;
+
+                $contentChapter = $_POST['author_post_content'];
+                $_SESSION['author_post_content'] = $contentChapter;
 
                 if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
                 {
@@ -57,11 +62,8 @@ class PostsControl
                             $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
                             
                             if ($imageChapter)
-                            {                               
-                                $titleChapter = $_POST['author_post_title'];
-                                $contentChapter = $_POST['author_post_content'];
+                            {                                                              
                                 $newImageFile = $imageFile;
-
                                 $createContent = new \JForteroche\Blog\Model\PostManager();
                                 $newEntry = $createContent->newPost($titleChapter, $contentChapter, $newImageFile);
                             }
