@@ -12,10 +12,12 @@
         <form action="<?= HOST; ?>admin/create-valid" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="post-title" ><h3>Titre du chapitre :</h3></label>
-                <input type="text" name="author_post_title" />
+                <input type="text" name="author_post_title" value="<?php if (isset($_POST['author_post_title'])) echo $_POST['author_post_title']; ?>" />
                 <br />
                 <label for="chapter-content"><h3>Contenu du chapitre:</h3></label>
-                <textarea id="authorPostContent" name="author_post_content"></textarea>
+                <textarea id="authorPostContent" name="author_post_content">
+                <?php if (isset($_POST['author_post_content'])) echo $_POST['author_post_content']; ?>
+                </textarea>
                 <label for="image_post">Ajouter une image :</label>
                 <input type="file" name="image_chapter" />
             </div>
@@ -27,9 +29,9 @@
             </div>
         </form>
 
-        <?php if (isset($_SESSION['error_upload'])) : ?>
             <div class="alert alert-warning" role="alert"><?= $_SESSION['error_upload']; ?> </div>
-        <?php endif; ?>
+
+
 
     </div>
 </div>

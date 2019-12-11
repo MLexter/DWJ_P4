@@ -24,8 +24,6 @@ class AdminManager
         $req = $db->prepare('SELECT `username`, `pass_admin` FROM `admin`');
         $req->execute();
         $getAdminData = $req->fetch();
-
-
         
         if ($ID_user == $getAdminData['username']) 
         {
@@ -38,13 +36,12 @@ class AdminManager
 
             } else {
                 header('Location: ' . HOST . 'connexion');
-                $_SESSION['$error_login'] = 'Le Mot de passe saisi est incorrect.';
                 exit();
             }
 
         } else {
             header('Location: ' . HOST . 'connexion');
-            $_SESSION['$error_login'] = 'L\'identifiant saisi est incorrect';
+            $_SESSION['$error_login'] = 'Saisie incorrecte. Veuillez réessayer.';
             exit();
             
         }

@@ -60,9 +60,11 @@ class CommentControl
     public function signalComment()
     {
         $comment_ID = htmlspecialchars($_GET['comment']); 
-
+print_r($_POST); die();
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
         $signalment = $commentManager->addCommentSignalment($comment_ID);
+
+        header('Location: ' . HOST . '');
 
     }
 
@@ -86,8 +88,7 @@ class CommentControl
             $commentManager = new \JForteroche\Blog\Model\CommentManager();
             $comment = $commentManager->deletePostComment($ID_post_comment);
 
-            $viewToDisplay = new ViewRenderer('manageSignalmentsView');
-            $viewToDisplay->renderView();
+            header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
         }
     }
 
