@@ -79,11 +79,11 @@ class PostManager
         return $chapter;
     }
 
-    public function updatePost($postId, $author_post_title, $author_post_content)
+    public function updatePost($postId, $author_post_title, $author_post_content, $newImageFile)
     {
         $db = $this->db;
-        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW() WHERE ID_post = ?');
-        $updatedPost = $req->execute(array($author_post_title, $author_post_content, $postId));
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW(), image_chapter = ? WHERE ID_post = ?');
+        $updatedPost = $req->execute(array($author_post_title, $author_post_content, $newImageFile, $postId));
 
         return $updatedPost;
     }

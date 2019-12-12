@@ -13,12 +13,16 @@
     </div>
 
 
+    <?php if ($_SESSION['comSignaled'] == true) : ?>
+        <div class="alert alert-danger container" role="alert">
+            <i class="fas fa-bullhorn"></i>
+            Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
+        </div>
+    <?php endif; ?>
 
-    <div class="alert alert-danger container" role="alert">
-        <i class="fas fa-bullhorn"></i>
-        Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
-    </div>
-
+    <?php if ($_SESSION['success'] == 1) : ?>
+            <div class="alert alert-success container" role="alert"><i class="fas fa-check"></i><?= $_SESSION['success_upload']; ?> </div>
+    <?php endif; ?>
 
 
     <div id="new_chapter" class="d-flex justify-content-center">
