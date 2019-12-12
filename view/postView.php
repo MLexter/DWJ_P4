@@ -32,6 +32,12 @@
              <p>N'hésitez pas à donner votre avis sur ce chapitre en postant un commentaire !</p>
          </div>
 
+         <?php if (!empty($_SESSION['isAdmin']) AND $_SESSION['isAdmin']== true) : ?>
+                                <div id="comment_management_link" class="d-flex justify-content-center">
+                                    <a id="remove_comment_link" class="btn btn-warning text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
+                                </div>
+                             <?php endif; ?>
+
          <?php if (isset($comments)) : ?>
 
              <?php foreach ($comments as $comment) : ?>
@@ -40,6 +46,8 @@
                      <table class="table">
                          <tr class="row comment-row">
 
+                             
+
                              <td id="left-section-comment" class="col-md-3">
                                  <h4> <?= $comment->getAuthor_comment() ?> </h4>
                                  <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
@@ -47,9 +55,16 @@
 
                              <td id="comment-section" class="col-lg-9">
                                  <p> <?= $comment->getContent_comment() ?> </p>
-                                     <a class="signalment_link text-decoration-none" href="<?= HOST; ?>signal-comment&amp;comment=<?= $comment->getId_comment() ?>">
-                                        <button class="btn btn-danger" id="signalment-btn">Signaler</button>
-                                     </a>
+
+                                    <?php if ($comment->getSignaledComment() == 0) : ?>
+                                        <a class="btn btn-danger signalment-btn signalment_link text-decoration-none" href="<?= HOST; ?>signal-comment&amp;comment=<?= $comment->getId_comment() ?>&amp;id=<?= $post->getPostId() ?>">
+                                            Signaler
+                                        </a>
+                                    <?php else : ?>
+                                        <button class="btn btn-secondary signalment-btn signalment_link disabled" tabindex="-1" role="button" aria-disabled="true">Déjà signalé
+                                    </button>
+                                    <?php endif; ?>
+                                        
                              </td>
                          </tr>
                      </table>

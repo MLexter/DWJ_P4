@@ -24,6 +24,7 @@ class Router
         "admin/manage-comments" =>          ["controller" => 'CommentControl', "method" => 'manageComments'],                               
         "admin/manage-signalments" =>       ["controller" => 'CommentControl', "method" => 'manageSignalments'],
         "admin/delete-signaled-comment" =>  ["controller" => 'CommentControl', "method" => 'deleteSignaledComment'],
+        "admin/cancel-signalment" =>        ["controller" => 'CommentControl', "method" => 'cancelSignalment'],
         "admin/delete-all-signalments" =>   ["controller" => 'CommentControl', "method" => 'deleteAllSignalments'],   
         "admin/delete-comment" =>           ["controller" => 'CommentControl', "method" => 'deleteComment'],
         "admin/connexion" =>                ["controller" => 'AdminControl', "method" => 'verifyConnexionInfos'],

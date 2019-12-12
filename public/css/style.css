@@ -148,7 +148,7 @@ body {
     margin: 50px auto;
 }
 
-#signalment-btn {
+.signalment-btn {
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -162,6 +162,10 @@ body {
     font-size: 14px;
 }
 
+div#comment_management_link {
+    margin: 20px auto;
+}
+
 
 /* ########## CREATE CHAPTER ########## */
 
@@ -169,9 +173,6 @@ body {
 
 /* ########## EDIT CHAPTER ########## */
 
-div#main-editView {
-    height: 87vh;
-}
 
 #authorPostContent {
     width: 60%;

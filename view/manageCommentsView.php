@@ -14,7 +14,9 @@
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Auteur du commentaire</th>
+                        <th scope="col">Date/Heure</th>
                         <th scope="col">Commentaire</th>
+                        <th scope="col">Signalement</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -25,7 +27,9 @@
                             <tr>
                                 <th scope="row"><?= $comment->getId_comment(); ?></th>
                                 <td><?= $comment->getAuthor_comment(); ?></td>
+                                <td><?= $comment->getCreation_date_comment(); ?></td>
                                 <td><?= $comment->getContent_comment(); ?></td>
+                                <td><?php if ($comment->getSignaledComment() > 0) { echo 'Oui'; } else { echo 'Non'; } ?></td>
                                 <td><a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $comment->getId_comment(); ?>">Supprimer</a></td>
                             </tr>
                         </tbody>

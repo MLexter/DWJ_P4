@@ -23,14 +23,18 @@
             </div>
             <div>
                 <button>
-                    <a href="<?= HOST; ?>admin">Annuler</a>
+                    <a href="<?= HOST; ?>admin/dashboard">Annuler</a>
                 </button> 
                 <input type="submit" value="Poster ce chapitre" />
             </div>
         </form>
-
+        <?php if (isset($_SESSION['error_upload'])) : ?>
             <div class="alert alert-warning" role="alert"><?= $_SESSION['error_upload']; ?> </div>
+        <?php endif; ?>
 
+        <?php if (isset($_SESSION['success_upload'])) : ?>
+            <div class="alert alert-success" role="alert"><?= $_SESSION['success_upload']; ?> </div>
+        <?php endif; ?>
 
 
     </div>

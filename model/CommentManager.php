@@ -68,11 +68,11 @@ class CommentManager
 
     }
 
-    public function addCommentSignalment($ID_comment)
+    public function addCommentSignalment($ID_comment, $ID_chapter)
     {
         $db = $this->db;
-        $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
-        $req->execute(array(1, $ID_comment));
+        $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ? AND id_chapter = ?');
+        $req->execute(array(1, $ID_comment, $ID_chapter));
 
 
     }
@@ -80,7 +80,7 @@ class CommentManager
     public function getAllSignalments()
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signal_comment FROM comments WHERE signal_comment = 1');
+        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, id_chapter, signal_comment FROM comments WHERE signal_comment = 1');
         $req->execute(array());
 
         while ($retrieveSignalments = $req->fetch(PDO::FETCH_ASSOC)) 
@@ -90,6 +90,7 @@ class CommentManager
             $commentData->setAuthor_comment($retrieveSignalments['author_comment']);
             $commentData->setContent_comment($retrieveSignalments['comment_content']);
             $commentData->setCreation_date_comment($retrieveSignalments['comment_date_fr']);
+            $commentData->setID_chapter($retrieveSignalments['id_chapter']);
             $commentData->setSignaledComment($retrieveSignalments['signal_comment']);
             
             $commentsData[] = $commentData;
@@ -100,6 +101,16 @@ class CommentManager
             {
                 return $commentsData;
             }
+    }
+
+    public function removeSignalment($ID_comment)
+    {
+        $db = $this->db;
+        $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
+
+        $req->execute(array(0, $ID_comment));
+
+        
     }
 
 

@@ -18,7 +18,10 @@
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Auteur du commentaire</th>
+                        <th scope="col">Date/Heure</th>
                         <th scope="col">Commentaire</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -29,8 +32,14 @@
                             <tr>
                                 <th scope="row"><?= $signalment->getId_comment(); ?></th>
                                 <td><?= $signalment->getAuthor_comment(); ?></td>
+                                <td><?= $signalment->getCreation_date_comment(); ?></td>
                                 <td><?= $signalment->getContent_comment(); ?></td>
+                                    <td>
+                                        <a href="<?= HOST . 'readBook&amp;id=' .$signalment->getID_chapter(); ?>">Voir le chapitre
+                                        </a>
+                                    </td>
                                 <td><a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>">Supprimer</a></td>
+                                <td><a href="<?= HOST; ?>admin/cancel-signalment&amp;id=<?= $signalment->getId_comment(); ?>">Retirer le signalement</a></td>
                             </tr>
                         </tbody>
                     <?php endforeach; ?>

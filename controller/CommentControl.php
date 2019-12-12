@@ -1,6 +1,7 @@
 <?php
 
 require_once(MODEL . 'CommentManager.php');
+require_once(MODEL . 'PostManager.php');
 
 
 class CommentControl
@@ -53,6 +54,7 @@ class CommentControl
             $ID_post_comment = $_GET['id'];
             $commentManager = new \JForteroche\Blog\Model\CommentManager();
             $comment = $commentManager->deletePostComment($ID_post_comment);
+            header('Location: ' . HOST . 'admin/manage-comments');
 
         }
     }
@@ -60,17 +62,18 @@ class CommentControl
     public function signalComment()
     {
         $comment_ID = htmlspecialchars($_GET['comment']); 
-print_r($_POST); die();
-        $commentManager = new \JForteroche\Blog\Model\CommentManager();
-        $signalment = $commentManager->addCommentSignalment($comment_ID);
+        $ID_chapter = ($_GET['id']);
 
-        header('Location: ' . HOST . '');
+        $commentManager = new \JForteroche\Blog\Model\CommentManager();
+        $signalment = $commentManager->addCommentSignalment($comment_ID, $ID_chapter);
+
+        header('Location: ' . HOST . 'readBook&id=' . $ID_chapter);
 
     }
 
     public function manageSignalments()
     {
-    
+        
             $commentManager = new \JForteroche\Blog\Model\CommentManager();
             $signalmentList = $commentManager->getAllSignalments();
     
@@ -90,6 +93,16 @@ print_r($_POST); die();
 
             header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
         }
+    }
+
+    public function cancelSignalment()
+    {
+        $ID_comment = htmlspecialchars($_GET['id']);
+
+        $commentManager = new \JForteroche\Blog\Model\CommentManager();
+        $removeSignalment = $commentManager->removeSignalment($ID_comment);
+
+        header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
     }
 
     public function deleteAllSignalments()

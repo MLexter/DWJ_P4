@@ -93,7 +93,7 @@ class PostsControl
                 exit();
             }  
         }
-        header('Location:' . HOST . 'admin/dashboard');
+        header('Location:' . HOST . 'admin/create');
         $_SESSION['success_upload'] = 'Votre chapitre a été publié avec succès !';
     }
 
