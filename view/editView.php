@@ -11,10 +11,21 @@
         <form action="<?= HOST; ?>admin/post-update" method="POST" enctype="multipart/form-data">
             <div>
                 <input type="hidden" name="postId" value="<?= $post->getPostId(); ?>">
-                <label for="post-title" ><h3>Titre du chapitre :</h3></label><br />
+                <label for="post-title">
+                    <h3>Titre du chapitre :</h3>
+                </label><br />
                 <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
                 <br />
-                <label for="chapter-content"><h3>Contenu du chapitre:</h3></label>
+                <label for="chapter-content">
+                    <h3>Contenu du chapitre:</h3>
+                </label>
+
+                <div id="illustration-chapter">
+                    <figure>
+                        <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                    </figure>
+                </div>
+
                 <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
                 <label for="image_post">Ajouter une image :</label>
                 <input type="file" name="image_chapter" />
@@ -22,11 +33,9 @@
             <div>
                 <button>
                     <a href="<?= HOST; ?>book">Annuler</a>
-                </button> 
+                </button>
                 <input type="submit" value="Modifier" />
             </div>
         </form>
     </div>
 </div>
-
-

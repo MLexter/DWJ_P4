@@ -83,24 +83,33 @@ class CommentManager
         $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, id_chapter, signal_comment FROM comments WHERE signal_comment = 1');
         $req->execute(array());
 
-        while ($retrieveSignalments = $req->fetch(PDO::FETCH_ASSOC)) 
+        if ($req->rowCount() == 0) 
         {
-            $commentData = new Comment();
-            $commentData->setId_comment($retrieveSignalments['ID_comment']);
-            $commentData->setAuthor_comment($retrieveSignalments['author_comment']);
-            $commentData->setContent_comment($retrieveSignalments['comment_content']);
-            $commentData->setCreation_date_comment($retrieveSignalments['comment_date_fr']);
-            $commentData->setID_chapter($retrieveSignalments['id_chapter']);
-            $commentData->setSignaledComment($retrieveSignalments['signal_comment']);
+            $_SESSION['comSignaled'] = false;
+
+        } else {
             
-            $commentsData[] = $commentData;
-            
-        }
-            
-            if (isset($commentsData))
+            $_SESSION['comSignaled'] = true;
+            while ($retrieveSignalments = $req->fetch(PDO::FETCH_ASSOC)) 
             {
-                return $commentsData;
+                $commentData = new Comment();
+                $commentData->setId_comment($retrieveSignalments['ID_comment']);
+                $commentData->setAuthor_comment($retrieveSignalments['author_comment']);
+                $commentData->setContent_comment($retrieveSignalments['comment_content']);
+                $commentData->setCreation_date_comment($retrieveSignalments['comment_date_fr']);
+                $commentData->setID_chapter($retrieveSignalments['id_chapter']);
+                $commentData->setSignaledComment($retrieveSignalments['signal_comment']);
+                
+                $commentsData[] = $commentData;
+                
             }
+                
+                if (isset($commentsData))
+                {
+                    return $commentsData;
+                }
+        }
+
     }
 
     public function removeSignalment($ID_comment)

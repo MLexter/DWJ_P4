@@ -1,14 +1,9 @@
 <?php
 
 require_once(MODEL . 'AdminManager.php');
-require_once(MODEL . 'CommentManager.php');
-
 
 class AdminControl
-{
-    private $username;
-    private $password;
-    
+{    
 
     public function showMainAdmin()
     {       
@@ -19,7 +14,10 @@ class AdminControl
 
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $posts = $postManager->getPosts();
-                
+
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $signalments = $commentManager->getAllSignalments(); 
+       
                 $viewToDisplay = new ViewRenderer('adminView');
                 $viewToDisplay->renderView(array('posts' =>$posts)); 
             }

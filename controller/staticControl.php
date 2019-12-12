@@ -35,7 +35,15 @@ class StaticControl
 
     public function showCreateChapter()
         {
-        
+        if ($_SESSION['success'] == 1)
+        {
+
+            $_SESSION['author_post_title'] = "";
+            $_SESSION['author_post_content'] = "";
+            $_SESSION['success'] = "";
+            
+        }
+
         $viewToDisplay = new ViewRenderer('createPostView');
         $viewToDisplay->renderView();
     }
