@@ -40,7 +40,6 @@ class AdminControl
                     $connexion = new \JForteroche\Blog\Model\AdminManager();
                     $checkValues = $connexion->connexionChecks($ID_user, $password);
                 
-
                     if ($_SESSION['isAdmin'] = true)
                     {
                         header('Location: ' . HOST . 'admin/dashboard');                  
