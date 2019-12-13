@@ -4,7 +4,7 @@
 <div id="main-contact" class="d-flex align-items-center">
 
 <div " class="container">
-    <h2 class="text-center">Envoyer un message à l'auteur</h2>
+    <h1 class="text-center">Envoyer un message à l'auteur</h1>
     <p class="text-center">Une question ? Une idée ? Une remarque ? Faites parvenir un message à l'auteur !</p>
     <br />
     <p class="text-center">Remplissez le formulaire ci-dessous pour envoyer un message à Jean Forteroche.</p>
@@ -14,7 +14,7 @@
         <form id="form_container" class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <input id="first_name" type="text" class="validate">
               <label for="first_name">Prénom</label>
             </div>
             <div class="input-field col s6">
