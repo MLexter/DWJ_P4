@@ -31,13 +31,11 @@
         
             
 
-        <?php if (@$_SESSION['success'] == 1) : ?>
-            <div class="alert alert-success" role="alert"><?= @$_SESSION['success_upload']; ?> </div>
-            <?php elseif (@$_SESSION['success'] == 0) : ?>
+        <?php if (@$_SESSION['success'] == 0) : ?>
                 <?php if (@$_SESSION['error_upload'] !== null) : ?>
                     <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
                 <?php endif; ?>
-        <?php endif; ?>
+            <?php endif; ?>
 
 
     </div>

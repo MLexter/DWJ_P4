@@ -33,8 +33,15 @@ class PostsControl
 
     public function createChapter()
     {
+
+        $_SESSION['author_post_title'] = "";
+        $_SESSION['author_post_content'] = "";
+
+        
         if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
         {
+            
+
             if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
             {
                 $titleChapter = $_POST['author_post_title'];
@@ -69,7 +76,8 @@ class PostsControl
 
                                 $_SESSION['success'] = 1;
                                 $_SESSION['success_upload'] = 'Votre chapitre a été publié avec succès !';
-
+                                $_SESSION['author_post_title'] = "";
+                                $_SESSION['author_post_content'] = "";
                                 header('Location: ' . HOST . 'admin/dashboard');
 
                             }
