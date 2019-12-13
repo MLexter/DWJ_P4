@@ -14,7 +14,7 @@
                 <label for="post-title">
                     <h3>Titre du chapitre :</h3>
                 </label><br />
-                <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
+                <input type="text" name="author_post_title" value="<?php if(isset($_SESSION['author_post_title'])) { echo $_SESSION['author_post_title']; }; ?>" required>
                 <br />
                 <label for="chapter-content">
                     <h3>Contenu du chapitre:</h3>
@@ -26,7 +26,7 @@
                     </figure>
                 </div>
 
-                <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
+                <textarea id="authorPostContent" name="author_post_content" required><?php if(isset($_SESSION['author_post_content'])) { echo $_SESSION['author_post_content']; }; ?></textarea>
                 <label for="image_post">Ajouter une image :</label>
                 <input type="file" name="image_chapter" />
             </div>
@@ -37,5 +37,14 @@
                 <input type="submit" value="Modifier" />
             </div>
         </form>
+
+        <?php if ($_SESSION['success'] == 1) : ?>
+            <div class="alert alert-success" role="alert"><?= $_SESSION['success_upload']; ?> </div>
+            <?php elseif ($_SESSION['success'] == 0) : ?>
+                <?php if ($_SESSION['error_upload'] !== null) : ?>
+                    <div class="alert alert-warning" role="alert"><?= $_SESSION['error_upload']; ?> </div>
+                <?php endif; ?>
+        <?php endif; ?>
+
     </div>
 </div>

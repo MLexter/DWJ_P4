@@ -33,15 +33,18 @@ class PostsControl
 
     public function createChapter()
     {
-        if (isset($_POST['author_post_title'], $_POST['author_post_content'])) {
-            if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) {
+        if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
+        {
+            if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
+            {
                 $titleChapter = $_POST['author_post_title'];
                 $_SESSION['author_post_title'] = $titleChapter;
 
                 $contentChapter = $_POST['author_post_content'];
                 $_SESSION['author_post_content'] = $contentChapter;
 
-                if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) {
+                if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
+                {
 
                     // Define constants to verify uploaded file
                     $maxWeightFile = 2097152;
@@ -52,11 +55,14 @@ class PostsControl
 
                     $pathToUpload = ROOT . 'public/images/chapters/';
 
-                    if ($_FILES['image_chapter']['size'] <= $maxWeightFile) {
-                        if (in_array($uploadedExtension, $validExtensions)) {
+                    if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
+                    {
+                        if (in_array($uploadedExtension, $validExtensions)) 
+                        {
                             $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
 
-                            if ($imageChapter) {
+                            if ($imageChapter) 
+                            {
                                 $newImageFile = $imageFile;
                                 $createContent = new \JForteroche\Blog\Model\PostManager();
                                 $newEntry = $createContent->newPost($titleChapter, $contentChapter, $newImageFile);
@@ -135,30 +141,30 @@ class PostsControl
 
                                 $_SESSION['success'] = 1;
                                 $_SESSION['success_upload'] = 'Votre chapitre a été modifié avec succès !';
-                                header('Location:' . HOST . 'readBook&amp;id=' . $_SESSION['id_chapter']);
+                                header('Location:' . HOST . 'admin/dashboard');
                             }
 
                         } else {
                             $_SESSION['success'] = 0;
-                            header('Location: ' . HOST . 'admin/edit-post&amp;id=' . $_SESSION['id_chapter']);
+                            header('Location: ' . $_SERVER['HTTP_REFERER']);
                             $_SESSION['error_upload'] = 'Votre photo doit être au format jpg, jpeg ou png.';
                             exit();
                         }
                     } else {
                         $_SESSION['success'] = 0;
-                        header('Location: ' . HOST . 'admin/edit-post&amp;id=' . $_SESSION['id_chapter']);
+                        header('Location: ' . $_SERVER['HTTP_REFERER']);
                         $_SESSION['error_upload'] = 'Votre photo ne doit pas dépaser 2Mo.';
                         exit();
                     }
                 } else {
                     $_SESSION['success'] = 0;
-                    header('Location: ' . HOST . 'admin/edit-post&amp;id=' . $_SESSION['id_chapter']);
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
                     $_SESSION['error_upload'] = 'Vous devez sélectionner une image à joindre à votre chapitre.';
                     exit();
                 }
             } else {
                 $_SESSION['success'] = 0;
-                header('Location: ' . HOST . 'admin/edit-post&amp;id=' . $_SESSION['id_chapter']);
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
                 $_SESSION['error_upload'] = 'Vous devez donner un titre, un contenu et une image à votre chapitre.';
                 exit();
             }
