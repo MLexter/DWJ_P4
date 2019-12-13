@@ -12,6 +12,10 @@
         <p>Voici la liste de vos derniers chapitres publiés.</p>
     </div>
 
+    <?php if (@$_SESSION['success'] == 1) : ?>
+            <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= $_SESSION['success_upload']; ?> </div>
+            <?php @$_SESSION['success'] = 0; ?>
+    <?php endif; ?>
 
     <?php if ($_SESSION['comSignaled'] == true) : ?>
         <div class="alert alert-danger container text-center" role="alert">
@@ -21,9 +25,6 @@
         </div>
     <?php endif; ?>
 
-    <?php if (@$_SESSION['success'] == 1) : ?>
-            <div class="alert alert-success container" role="alert"><i class="fas fa-check"></i><?= $_SESSION['success_upload']; ?> </div>
-    <?php endif; ?>
 
 
     <div id="new_chapter" class="d-flex justify-content-center">

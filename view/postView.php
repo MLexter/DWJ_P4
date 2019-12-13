@@ -6,6 +6,13 @@
          <h1>Billet simple pour l'Alaska</h1>
          <p><a href="<?= HOST; ?>book">Retour à la liste des dernières lectures</a></p>
      </div>
+
+     <?php if (!empty($_SESSION['isAdmin']) AND $_SESSION['isAdmin']== true) : ?>
+                                <div id="comment_management_link" class="d-flex justify-content-center">
+                                    <a id="remove_comment_link" class="btn btn-warning text-center" href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
+                                </div>
+     <?php endif; ?>
+
      <div id="chapter_content">
          <div id="illustration-chapter">
              <figure>
