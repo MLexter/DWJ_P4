@@ -62,7 +62,7 @@ class AdminControl
        $_SESSION = array();
        session_destroy();
 
-       header('Location: ' . HOST);
+       header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
 
