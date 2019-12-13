@@ -302,6 +302,15 @@ div#comment_management_link {
     font-style: italic;
 }
 
+
+/* ########## CONTACT ########## */
+
+
+#main-contact {
+    height: 87vh;
+}
+
+
 /* ########## CONNEXION PAGE ########## */
 
 #main-connexion-screen {

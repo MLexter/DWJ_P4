@@ -35,9 +35,15 @@ class StaticControl
 
     public function showCreateChapter()
     {
+        
         $viewToDisplay = new ViewRenderer('createPostView');
         $viewToDisplay->renderView();
     }
     
+    public function showContactView()
+    {
+        $viewToDisplay = new ViewRenderer('contactView');
+        $viewToDisplay->renderView();
+    }
 
 }
