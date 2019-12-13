@@ -74,6 +74,12 @@ class CommentManager
         $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ? AND id_chapter = ?');
         $req->execute(array(1, $ID_comment, $ID_chapter));
 
+        if ($req)
+        {
+            @$_SESSION['comment_signalment'] = true;
+        } else {
+            @$_SESSION['comment_signalment'] = false;
+        }
 
     }
 

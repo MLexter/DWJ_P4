@@ -13,24 +13,26 @@
 
         <div class="container">
 
-            <?php if (!empty($signalmentList)) : ?>
-                <?php foreach ($signalmentList as $signalment) : ?>
+            
+            <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
+            
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Auteur du commentaire</th>
+                        <th scope="col">Date/Heure</th>
+                        <th scope="col">Commentaire</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
 
-                    <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
-                    
-                    <table class="table table-hover">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">#ID</th>
-                                <th scope="col">Auteur du commentaire</th>
-                                <th scope="col">Date/Heure</th>
-                                <th scope="col">Commentaire</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <?php if (!empty($signalmentList)) : ?>
+                    <?php foreach ($signalmentList as $signalment) : ?>
+
+                <tbody>
                             <tr>
                                 <th scope="row"><?= $signalment->getId_comment(); ?></th>
                                 <td><?= $signalment->getAuthor_comment(); ?></td>
@@ -47,10 +49,10 @@
             <?php else : ?>
 
                 <div class="alert alert-info" role="alert">Il n'y a pas de commentaires signalés.</div>
-                
+
             <?php endif; ?>
 
-                    </table>
+            </table>
         </div>
     </div>
 </div>

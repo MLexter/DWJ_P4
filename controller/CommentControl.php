@@ -10,37 +10,51 @@ class CommentControl
 
     function postComment()
     {
-        if (isset($_POST['submit_comment'])) {
+        
             if (isset($_POST['comment_author'], $_POST['comment_content']) AND !empty($_POST['comment_author']) AND !empty($_POST['comment_content']))
-             {  
+            {  
                 $ID_chapter = htmlspecialchars($_GET['id']);
                 $author_comment = htmlspecialchars($_POST['comment_author']);
                 $content_comment = htmlspecialchars($_POST['comment_content']);
+                $_SESSION['comment_success'] = null;
+                
 
-                if (strlen($author_comment) < 30) {
+                if (strlen($author_comment) < 30) 
+                {
+
                     $commentManager = new \JForteroche\Blog\Model\CommentManager();
                     $newComment = $commentManager->createComment($ID_chapter, $author_comment, $content_comment);
+
+                    header('Location: '. HOST . 'readBook&id=' . $_GET['id']);
+                    $_SESSION['comment_success'] = true;
+
                 } else {
-                    $comment_error_message = 'Votre pseudo doit faire moins de 30 caractères.';
+
+                    $_SESSION['comment_error_message'] = 'Votre pseudo doit faire moins de 30 caractères.';
                 }
-                if ($newComment === false) {
-                    throw new Exception('Impossible d\'ajouter le commentaire !');
+
+                if ($newComment === false) 
+                {
+                    throw new Exception($_SESSION['comment_error_message'] = 'Impossible d\'ajouter le commentaire !');
                 }   
-            }
-        } else {
-            $comment_error_message = 'Veuillez compléter tous les champs pour poster un commentaire.';
+            
+
+            } else {
+
+                $_SESSION['comment_error_message'] = 'Veuillez compléter tous les champs pour poster un commentaire.';
+
         }
-        header('Location: '. HOST . 'readBook&id=' . $_GET['id']);
+        
     }
 
     public function manageComments()
     {
         if (isset($_GET['id'])) 
         {         
-        $ID_chapitre = htmlspecialchars($_GET['id']);
+        $_SESSION['ID_chapitre'] = htmlspecialchars($_GET['id']);
 
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
-        $comments = $commentManager->getComments($ID_chapitre);
+        $comments = $commentManager->getComments($_SESSION['ID_chapitre']);
 
         $viewToDisplay = new ViewRenderer('manageCommentsView');
         $viewToDisplay->renderView(array('comments' => $comments));
@@ -54,7 +68,7 @@ class CommentControl
             $ID_post_comment = $_GET['id'];
             $commentManager = new \JForteroche\Blog\Model\CommentManager();
             $comment = $commentManager->deletePostComment($ID_post_comment);
-            header('Location: ' . HOST . 'admin/manage-comments');
+            header('Location: ' . HOST . 'admin/manage-comments&id=' . $_SESSION['ID_chapitre']);
 
         }
     }
@@ -63,10 +77,12 @@ class CommentControl
     {
         $comment_ID = htmlspecialchars($_GET['comment']); 
         $ID_chapter = ($_GET['id']);
+        @$_SESSION['comment_signalment'] = false;
 
         $commentManager = new \JForteroche\Blog\Model\CommentManager();
         $signalment = $commentManager->addCommentSignalment($comment_ID, $ID_chapter);
 
+        $_SESSION['signal_message'] = 'Le commentaire a bien été signalé et sera traité par l\'administrateur du site.';
         header('Location: ' . HOST . 'readBook&id=' . $ID_chapter);
 
     }

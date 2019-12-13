@@ -20,22 +20,26 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <?php
-                if (isset($comments)) {
-                    foreach ($comments as $comment) { ?>
+                
+                <?php if (!empty($comments)) : ?>
+                  <?php foreach ($comments as $comment) : ?>
                         <tbody>
                             <tr>
                                 <th scope="row"><?= $comment->getId_comment(); ?></th>
                                 <td><?= $comment->getAuthor_comment(); ?></td>
                                 <td><?= $comment->getCreation_date_comment(); ?></td>
                                 <td><?= $comment->getContent_comment(); ?></td>
-                                <td><?php if ($comment->getSignaledComment() > 0) { echo 'Oui'; } else { echo 'Non'; } ?></td>
+                                <td><?php if ($comment->getSignaledComment() > 0) { echo '<i class="fas fa-flag" alt="Commentaire signalé"></i>'; } else { echo ''; } ?></td>
                                 <td><a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $comment->getId_comment(); ?>">Supprimer</a></td>
                             </tr>
                         </tbody>
-                <?php
-                    }
-                } ?>
+                  <?php endforeach; ?>
+
+                <?php else : ?>
+
+                    <div class="alert alert-info" role="alert">Il n'y a pas de commentaires pour ce chapitre.</div>
+
+                <?php endif; ?>
             </table>
         </div>
     </div>

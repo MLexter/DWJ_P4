@@ -14,9 +14,10 @@
 
 
     <?php if ($_SESSION['comSignaled'] == true) : ?>
-        <div class="alert alert-danger container" role="alert">
+        <div class="alert alert-danger container text-center" role="alert">
             <i class="fas fa-bullhorn"></i>
-            Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
+            Des commentaires ont été signalés dans vos chapitres. <br />
+            Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
         </div>
     <?php endif; ?>
 
