@@ -36,7 +36,18 @@
                                 <div id="comment_management_link" class="d-flex justify-content-center">
                                     <a id="remove_comment_link" class="btn btn-warning text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
                                 </div>
-                             <?php endif; ?>
+         <?php endif; ?>
+
+         <?php if (@$_SESSION['comment_success'] == true) : ?>
+
+            <div class="alert alert-success container" role="alert"><i class="fas fa-check"></i>Votre commentaire a bien été posté !</div>
+            <?php @$_SESSION['comment_success'] = false; ?>
+
+        <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
+            <div class="alert alert-warning" role="alert"><?= @$_SESSION['comment_error_message']; ?> </div>
+                
+         <?php endif; ?>
+         
 
          <?php if (isset($comments)) : ?>
 
@@ -44,10 +55,7 @@
                  <div id="comment_box" class="container">
 
                      <table class="table">
-                         <tr class="row comment-row">
-
-                             
-
+                         <tr class="row comment-row">          
                              <td id="left-section-comment" class="col-md-3">
                                  <h4> <?= $comment->getAuthor_comment() ?> </h4>
                                  <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
@@ -86,7 +94,7 @@
                  <label for="author">
                      <h5>Auteur</h5>
                  </label><br />
-                 <input type="text" id="author_comment" class="form-control" name="comment_author" placeholder="Votre Pseudo" required />
+                 <input type="text" id="author_comment" class="form-control" name="comment_author" placeholder="Votre Pseudo" required/>
              </div>
 
              <div class="form-group">
@@ -97,6 +105,8 @@
              </div>
              <input type="submit" value="Ajouter" name="submit_comment" class="btn btn-primary" />
          </form>
+
+         
      </div>
  </div>
 

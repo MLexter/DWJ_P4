@@ -20,9 +20,9 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <?php
-                if (isset($comments)) {
-                    foreach ($comments as $comment) { ?>
+                
+                <?php if (!empty($comments)) : ?>
+                  <?php foreach ($comments as $comment) : ?>
                         <tbody>
                             <tr>
                                 <th scope="row"><?= $comment->getId_comment(); ?></th>
@@ -33,9 +33,13 @@
                                 <td><a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $comment->getId_comment(); ?>">Supprimer</a></td>
                             </tr>
                         </tbody>
-                <?php
-                    }
-                } ?>
+                  <?php endforeach; ?>
+
+                <?php else : ?>
+
+                    <div class="alert alert-info" role="alert">Il n'y a pas de commentaires pour ce chapitre.</div>
+
+                <?php endif; ?>
             </table>
         </div>
     </div>

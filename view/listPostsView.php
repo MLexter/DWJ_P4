@@ -29,9 +29,9 @@
                             $dataContent = $post->getAuthor_post_content();
                             if (!empty($dataContent)) 
                             {
-                                if (strlen($dataContent) > 300) 
+                                if (strlen($dataContent) > 500) 
                                 {
-                                    $shorterContent = substr($dataContent, 0, 300);
+                                    $shorterContent = substr($dataContent, 0, 500);
                                     echo $shorterContent . '...';
                                 } else {
                                     echo $dataContent;

@@ -10,27 +10,41 @@ class CommentControl
 
     function postComment()
     {
-        if (isset($_POST['submit_comment'])) {
+        
             if (isset($_POST['comment_author'], $_POST['comment_content']) AND !empty($_POST['comment_author']) AND !empty($_POST['comment_content']))
-             {  
+            {  
                 $ID_chapter = htmlspecialchars($_GET['id']);
                 $author_comment = htmlspecialchars($_POST['comment_author']);
                 $content_comment = htmlspecialchars($_POST['comment_content']);
+                $_SESSION['comment_success'] = null;
+                
 
-                if (strlen($author_comment) < 30) {
+                if (strlen($author_comment) < 30) 
+                {
+
                     $commentManager = new \JForteroche\Blog\Model\CommentManager();
                     $newComment = $commentManager->createComment($ID_chapter, $author_comment, $content_comment);
+
+                    header('Location: '. HOST . 'readBook&id=' . $_GET['id']);
+                    $_SESSION['comment_success'] = true;
+                    
                 } else {
-                    $comment_error_message = 'Votre pseudo doit faire moins de 30 caractères.';
+
+                    $_SESSION['comment_error_message'] = 'Votre pseudo doit faire moins de 30 caractères.';
                 }
-                if ($newComment === false) {
-                    throw new Exception('Impossible d\'ajouter le commentaire !');
+
+                if ($newComment === false) 
+                {
+                    throw new Exception($_SESSION['comment_error_message'] = 'Impossible d\'ajouter le commentaire !');
                 }   
-            }
-        } else {
-            $comment_error_message = 'Veuillez compléter tous les champs pour poster un commentaire.';
+            
+
+            } else {
+
+                $_SESSION['comment_error_message'] = 'Veuillez compléter tous les champs pour poster un commentaire.';
+
         }
-        header('Location: '. HOST . 'readBook&id=' . $_GET['id']);
+        
     }
 
     public function manageComments()
