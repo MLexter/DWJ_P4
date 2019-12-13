@@ -12,6 +12,7 @@ class Router
         "connexion" =>                      ["controller" => 'StaticControl', "method" => 'showConnexion'],
         "book" =>                           ["controller" => 'PostsControl', "method" => 'getAllPosts'],
         "readBook" =>                       ["controller" => 'PostsControl', "method" => 'getPostById'],
+        "contact" =>                        ["controller" => 'StaticControl', "method" => 'showContactView'],
         "signal-comment" =>                 ["controller" => 'CommentControl', "method" => 'signalComment'],
         
         "admin/edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],
