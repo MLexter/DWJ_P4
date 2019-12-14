@@ -9,19 +9,21 @@
         <h2>Commentaires du chapitre</h2>
 
         <div class="container">
+
+            <?php if (!empty($comments)) : ?>
+                
             <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Auteur du commentaire</th>
                         <th scope="col">Date/Heure</th>
-                        <th scope="col">Commentaire</th>
+                        <th scope="col-6">Commentaire</th>
                         <th scope="col">Signalement</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 
-                <?php if (!empty($comments)) : ?>
                   <?php foreach ($comments as $comment) : ?>
                         <tbody>
                             <tr>

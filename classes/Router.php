@@ -13,6 +13,7 @@ class Router
         "book" =>                           ["controller" => 'PostsControl', "method" => 'getAllPosts'],
         "readBook" =>                       ["controller" => 'PostsControl', "method" => 'getPostById'],
         "contact" =>                        ["controller" => 'StaticControl', "method" => 'showContactView'],
+        "send-message" =>                   ["controller" => 'StaticControl', "method" => 'sendMessage'],
         "signal-comment" =>                 ["controller" => 'CommentControl', "method" => 'signalComment'],
         
         "admin/edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],

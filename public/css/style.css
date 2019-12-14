@@ -7,6 +7,10 @@ body {
     font-family: 'Chau Philomene One', sans-serif;
 }
 
+p {
+    font-size: 1.2em;
+}
+
 #main-position {
     height: auto;
     padding-left: 0;
@@ -173,6 +177,9 @@ div#comment_management_link {
 
 /* ########## EDIT CHAPTER ########## */
 
+#image-post-chapter {
+    width: 38%;
+}
 
 #authorPostContent {
     width: 60%;
@@ -334,6 +341,11 @@ div#comment_management_link {
     margin: 20px auto;
 }
 
+.btn-group-lg>.btn, .btn-lg {
+    height: 45px;
+}
+
+
 #admin_banner-main {
     border: 2px solid;
     margin: 30px auto;
@@ -361,8 +373,8 @@ div#comment_management_link {
 
 
 #connexion_container {
-    width: 30%;
-    min-height: 40%;
+    width: 45%;
+    min-height: 55%;
     height: auto;
     border: 2px solid;
     padding: 20px;
@@ -370,6 +382,10 @@ div#comment_management_link {
 
 label.connexion_labels {
     font-size: 1.1em;
+}
+
+table.table {
+    margin-top: 10px;
 }
 
 .table td, .table th {

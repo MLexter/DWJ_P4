@@ -46,6 +46,7 @@
                                 <?= htmlspecialchars($post->getAuthor_post_title()); ?>
                             </h2>
 
+                            <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">Voir le chapitre</a> | 
                             <a href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier</a> |
                             <a href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>">Supprimer</a> |
                             <a href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
