@@ -10,72 +10,71 @@ class CommentControl
 
     function postComment()
     {
-        
-            if (isset($_POST['comment_author'], $_POST['comment_content']) AND !empty($_POST['comment_author']) AND !empty($_POST['comment_content']))
-            {  
-                $ID_chapter = htmlspecialchars($_GET['id']);
-                $author_comment = htmlspecialchars($_POST['comment_author']);
-                $content_comment = htmlspecialchars($_POST['comment_content']);
-                $_SESSION['comment_success'] = null;
-                
 
-                if (strlen($author_comment) < 30) 
-                {
+        if (isset($_POST['comment_author'], $_POST['comment_content']) and !empty($_POST['comment_author']) and !empty($_POST['comment_content'])) {
+            $ID_chapter = htmlspecialchars($_GET['id']);
+            $author_comment = htmlspecialchars($_POST['comment_author']);
+            $content_comment = htmlspecialchars($_POST['comment_content']);
+            $_SESSION['comment_success'] = null;
 
-                    $commentManager = new \JForteroche\Blog\Model\CommentManager();
-                    $newComment = $commentManager->createComment($ID_chapter, $author_comment, $content_comment);
 
-                    header('Location: '. HOST . 'readBook&id=' . $_GET['id']);
-                    $_SESSION['comment_success'] = true;
+            if (strlen($author_comment) < 30) {
 
-                } else {
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $newComment = $commentManager->createComment($ID_chapter, $author_comment, $content_comment);
 
-                    $_SESSION['comment_error_message'] = 'Votre pseudo doit faire moins de 30 caractères.';
-                }
-
-                if ($newComment === false) 
-                {
-                    throw new Exception($_SESSION['comment_error_message'] = 'Impossible d\'ajouter le commentaire !');
-                }   
-            
-
+                header('Location: ' . HOST . 'readBook&id=' . $_GET['id']);
+                $_SESSION['comment_success'] = true;
             } else {
 
-                $_SESSION['comment_error_message'] = 'Veuillez compléter tous les champs pour poster un commentaire.';
+                $_SESSION['comment_error_message'] = 'Votre pseudo doit faire moins de 30 caractères.';
+            }
 
+            if ($newComment === false) {
+                throw new Exception($_SESSION['comment_error_message'] = 'Impossible d\'ajouter le commentaire !');
+            }
+        } else {
+
+            $_SESSION['comment_error_message'] = 'Veuillez compléter tous les champs pour poster un commentaire.';
         }
-        
     }
 
     public function manageComments()
     {
-        if (isset($_GET['id'])) 
-        {         
-        $_SESSION['ID_chapitre'] = htmlspecialchars($_GET['id']);
+        if (isset($_SESSION['isAdmin'])) {
+            if ($_SESSION['isAdmin'] = true) {
 
-        $commentManager = new \JForteroche\Blog\Model\CommentManager();
-        $comments = $commentManager->getComments($_SESSION['ID_chapitre']);
+                if (isset($_GET['id'])) {
+                    $_SESSION['ID_chapitre'] = htmlspecialchars($_GET['id']);
 
-        $viewToDisplay = new ViewRenderer('manageCommentsView');
-        $viewToDisplay->renderView(array('comments' => $comments));
+                    $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                    $comments = $commentManager->getComments($_SESSION['ID_chapitre']);
+
+                    $viewToDisplay = new ViewRenderer('manageCommentsView');
+                    $viewToDisplay->renderView(array('comments' => $comments));
+                }
+            }
         }
     }
 
     public function deleteComment()
     {
-        if (isset($_GET['id']))
-        {
-            $ID_post_comment = $_GET['id'];
-            $commentManager = new \JForteroche\Blog\Model\CommentManager();
-            $comment = $commentManager->deletePostComment($ID_post_comment);
-            header('Location: ' . HOST . 'admin/manage-comments&id=' . $_SESSION['ID_chapitre']);
+        if (isset($_SESSION['isAdmin'])) {
+            if ($_SESSION['isAdmin'] = true) {
 
+                if (isset($_GET['id'])) {
+                    $ID_post_comment = $_GET['id'];
+                    $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                    $comment = $commentManager->deletePostComment($ID_post_comment);
+                    header('Location: ' . HOST . 'admin/manage-comments&id=' . $_SESSION['ID_chapitre']);
+                }
+            }
         }
     }
 
     public function signalComment()
     {
-        $comment_ID = htmlspecialchars($_GET['comment']); 
+        $comment_ID = htmlspecialchars($_GET['comment']);
         $ID_chapter = ($_GET['id']);
         @$_SESSION['comment_signalment'] = false;
 
@@ -84,49 +83,65 @@ class CommentControl
 
         $_SESSION['signal_message'] = 'Le commentaire a bien été signalé et sera traité par l\'administrateur du site.';
         header('Location: ' . HOST . 'readBook&id=' . $ID_chapter);
-
     }
 
     public function manageSignalments()
     {
-        
-            $commentManager = new \JForteroche\Blog\Model\CommentManager();
-            $signalmentList = $commentManager->getAllSignalments();
-    
-            $viewToDisplay = new ViewRenderer('manageSignalmentsView');
-            $viewToDisplay->renderView(array('signalmentList' => $signalmentList));
+        if (isset($_SESSION['isAdmin'])) {
+            if ($_SESSION['isAdmin'] = true) {
 
-        
+
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $signalmentList = $commentManager->getAllSignalments();
+
+                $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+                $viewToDisplay->renderView(array('signalmentList' => $signalmentList));
+            }
+        }
     }
 
     public function deleteSignaledComment()
     {
-        if (isset($_GET['id']))
-        {
-            $ID_post_comment = htmlspecialchars($_GET['id']);
-            $commentManager = new \JForteroche\Blog\Model\CommentManager();
-            $comment = $commentManager->deletePostComment($ID_post_comment);
+        if (isset($_SESSION['isAdmin'])) {
+            if ($_SESSION['isAdmin'] = true) {
 
-            header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
+                if (isset($_GET['id'])) {
+                    $ID_post_comment = htmlspecialchars($_GET['id']);
+                    $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                    $comment = $commentManager->deletePostComment($ID_post_comment);
+
+                    header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
+                }
+            }
         }
     }
 
     public function cancelSignalment()
     {
-        $ID_comment = htmlspecialchars($_GET['id']);
+        if (isset($_SESSION['isAdmin'])) {
+            if ($_SESSION['isAdmin'] = true) {
 
-        $commentManager = new \JForteroche\Blog\Model\CommentManager();
-        $removeSignalment = $commentManager->removeSignalment($ID_comment);
+                $ID_comment = htmlspecialchars($_GET['id']);
 
-        header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $removeSignalment = $commentManager->removeSignalment($ID_comment);
+
+                header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
+            }
+        }
     }
 
     public function deleteAllSignalments()
     {
-        $commentManager = new \JForteroche\Blog\Model\CommentManager();
-        $deleteSignaledList = $commentManager->deleteAllSignaled();
+        if (isset($_SESSION['isAdmin'])) {
+            if ($_SESSION['isAdmin'] = true) {
 
-        $viewToDisplay = new ViewRenderer('manageSignalmentsView');
-        $viewToDisplay->renderView();
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $deleteSignaledList = $commentManager->deleteAllSignaled();
+
+                $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+                $viewToDisplay->renderView();
+            }
+        }
     }
 }

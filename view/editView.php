@@ -14,7 +14,7 @@
                 <label for="post-title">
                     <h3>Titre du chapitre :</h3>
                 </label><br />
-                <input type="text" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
+                <input type="text" class="col-6 text-center" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
                 <br />
                 <label for="chapter-content">
                     <h3>Contenu du chapitre:</h3>
@@ -27,14 +27,19 @@
                 </div>
 
                 <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
-                <label for="image_post">Modifier l'image :</label>
+                <label for="image_post">
+                    <h3>Modifier l'image :</h3>
+
+                </label>
+
+                
                 <input type="file" name="image_chapter" />
             </div>
             <div>
                 <button>
                     <a href="<?= HOST; ?>book">Annuler</a>
                 </button>
-                <input type="submit" value="Modifier" />
+                <input type="submit" value="Enregistrer" name="submit_edited_chapter"/>
             </div>
         </form>
 

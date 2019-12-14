@@ -26,23 +26,27 @@
                     <p>
 
                         <?php
-                                $dataContent = $post->getAuthor_post_content();
-                                if (!empty($dataContent)) {
-                                    if (strlen($dataContent) > 300) {
-                                        $shorterContent = substr($dataContent, 0, 320);
-                                        echo $shorterContent . '...';
-                                    } else {
+
+                        $dataContent = $post->getAuthor_post_content();
+
+                        if (!empty($dataContent)) 
+                        {
+                            if (strlen($dataContent) > 100) 
+                            {
+                                $shorterContent = substr($dataContent, 0,350);
+                                echo $shorterContent . '...';
+                        ?>
+                                        <div id="readmore-link" class="d-flex justify-content-end">
+                                            <a class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                                                <button class="btn btn-info">Lire ce chapitre</button>
+                                            </a>
+                                        </div>
+                        <?php           } else {
                                         echo $dataContent;
                                     }
                                 }
                                 ?>
                     </p>
-                    <br />
-                    <div id="readmore-link">
-                        <a class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
-                            <button class="btn btn-info">Lire ce chapitre</button>
-                        </a>
-                    </div>
                 </div>
             </div>
             <?php endforeach; ?>
