@@ -25,15 +25,18 @@
                     </h2>
                     <p>
 
+                    <!-- <?php if ($post->getDate_post_author_modif() !== "") : ?>
+                        <h3>Dernière modification le <?= $post->getDate_post_author_modif(); ?></h3>
+                    <?php endif; var_dump($post->getDate_post_author_modif())?> -->
+
                         <?php
 
                         $dataContent = $post->getAuthor_post_content();
 
                         if (!empty($dataContent)) 
                         {
-                            if (strlen($dataContent) > 100) 
-                            {
-                                $shorterContent = substr($dataContent, 0,350);
+                            if (strlen($dataContent) > 200) {
+                                $shorterContent = substr($dataContent, 0,790);
                                 echo $shorterContent . '...';
                         ?>
                                         <div id="readmore-link" class="d-flex justify-content-end">
@@ -43,9 +46,9 @@
                                         </div>
                         <?php           } else {
                                         echo $dataContent;
-                                    }
-                                }
-                                ?>
+                                        }
+                        }
+                        ?>
                     </p>
                 </div>
             </div>

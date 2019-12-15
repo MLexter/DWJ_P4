@@ -8,6 +8,7 @@ class Post
     private $author_post_title;
     private $author_post_content;
     private $date_post_author;
+    private $date_post_author_modif;
     private $chapter_image;
 
     
@@ -109,6 +110,26 @@ class Post
     public function setChapter_image($chapter_image)
     {
         $this->chapter_image = $chapter_image;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of date_post_author_modif
+     */ 
+    public function getDate_post_author_modif()
+    {
+        return $this->date_post_author_modif;
+    }
+
+    /**
+     * Set the value of date_post_author_modif
+     *
+     * @return  self
+     */ 
+    public function setDate_post_author_modif($date_post_author_modif)
+    {
+        $this->date_post_author_modif = $date_post_author_modif;
 
         return $this;
     }
