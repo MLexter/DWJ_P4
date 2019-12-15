@@ -11,43 +11,53 @@
     <br />
     <p>Tous les champs sont obligatoires !</p>
 
+    <?php 
+
+    if (@$_SESSION['contact_success'] == true) : ?>
+        <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= @$_SESSION['sending_success_message']; ?> </div>
+        <?php @$_SESSION['contact_success'] = false; ?>
+    <?php endif; ?>
+
+    <?php if (@$_SESSION['contact_fail'] == true) : ?>
+        <div class="alert alert-warning" role="alert"><?= @$_SESSION['sending_fail_message']; ?> </div>
+        <?php $_SESSION['contact_fail'] = false; ?>
+    <?php endif; ?>
+
+
     <div class="row">
       <form action="<?= HOST . 'send-message'; ?>" id="form_container" class="col s12" method="POST">
+
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" name="first_name" type="text" class="validate">
-            <label for="first_name">Prénom</label>
+            <input id="first_name" name="first_name" type="text" class="validate" required>
+            <label for="first_name" class="text-center">Prénom</label>
           </div>
+
           <div class="input-field col s6">
-            <input id="last_name" name="last_name" type="text" class="validate">
-            <label for="last_name">Nom</label>
+            <input id="last_name" name="last_name" type="text" class="validate" required>
+            <label for="last_name" class="text-center">Nom</label>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" name="email" type="email" class="validate">
-            <label for="email">Email</label>
+            <input id="email" name="email" type="email" class="validate" required>
+            <label for="email" class="text-center">Email</label>
           </div>
         </div>
 
         <div class="row">
-          <div class="input-field col s12">
-            <select>
-              <option value="" disabled selected>Choisissez une option:</option>
-              <option value="1">'Billet simple pour l'Alaska'</option>
-              <option value="2">A propos d'un autre livre</option>
-              <option value="3">Autre</option>
-            </select>
-            <label for="subject-message">Sujet de votre message :</label>
+          <div class="input-field col-6 container">
+              <input id="message_subject" name="message_subject" type="text" class="validate" required>
+              <label for="message_subject" class="text-center">Sujet de votre message</label>
           </div>
         </div>
 
         
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="textarea1" name="message_content" class="materialize-textarea"></textarea>
-            <label for="textarea1">Votre message</label>
+            <textarea id="textarea1" name="message_content" class="materialize-textarea" required></textarea>
+            <label for="textarea1" class="text-center">Votre message</label>
           </div>
         </div>
         <input type="submit" name="submit_contact_message" value="Envoyer">

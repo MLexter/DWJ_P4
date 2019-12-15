@@ -75,6 +75,7 @@ class PostManager
             $chapter->setAuthor_post_content($createPost['author_post_content']);
             $chapter->setChapter_image($createPost['image_chapter']);
             $chapter->setDate_post_author($createPost['creation_date_fr']);
+            $chapter->setDate_post_author_modif($createPost['date_post_author_modif']);
 
         return $chapter;
     }
@@ -82,7 +83,7 @@ class PostManager
     public function updatePost($postId, $author_post_title, $author_post_content, $newImageFile)
     {
         $db = $this->db;
-        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author = NOW(), image_chapter = ? WHERE ID_post = ?');
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author_modif = NOW(), image_chapter = ? WHERE ID_post = ?');
         $updatedPost = $req->execute(array($author_post_title, $author_post_content, $newImageFile, $postId));
 
         return $updatedPost;
