@@ -175,7 +175,9 @@ class PostsControl
                     }
                 }
             } else {
+                $_SESSION['success'] = 0;
                 header('Location: ' . HOST . 'connexion');
+                exit();
             }
         }
     }

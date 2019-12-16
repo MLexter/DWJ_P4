@@ -29,34 +29,42 @@
 
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" name="first_name" type="text" class="validate" required>
+            <input id="first_name" name="first_name" type="text" class="validate"  value="<?= @$_SESSION['first_name'] ?>" required>
+            <?php if (empty($_SESSION['first_name'])) : ?>
             <label for="first_name" class="text-center">Prénom</label>
+            <?php endif; ?>
           </div>
 
           <div class="input-field col s6">
-            <input id="last_name" name="last_name" type="text" class="validate" required>
+            <input id="last_name" name="last_name" type="text" class="validate"  value="<?= @$_SESSION['last_name'] ?>" required>
+            <?php if (empty($_SESSION['last_name'])) : ?>
             <label for="last_name" class="text-center">Nom</label>
+            <?php endif; ?>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" name="email" type="email" class="validate" required>
+            <input id="email" name="email" type="email" class="validate"  value="<?= @$_SESSION['email'] ?>" required>
+            <?php if (empty($_SESSION['email'])) : ?>
             <label for="email" class="text-center">Email</label>
+            <?php endif; ?>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col-6 container">
-              <input id="message_subject" name="message_subject" type="text" class="validate" required>
+              <input id="message_subject" name="message_subject" type="text" class="validate"  value="<?= @$_SESSION['message_subject'] ?>" required>
+              <?php if (empty($_SESSION['message_subject'])) : ?>
               <label for="message_subject" class="text-center">Sujet de votre message</label>
+              <?php endif; ?>
           </div>
         </div>
 
         
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="textarea1" name="message_content" class="materialize-textarea" required></textarea>
+            <textarea id="textarea1" name="message_content" class="materialize-textarea" required><?= @$_SESSION['message_content'] ?></textarea>
             <label for="textarea1" class="text-center">Votre message</label>
           </div>
         </div>

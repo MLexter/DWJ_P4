@@ -1,7 +1,6 @@
 <?php
 
 
-
 class StaticControl
 {
 
@@ -55,6 +54,13 @@ class StaticControl
         {
             if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['message_subject'], $_POST['message_content']))
             {
+                $_SESSION['first_name'] =      $_POST['first_name'];
+                $_SESSION['last_name'] =       $_POST['last_name'];
+                $_SESSION['email'] =           $_POST['email'];
+                $_SESSION['message_subject'] = $_POST['message_subject'];
+                $_SESSION['message_content'] = $_POST['message_content'];
+
+
                 if (strlen($_POST['first_name']) < 255 && strlen($_POST['last_name']) < 255)
                 {
                     if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
@@ -65,20 +71,26 @@ class StaticControl
                                 $firstName = trim($_POST['first_name']);
                                 $firstName = stripslashes($_POST['first_name']);
                                 $firstName = htmlspecialchars($_POST['first_name']);
+                                $_SESSION['first_name'] = $firstName;
                                 
                                 $lastName = trim($_POST['first_name']);
                                 $lastName = stripslashes($_POST['first_name']);
                                 $lastName = htmlspecialchars($_POST['last_name']);
+                                $_SESSION['last_name'] = $lastName;
                                 
                                 $mail = $_POST['email'];
+                                $_SESSION['mail'] = $mail;
 
                                 $messageSubject = trim($_POST['message_subject']);
                                 $messageSubject = stripslashes($_POST['message_subject']);
                                 $messageSubject = htmlspecialchars($_POST['message_subject']);
+                                $_SESSION['message_subject'] = $messageSubject;
                                 
                                 $sentMessage = trim($_POST['message_content']);
                                 $sentMessage = stripslashes($_POST['message_content']);
                                 $sentMessage = htmlspecialchars($_POST['message_content']);
+                                $_SESSION['message_content'] = $sentMessage;
+
 
                                 $send = mail('hekki_nox06@gmail.com', $messageSubject, $sentMessage);
 
@@ -108,12 +120,7 @@ class StaticControl
                     $_SESSION['sending_fail_message'] = 'Le nom et le prénom doivent faire moins de 255 caractères.';
                     exit();
                 }
-            } else {
-                $_SESSION['contact_fail'] = true;
-                header('Location: ' . HOST . 'contact');
-                $_SESSION['sending_fail_message'] = 'Vous devez saisir un Nom, un Prénom, une adresse email, un sujet et un contenu à votre message.';
-                exit();
-            }
+            } 
         } else {
             header('Location: ' . HOST . 'contact');
         }
