@@ -12,6 +12,23 @@ body {
     z-index: 10;    
     width: 100%;
 } */
+
+/* ########### TEMPLATE ########## */
+
+
+a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
+    position: fixed;
+    right: -70px;
+    bottom: 60px;
+    transition-property: right;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+
+/* ########### NAVBAR ########## */
+
+
 .navbar {
     padding: 20px 60px;
     background-color: #002f44;
