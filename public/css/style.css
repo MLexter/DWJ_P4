@@ -7,6 +7,49 @@ body {
     font-family: 'Chau Philomene One', sans-serif;
 }
 
+/* header {
+    position: sticky;
+    z-index: 10;    
+    width: 100%;
+} */
+.navbar {
+    padding: 20px 60px;
+    background-color: #002f44;
+    height: 10vh;
+}
+
+a.navbar-brand {
+    position: relative;
+    /* bottom: 20px; */
+    height: 100px;
+}
+
+.nav-item {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+a.nav-link {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+a.nav-link:hover {
+    color: #fff;
+}
+
+nav ul li.active {
+    background-color: none;
+}
+
+nav ul a:hover {
+    background-color: none;
+}
+
+li.nav-item {
+    padding: 5px 15px;
+}
+
 p {
     font-size: 1.2em;
 }
@@ -21,9 +64,11 @@ p {
 
 
 #main_container {
+    position: relative;
     background-image: url('../images/wood-landscape-mountains-nature.jpg');
     background-size: cover;
-    height: 87vh;
+    min-height: 85vh;
+    padding: 300px 0 200px;
 }
 
 #main-titles {
@@ -86,7 +131,13 @@ p {
 /* ########## CHAPTERS OVERALL ########## */
 
 #main-listPosts {
-    min-height: 81.1vh;
+    margin: 5vh auto;
+    border: 1px solid #bdc0d3;
+}
+
+#container_list_chapters {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #main-title_description {
@@ -99,9 +150,12 @@ p {
     margin-bottom: 30px;
 }
 
-#thumbnail-chapter_image {
+.img-thumbnail {
     max-height: 330px;
-    max-width: 290px;
+}
+
+.card a {
+    margin-top: 15px;
 }
 
 #content_text_thumbnail {
@@ -261,7 +315,7 @@ div#comment_management_link {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 41px;
+    height: 5vh;
 }
 
 #footer_copyright, #footer_mentions_legales {
