@@ -1,59 +1,51 @@
 <?php $title_content = 'Jean Forteroche: Liste des chapitres'; ?>
 
+<div class="container">
 
-<div id="main-listPosts" class="container">
-    <div id="main-title_description" class="text-center">
-        <h1>Billet simple pour l'Alaska</h1>
-        <p>Dernières lectures</p>
-    </div>
+    <div id="main-listPosts" class="container shadow-lg p-3 mb-5 bg-white rounded">
+        <div id="main-title_description" class="text-center">
+            <h1>Billet simple pour l'Alaska</h1>
+            <p>Dernières lectures</p>
+        </div>
 
-    <?php if (isset($posts)) : ?>
-        <?php foreach ($posts as $post) : ?>
+        <div id="container_list_chapters" class="d-flex justify-content-around container-fluid">
 
-            <div class="post_thumbnail d-flex">
-                <figure>
-                    <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
-                        <img id="thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
-                    </a>
-                </figure>
+        <?php if (isset($posts)) : ?>
+                <?php foreach ($posts as $post) : ?>
 
-                <div id="content_text_thumbnail">
+            <div class="card col-5" style="width: 18rem;">
+                <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                    <img id="thumbnail-chapter_image" class="img-thumbnail container"src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre" class="card-img-top">
+                </a>
 
-                    <h2 id="thumbail-title">
-                        <?= $post->getAuthor_post_title(); ?> <br />
-                        <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
-                    </h2>
-                    <p>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $post->getAuthor_post_title(); ?></h5>
 
-                    <!-- <?php if ($post->getDate_post_author_modif() !== "") : ?>
-                        <h3>Dernière modification le <?= $post->getDate_post_author_modif(); ?></h3>
-                    <?php endif; var_dump($post->getDate_post_author_modif())?> -->
+                    <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
 
-                        <?php
+                    <p class="card-text">
+                        <?php $dataContent = $post->getAuthor_post_content();
 
-                        $dataContent = $post->getAuthor_post_content();
+                        if (!empty($dataContent)) : ?>
 
-                        if (!empty($dataContent)) 
-                        {
-                            if (strlen($dataContent) > 200) {
-                                $shorterContent = substr($dataContent, 0,790);
-                                echo $shorterContent . '...';
-                        ?>
-                                        <div id="readmore-link" class="d-flex justify-content-end">
-                                            <a class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
-                                                <button class="btn btn-info">Lire ce chapitre</button>
-                                            </a>
-                                        </div>
-                        <?php           } else {
-                                        echo $dataContent;
-                                        }
-                        }
-                        ?>
+                            <?php $shorterContent = substr($dataContent, 0, 300);
+                            echo $shorterContent . '...'; ?>
                     </p>
+
+                    <div id="readmore-link" class="d-flex justify-content-end">
+                                        <a class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                                            <button class="btn btn-info">Lire ce chapitre</button>
+                                        </a>
+                                    </div>
+                        <?php endif; ?>
                 </div>
             </div>
-            <?php endforeach; ?>
-    <?php else : ?>
-        <div class="alert alert-dark text-center" role="alert">Aucun chapitre à afficher !</div>
-    <?php endif; ?>
-</div>
+                <?php endforeach; ?>
+        <?php else : ?>
+            <div class="alert alert-dark text-center" role="alert">Aucun chapitre à afficher !</div>
+        <?php endif; ?>
+        </div>
+        </div>
+
+        <!-- A SUPPRIMER SI PARTIE SUPERIEURE OK -->
+            
