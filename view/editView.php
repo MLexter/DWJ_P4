@@ -37,9 +37,9 @@
             </div>
             <div>
                 <button>
-                    <a href="<?= HOST; ?>book">Annuler</a>
+                    <a class="btn" href="<?= HOST; ?>book">Annuler</a>
                 </button>
-                <input type="submit" value="Enregistrer" name="submit_edited_chapter"/>
+                <input class="btn" type="submit" value="Enregistrer" name="submit_edited_chapter"/>
             </div>
         </form>
 

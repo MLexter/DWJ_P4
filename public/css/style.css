@@ -7,15 +7,11 @@ body {
     font-family: 'Chau Philomene One', sans-serif;
 }
 
-h4 {
+
+h3, h4 {
     color: black;
 }
 
-/* header {
-    position: sticky;
-    z-index: 10;    
-    width: 100%;
-} */
 
 /* ########### TEMPLATE ########## */
 
@@ -199,7 +195,8 @@ p {
 
 #chapter_content {
     height: auto;
-    border-left: 2px solid;
+    border-left: 7px solid;
+    border-radius: 50px;
     padding: 30px;
     margin: 30px auto;
 }
@@ -259,6 +256,13 @@ div#comment_management_link {
 
 /* ########## CREATE CHAPTER ########## */
 
+div#creation_container {
+    margin: 30px auto;
+}
+
+#container_image_update {
+    margin: 20px;
+}
 
 
 /* ########## EDIT CHAPTER ########## */
@@ -357,12 +361,18 @@ div#comment_management_link {
 
 .footer-item {
     margin: 5px 30px;
-    font-size: 0.9em;;
+    font-size: 1.1em;;
 }
 
 #footer_connexion_link {
     text-decoration: none;
     color: white;
+}
+
+#fa-logout {
+    color: #b40000;
+    font-size: 1.1rem;
+    margin-right: 5px;
 }
 
 
@@ -422,6 +432,8 @@ div#comment_management_link {
 
 #main-admin-page {
     min-height: 81.1vh;
+    margin: 5vh auto;
+    border: 1px solid #bdc0d3;
 }
 
 #new_chapter {
@@ -436,17 +448,7 @@ div#comment_management_link {
 #admin_banner-main {
     border: 2px solid;
     margin: 30px auto;
-    height: 100px;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
-}
-
-#admin-thumbnail-chapter_image {
-    width: 250px;
-    height: auto;
 }
 
 
@@ -455,6 +457,16 @@ div#comment_management_link {
 #main-comment-Manager {
     height: 87vh;
 }
+
+a.fa-main_admin {
+    font-size: 1.8rem;
+    margin-left: 20px;
+}
+
+#title-list {
+    height: fit-content;
+}
+
 
 
 /* ########## ADMIN CONNEXION PAGE ########## */

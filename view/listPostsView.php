@@ -28,24 +28,26 @@
 
                         if (!empty($dataContent)) : ?>
 
-                            <?php $shorterContent = substr($dataContent, 0, 320);
+                            <?php $shorterContent = substr($post->getAuthor_post_content(), 0, 320);
                             echo $shorterContent . '...'; ?>
                     </p>
 
                     <div id="readmore-link" class="d-flex justify-content-end">
-                                        <a class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
-                                            <button class="btn btn-info">Lire ce chapitre</button>
-                                        </a>
-                                    </div>
+                        <a class="text-decoration-none" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                          <button class="btn btn-info">Lire ce chapitre</button>
+                        </a>
+                    </div>
                         <?php endif; ?>
                 </div>
             </div>
                 <?php endforeach; ?>
         <?php else : ?>
             <div class="alert alert-dark text-center" role="alert">Aucun chapitre à afficher !</div>
-        <?php endif; ?>
-        </div>
-        </div>
 
+        <?php endif; ?>
+
+        </div>
+    </div>
+</div>
         <!-- A SUPPRIMER SI PARTIE SUPERIEURE OK -->
             
