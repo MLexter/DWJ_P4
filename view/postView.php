@@ -13,24 +13,30 @@
                                 </div>
      <?php endif; ?>
 
-     <div id="chapter_content">
-         <div id="illustration-chapter">
-             <figure>
-                 <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
-             </figure>
-         </div>
+        <div id="chapter_content">
 
-         <h2 class="text-center">
-             <?= $post->getAuthor_post_title(); ?>
-             <br />
-             <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
-         </h2>
-    
-         <p>
-             <?= nl2br($post->getAuthor_post_content()); ?>
-         </p>
-         
-     </div>
+            <div id="illustration-chapter">
+                <figure>
+                    <img id="image-post-chapter" class="img-fluid rounded mx-auto d-block float-right shadow p-1 mb-5 bg-white rounded" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                </figure>
+            </div>
+
+            <div id="text_chapter">
+                <h2 class="text-center">
+                    <?= $post->getAuthor_post_title(); ?>
+                    <br />
+                    <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
+                </h2>  
+
+                <p> <?= nl2br($post->getAuthor_post_content()); ?> </p>
+            </div>
+
+        </div>
+
+        <div class="text-center" id="separation_icon">
+            <i class="material-icons">fiber_manual_record</i>
+
+        </div>
 
      <div id="container_comments">
          <div id="comment_part_title" class="text-center">
@@ -39,10 +45,11 @@
              <p>N'hésitez pas à donner votre avis sur ce chapitre en postant un commentaire !</p>
          </div>
 
+
          <?php if (!empty($_SESSION['isAdmin']) AND $_SESSION['isAdmin']== true) : ?>
-                                <div id="comment_management_link" class="d-flex justify-content-center">
-                                    <a id="remove_comment_link" class="btn btn-warning text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
-                                </div>
+                    <div id="comment_management_link" class="d-flex justify-content-center">
+                        <a id="remove_comment_link" class="btn btn-warning text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
+                    </div>
          <?php endif; ?>
 
          <?php if (@$_SESSION['comment_success'] == true) : ?>
@@ -99,22 +106,21 @@
      </div>
 
 
-     <div id="comment-form_container" class="container border">
-         <h3>Laisser un commentaire</h3>
+     <div id="comment-form_container" class="container col-10">
+         <h3 class="text-center">Laisser un commentaire</h3>
 
          <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
              <div class="form-group">
                  <label for="author">
-                     <h5>Auteur</h5>
+                     <h4>Auteur</h4>
                  </label><br />
                  <input type="text" id="author_comment" class="form-control" name="comment_author" placeholder="Votre Pseudo" required/>
              </div>
-
              <div class="form-group">
                  <label for="comment">
-                     <h5>Commentaire</h5>
+                     <h4>Commentaire</h4>
                  </label><br />
-                 <textarea id="content_comment" class="form-control" name="comment_content" placeholder="Votre commentaire..." required></textarea>
+                 <textarea id="content_comment" class="form-control materialize-textarea" name="comment_content" placeholder="Votre commentaire..." required></textarea>
              </div>
              <input type="submit" value="Ajouter" name="submit_comment" class="btn btn-primary" />
          </form>

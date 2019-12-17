@@ -7,6 +7,10 @@ body {
     font-family: 'Chau Philomene One', sans-serif;
 }
 
+h4 {
+    color: black;
+}
+
 /* header {
     position: sticky;
     z-index: 10;    
@@ -18,9 +22,10 @@ body {
 
 a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
     position: fixed;
-    right: -70px;
+    right: 15px;
     bottom: 60px;
-    transition-property: right;
+    opacity: 0;
+    transition-property: opacity;
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
 }
@@ -195,7 +200,7 @@ p {
 #chapter_content {
     height: auto;
     border-left: 2px solid;
-    padding: 20px;
+    padding: 30px;
     margin: 30px auto;
 }
 
@@ -205,6 +210,15 @@ p {
 
 .img-fluid {
     max-width: 60%;
+}
+
+#separation_icon {
+    color: #26838f;
+}
+
+#container_comments {
+    position: relative;
+    bottom: 20px;
 }
 
 #comment_part_title {
@@ -218,9 +232,10 @@ p {
 }
 
 #comment-form_container {
-    border: 1px solid grey;
-    padding: 15px;
-    margin: 50px auto;
+    border: 3px solid #dee2e6;
+    box-shadow: 1px 0px 6px -1.5px;
+    padding: 20px;
+    margin-bottom: 40px;
 }
 
 .signalment-btn {
@@ -249,7 +264,8 @@ div#comment_management_link {
 /* ########## EDIT CHAPTER ########## */
 
 #image-post-chapter {
-    width: 38%;
+    width: 45%;
+    margin: 10px;
 }
 
 #authorPostContent {
