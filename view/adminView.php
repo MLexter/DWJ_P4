@@ -33,13 +33,17 @@
       </div>
     <?php endif; ?>
 
+  <?php if (@$_SESSION['delete_status'] == 1) : ?>
+    <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= $_SESSION['chapter_delete_message']; ?> </div>
+    <?php @$_SESSION['delete_status'] = 0; ?>
+  <?php endif; ?>
 
 
     <div id="new_chapter" class="d-flex justify-content-center">
       <a class="btn btn-primary btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
+  <?php endif; ?>
 
-    <div id="container-listposts-admin" class="container">
 
       <?php if (isset($posts)) : ?>
         <?php foreach ($posts as $post) : ?>
@@ -77,5 +81,4 @@
 
 
 
-</div>
 </div>
