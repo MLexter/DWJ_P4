@@ -1,13 +1,13 @@
 <?php $title_content = 'Administration du blog' ?>
 
-<div id="main-admin-page" class="container  col-10 shadow-lg p-3 mb-5 bg-white rounded">
+<div id="main-admin-page" class="col-10">
 
     <div class="container text-center" id="admin_banner-main">
-      <h1>ESPACE ADMIN</h1>
+      <h1>ADMINISTRATION DU SITE</h1>
     </div>
 
     <div id="admin_container" class="text-center">
-      <h1>Bienvenue Jean Forteroche</h1>
+      <h1>Bienvenue Jean Forteroche !</h1>
       <br />
       <p>Pour gérer vos pages, accédez à l'une des options en face de vos chapitres. <br />
       Voici la liste de vos derniers chapitres publiés.</p>
@@ -27,9 +27,10 @@
 
     <?php if ($_SESSION['comSignaled'] == true) : ?>
       <div class="alert alert-danger container text-center" role="alert">
-        <i class="fas fa-bullhorn"></i>
-        Des commentaires ont été signalés dans vos chapitres. <br />
-        Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
+        <span id="fa-horn">
+          <i class="fas fa-bullhorn"></i>
+        </span>
+        Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
       </div>
     <?php endif; ?>
 
@@ -42,18 +43,17 @@
     <div id="new_chapter" class="d-flex justify-content-center">
       <a class="btn btn-primary btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
-  <?php endif; ?>
 
 
       <?php if (isset($posts)) : ?>
         <?php foreach ($posts as $post) : ?>
 
           <div class="row post_thumbnail d-flex">
-            <figure class="col-3">
+            <figure class="col-md-2">
               <img id="admin-thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
-            </figure>
+        </figure>
 
-            <div id="title-list" class="d-flex justify-content-between col-9">
+            <div id="title-list" class="d-flex justify-content-between col">
               <h2 id="thumbail-title">
                 <?= htmlspecialchars($post->getAuthor_post_title()); ?>  <br />
                 <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
@@ -68,6 +68,8 @@
 
 
             </div>
+            
+
 
           </div>
         <?php endforeach; ?>
@@ -76,7 +78,6 @@
         <div class="alert alert-dark text-center" role="alert">Aucun chapitre ! Commencez à écrire quelque chose !</div>
 
       <?php endif; ?>
-    </div>
   </div>
 
 

@@ -163,14 +163,11 @@ p {
 }
 
 .post_thumbnail {
-    border: 2px solid;
+    border-bottom: 1px solid #94a3ab;
     padding: 20px;
     margin-bottom: 30px;
 }
 
-.img-thumbnail {
-    max-height: 330px;
-}
 
 .card a {
     margin-top: 15px;
@@ -431,9 +428,13 @@ div#creation_container {
 /* ########## ADMIN MAINPAGE ########## */
 
 #main-admin-page {
-    min-height: 81.1vh;
     margin: 5vh auto;
-    border: 1px solid #bdc0d3;
+}
+
+#fa-horn {
+    font-size: 1.4rem;
+    position: relative;
+    top: 2px;
 }
 
 #new_chapter {

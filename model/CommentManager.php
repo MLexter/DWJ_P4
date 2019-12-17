@@ -20,6 +20,21 @@ class CommentManager
     }
 
 
+    public function getNbComments()
+    {
+        $db = $this->db;
+        $req = $db->prepare('SELECT comments.id_chapter, posts_author.ID_post FROM comments INNER JOIN posts_author ON comments.id_chapter = posts_author.ID_post WHERE id_chapter = ?');
+        $req->execute(array());
+
+        
+            $result = $req->fetchAll();
+
+            $nbComments = $req->rowCount();
+
+        
+
+    }
+
     public function getComments($ID_chapter)
     {
         $db = $this->db;

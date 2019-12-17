@@ -8,12 +8,12 @@
                 <a class="footer-item" id="footer_deconnexion_link" href="<?= HOST; ?>admin/deconnexion"><span id="fa-logout"><i class="fas fa-power-off"></i></span>Déconnexion</a>
                     <a class="footer-item" id="ADMIN" href="<?= HOST; ?>admin/dashboard">Espace Admin</a>
             <?php else : ?>
-                <a class="footer-item" id="footer_connexion_link" href="<?= HOST; ?>connexion">Se connecter</a>                    
+                <a class="footer-item" id="footer_connexion_link" href="<?= HOST; ?>connexion">Connexion</a>                    
             <?php endif; ?>
 
         <?php else : ?>
             
-            <a class="footer-item" id="footer_connexion_link" href="<?= HOST; ?>connexion">Se connecter</a>
+            <a class="footer-item" id="footer_connexion_link" href="<?= HOST; ?>connexion">Connexion</a>
 
         <?php endif; ?>
 
