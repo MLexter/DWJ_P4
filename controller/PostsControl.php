@@ -207,6 +207,9 @@ class PostsControl
     public function deleteChapter()
     {
         if (isset($_SESSION['isAdmin'])) {
+
+            $_SESSION['delete_status'] = 0;
+
             if ($_SESSION['isAdmin'] = true) {
 
                 $id = htmlspecialchars($_GET['id']);
@@ -216,9 +219,14 @@ class PostsControl
                 $post = $postManager->deletePost($id);
 
                 header('Location:' . HOST . 'admin/dashboard');
+                $_SESSION['delete_status'] = 1;
+                $_SESSION['chapter_delete_message'] = 'Le chapitre a été supprimé avec succès !';
             }
         } else {
             header('Location: ' . HOST . 'connexion');
         }
     }
+
+
+
 }

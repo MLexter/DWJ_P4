@@ -199,7 +199,8 @@ p {
 
 #chapter_content {
     height: auto;
-    border-left: 2px solid;
+    border-left: 7px solid;
+    border-radius: 50px;
     padding: 30px;
     margin: 30px auto;
 }
@@ -444,17 +445,22 @@ div#comment_management_link {
     padding: 20px;
 }
 
-#admin-thumbnail-chapter_image {
-    width: 250px;
-    height: auto;
-}
-
 
 /* ########## ADMIN MANAGE COMMENTS ########## */
 
 #main-comment-Manager {
     height: 87vh;
 }
+
+a.fa-main_admin {
+    font-size: 1.8rem;
+    margin-left: 20px;
+}
+
+#title-list {
+    height: fit-content;
+}
+
 
 
 /* ########## ADMIN CONNEXION PAGE ########## */

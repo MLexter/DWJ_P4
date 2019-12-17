@@ -1,5 +1,7 @@
-const scrollupBtn = document.querySelector('.scrollup-btn');
 
+// ########## GET SCROLL UP BUTTON ########## //
+
+const scrollupBtn = document.querySelector('.scrollup-btn');
 
 window.addEventListener('scroll', () => 
 {          
@@ -23,3 +25,15 @@ const scrollUp = scrollupBtn.addEventListener('click', () =>
     anchorTop.scrollIntoView({ behavior: 'smooth' });
     return anchorTop;
 });
+
+// ########## CUSTOM POPUP MODAL BOOTSTRAP ########## //
+
+
+const modalElt = document.getElementsByClassName('alertModal');
+
+if (modalElt.className == "show")
+{
+    console.log('HELLO');
+    document.getElementsByClassName('alertModal').className = "showModal";
+
+} 
