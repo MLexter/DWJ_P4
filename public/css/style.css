@@ -461,6 +461,10 @@ div#creation_container {
     background-color: #16171c;
 }
 
+#border-portrait {
+    height: 250px;
+}
+
 #about_container {
     display: flex;
     justify-content: center;
@@ -505,6 +509,10 @@ div#creation_container {
 
 #main-admin-page {
     margin: 5vh auto;
+}
+
+#overlay_admin {
+    background-color: white;
 }
 
 #fa-horn {

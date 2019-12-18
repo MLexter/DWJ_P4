@@ -3,9 +3,13 @@
 
 <div id="main-about">
     <div id="about_container">
-        <figure id="portrait_container">
-            <img id="author_portrait" src="public/images/author_portait.jpg" alt="Portrait de Jean Forteroche">
-        </figure>
+        <div id="container_portrait">
+            <figure id="portrait_container">
+                <img  id="border-portrait" src="public/images/border-portrait.jpg" alt="Portrait">
+                <img id="author_portrait" src="public/images/author_portait.jpg" alt="Portrait de Jean Forteroche">
+            </figure>
+        </div>
+        
         <div id="about_text_content">
             <h1>A propos de l'auteur:</h1>
             <br />
