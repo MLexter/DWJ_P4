@@ -13,11 +13,14 @@
         <?php if (isset($posts)) : ?>
                 <?php foreach ($posts as $post) : ?>
 
-            <div class="card col-5">
-                <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
-                    <img class="img-thumbnail rounded mx-auto d-block"src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre" class="card-img-top">
-                </a>
-
+                    <div class="card col-5 shadow-sm mb-5 bg-white rounded">
+                        
+                        <figure>
+                            
+                            <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
+                                <img class="img-thumbnail mx-auto d-block"src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre" class="card-img-top">
+                            </a>
+                        </figure>
                 <div class="card-body">
                     <h5 class="card-title"><?= $post->getAuthor_post_title(); ?></h5>
 
@@ -28,8 +31,8 @@
 
                         if (!empty($dataContent)) : ?>
 
-                            <?php $shorterContent = substr($post->getAuthor_post_content(), 0, 320);
-                            echo $shorterContent . '...'; ?>
+                            <?php $shorterContent = substr($post->getAuthor_post_content(), 0, 500);
+                            echo strip_tags($shorterContent . '...'); ?>
                     </p>
 
                     <div id="readmore-link" class="d-flex justify-content-end">

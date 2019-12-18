@@ -118,9 +118,12 @@ class PostsControl
                 if (isset($_POST['submit_edited_chapter'])) {
                     if (isset($_POST['author_post_title'], $_POST['author_post_content'])) {
                         if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) {
+
                             $titleChapter = $_POST['author_post_title'];
+                            $_SESSION['author_post_title'] = $_POST['author_post_title'];
 
                             $contentChapter = $_POST['author_post_content'];
+                            $_SESSION['auhtor_post_content'] = $_POST['author_post_content'];
 
                             if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) {
 
@@ -144,8 +147,8 @@ class PostsControl
 
                                             $_SESSION['success'] = 1;
                                             $_SESSION['success_upload'] = 'Votre chapitre a été modifié avec succès !';
-                                            $_SESSION['author_post_title'] = "";
-                                            $_SESSION['author_post_content'] = "";
+                                            $_SESSION['author_post_title'] = null;
+                                            $_SESSION['author_post_content'] = null;
                                             header('Location:' . HOST . 'admin/dashboard');
                                         }
                                     } else {
