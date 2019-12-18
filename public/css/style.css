@@ -179,6 +179,10 @@ p {
 
 #main-title_description {
     margin: 30px auto;
+    border-left: 5px solid;
+    border-right: 5px solid;
+    border-radius: 20px;
+    width: 60%;
 }
 
 .post_thumbnail {
@@ -202,7 +206,7 @@ img.img-thumbnail.mx-auto.d-block {
 }
 
 figure {
-    height: 350px;
+    height: 300px;
     overflow: hidden;
 }
 
