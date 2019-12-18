@@ -458,11 +458,20 @@ div#creation_container {
 
 #main-about {
     height: 87vh;
-    background-color: #16171c;
+    background-color: white;
 }
 
 #border-portrait {
-    height: 250px;
+    height: 409px;
+    width: 340px;
+}
+
+#author_portrait {
+    width: 23vh;
+    position: absolute;
+    left: 212px;
+    top: 338px;
+    height: 300px;
 }
 
 #about_container {
@@ -474,10 +483,6 @@ div#creation_container {
     margin: auto;
 }
 
-#author_portrait {
-    width: 23vh;
-    border-radius: 20%;
-}
 
 #about_text_content {
     margin-left: 3em;
