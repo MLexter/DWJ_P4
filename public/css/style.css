@@ -5,7 +5,7 @@
 
 .regular-subtitle-text {
     font-family: 'Chau Philomene One', sans-serif;
-    margin: 30px auto;
+    margin: 50px auto 25px;
     font-size: 1.4rem;
 }
 
@@ -18,7 +18,7 @@ a, h1, h2, h3 {
     font-family: 'Chau Philomene One', sans-serif;
 }
 
-h3, h4 {
+h1, h2, h3, h4 {
     color: black;
 }
 
@@ -152,15 +152,20 @@ p {
 
 /* ########## CHAPTERS OVERALL ########## */
 
+.container-main-title_description {
+    position: relative;
+    top: 30px;
+    color: #416fa1;
+}
+
 .hr-separation {
-    border-top: 4px solid rgb(109, 175, 204);
+    border-top: 4px solid rgb(23, 162, 184);
     width: 40vh;
     margin: 1vh auto;
     border-radius: 15%;
 }
 
 #main-listPosts {
-    margin: 5vh auto;
     border: 1px solid #bdc0d3;
     box-shadow: 1px 4px 12px 4px;
     background-color: white;
@@ -168,6 +173,7 @@ p {
 
 #container_list_chapters {
     flex-wrap: wrap;
+    padding-top: 20px;
 }
 
 .title-section {
@@ -179,6 +185,10 @@ p {
 
 #main-title_description {
     margin: 30px auto;
+    border-left: 5px solid;
+    border-right: 5px solid;
+    border-radius: 20px;
+    width: 60%;
 }
 
 .post_thumbnail {
@@ -201,8 +211,8 @@ img.img-thumbnail.mx-auto.d-block {
     border: none;
 }
 
-figure {
-    height: 350px;
+#illustration-thumbnail {
+    height: 300px;
     overflow: hidden;
 }
 
@@ -248,12 +258,12 @@ figure {
 }
 
 #main-chapterView {
-    padding: 5vh 0 5vh 0;
+    padding-bottom: 40px;
 }
 
 #chapter_content {
     height: auto;
-    border-left: 7px solid;
+    border-left: 7px solid #17a2b8;
     border-radius: 50px;
     padding: 30px;
     margin: 30px auto;
@@ -267,8 +277,17 @@ figure {
     max-width: 60%;
 }
 
-#separation_icon {
+.separation_icon {
     color: #26838f;
+    margin: 0px auto 30px auto;
+    position: relative;
+    bottom: 10px;
+}
+
+
+
+#backto_link {
+    margin-top: 60px;
 }
 
 #container_comments {
@@ -294,7 +313,7 @@ td#comment-section {
     border: 3px solid #dee2e6;
     box-shadow: 1px 0px 6px -1.5px;
     padding: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px auto 0 auto;
 }
 
 .signalment-btn {
@@ -329,7 +348,9 @@ div#creation_container {
 
 #image-post-chapter {
     width: 45%;
-    margin: 10px;
+    height: 450px;
+    margin: 0 0 30px 30px;
+    object-fit: cover;
 }
 
 #authorPostContent {

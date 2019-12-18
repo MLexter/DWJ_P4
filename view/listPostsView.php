@@ -3,13 +3,18 @@
 <div class="col-12">
 
     <div id="main-listPosts" class="container rounded">
-        <div id="main-title_description" class="text-center title-section">
-            <h1>BILLET SIMPLE POUR L'ALASKA</h1>
-            <h2>Dernières lectures</h2>
+        <div class="shadow-sm border p-3 mb-5 bg-white rounded container-main-title_description">
+            <div id="main-title_description" class="text-center title-section">
+                <h1>BILLET SIMPLE POUR L'ALASKA</h1>
+                <h2>Dernières lectures</h2>
+            </div>
+
         </div>
-<hr class="hr-separation">
         <p class="text-center regular-subtitle-text container col-md-9">Retrouvez ici la liste de tous les chapitres publiés sur le roman 'Billet simple pour l'Alaska'. <br />
         N'hésitez pas vous exprimer dans l'espace commentaire des chapitres afin de laisser votre ressenti à l'auteur !</p>
+
+            <hr class="hr-separation">
+
         <div id="container_list_chapters" class="d-flex justify-content-around container-fluid">
 
         <?php if (isset($posts)) : ?>
@@ -17,8 +22,8 @@
 
                     <div class="card col-5 shadow-sm mb-5 bg-white rounded">
                         
-                        <figure>
-                            
+                        <figure id="illustration-thumbnail">
+                           
                             <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
                                 <img class="img-thumbnail mx-auto d-block"src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre" class="card-img-top">
                             </a>
