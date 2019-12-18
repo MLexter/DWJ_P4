@@ -8,6 +8,18 @@
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
+        <?php if (@$_SESSION['success'] == 0) : ?>
+                <?php if (@$_SESSION['error_upload'] !== null) : ?>
+                    <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
+                <?php endif; ?>
+        <?php endif; ?>
+
+            <div id="illustration-chapter">
+                <figure>
+                    <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                </figure>
+            </div>
+
         <form action="<?= HOST; ?>admin/post-update" method="POST" enctype="multipart/form-data">
             <div>
                 <input type="hidden" name="postId" value="<?= $post->getPostId(); ?>">
@@ -20,11 +32,6 @@
                     <h3>Contenu du chapitre:</h3>
                 </label>
 
-                <div id="illustration-chapter">
-                    <figure>
-                        <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
-                    </figure>
-                </div>
 
                 <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
                 <label for="image_post">
@@ -44,11 +51,7 @@
         </form>
 
         
-            <?php if (@$_SESSION['success'] == 0) : ?>
-                <?php if (@$_SESSION['error_upload'] !== null) : ?>
-                    <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
-                <?php endif; ?>
-            <?php endif; ?>
+            
 
     </div>
 </div>

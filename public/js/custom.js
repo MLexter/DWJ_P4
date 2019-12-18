@@ -25,15 +25,3 @@ const scrollUp = scrollupBtn.addEventListener('click', () =>
     anchorTop.scrollIntoView({ behavior: 'smooth' });
     return anchorTop;
 });
-
-// ########## CUSTOM POPUP MODAL BOOTSTRAP ########## //
-
-
-const modalElt = document.getElementsByClassName('alertModal');
-
-if (modalElt.className == "show")
-{
-    console.log('HELLO');
-    document.getElementsByClassName('alertModal').className = "showModal";
-
-} 
