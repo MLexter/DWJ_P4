@@ -41,6 +41,13 @@ class StaticControl
     
     public function showContactView()
     {
+        $_SESSION['contact_success'] = false;
+        $_SESSION['first_name'] = "";      
+        $_SESSION['last_name'] = "";      
+        $_SESSION['email'] = "";          
+        $_SESSION['message_subject'] = "";
+        $_SESSION['message_content'] = "";
+
         $viewToDisplay = new ViewRenderer('contactView');
         $viewToDisplay->renderView();
     }
@@ -48,7 +55,7 @@ class StaticControl
     public function sendMessage()
     {
 
-        $_SESSION['contact_success'] = false;
+        
 
         if (isset($_POST['submit_contact_message']))
         {
@@ -96,6 +103,11 @@ class StaticControl
 
                                 $_SESSION['contact_success'] = true;
                                 $_SESSION['sending_success_message'] = 'Votre message a bien été envoyé !';
+                                $_SESSION['first_name'] =      $_POST['first_name'];
+                                $_SESSION['last_name'] = "";
+                                $_SESSION['email'] = "";
+                                $_SESSION['message_subject'] = "";
+                                $_SESSION['message_content'] = "";
 
                                 $viewToDisplay = new ViewRenderer('contactView');
                                 $viewToDisplay->renderView();
