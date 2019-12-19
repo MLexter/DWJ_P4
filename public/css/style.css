@@ -216,6 +216,22 @@ img.img-thumbnail.mx-auto.d-block {
     overflow: hidden;
 }
 
+#illustration-thumbnail img {
+    max-width: 100%;
+    object-fit: cover;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#illustration-thumbnail:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
 .bottom-border {
     position: relative;
     bottom: 30px;
@@ -283,8 +299,6 @@ img.img-thumbnail.mx-auto.d-block {
     position: relative;
     bottom: 10px;
 }
-
-
 
 #backto_link {
     margin-top: 60px;
@@ -461,36 +475,44 @@ div#creation_container {
     background-color: white;
 }
 
+#container_portrait {
+    position: relative;
+    bottom: 40px;
+}
+
 #border-portrait {
     height: 409px;
     width: 340px;
 }
 
 #author_portrait {
-    width: 23vh;
+    width: 211px;
     position: absolute;
-    left: 212px;
-    top: 338px;
-    height: 300px;
+    right: 66px;
+    bottom: 68px;
+    height: 302px;
+}
+
+div#about-container_content {
+    padding: 30px;
+    margin: 30px auto;
 }
 
 #about_container {
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 80%;
     height: 100%;
-    margin: auto;
 }
 
-
 #about_text_content {
-    margin-left: 3em;
-    color: white;
+    color: black;
 }
 
 #quote_text_author {
     font-style: italic;
+    padding: 25px;
+    background-color: #f0eff5;
 }
 
 /* ########## CONTACT ########## */

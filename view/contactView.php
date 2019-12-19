@@ -3,7 +3,7 @@
 
 <div id="main-contact" class="d-flex align-items-center">
 
-  <div class="container text-center shadow-lg p-3 mb-5 bg-white rounded container-main-title_description">
+  <div class="text-center shadow-lg p-3 mb-5 bg-white rounded container-main-title_description">
     <h1>Envoyer un message à l'auteur</h1>
     <p>Une question ? Une idée ? Une remarque ? Faites parvenir un message à l'auteur !
       <br />
