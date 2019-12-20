@@ -36,6 +36,7 @@ a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
     transition-property: opacity;
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
+    pointer-events: none;
 }
 
 /* ########### NAVBAR ########## */
@@ -43,10 +44,6 @@ a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
 .navbar {
     background-color: #002f44;
     height: 10vh;
-}
-
-a.navbar-brand {
-    
 }
 
 .nav-item {
@@ -72,7 +69,7 @@ nav ul a:hover {
 }
 
 li.nav-item {
-    padding: 5px 15px;
+    padding: 0 25px;
 }
 
 p {
@@ -91,7 +88,7 @@ p {
     position: relative;
     background-image: url('../images/wood-landscape-mountains-nature.jpg');
     background-size: cover;
-    min-height: 85vh;
+    height: 85vh;
     padding: 300px 0 200px;
 }
 
@@ -167,7 +164,7 @@ p {
 
 .hr-separation {
     border-top: 4px solid rgb(23, 162, 184);
-    width: 40vh;
+    width: 10vh;
     margin: 1vh auto;
     border-radius: 15%;
 }
@@ -425,11 +422,14 @@ div#creation_container {
 /* ########## HEADER ########## */
 
 #button-navbar-responsive {
-    position: relative;
-    bottom: 12px;
-    right: 20px;
     border: 3px solid;
     height: 45px;
+}
+
+#header-menu_content {
+    position: relative;
+    bottom: 7px;
+    right: 20px;
 }
 
 .navbar-toggler-icon {
@@ -440,7 +440,6 @@ div#creation_container {
 #navbarSupportedContent {
     background-color: #3344;
     z-index: 9;
-  
 }
 
 button:focus {
@@ -460,10 +459,12 @@ ul.navbar-nav.ml-lg-auto {
 #sub_logo_title {
     color: white;
     text-align: center;
+    position: relative;
+    bottom: 5px;
 }
 
 #logo_site_container {
-    
+    height: 10vh;
 }
 
 #menu_container #main-menu li a {
@@ -498,6 +499,70 @@ ul.navbar-nav.ml-lg-auto {
     background-color: #c0c0c036;
     transition-timing-function: ease-in-out;
     transition-duration: 0.4s;
+}
+
+nav#navbar-responsive {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --------------- Media Queries --------------- */
+
+@media screen and (max-width: 992px) {
+    #navbarSupportedContent {
+        position: absolute;
+        top: 9vh;
+        right: -3vh;
+    }
+    li.nav-item {
+        min-width: 35vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #navbarSupportedContent {
+        top: 8vh;
+        left: 1vh;
+    }
+
+    ul.navbar-nav.ml-lg-auto.text-center {
+        width: 35vh;
+    }
+
+    #logo_site_name {
+        font-size: 2rem;
+    }
+
+    #sub_logo_title {
+        font-size: 1.8rem;
+        bottom: 0;
+    }
+
+    #header-menu_content {
+        position: relative;
+        bottom: 10px;
+        right: 0px;
+    }
+
+    #navbar-responsive {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #logo_site_name {
+        font-size: 1.5rem;
+    }
+    #sub_logo_title {
+        font-size: 1.3rem;
+        bottom: 5px;
+    }
+    a.navbar-brand {
+        padding-top: 0;
+    }
 }
 
 /* ########## FOOTER ########## */
