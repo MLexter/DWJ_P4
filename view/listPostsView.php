@@ -20,7 +20,7 @@
             <?php if (isset($posts)) : ?>
                 <?php foreach ($posts as $post) : ?>
 
-                    <div class="card col-5 shadow-sm mb-5 bg-white rounded">
+                    <div id="card-container" class="card col-lg-5 sm-12 shadow-sm bg-white rounded">
 
                         <figure class="illustration-thumbnail">
 
