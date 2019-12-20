@@ -25,3 +25,24 @@ const scrollUp = scrollupBtn.addEventListener('click', () =>
     anchorTop.scrollIntoView({ behavior: 'smooth' });
     return anchorTop;
 });
+
+// ########## GET SCROLL UP BUTTON ########## //
+
+// TESTER CONDITION POUR QUE SI PLUS QUE 3 ELEMENTS DANS LE FOOTER ON PASS EN FLEX COLUMN (PAS OK)
+const footerItem = document.querySelectorAll('.footer-item');
+let windowWidth = window.screen.width;
+const maxScreenWidth = 350;
+
+console.log(windowWidth);
+
+console.log(footerItem);
+
+if (windowWidth > maxScreenWidth) {
+    document.getElementById('footer_infos').style.flexDirection = "row";
+    console.log('COUCOU 1');
+
+} else if (footerItem.length > 4) {
+    document.getElementById('footer_infos').style.flexDirection = "column";
+    console.log('COUCOU 2');
+
+}
