@@ -3,8 +3,8 @@
 <div class="col-12">
 
     <div id="main-listPosts" class="container rounded">
-        <div class="shadow-sm border p-3 mb-5 bg-white rounded container-main-title_description">
-            <div id="main-title_description" class="text-center title-section">
+        <div class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description">
+            <div id="main-title_description" class="text-center container title-section col-sm-12">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
                 <h2>Dernières lectures</h2>
             </div>
@@ -20,7 +20,7 @@
             <?php if (isset($posts)) : ?>
                 <?php foreach ($posts as $post) : ?>
 
-                    <div class="card col-5 shadow-sm mb-5 bg-white rounded">
+                    <div id="card-container" class="card col-lg-5 sm-12 shadow-sm bg-white rounded">
 
                         <figure class="illustration-thumbnail">
 

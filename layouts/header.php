@@ -9,12 +9,12 @@
                 </div>
             </div>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button id="button-navbar-responsive" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> <img src="public/images/header/bars-solid.svg" alt="phone-menu"> </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-lg-auto">
+            <ul class="navbar-nav ml-lg-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="<?= HOST . '' ?>">Accueil<span class="sr-only">(current)</span></a>
                 </li>
@@ -31,5 +31,4 @@
 
         </div>
     </nav>
-
 </header>
