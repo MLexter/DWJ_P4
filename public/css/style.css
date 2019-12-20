@@ -89,16 +89,11 @@ p {
     background-image: url('../images/wood-landscape-mountains-nature.jpg');
     background-size: cover;
     height: 85vh;
-    padding: 300px 0 200px;
 }
 
 #main-titles {
-    position: relative;
-    top: 30%;
-    width: 70%;
-    height: 50%;
-    margin: auto;
     text-align: center;
+    height: 30vh;
 }
 
 .main_text_title {
@@ -119,7 +114,6 @@ p {
     font-size: 2em;
     margin: auto;
     margin-bottom: 3%;
-    width: 50%;
 }
 
 #sub_title::after {
@@ -147,6 +141,17 @@ p {
     transition-property: background-color;
     transition-duration: 0.2s;
 }
+
+/* -------------- Media Queries --------------- */
+
+@media screen and (max-width: 600px) {
+    #main-titles {
+        position: relative;
+        bottom: 3vh;
+    }
+}
+
+
 
 /* ########## CHAPTERS OVERALL ########## */
 
