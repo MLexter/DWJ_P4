@@ -109,10 +109,6 @@
              <?php endif; ?>
          </div>
 
-         <div class="text-center separation_icon">
-             <i class="material-icons">fiber_manual_record</i>
-         </div>
-
          <div id="comment-form_container" class="container col-10">
              <h3 class="text-center">Laisser un commentaire</h3>
 

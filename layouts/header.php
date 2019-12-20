@@ -10,7 +10,7 @@
         <div id="header-menu_content">
 
             <button id="button-navbar-responsive" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"> <img src="public/images/header/bars-solid.svg" alt="phone-menu"> </span>
+                <span class="navbar-toggler-icon"> <img src="public/images/svg/bars-solid.svg" alt="phone-menu"> </span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -93,7 +93,7 @@ p {
 
 #main-titles {
     text-align: center;
-    height: 30vh;
+    height: auto;
 }
 
 .main_text_title {
@@ -124,20 +124,29 @@ p {
     top: 2%;
 }
 
+#getBook-link {
+    margin: 3vh auto;
+}
+
 #last_reads_button_link {
-    color: black;
     text-decoration: none;
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 15px;
-    position: relative;
-    top: 20px;
     font-size: 2.2vh;
+    height: auto;
+    padding: 10px 20px 10px 20px;
+}
+
+.btn-outline-warning {
+    color: #ffd700;
+    border-color: #ffd700;
+}
+
+#last_reads_button_link:hover {
+    background-color: #e8db62!important;
 }
 
 #last_reads_button_link:hover {
     background-color: #c0c0c087;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-out;
     transition-property: background-color;
     transition-duration: 0.2s;
 }
@@ -150,8 +159,6 @@ p {
         bottom: 3vh;
     }
 }
-
-
 
 /* ########## CHAPTERS OVERALL ########## */
 
@@ -433,7 +440,6 @@ div#creation_container {
 
 #header-menu_content {
     position: relative;
-    bottom: 7px;
     right: 20px;
 }
 
@@ -529,26 +535,21 @@ nav#navbar-responsive {
         top: 8vh;
         left: 1vh;
     }
-
     ul.navbar-nav.ml-lg-auto.text-center {
         width: 35vh;
     }
-
     #logo_site_name {
         font-size: 2rem;
     }
-
     #sub_logo_title {
         font-size: 1.8rem;
         bottom: 0;
     }
-
     #header-menu_content {
         position: relative;
         bottom: 10px;
         right: 0px;
     }
-
     #navbar-responsive {
         display: flex;
         flex-direction: row-reverse;
@@ -568,7 +569,25 @@ nav#navbar-responsive {
     a.navbar-brand {
         padding-top: 0;
     }
+
+    #main_title {
+        font-size: 3em;;   
+    }
+
+    #sub_title {
+        font-size: 1.7em;
+    }
+
+    #last_reads_button_link {
+        font-size: 3vh;
+    }
+    .footer-item {
+        margin: 5px 3px!important;
+        font-size: 0.9em;
+    }
 }
+
+
 
 /* ########## FOOTER ########## */
 
@@ -578,13 +597,11 @@ nav#navbar-responsive {
     position: sticky;
     width: 100%;
     bottom: 0;
+    height: auto;;
 }
 
 #footer_infos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
+    min-height: 5vh;
 }
 
 #footer_copyright, #footer_mentions_legales {
@@ -593,8 +610,7 @@ nav#navbar-responsive {
 
 .footer-item {
     margin: 5px 30px;
-    font-size: 1.1em;
-    ;
+    font-size: 1em;
 }
 
 #footer_connexion_link {
@@ -608,6 +624,9 @@ nav#navbar-responsive {
     margin-right: 5px;
 }
 
+#footer_connexion_link:hover {
+    color: #ffd733;
+}
 /* ########## ABOUT ########## */
 
 #main-about {
