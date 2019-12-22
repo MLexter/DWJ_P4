@@ -70,7 +70,7 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="textarea1" name="message_content" class="materialize-textarea text-center" required><?= @$_SESSION['message_content'] ?></textarea>
+            <textarea id="textarea1" name="message_content" class="materialize-textarea" required><?= @$_SESSION['message_content'] ?></textarea>
             <label for="textarea1" class="text-center">Votre message</label>
           </div>
         </div>

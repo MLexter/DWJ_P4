@@ -142,10 +142,6 @@ p {
 
 #last_reads_button_link:hover {
     background-color: #e8db62!important;
-}
-
-#last_reads_button_link:hover {
-    background-color: #c0c0c087;
     transition-timing-function: ease-out;
     transition-property: background-color;
     transition-duration: 0.2s;
@@ -215,6 +211,10 @@ div#card-container {
     border-bottom: 1px solid #94a3ab;
     padding: 20px;
     margin-bottom: 30px;
+}
+
+.post_thumbnail:last-child {
+    border-bottom: none;
 }
 
 .img-thumbnail {
@@ -569,30 +569,25 @@ nav#navbar-responsive {
     a.navbar-brand {
         padding-top: 0;
     }
-
     #main_title {
-        font-size: 3em;;   
+        font-size: 3em;
+        ;
     }
-
     #sub_title {
         font-size: 1.7em;
     }
-
     #last_reads_button_link {
-        font-size: 3vh;
+        font-size: 2vh;
     }
     .footer-item {
         margin: 5px 3px!important;
         font-size: 0.8em!important;
         padding: 0;
     }
-
     /* #footer_infos {
         flex-direction: column;
     } */
 }
-
-
 
 /* ########## FOOTER ########## */
 
@@ -602,10 +597,14 @@ nav#navbar-responsive {
     position: sticky;
     width: 100%;
     bottom: 0;
-    height: auto;;
+    height: auto;
+    ;
 }
 
 #footer_infos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     min-height: 5vh;
 }
 
@@ -614,9 +613,8 @@ nav#navbar-responsive {
 }
 
 .footer-item {
-    margin: 5px 30px;
+    margin: 5px;
     font-size: 1em;
-    
 }
 
 #footer_connexion_link {
@@ -633,6 +631,7 @@ nav#navbar-responsive {
 #footer_connexion_link:hover {
     color: #ffd733;
 }
+
 /* ########## ABOUT ########## */
 
 #main-about {
@@ -747,7 +746,8 @@ div#about-container_content {
 /* ########## ADMIN MAINPAGE ########## */
 
 #main-admin-page {
-    margin: 5vh auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #overlay_admin {

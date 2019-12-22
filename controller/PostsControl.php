@@ -34,7 +34,7 @@ class PostsControl
     public function createChapter()
     {
         if (isset($_SESSION['isAdmin'])) {
-            if ($_SESSION['isAdmin'] = true) {
+            if ($_SESSION['isAdmin'] == true) {
 
 
                 $_SESSION['author_post_title'] = "";
@@ -113,12 +113,11 @@ class PostsControl
     public function updateChapter()
     {
         if (isset($_SESSION['isAdmin'])) {
-            if ($_SESSION['isAdmin'] = true) {
+            if ($_SESSION['isAdmin'] == true) {
 
                 if (isset($_POST['submit_edited_chapter'])) {
                     if (isset($_POST['author_post_title'], $_POST['author_post_content'])) {
                         if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) {
-
                             $titleChapter = $_POST['author_post_title'];
                             $_SESSION['author_post_title'] = $_POST['author_post_title'];
 
@@ -195,7 +194,22 @@ class PostsControl
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $post = $postManager->getPost($_GET['id']);
                 $_SESSION['id_chapter'] = $_GET['id'];
+                
+                if (!empty($_POST['cequetuveux'])) {
+                    $post->setAuthor_post_title($_POST['lamemechose']);
 
+                    
+
+
+                    if (!empty($_POST['image_chapter'])) {
+                        //remplacer image
+                    }
+                    if ($post->getChapter_image() === '') {
+                        //afficher erreur
+                    }
+
+                    // si tout va bien, faire l'update en base de données, sinon afficher les erreurs
+                }
 
                 $viewToDisplay = new ViewRenderer('editView');
                 $viewToDisplay->renderView(array('post' => $post));
