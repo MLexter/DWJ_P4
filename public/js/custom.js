@@ -37,12 +37,15 @@ console.log(windowWidth);
 
 console.log(footerItem);
 
-if (windowWidth > maxScreenWidth) {
+if (window.screen.width > maxScreenWidth) {
     document.getElementById('footer_infos').style.flexDirection = "row";
-    console.log('COUCOU 1');
+    console.log(footerItem.length);
 
-} else if (footerItem.length > 4) {
-    document.getElementById('footer_infos').style.flexDirection = "column";
-    console.log('COUCOU 2');
+} else if (window.screen.width < maxScreenWidth) {
+    if (footerItem.length > 3) {
+        document.getElementById('footer_infos').style.flexDirection = "column";
+        console.log('COUCOU 2');
+
+    }
 
 }
