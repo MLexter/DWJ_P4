@@ -12,7 +12,7 @@
 
         <?php else : ?>
 
-            <a class="footer-item text-center col" id="footer_connexion_link" href="<?= HOST; ?>connexion"><span class="fa_locker"><i class="fas fa-lock"></i></span> Connexion</a>
+            <a class="footer-item text-center col" id="footer_connexion_link" href="<?= HOST; ?>connexion"> Connexion</a>
 
         <?php endif; ?>
 

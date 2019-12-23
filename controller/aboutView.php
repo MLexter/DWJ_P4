@@ -1,14 +1,14 @@
 <?php $title_content = 'A propos de l\'auteur'; ?>
 
-<div id="background-about">
-    <img id="background_about_img" src="public/images/alaska-road-mountains.jpg" alt="Fond d'écran du blog">
-</div>
 
 <div id="main-about">
+    <div id="background-about">
+        <img id="background_about_img" src="public/images/alaska-road-mountains.jpg" alt="">
+    </div>
     <div id="about_container">
 
 
-        <div id="about-container_content" class="shadow border bg-white rounded col-10 container">
+        <div id="about-container_content" class="shadow border bg-white rounded col-10">
             <div id="about_text_content">
                 <div id="about_title" class="text-center">
                     <h1>A PROPOS DE L'AUTEUR</h1>

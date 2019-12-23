@@ -43,7 +43,7 @@
 
 
     <div id="new_chapter" class="d-flex justify-content-center">
-      <a class="btn btn-primary btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
+      <a id="new-chapter_button" class="btn btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
 
 

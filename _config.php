@@ -14,8 +14,8 @@ class AutomaticLoading
         $root = $_SERVER['DOCUMENT_ROOT'];
         $host = $_SERVER['HTTP_HOST'];
 
-        define('HOST', 'http://' . $host . '/P4_Blog_ecrivain/');
-        define('ROOT',            $root . '/P4_Blog_ecrivain/');
+        define('HOST', 'http://' . $host . '/');
+        define('ROOT',            $root . '/');
 
         define('CONTROLLER', ROOT . 'controller/');
         define('MODEL',      ROOT . 'model/');
