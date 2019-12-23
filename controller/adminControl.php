@@ -9,7 +9,7 @@ class AdminControl
     {       
         if(isset($_SESSION['isAdmin']))
         {
-            if ($_SESSION['isAdmin'] = true)
+            if ($_SESSION['isAdmin'] == true)
             {
 
                 $postManager = new \JForteroche\Blog\Model\PostManager();
@@ -41,7 +41,7 @@ class AdminControl
                     $connexion = new \JForteroche\Blog\Model\AdminManager();
                     $checkValues = $connexion->connexionChecks($ID_user, $password);
                 
-                    if ($_SESSION['isAdmin'] = true)
+                    if ($_SESSION['isAdmin'] == true)
                     {
                         header('Location: ' . HOST . 'admin/dashboard');                  
         

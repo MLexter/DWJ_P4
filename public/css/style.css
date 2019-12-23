@@ -635,8 +635,9 @@ nav#navbar-responsive {
 /* ########## ABOUT ########## */
 
 #main-about {
-    height: 85vh;
-    background-color: white;
+    height: 82.6vh;
+    position: relative;
+    bottom: 22px;
 }
 
 img#background_about_img {
@@ -678,14 +679,10 @@ img#background_about_img {
 
 div#about-container_content {
     padding: 30px;
-    margin: 30px auto;
 }
 
 #about_container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
+   
 }
 
 #about_description {
