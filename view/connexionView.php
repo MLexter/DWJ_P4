@@ -1,7 +1,7 @@
 <?php $title_content = 'Connexion à l\'espace d\'administration'; ?>
 
 <div id="main-connexion-screen" class="container-fluid d-flex align-items-center">
-    <div id="connexion_container" class="container d-flex align-items-center">
+    <div id="connexion_container" class="container d-flex align-items-center shadow border bg-white rounded col-6">
         <div id="connexion_form">
             <h1 class="text-center">Connectez-vous à votre espace:</h1>
             <br />
