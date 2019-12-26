@@ -2,7 +2,6 @@
     <nav id="navbar-responsive" class="navbar navbar-expand-lg">
         <div id="logo_site_container">
             <a class="navbar-brand" href="<?= HOST ?>">
-
                 <h1 id="logo_site_name">JEAN FORTEROCHE</h1>
                 <h2 id="sub_logo_title">Le blog de l'auteur</h2>
             </a>

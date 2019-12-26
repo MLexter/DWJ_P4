@@ -339,6 +339,15 @@ p.card-text {
     padding-bottom: 40px;
 }
 
+#chapter-title-page {
+    padding-top: 30px;
+}
+
+#illustration-chapter {
+    float: right;
+    margin-left: 20px;
+}
+
 #chapter_content {
     height: auto;
     border-left: 7px solid #17a2b8;
@@ -359,7 +368,7 @@ p.card-text {
 }
 
 #backto_link {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 #container_comments {
@@ -419,7 +428,6 @@ div#creation_container {
 /* ########## EDIT CHAPTER ########## */
 
 #image-post-chapter {
-    width: 100%;
     height: 500px;
     object-fit: cover;
 }
@@ -440,8 +448,6 @@ div#creation_container {
     border: 3px solid;
     height: 47px;
 }
-
-
 
 .navbar-toggler-icon {
     position: relative;
@@ -472,10 +478,6 @@ ul.navbar-nav.ml-lg-auto {
     text-align: center;
     position: relative;
     bottom: 5px;
-}
-
-#logo_site_container {
-    height: 10vh;
 }
 
 #menu_container #main-menu li a {
@@ -523,7 +525,7 @@ nav#navbar-responsive {
     #navbarSupportedContent {
         position: absolute;
         top: 9vh;
-        right: -3vh;
+        right: -1.5vh;
     }
     li.nav-item {
         min-width: 35vh;
@@ -539,12 +541,15 @@ nav#navbar-responsive {
 }
 
 @media screen and (max-width: 600px) {
-    #navbarSupportedContent {
-        top: 8vh;
-        left: 1vh;
-    }
     ul.navbar-nav.ml-lg-auto.text-center {
         width: 35vh;
+    }
+    #logo_site_container {
+        height: 7.6vh;
+        position: absolute;
+        left: 8vh;
+        display: flex;
+        align-items: center;
     }
     #logo_site_name {
         font-size: 2rem;
@@ -554,19 +559,32 @@ nav#navbar-responsive {
         bottom: 0;
     }
     #header-menu_content {
-        position: relative;
+        position: absolute;
+        left: 20px;
         bottom: 10px;
-        right: 0px;
     }
-    #navbar-responsive {
+    a.navbar-brand {
+        float: right;
+    }
+    /* #navbar-responsive {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
         align-items: center;
+    } */
+}
+
+@media screen and (max-width: 400px) {
+    h1#logo_site_name {
+        font-size: 1.5rem;
+    }
+    #sub_logo_title {
+        font-size: 1.3rem;
     }
 }
 
 @media screen and (max-width: 350px) {
+   
     #logo_site_name {
         font-size: 1.5rem;
     }
@@ -592,34 +610,35 @@ nav#navbar-responsive {
         font-size: 0.8em!important;
         padding: 0;
     }
-    #header-menu_content {
-        right: 10px;
-        height: 58px;
-    }
-
     a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
-        bottom: 50px;
+        top: 10px;
     }
-
     #footer_deconnexion_link {
         position: relative;
         right: 8px;
     }
-
     p.card-text {
         font-size: 13px;
     }
-
     .illustration-thumbnail:hover span.txt_illustration {
         text-align: center;
     }
     #chapter_content {
         padding: 0;
     }
-
     #illustration-chapter {
-        width: 73%;
-        margin: auto;
+        width: 100%;
+        float: none;
+       
+    }
+    #chapter_content {
+        border-left: none;
+    }
+    #header-menu_content {
+        left: 10px;
+    }
+    #image-post-chapter {
+        height: 300px;
     }
 }
 
@@ -708,14 +727,14 @@ img#background_about_img {
     margin-left: 20px;
 }
 
-div#about-container_content {  
+div#about-container_content {
     padding: 30px;
     height: 85vh;
 }
 
 #about_container {
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 #about_description {
@@ -802,6 +821,7 @@ div#about-container_content {
 a#new-chapter_button:hover {
     background-color: #1e9bf3;
 }
+
 a#new-chapter_button {
     background-color: #53d48d;
 }

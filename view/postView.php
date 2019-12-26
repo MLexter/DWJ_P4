@@ -3,11 +3,11 @@
  <div id="container-chapterView" class="container-fluid">
 
      <div id="main-chapterView" class="container">
-         <div class="shadow border p-3 mb-5 bg-white rounded container-main-title_description">
-             <div class="text-center">
-                 <h1>"<?= $post->getAuthor_post_title(); ?>"</h1>
-             </div>
+         <div id ="chapter-title-page" class="container text-center">
+             <h1>"<?= $post->getAuthor_post_title(); ?>"</h1>
          </div>
+
+         <hr class="hr-separation">
 
          <p id="backto_link" class="text-center"><a href="<?= HOST; ?>book">Retour à la liste des dernières lectures</a></p>
 
@@ -21,7 +21,7 @@
          <div id="chapter_content">
              <div id="illustration-chapter">
                  <figure id="illustration-in-chapter">
-                     <img id="image-post-chapter" class="img-fluid shadow p-1 mb-5 bg-white rounded float-right" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                     <img id="image-post-chapter" class="img-fluid shadow p-1 mb-5 bg-white rounded" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
                  </figure>
              </div>
 
@@ -109,7 +109,7 @@
              <?php endif; ?>
          </div>
 
-         <div id="comment-form_container" class="container col-10">
+         <div id="comment-form_container" class="container-fluid col-10">
              <h3 class="text-center">Laisser un commentaire</h3>
 
              <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
