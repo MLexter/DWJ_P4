@@ -16,9 +16,8 @@
 
                 <br>
 
-                <div id="container_portrait" class="float-right">
+                <div id="container_portrait">
                     <figure id="portrait_container">
-                        <img id="border-portrait" src="public/images/border-portrait.jpg" alt="Portrait">
                         <img id="author_portrait" src="public/images/author_portait.jpg" alt="Portrait de Jean Forteroche">
                     </figure>
                 </div>
@@ -34,7 +33,7 @@
                         <i class="fas fa-quote-left"></i>
                         Ce roman est l'aboutissement créatif de plusieurs années de notes que j'ai prise dans mon carnet. La découverte de l'Alaska a été comme un déclic pour moi et je me suis dit que l'idée que je cherchais était là. Le voyage est une porte ouverte vers la création et l'inspiration peut se trouver à chaque coin de rue ! C'est pour cela que mes carnets ne me quittent jamais !
                         <i class="fas fa-quote-right"></i>
-                    </span></p><br />
+                    </span></p>
 
                 <p class="row description-content" id="about_last-para">Auteur passionné, Jean Forteroche transpire l'humanité et le réalisme et tient à faire partager au lecteur toute la force de l'évasion par la lecture. <br />
                     Déjà inspiré par ses nouveaux voyages, il travaille actuellement sur son futur projet...</p>

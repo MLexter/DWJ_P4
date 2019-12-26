@@ -33,6 +33,7 @@
 
 <body>
     <a href="#top-anchor" id="scrolltop-anchor"></a>
+
     <?php include('header.php'); ?>
 
     <a class="scrollup-btn btn-floating btn-large cyan pulse" title="Retour en haut de la page"><i class="material-icons">change_history</i></a>
