@@ -14,7 +14,7 @@
                 <?php endif; ?>
         <?php endif; ?>
 
-            <div id="illustration-chapter">
+            <div id="edit-illustration">
                 <figure>
                     <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
                 </figure>

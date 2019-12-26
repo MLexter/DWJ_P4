@@ -14,11 +14,11 @@
                     <h1>A PROPOS DE L'AUTEUR</h1>
                 </div>
 
-                <br>
+                <hr class="hr-separation" id="separation_about">
 
                 <div id="container_portrait">
                     <figure id="portrait_container">
-                        <img id="author_portrait" src="public/images/author_portait.jpg" alt="Portrait de Jean Forteroche">
+                        <img id="author_portrait" class="rounded" src="public/images/author_portait.jpg" alt="Portrait de Jean Forteroche">
                     </figure>
                 </div>
                 <p class="row description-content">Jean Forteroche est un écrivain Suisse né le 12 juillet 1971, passionné d'arts en tous genres et globbe-trotteur. C'est vers la lecture qu'il se tournera très tôt: les classiques Baudelaire, Rimbault, Rousseau ou encore Ferdinand-Céline sont ses premiers coups de coeur avant de se tourner vers des auteurs plus contemporains comme Henry Miller. Une fascination va alors naître pour l'écriture. </p>

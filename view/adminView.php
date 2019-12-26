@@ -2,9 +2,9 @@
 
 <div id="overlay_admin">
 
-  <div id="main-admin-page" class="col-10 container-fluid">
+  <div id="main-admin-page" class="container-fluid">
 
-    <div class="container text-center" id="admin_banner-main">
+    <div class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description" id="admin_banner-main">
       <h1>ADMINISTRATION DU SITE</h1>
     </div>
 
@@ -60,7 +60,7 @@
                 <?= htmlspecialchars($post->getAuthor_post_title()); ?> <br />
                 <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
               </h2>
-              <div class="">
+              <div class="box_menu">
                 <a class="fa-main_admin" href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>" title="Voir le chapitre"><i class="far fa-eye"></i></a>
                 <a class="fa-main_admin" href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>" title="Modifier le chapitre"><i class="far fa-edit"></i></a>
                 <a class="fa-main_admin" href="<?= HOST; ?>admin/delete-post&amp;id=<?= $post->getPostId(); ?>" title="Supprimer ce chapitre"><i class="far fa-trash-alt"></i></a>

@@ -153,6 +153,9 @@ p {
         position: relative;
         bottom: 3vh;
     }
+    #title-list {
+        flex-direction: column;
+    }
 }
 
 /* ########## CHAPTERS OVERALL ########## */
@@ -208,7 +211,6 @@ div#card-container {
 .post_thumbnail {
     border-bottom: 1px solid #94a3ab;
     padding: 20px;
-    margin-bottom: 30px;
 }
 
 .post_thumbnail:last-child {
@@ -572,6 +574,12 @@ nav#navbar-responsive {
     #sub_logo_title {
         font-size: 1.3rem;
     }
+    #main-admin-page {
+        padding-top: 0!important;
+    }
+    #new-chapter_button {
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -584,7 +592,6 @@ nav#navbar-responsive {
 }
 
 @media screen and (max-width: 350px) {
-   
     #logo_site_name {
         font-size: 1.5rem;
     }
@@ -612,10 +619,6 @@ nav#navbar-responsive {
     }
     a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
         top: 10px;
-    }
-    #footer_deconnexion_link {
-        position: relative;
-        right: 8px;
     }
     p.card-text {
         font-size: 13px;
@@ -649,7 +652,24 @@ nav#navbar-responsive {
         line-height: 3.6vh!important;
     }
     #logo_site_container {
-        left: 10vh!important;
+        left: 15vh!important;
+        top: 2vh!important;
+    }
+    #edit_container {
+        width: 100%!important;
+    }
+    .box_menu {
+        position: relative;
+        right: 6px;
+    }
+    h2#thumbail-title {
+        text-align: center;
+    }
+    #main-contact {
+        height: unset!important;
+    }
+    #form_container {
+        padding: 20px 10px;
     }
 }
 
@@ -702,6 +722,11 @@ nav#navbar-responsive {
     height: 85vh;
 }
 
+#separation_about {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
 .row.description-content {
     line-height: 2.5vh;
 }
@@ -724,6 +749,7 @@ img#background_about_img {
 #container_portrait {
     position: relative;
     float: right;
+    margin-left: 30px;
 }
 
 #author_portrait {
@@ -836,8 +862,9 @@ a#new-chapter_button {
 
 #admin_banner-main {
     border: 2px solid;
-    margin: 30px auto;
+    margin: 0 auto 30px;
     padding: 20px;
+    text-align: center;
 }
 
 /* ########## ADMIN MANAGE COMMENTS ########## */

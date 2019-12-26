@@ -14,7 +14,7 @@
       <h1>CONTACT</h1>
     </div>
     <div id="text_contact">
-        <p> Remplissez le formulaire ci-dessous pour envoyer un message à Jean Forteroche.</p>
+        <p class="regular-subtitle-text"> Remplissez le formulaire ci-dessous pour envoyer un message à Jean Forteroche.</p>
         <p>Tous les champs sont obligatoires !</p>
     </div>
     <?php
@@ -32,8 +32,7 @@
 
     <div id="container-form" class="row">
 
-      <form action="<?= HOST . 'send-message'; ?>" id="form_container" class="col-md-8 container" method="POST">
-        <h2 id="title-form" class="text-center">FORMULAIRE DE CONTACT</h2>
+      <form action="<?= HOST . 'send-message'; ?>" id="form_container" class="col-md-10 container" method="POST">
         <div class="row">
           <div class="input-field col s6">
             <input id="first_name" name="first_name" type="text" class="validate" value="<?= @$_SESSION['first_name'] ?>" required>
@@ -60,7 +59,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col-6 container">
+          <div class="input-field col-10 container">
             <input id="message_subject" name="message_subject" type="text" class="validate" value="<?= @$_SESSION['message_subject'] ?>" required>
             <?php if (empty($_SESSION['message_subject'])) : ?>
               <label for="message_subject" class="text-center">Sujet de votre message</label>
