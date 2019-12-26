@@ -569,6 +569,9 @@ nav#navbar-responsive {
     a.navbar-brand {
         float: right;
     }
+    #sub_logo_title {
+        font-size: 1.3rem;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -581,6 +584,7 @@ nav#navbar-responsive {
 }
 
 @media screen and (max-width: 350px) {
+   
     #logo_site_name {
         font-size: 1.5rem;
     }
