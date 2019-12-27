@@ -55,8 +55,6 @@ class StaticControl
     public function sendMessage()
     {
 
-        
-
         if (isset($_POST['submit_contact_message']))
         {
             if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['message_subject'], $_POST['message_content']))
@@ -98,12 +96,15 @@ class StaticControl
                                 $sentMessage = htmlspecialchars($_POST['message_content']);
                                 $_SESSION['message_content'] = $sentMessage;
 
+                                $headers = "From: ".$mail;
 
-                                $send = mail('hekki_nox06@gmail.com', $messageSubject, $sentMessage);
+                                mail('jean-forteroche@webagency-projet.fr', $messageSubject, $sentMessage,$headers);
 
+                                var_dump(mail('jean-forteroche@webagency-projet.fr', $messageSubject, $sentMessage,$headers)); die();
+                                
                                 $_SESSION['contact_success'] = true;
                                 $_SESSION['sending_success_message'] = 'Votre message a bien été envoyé !';
-                                $_SESSION['first_name'] =      $_POST['first_name'];
+                                $_SESSION['first_name'] = "";
                                 $_SESSION['last_name'] = "";
                                 $_SESSION['email'] = "";
                                 $_SESSION['message_subject'] = "";

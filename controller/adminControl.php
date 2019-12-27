@@ -59,7 +59,6 @@ class AdminControl
 
     function logoutAdmin()
     {
-       session_start();
        $_SESSION = array();
        session_destroy();
 

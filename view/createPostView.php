@@ -2,15 +2,17 @@
 
 
 <div id="main-createNewPostView">
-    <div id="creation_container" class="container text-center">
+    <div id="creation_container" class="text-center container title-section col-sm-12">
         <h1>Ecrire un nouveau chapitre</h1>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour au menu d'administration</a></p>
 
         <p>Ecrivez un nouveau chapitre et utilisez les outils d'édition de texte à votre disposition pour le mettre en forme. <br>
-            Terminez par 'Poster ce chapitre';</p>
+            Terminez par 'Poster ce chapitre'</p><br />
+
+            <hr class="hr-separation">
 
         <form action="<?= HOST; ?>admin/create-valid" method="POST" enctype="multipart/form-data">
-            <div>
+            <div id="inputs-container">
                 <label for="post-title">
                     <h3>Titre du chapitre :</h3>
                 </label><br />
