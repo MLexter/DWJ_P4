@@ -189,12 +189,7 @@ p {
     flex-wrap: wrap;
 }
 
-.title-section {
-    border-left: 5px solid;
-    border-right: 5px solid;
-    border-radius: 20px;
-    width: 60%;
-}
+
 
 #main-title_description {
     margin: 30px auto;
@@ -210,7 +205,6 @@ div#card-container {
 
 .post_thumbnail {
     border-bottom: 1px solid #94a3ab;
-    padding: 20px;
 }
 
 .post_thumbnail:last-child {
@@ -422,8 +416,10 @@ td#comment-section {
 
 /* ########## CREATE CHAPTER ########## */
 
-div#creation_container {
-    margin: 30px auto;
+div#main-createNewPostView {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #container_image_update {
@@ -580,6 +576,7 @@ nav#navbar-responsive {
     #new-chapter_button {
         height: auto;
     }
+    
 }
 
 @media screen and (max-width: 400px) {
@@ -808,7 +805,7 @@ div#about-container_content {
 }
 
 #form_container {
-    padding: 20px 50px;
+    padding: 20px;
     border-top: 4px solid rgb(23, 162, 184);
 }
 

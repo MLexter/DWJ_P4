@@ -2,7 +2,7 @@
 
 <div id="overlay_admin">
 
-  <div id="main-admin-page" class="container-fluid">
+  <div id="main-admin-page" class="container">
 
     <div class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description" id="admin_banner-main">
       <h1>ADMINISTRATION DU SITE</h1>
@@ -51,7 +51,7 @@
       <?php foreach ($posts as $post) : ?>
         <div id="container-admin_chapter-list" class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description">
           <div class="row post_thumbnail d-flex">
-            <figure class="col-md-2">
+            <figure class="col-md-3">
               <img id="admin-thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
             </figure>
 
