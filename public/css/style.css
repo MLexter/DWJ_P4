@@ -668,6 +668,28 @@ nav#navbar-responsive {
     #form_container {
         padding: 20px 10px;
     }
+
+    .inputs_connexion_responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #main-connexion-screen {
+        align-items: unset!important;
+    }
+
+    #connexion_container {
+        overflow: scroll;
+    }
+    #container-connexion-btn {
+        justify-content: center!important;
+    }
+
+    #illustration-chapter {
+        margin-left: 0!important;
+    }
+
 }
 
 /* ########## FOOTER ########## */
@@ -821,8 +843,14 @@ div#about-container_content {
 
 #main-connexion-screen {
     height: 85vh;
-    background-color: white;
 }
+
+#connexion_btn {
+    background-color: #205ea1;
+    border-color: #205ea1;
+}
+
+
 
 /* ########## ADMIN MAINPAGE ########## */
 
@@ -882,9 +910,6 @@ a.fa-main_admin {
 /* ########## ADMIN CONNEXION PAGE ########## */
 
 #connexion_container {
-    width: 45%;
-    min-height: 55%;
-    height: auto;
     border: 2px solid;
     padding: 20px;
 }
