@@ -445,9 +445,20 @@ div#main-createNewPostView {
 
 /* ########## HEADER ########## */
 
-#button-navbar-responsive {
+.navbar-light .navbar-toggler {
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
     border: 3px solid;
-    height: 47px;
+    height: 45px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: white;
+    background-color: #002f44;
 }
 
 .navbar-toggler-icon {
@@ -456,12 +467,12 @@ div#main-createNewPostView {
 }
 
 #navbarSupportedContent {
-    background-color: #3344;
+    background-color: #002f44;
     z-index: 9;
 }
 
 button:focus {
-    background-color: #00bcd4;
+    background-color: #17a2b8;
 }
 
 ul.navbar-nav.ml-lg-auto {
@@ -526,7 +537,7 @@ nav#navbar-responsive {
     #navbarSupportedContent {
         position: absolute;
         top: 9vh;
-        right: -1.5vh;
+        right: 0;
     }
     li.nav-item {
         min-width: 35vh;
@@ -535,7 +546,7 @@ nav#navbar-responsive {
         position: relative;
         right: 30px;
         bottom: 6px;
-        height: 8vh;
+        height: 6vh;
         display: flex;
         align-items: center;
     }
@@ -548,7 +559,7 @@ nav#navbar-responsive {
     #logo_site_container {
         height: 7.6vh;
         position: absolute;
-        left: 8vh;
+        right: 8vh;
         display: flex;
         align-items: center;
     }
@@ -758,7 +769,6 @@ img#background_about_img {
 }
 
 #background_contact_img {
-    height: 85vh;
     width: 100%;
     position: absolute;
     object-fit: cover;
@@ -807,8 +817,13 @@ div#about-container_content {
 
 /* ########## CONTACT ########## */
 
+#contactView-main_container {
+    min-height: 85vh;
+}
+
+
 #main-contact {
-    height: 85vh;
+    min-height: 85vh;
 }
 
 .alert.alert-warning.col-md-8.container.container_error {

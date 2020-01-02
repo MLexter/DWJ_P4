@@ -42,22 +42,18 @@ class StaticControl
     public function showContactView()
     {
         $_SESSION['contact_success'] = false;
-        $_SESSION['first_name'] = "";      
-        $_SESSION['last_name'] = "";      
-        $_SESSION['email'] = "";          
-        $_SESSION['message_subject'] = "";
-        $_SESSION['message_content'] = "";
 
         $viewToDisplay = new ViewRenderer('contactView');
         $viewToDisplay->renderView();
     }
 
+    
     public function sendMessage()
     {
 
         if (isset($_POST['submit_contact_message']))
         {
-            if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['message_subject'], $_POST['message_content']))
+            if (!empty($_POST['first_name'] AND $_POST['last_name'] AND $_POST['email'] AND $_POST['message_subject'] AND $_POST['message_content']))
             {
                 $_SESSION['first_name'] =      $_POST['first_name'];
                 $_SESSION['last_name'] =       $_POST['last_name'];
@@ -68,11 +64,10 @@ class StaticControl
 
                 if (strlen($_POST['first_name']) < 255 && strlen($_POST['last_name']) < 255)
                 {
-                    if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
+                    if (preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
                     {
                         if (strlen($_POST['message_subject']) < 150)
-                        {                            
-                                
+                        {                                                            
                                 $firstName = trim($_POST['first_name']);
                                 $firstName = stripslashes($_POST['first_name']);
                                 $firstName = htmlspecialchars($_POST['first_name']);
@@ -96,12 +91,10 @@ class StaticControl
                                 $sentMessage = htmlspecialchars($_POST['message_content']);
                                 $_SESSION['message_content'] = $sentMessage;
 
-                                $headers = "From: ".$mail;
+                                $header = "From: ".$mail;
 
-                                mail('jean-forteroche@webagency-projet.fr', $messageSubject, $sentMessage,$headers);
+                                mail('hekki.nox06@gmail.com', $messageSubject, $sentMessage, $header);
 
-                                var_dump(mail('jean-forteroche@webagency-projet.fr', $messageSubject, $sentMessage,$headers)); die();
-                                
                                 $_SESSION['contact_success'] = true;
                                 $_SESSION['sending_success_message'] = 'Votre message a bien été envoyé !';
                                 $_SESSION['first_name'] = "";
@@ -113,23 +106,22 @@ class StaticControl
                                 $viewToDisplay = new ViewRenderer('contactView');
                                 $viewToDisplay->renderView();
                           
-
                         } else {
                             $_SESSION['contact_fail'] = true;
-                            header('Location: ' . HOST . 'contact');
+                            header('Location:' . HOST . 'contact');
                             $_SESSION['sending_fail_message'] = 'Le sujet doit faire moins de 150 caractères';
                             exit();
                         }
                     } else {
                         $_SESSION['contact_fail'] = true;
-                        header('Location: ' . HOST . 'contact');
+                        header('Location:' . HOST . 'contact');
                         $_SESSION['sending_fail_message'] = 'L\'adresse email n\'est pas valide.';
                         exit();
                     }
 
                 } else {
                     $_SESSION['contact_fail'] = true;
-                    header('Location: ' . HOST . 'contact');
+                    header('Location:' . HOST . 'contact');
                     $_SESSION['sending_fail_message'] = 'Le nom et le prénom doivent faire moins de 255 caractères.';
                     exit();
                 }

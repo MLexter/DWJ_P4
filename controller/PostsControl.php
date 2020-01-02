@@ -194,27 +194,10 @@ class PostsControl
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $post = $postManager->getPost($_GET['id']);
                 $_SESSION['id_chapter'] = $_GET['id'];
-                
-                if (!empty($_POST['author_post_title'])) {
-                    $post->setAuthor_post_title(htmlspecialchars($_POST['author_post_title']));
-                if (!empty($_POST['author_post_content'])) {
-                    $post->setAuthor_post_content(htmlspecialchars($_POST['author_post_content']));
-                }
-                    
-
-                    if (!empty($_POST['image_chapter'])) {
-                        //remplacer image
-                        $post->setChapter_image($_POST['image_chapter']);
-                    }
-                    if ($post->getChapter_image() === '') {
-                        //afficher erreur
-                    }
-
-                    // si tout va bien, faire l'update en base de données, sinon afficher les erreurs
-                }
 
                 $viewToDisplay = new ViewRenderer('editView');
                 $viewToDisplay->renderView(array('post' => $post));
+
             } else {
                 header('Location: ' . HOST . 'connexion');
             }
@@ -245,7 +228,4 @@ class PostsControl
             header('Location: ' . HOST . 'connexion');
         }
     }
-
-
-
 }
