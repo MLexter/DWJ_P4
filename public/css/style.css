@@ -5,7 +5,7 @@
 
 .regular-subtitle-text {
     font-family: 'Chau Philomene One', sans-serif;
-    margin: 50px auto 25px;
+    margin: 35px auto 25px;
     font-size: 1.4rem;
 }
 
@@ -76,7 +76,7 @@ p {
 }
 
 #main-position {
-    height: auto;
+    min-height: 85vh;
     padding-left: 0;
     padding-right: 0;
 }
@@ -323,8 +323,11 @@ p.card-text {
     .regular-subtitle-text {
         font-size: 1.3rem;
     }
-    #about-container_content {
+
+    div#about-container_content {
+        height: 85vh;
         overflow: scroll;
+
     }
 }
 
@@ -393,7 +396,6 @@ td#comment-section {
     border: 3px solid #dee2e6;
     box-shadow: 1px 0px 6px -1.5px;
     padding: 20px;
-    margin-bottom: 30px auto 0 auto;
 }
 
 .signalment-btn {
@@ -550,6 +552,11 @@ nav#navbar-responsive {
         display: flex;
         align-items: center;
     }
+
+    .navbar-light .navbar-toggler {
+        position: relative;
+        bottom: 7px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -587,6 +594,15 @@ nav#navbar-responsive {
     #new-chapter_button {
         height: auto;
     }
+
+    #container_portrait {
+        float: none!important;
+        text-align: center;
+        margin-left: 0!important;
+        margin-right: 12px;
+    }
+
+    
     
 }
 
@@ -670,7 +686,7 @@ nav#navbar-responsive {
         position: relative;
         right: 6px;
     }
-    h2#thumbail-title {
+    h2.thumbail-title {
         text-align: center;
     }
     #main-contact {
@@ -748,8 +764,11 @@ nav#navbar-responsive {
 
 /* ########## ABOUT ########## */
 
-#main-about {
-    height: 85vh;
+div#main-about {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #separation_about {
@@ -769,8 +788,7 @@ img#background_about_img {
 }
 
 #background_contact_img {
-    width: 100%;
-    position: absolute;
+    position: fixed;
     object-fit: cover;
     z-index: -10;
 }
@@ -792,12 +810,6 @@ img#background_about_img {
 
 div#about-container_content {
     padding: 30px;
-    height: 84.6vh;
-}
-
-#about_container {
-    display: flex;
-    justify-content: center;
 }
 
 #about_description {
@@ -915,7 +927,7 @@ a#new-chapter_button {
 
 a.fa-main_admin {
     font-size: 1.8rem;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 #title-list {
@@ -929,8 +941,13 @@ a.fa-main_admin {
     padding: 20px;
 }
 
+#connexion-text {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 label.connexion_labels {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 table.table {

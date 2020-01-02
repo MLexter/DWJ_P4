@@ -5,10 +5,8 @@
 </div>
 
 <div id="main-about">
-    <div id="about_container">
 
-
-        <div id="about-container_content" class="shadow border bg-white rounded col-10 container">
+        <div id="about-container_content" class="shadow border bg-white rounded col-10">
             <div id="about_text_content">
                 <div id="about_title" class="text-center">
                     <h1>A PROPOS DE L'AUTEUR</h1>
@@ -40,5 +38,4 @@
 
             </div>
         </div>
-    </div>
 </div>

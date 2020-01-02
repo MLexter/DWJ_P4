@@ -14,8 +14,8 @@
         <h1>CONTACT</h1>
       </div>
       <div id="text_contact">
-          <p class="regular-subtitle-text"> Remplissez le formulaire ci-dessous pour envoyer un message à Jean Forteroche.</p>
-          <p>Tous les champs sont obligatoires !</p>
+          <p class="col-10 mx-auto"> Remplissez le formulaire ci-dessous pour envoyer un message à l'auteur.</p>
+          <p class="regular-subtitle-text">Tous les champs sont obligatoires !</p>
       </div>
       <?php
   
@@ -24,7 +24,7 @@
         <?php $_SESSION['contact_success'] = false; ?>
       <?php endif; ?>
   
-      <?php if ($_SESSION['contact_fail'] == true) : ?>
+      <?php if (isset($_SESSION['contact_fail']) AND $_SESSION['contact_fail'] == true) : ?>
         <div class="alert alert-warning col-md-8 container container_error" role="alert"><?= $_SESSION['sending_fail_message']; ?> </div>
         <?php $_SESSION['contact_fail'] = false; ?>
       <?php endif; ?>

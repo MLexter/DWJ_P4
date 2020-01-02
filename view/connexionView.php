@@ -5,7 +5,7 @@
         <div id="connexion_form">
             <h1 class="text-center">Connectez-vous à votre espace:</h1>
             <br />
-            <p class="container text-center">Pour vous connecter en tant qu'administrateur du site, veuillez saisir votre identifiant et votre mot de passe:</p>
+            <p id="connexion-text" class="container text-center">Pour vous connecter en tant qu'administrateur du site, veuillez saisir votre identifiant et votre mot de passe:</p>
 
             <hr class="hr-separation">
 
@@ -15,11 +15,11 @@
                     <table class="table">
                         <tr class="inputs_connexion_responsive">
                             <td><label for="user_id" class="connexion_labels">IDENTIFIANT :</label></td>
-                            <td><input type="text" name="ID_user" class="form-control connexion_inputs" placeholder="Saisissez votre identifiant"></td>
+                            <td><input type="text" name="ID_user" class="form-control connexion_inputs"></td>
                         </tr>
                         <tr class="inputs_connexion_responsive">
                             <td><label for="password_user" class="connexion_labels">MOT DE PASSE :</label></td>
-                            <td><input type="password" name="password_user" class="form-control connexion_inputs" placeholder="Tapez votre mot de passe"></td>
+                            <td><input type="password" name="password_user" class="form-control connexion_inputs"></td>
                         </tr>
 
                     </table>
@@ -28,11 +28,11 @@
                     </div>
 
             </form>
+            <?php if (isset($_SESSION['$error_login']) AND !empty($_SESSION['$error_login'])) : ?>
+                <div class="alert alert-danger text-center" role="alert"><?= $_SESSION['$error_login']; ?></div>
+            <?php endif; ?>
         </div>
 
-        <?php if (isset($_SESSION['$error_login'])) : ?>
-            <div class="alert alert-danger text-center" role="alert"><?= $_SESSION['$error_login']; ?></div>
-        <?php endif; ?>
     </div>
 </div>
 </div>

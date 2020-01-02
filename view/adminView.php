@@ -51,12 +51,12 @@
       <?php foreach ($posts as $post) : ?>
         <div id="container-admin_chapter-list" class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description">
           <div class="row post_thumbnail d-flex">
-            <figure class="col-md-3">
+            <figure class="col-md-8">
               <img id="admin-thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
             </figure>
 
             <div id="title-list" class="d-flex justify-content-between col">
-              <h2 id="thumbail-title">
+              <h2 class="thumbail-title">
                 <?= htmlspecialchars($post->getAuthor_post_title()); ?> <br />
                 <em class="post_time-text">le <?= $post->getDate_post_author(); ?></em>
               </h2>
@@ -67,16 +67,24 @@
                 <a class="fa-main_admin" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>" title="Gérer les commentaires"><i class="fas fa-users"></i></a>
               </div>
             </div>
+
+            <div class="content-chapter">
+              <p class="card-text">
+                <?php $dataContent = $post->getAuthor_post_content();
+
+                  if (!empty($dataContent)) : ?>
+
+                      <?php $shorterContent = substr($post->getAuthor_post_content(), 0, 400);
+                              echo strip_tags($shorterContent . '...'); ?>
+              </p>
+            </div>
           </div>
         </div>
-      <?php endforeach; ?>
-    <?php else : ?>
+        <?php endforeach; ?>
+        <?php else : ?>
 
       <div class="alert alert-dark text-center" role="alert">Aucun chapitre ! Commencez à écrire quelque chose !</div>
 
     <?php endif; ?>
   </div>
-
-
-
 </div>
