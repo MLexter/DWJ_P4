@@ -42,7 +42,7 @@ a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
 
 .navbar {
     background-color: #002f44;
-    height: 10vh;
+    height: auto;
 }
 
 .nav-item {
@@ -918,6 +918,11 @@ a#new-chapter_button {
     padding: 20px;
     text-align: center;
 }
+
+#thumbnail-post_admin {
+    margin-bottom: 0;
+}
+
 
 /* ########## ADMIN MANAGE COMMENTS ########## */
 
