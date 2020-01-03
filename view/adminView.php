@@ -12,7 +12,7 @@
       <h1>Bienvenue Jean Forteroche !</h1>
       <br />
       <p>Pour gérer vos pages, accédez à l'une des options en face de vos chapitres. <br />
-        Voici la liste de vos derniers chapitres publiés.</p>
+        Voici la liste des derniers chapitres publiés.</p>
     </div>
 
     <?php if (@$_SESSION['success'] == 1) : ?>

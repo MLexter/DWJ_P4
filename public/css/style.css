@@ -365,18 +365,14 @@ p.card-text {
 
 .separation_icon {
     color: #26838f;
-    margin: 0px auto 30px auto;
-    position: relative;
-    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
+
 
 #backto_link {
     margin-top: 20px;
-}
-
-#container_comments {
-    position: relative;
-    bottom: 20px;
 }
 
 #comment_part_title {
@@ -387,6 +383,7 @@ p.card-text {
     min-height: 150px;
     border: 3px solid #dee2e6;
     box-shadow: 1px 0px 6px -1.5px;
+    flex-wrap: nowrap;
 }
 
 td#comment-section {
@@ -410,7 +407,7 @@ td#comment-section {
 }
 
 .date_time_comment {
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .management_link {
@@ -431,6 +428,12 @@ div#main-createNewPostView {
 
 /* ########## EDIT CHAPTER ########## */
 
+div#main-editView {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 #image-post-chapter {
     height: 500px;
     object-fit: cover;
@@ -444,6 +447,18 @@ div#main-createNewPostView {
 #edit_container {
     width: 80%;
     margin: auto;
+}
+
+.tox.tox-tinymce.tox-platform-touch {
+    margin-bottom: 10px;
+}
+
+div#edit-form {
+    margin-bottom: 20px;
+}
+
+div#cancel-submit_btn {
+    padding-bottom: 20px;
 }
 
 /* ########## HEADER ########## */
@@ -819,7 +834,7 @@ div#about-container_content {
     position: relative;
     padding-left: 20px;
 }
-
+²
 /* ########## CONTACT ########## */
 
 #container-contact {
@@ -911,6 +926,11 @@ a#new-chapter_button {
 
 /* ########## ADMIN MANAGE COMMENTS ########## */
 
+div#main-comment-Manager {
+    background-color: white;
+}
+
+
 #main-comment-Manager {
     height: 87vh;
 }
@@ -918,6 +938,15 @@ a#new-chapter_button {
 a.fa-main_admin {
     font-size: 1.8rem;
     margin-left: 15px;
+}
+
+#table-comments {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#container_comments {
+    bottom: 0;
 }
 
 #title-list {
