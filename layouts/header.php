@@ -27,13 +27,7 @@
       </ul>
     </div>
   </nav>
-
   
-
-  
-</header>
-
-<!-- VOIR SAISIE SCRIPT BOOTSTRAP -->
-  
+</header>  
   
 

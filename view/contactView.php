@@ -30,7 +30,7 @@
       <?php endif; ?>
   
   
-      <div id="container-form" class="row">
+      <div id="container-form">
   
         <form action="<?= HOST . 'send-message'; ?>" id="form_container" class="col-md-10 container" method="POST">
           <div class="row">

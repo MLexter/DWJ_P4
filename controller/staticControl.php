@@ -91,9 +91,11 @@ class StaticControl
                                 $sentMessage = htmlspecialchars($_POST['message_content']);
                                 $_SESSION['message_content'] = $sentMessage;
 
+                                $mailTo = 'hekki.nox06@gmail.com';
+
                                 $header = "From: ".$mail;
 
-                                mail('hekki.nox06@gmail.com', $messageSubject, $sentMessage, $header);
+                                mail($mailTo, $messageSubject, $sentMessage, $header);
 
                                 $_SESSION['contact_success'] = true;
                                 $_SESSION['sending_success_message'] = 'Votre message a bien été envoyé !';

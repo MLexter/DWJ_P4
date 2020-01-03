@@ -5,7 +5,7 @@
 
 .regular-subtitle-text {
     font-family: 'Chau Philomene One', sans-serif;
-    margin: 35px auto 25px;
+    margin: 15px auto 25px;
     font-size: 1.4rem;
 }
 
@@ -42,7 +42,7 @@ a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
 
 .navbar {
     background-color: #002f44;
-    height: 10vh;
+    height: auto;
 }
 
 .nav-item {
@@ -79,6 +79,7 @@ p {
     min-height: 85vh;
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 48px;
 }
 
 /* ########### MAIN INDEX ########## */
@@ -538,7 +539,7 @@ nav#navbar-responsive {
 @media screen and (max-width: 992px) {
     #navbarSupportedContent {
         position: absolute;
-        top: 9vh;
+        top: 12.7vh;
         right: 0;
     }
     li.nav-item {
@@ -553,10 +554,6 @@ nav#navbar-responsive {
         align-items: center;
     }
 
-    .navbar-light .navbar-toggler {
-        position: relative;
-        bottom: 7px;
-    }
 }
 
 @media screen and (max-width: 600px) {
@@ -641,9 +638,7 @@ nav#navbar-responsive {
         font-size: 0.8em!important;
         padding: 0;
     }
-    a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
-        top: 10px;
-    }
+    
     p.card-text {
         font-size: 13px;
     }
@@ -673,7 +668,7 @@ nav#navbar-responsive {
         float: unset!important;
     }
     .row.description-content {
-        line-height: 3.6vh!important;
+        line-height: 4vh!important;
     }
     #logo_site_container {
         left: 15vh!important;
@@ -689,9 +684,7 @@ nav#navbar-responsive {
     h2.thumbail-title {
         text-align: center;
     }
-    #main-contact {
-        height: unset!important;
-    }
+    
     #form_container {
         padding: 20px 10px;
     }
@@ -723,12 +716,10 @@ nav#navbar-responsive {
 
 #footer-container {
     background-color: #002f44;
-    height: auto;
-    position: sticky;
+    position: fixed;
     width: 100%;
     bottom: 0;
     height: auto;
-    ;
 }
 
 #footer_infos {
@@ -788,9 +779,11 @@ img#background_about_img {
 }
 
 #background_contact_img {
-    position: fixed;
+    position: absolute;
     object-fit: cover;
     z-index: -10;
+    height: 100%;
+    width: 100%;
 }
 
 #container_portrait {
@@ -829,14 +822,10 @@ div#about-container_content {
 
 /* ########## CONTACT ########## */
 
-#contactView-main_container {
-    min-height: 85vh;
+#container-contact {
+    min-height: 83vh;
 }
 
-
-#main-contact {
-    min-height: 85vh;
-}
 
 .alert.alert-warning.col-md-8.container.container_error {
     position: relative;
@@ -856,10 +845,6 @@ div#about-container_content {
 #form_container {
     padding: 20px;
     border-top: 4px solid rgb(23, 162, 184);
-}
-
-#container-form {
-    margin: 30px auto;
 }
 
 #submit_contact_btn {
@@ -918,6 +903,11 @@ a#new-chapter_button {
     padding: 20px;
     text-align: center;
 }
+
+#thumbnail-post_admin {
+    margin-bottom: 0;
+}
+
 
 /* ########## ADMIN MANAGE COMMENTS ########## */
 
