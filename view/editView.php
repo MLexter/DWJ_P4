@@ -6,6 +6,8 @@
         <h1>Modifier un chapitre</h1>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal</a></p>
 
+        <hr class="hr-separation">
+
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
         <?php if (@$_SESSION['success'] == 0) : ?>
@@ -21,32 +23,31 @@
             </div>
 
         <form action="<?= HOST; ?>admin/post-update" method="POST" enctype="multipart/form-data">
-            <div>
+            <div id="edit-form">
                 <input type="hidden" name="postId" value="<?= $post->getPostId(); ?>">
+
                 <label for="post-title">
                     <h3>Titre du chapitre :</h3>
                 </label><br />
                 <input type="text" class="col-6 text-center" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
                 <br />
+
                 <label for="chapter-content">
                     <h3>Contenu du chapitre:</h3>
                 </label>
 
-
                 <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
                 <label for="image_post">
-                    <h3>Modifier l'image :</h3>
-
+                    <h3>Choisir une image:</h3>
                 </label>
 
-                
                 <input type="file" name="image_chapter" />
             </div>
-            <div>
+            <div id="cancel-submit_btn">
                 <button>
-                    <a class="btn" href="<?= HOST; ?>book">Annuler</a>
+                    <a class="btn" href="<?= HOST; ?>admin/dashboard">Annuler</a>
                 </button>
-                <input class="btn" type="submit" value="Enregistrer" name="submit_edited_chapter"/>
+                <input class="btn btn-info" type="submit" value="Enregistrer" name="submit_edited_chapter"/>
             </div>
         </form>
 
