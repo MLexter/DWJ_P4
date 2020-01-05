@@ -16,24 +16,24 @@ class CommentManager
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=db5000248792.hosting-data.io;dbname=dbs243022;charset=utf8', 'dbu406069', 'IOlexter!87');
     }
 
 
-    public function getNbComments()
-    {
-        $db = $this->db;
-        $req = $db->prepare('SELECT comments.id_chapter, posts_author.ID_post FROM comments INNER JOIN posts_author ON comments.id_chapter = posts_author.ID_post WHERE id_chapter = ?');
-        $req->execute(array());
+    // public function getNbComments()
+    // {
+    //     $db = $this->db;
+    //     $req = $db->prepare('SELECT comments.id_chapter, posts_author.ID_post FROM comments INNER JOIN posts_author ON comments.id_chapter = posts_author.ID_post WHERE id_chapter = ?');
+    //     $req->execute(array());
 
         
-            $result = $req->fetchAll();
+    //         $result = $req->fetchAll();
 
-            $nbComments = $req->rowCount();
+    //         $nbComments = $req->rowCount();
 
         
 
-    }
+    // }
 
     public function getComments($ID_chapter)
     {

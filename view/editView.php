@@ -3,7 +3,9 @@
 
 <div id="main-editView">
     <div id="edit_container" class="container text-center">
-        <h1>Modifier un chapitre</h1>
+        <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
+            <h1>Modifier un chapitre</h1>
+        </div>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal</a></p>
 
         <hr class="hr-separation">
@@ -11,16 +13,16 @@
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
         <?php if (@$_SESSION['success'] == 0) : ?>
-                <?php if (@$_SESSION['error_upload'] !== null) : ?>
-                    <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
-                <?php endif; ?>
+            <?php if (@$_SESSION['error_upload'] !== null) : ?>
+                <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
+            <?php endif; ?>
         <?php endif; ?>
 
-            <div id="edit-illustration">
-                <figure>
-                    <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
-                </figure>
-            </div>
+        <div id="edit-illustration">
+            <figure>
+                <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+            </figure>
+        </div>
 
         <form action="<?= HOST; ?>admin/post-update" method="POST" enctype="multipart/form-data">
             <div id="edit-form">
@@ -47,12 +49,12 @@
                 <button>
                     <a class="btn" href="<?= HOST; ?>admin/dashboard">Annuler</a>
                 </button>
-                <input class="btn btn-info" type="submit" value="Enregistrer" name="submit_edited_chapter"/>
+                <input class="btn btn-info" type="submit" value="Enregistrer" name="submit_edited_chapter" />
             </div>
         </form>
 
-        
-            
+
+
 
     </div>
 </div>

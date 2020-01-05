@@ -58,7 +58,7 @@
 
              <?php if (@$_SESSION['comment_success'] == true) : ?>
 
-                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i>Votre commentaire a bien été posté !</div>
+                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> Votre commentaire a bien été posté !</div>
                  <?php @$_SESSION['comment_success'] = false; ?>
 
              <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
@@ -93,8 +93,7 @@
                                              Signaler
                                          </a>
                                      <?php else : ?>
-                                         <button class="btn btn-secondary signalment-btn signalment_link disabled" tabindex="-1" role="button" aria-disabled="true">Déjà signalé
-                                         </button>
+                                         <button class="btn btn-secondary signalment-btn signalment_link disabled" tabindex="-1" role="button" aria-disabled="true">Déjà signalé</button>
                                      <?php endif; ?>
 
                                  </td>

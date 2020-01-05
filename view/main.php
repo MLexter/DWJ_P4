@@ -5,7 +5,7 @@
 
     <div id="main-titles" class="container col-lg-6">
 
-        <h1 class="main_text_title" id="main_title">Bienvenue sur le site de Jean Forteroche</h1>
+        <h1 class="main_text_title" id="main_title">BIENVENUE SUR LE SITE DE <span id="JF_main">JEAN FORTEROCHE</h1>
         <h2 class="main_text_title" id="sub_title">Auteur de <span id="title_book">'Billet simple pour l'Alaska'</span> et désormais disponible à la lecture !</h2>
         <div id="getBook-link">
             <a id="last_reads_button_link" class="btn btn-outline-warning" href="<?php echo HOST; ?>book">Dernières lectures</a>

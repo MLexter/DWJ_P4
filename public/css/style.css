@@ -85,19 +85,25 @@ p {
 /* ########### MAIN INDEX ########## */
 
 #main_container {
-    position: relative;
+    position: fixed;
     background-image: url('../images/wood-landscape-mountains-nature.jpg');
     background-size: cover;
-    height: 85vh;
+    height: 100%;
 }
 
 #main-titles {
     text-align: center;
     height: auto;
+    position: relative;
+    bottom: 75px;
 }
 
 .main_text_title {
     color: white;
+}
+
+span#JF_main {
+    color: #35a5dd;
 }
 
 #title_book {
@@ -108,6 +114,7 @@ p {
 #main_title {
     font-size: 3.5em;
     margin-bottom: 3%;
+    text-shadow: 2px 1px black;
 }
 
 #sub_title {
@@ -133,6 +140,7 @@ p {
     font-size: 2.2vh;
     height: auto;
     padding: 10px 20px 10px 20px;
+    text-shadow: 1px 1px black;
 }
 
 .btn-outline-warning {
@@ -145,6 +153,7 @@ p {
     transition-timing-function: ease-out;
     transition-property: background-color;
     transition-duration: 0.2s;
+    text-shadow: none;
 }
 
 /* -------------- Media Queries --------------- */
@@ -388,6 +397,7 @@ p.card-text {
 
 td#comment-section {
     padding-bottom: 7vh;
+    padding-right: 5vh;
 }
 
 #comment-form_container {
@@ -418,12 +428,19 @@ td#comment-section {
 
 div#main-createNewPostView {
     background-color: white;
-    padding-top: 30px;
     padding-bottom: 30px;
+}
+
+#inputs-container {
+    margin-top: 30px;
 }
 
 #container_image_update {
     margin: 20px;
+}
+
+#creation_container {
+    width: 80%;
 }
 
 /* ########## EDIT CHAPTER ########## */
@@ -462,6 +479,11 @@ div#cancel-submit_btn {
 }
 
 /* ########## HEADER ########## */
+
+#container-brand_logo {
+    position: relative;
+    top: 6px;
+}
 
 .navbar-light .navbar-toggler {
     color: rgb(0, 0, 0);
@@ -554,7 +576,7 @@ nav#navbar-responsive {
 @media screen and (max-width: 992px) {
     #navbarSupportedContent {
         position: absolute;
-        top: 12.7vh;
+        top: 80px;
         right: 0;
     }
     li.nav-item {
@@ -639,7 +661,7 @@ nav#navbar-responsive {
         padding-top: 0;
     }
     #main_title {
-        font-size: 3em;
+        font-size: 2.8em;
         ;
     }
     #sub_title {
@@ -650,7 +672,7 @@ nav#navbar-responsive {
     }
     .footer-item {
         margin: 5px 3px!important;
-        font-size: 0.8em!important;
+        font-size: 0.7em!important;
         padding: 0;
     }
     
@@ -890,6 +912,10 @@ div#about-container_content {
     background-color: white;
 }
 
+#signaled-container {
+    margin-top: 1rem;
+}
+
 #fa-horn {
     font-size: 1.4rem;
     position: relative;
@@ -897,7 +923,7 @@ div#about-container_content {
 }
 
 #new_chapter {
-    margin: 20px auto;
+    margin: 30px auto 10px auto;
 }
 
 .btn-group-lg>.btn, .btn-lg {
@@ -909,7 +935,8 @@ a#new-chapter_button:hover {
 }
 
 a#new-chapter_button {
-    background-color: #53d48d;
+    background-color: #48cd83;
+    text-shadow: 1px 1px white;
 }
 
 #admin_banner-main {
@@ -930,9 +957,8 @@ div#main-comment-Manager {
     background-color: white;
 }
 
-
 #main-comment-Manager {
-    height: 87vh;
+    height: auto;
 }
 
 a.fa-main_admin {
@@ -940,13 +966,34 @@ a.fa-main_admin {
     margin-left: 15px;
 }
 
+#left-section-comment {
+    width: 20%;
+}
+
 #table-comments {
     padding-left: 0;
     padding-right: 0;
 }
 
+.manage-table-display {
+    position: relative;
+}
+
+#delete-comment-link {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+}
+
+#fa-delete-comment {
+    font-size: 1.8em;
+    color: red;
+    text-shadow: 1px 0px black;
+}
+
 #container_comments {
-    bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 #title-list {
@@ -967,6 +1014,7 @@ a.fa-main_admin {
 
 label.connexion_labels {
     font-size: 1em;
+    color: black;
 }
 
 table.table {
@@ -976,4 +1024,9 @@ table.table {
 .table td, .table th {
     vertical-align: unset;
     border-top: unset;
+}
+
+#error-container-connexion {
+    position: relative;
+    margin-top: 10px;;
 }

@@ -2,9 +2,13 @@
 
 
 
-<div id="main-comment-Manager" class="text-center">
-    <h1>Gérer les commentaires</h1>
+<div id="main-comment-Manager" class="text-center col-12">
+    <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
+        <h1>Gérer les commentaires</h1>
+    </div>
     <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
+
+    <p>Vous pouvez supprimer un commentaire en cliquant sur l'icône en haut à droite de chaque commentaire.</p>
 
     <hr class="hr-separation">
 
@@ -13,35 +17,36 @@
 
         <div id="table-comments" class="container">
 
-            <?php if (!empty($comments)) : ?>               
-            
-                  <?php foreach ($comments as $comment) : ?>
+            <?php if (!empty($comments)) : ?>
 
-                    <table class="table">
-                             <tr class="comment-row">
-                                 <td id="left-section-comment" class="col-md-3">
-                                     <h4> <?= $comment->getAuthor_comment() ?> </h4>
-                                     <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
-                                 </td>
+                <?php foreach ($comments as $comment) : ?>
 
-                                 <td id="comment-section" class="col-lg-9">
-                                     <p> <?= $comment->getContent_comment() ?> </p>
+                    <table class="table manage-table-display">
+                        <tr class="comment-row">
+                            <td id="left-section-comment">
+                                <h4> <?= $comment->getAuthor_comment() ?> </h4>
+                                <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
+                            </td>
 
-                                     <a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $comment->getId_comment(); ?>">Supprimer</a>
+                            <td id="comment-section">
+                                <p> <?= $comment->getContent_comment() ?> </p>
+                                <div id="delete-comment-link">
+                                    <a href="<?= HOST; ?>admin/delete-comment&amp;id=<?= $comment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
+                                </div>
 
-                                 </td>
-                             </tr>
-                         </table>
+                            </td>
+                        </tr>
+                    </table>
 
 
-                       
-                  <?php endforeach; ?>
 
-                <?php else : ?>
+                <?php endforeach; ?>
 
-                    <div class="alert alert-info" role="alert">Il n'y a pas de commentaires pour ce chapitre.</div>
+            <?php else : ?>
 
-                <?php endif; ?>
+                <div class="alert alert-info" role="alert">Il n'y a pas de commentaires pour ce chapitre.</div>
+
+            <?php endif; ?>
             </table>
         </div>
     </div>

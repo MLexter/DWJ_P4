@@ -9,9 +9,10 @@
     </div>
 
     <div id="admin_container" class="text-center">
-      <h1>Bienvenue Jean Forteroche !</h1>
+      <h2>Bienvenue dans votre espace de travail</h2>
       <br />
-      <p>Pour gérer vos pages, accédez à l'une des options en face de vos chapitres. <br />
+      <p class="container col-md-10">Pour gérer vos chapitres, cliquez sur l'une des options proposées. <br />
+      Des raccourcis sont présents dans vos chapitre pour accéder directement à leur gestion. <br />
         Voici la liste des derniers chapitres publiés.</p>
     </div>
 
@@ -28,11 +29,11 @@
 
 
     <?php if ($_SESSION['comSignaled'] == true) : ?>
-      <div class="alert alert-danger container text-center" role="alert">
+      <div id="signaled-container" class="alert alert-danger container text-center" role="alert">
         <span id="fa-horn">
           <i class="fas fa-bullhorn"></i>
         </span>
-        Des commentaires ont été signalés dans vos chapitres. Pour accéder à la liste, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
+        Des commentaires ont été signalés dans vos chapitres. Pour les gérer, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
       </div>
     <?php endif; ?>
 

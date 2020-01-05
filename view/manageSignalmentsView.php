@@ -1,59 +1,55 @@
-<?php $title_content = 'Gestion des commentaires signalés'; ?>
+<?php $title_content = 'Gérer les commentaires signalés'; ?>
 
 
 
-<div id="main-comment-Manager" class="text-center">
-    <h1>Gestion des commentaires signalés:</h1>
+<div id="main-comment-Manager" class="text-center col-12">
+    <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
+        <h1>Gérer les commentaires signalés</h1>
+    </div>
     <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
     <div id='container_comments'>
-        <h2>Liste des signalements</h2>
 
-        <p>Retrouvez dans la liste ci-dessous tous les commentaires qui ont été signalés par les utilisateurs.</p>
-        <p>Utilisez les options à votre disposition pour les gérer.</p>
+        <p>Retrouvez dans la liste ci-dessous tous les commentaires qui ont été signalés par les visiteurs.</p>
 
-        <div class="container">
+        <hr class="hr-separation">
 
-            
+        <div id="container-signalments" class="container">
+
             <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
-            
+
+            <div id="table-comments" class="container">
+
+
             <?php if (!empty($signalmentList)) : ?>
-                
-            <table class="table table-hover">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#ID</th>
-                        <th scope="col">Auteur du commentaire</th>
-                        <th scope="col">Date/Heure</th>
-                        <th scope="col">Commentaire</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
 
                     <?php foreach ($signalmentList as $signalment) : ?>
 
-                <tbody>
-                            <tr>
-                                <th scope="row"><?= $signalment->getId_comment(); ?></th>
-                                <td class="text-center"><?= $signalment->getAuthor_comment(); ?></td>
-                                <td class="text-center"><?= $signalment->getCreation_date_comment(); ?></td>
-                                <td class="text-center"><?= $signalment->getContent_comment(); ?></td>
-                                <td><a href="<?= HOST . 'readBook&amp;id=' . $signalment->getID_chapter(); ?>">Voir le chapitre</a>                                </td>
-                                <td><a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>">Supprimer</a></td>
-                                
-                            </tr>
-                        </tbody>
+                        <table class="table manage-table-display">
+                        <tr class="comment-row">
+                            <td id="left-section-comment">
+                                <h4> <?= $signalment->getAuthor_comment() ?> </h4>
+                                <p class="date_time_comment"> <?= $signalment->getCreation_date_comment() ?> </p>
+                            </td>
 
-                <?php endforeach; ?>
+                            <td id="comment-section">
+                                <p> <?= $signalment->getContent_comment() ?> </p>
+                                <div id="delete-comment-link">
+                                    <a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
+                                </div>
 
-            <?php else : ?>
+                            </td>
+                        </tr>
+                    </table>
 
-                <div class="alert alert-info" role="alert">Il n'y a pas de commentaires signalés.</div>
+                    <?php endforeach; ?>
 
-            <?php endif; ?>
+                <?php else : ?>
 
-            </table>
+                    <div class="alert alert-info" role="alert">Il n'y a pas de commentaires signalés.</div>
+
+                <?php endif; ?>
+
+                </table>
         </div>
     </div>
 </div>

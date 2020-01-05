@@ -3,13 +3,15 @@
 
 <div id="main-createNewPostView">
     <div id="creation_container" class="text-center container title-section col-sm-12">
-        <h1>Ecrire un nouveau chapitre</h1>
+        <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
+            <h1>Ecrire un nouveau chapitre</h1>
+        </div>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour au menu d'administration</a></p>
 
         <p>Ecrivez un nouveau chapitre et utilisez les outils d'édition de texte à votre disposition pour le mettre en forme. <br>
-            Terminez par 'Poster ce chapitre'</p><br />
+            Terminez par 'Poster ce chapitre'</p>
 
-            <hr class="hr-separation">
+        <hr class="hr-separation">
 
         <form action="<?= HOST; ?>admin/create-valid" method="POST" enctype="multipart/form-data">
             <div id="inputs-container">
@@ -25,8 +27,8 @@
                 </label>
                 <textarea id="authorPostContent" name="author_post_content">
                 <?php if (isset($_SESSION['author_post_content'])) {
-                 echo $_SESSION['author_post_content'];
-                 }; ?>
+                    echo $_SESSION['author_post_content'];
+                }; ?>
                 </textarea>
                 <div id="container_image_update">
                     <label for="image_post">
@@ -39,7 +41,7 @@
                     <button>
                         <a class="btn" href="<?= HOST; ?>admin/dashboard">Annuler</a>
                     </button>
-                    <input class="btn" type="submit" value="Poster ce chapitre" />
+                    <input class="btn btn-info" type="submit" value="Poster ce chapitre" />
                 </div>
             </div>
         </form>

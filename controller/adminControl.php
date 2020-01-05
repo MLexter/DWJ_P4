@@ -49,6 +49,9 @@ class AdminControl
                         header('Location: ' . HOST . 'connexion');
                         $_SESSION['$error_login'] = 'Saisie incorrecte. Veuillez réessayer.';
                     }
+                } else {
+                    header('Location: ' . HOST . 'connexion');
+                    $_SESSION['$error_login'] = 'Vous devez saisir un Identifiant et un Mot de passe.';
                 }    
             } else {
                 header('Location: ' . HOST . 'connexion');
