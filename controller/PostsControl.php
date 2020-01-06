@@ -33,25 +33,30 @@ class PostsControl
 
     public function createChapter()
     {
-        if (isset($_SESSION['isAdmin'])) {
-            if ($_SESSION['isAdmin'] == true) {
+        if (isset($_SESSION['isAdmin'])) 
+        {
+            if ($_SESSION['isAdmin'] == true) 
+            {
 
 
                 $_SESSION['author_post_title'] = "";
                 $_SESSION['author_post_content'] = "";
 
 
-                if (isset($_POST['author_post_title'], $_POST['author_post_content'])) {
+                if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
+                {
 
 
-                    if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) {
+                    if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
+                    {
                         $titleChapter = $_POST['author_post_title'];
                         $_SESSION['author_post_title'] = $titleChapter;
 
                         $contentChapter = $_POST['author_post_content'];
                         $_SESSION['author_post_content'] = $contentChapter;
 
-                        if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) {
+                        if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
+                        {
 
                             // Define constants to verify uploaded file
                             $maxWeightFile = 2097152;
@@ -62,11 +67,14 @@ class PostsControl
 
                             $pathToUpload = ROOT . 'public/images/chapters/';
 
-                            if ($_FILES['image_chapter']['size'] <= $maxWeightFile) {
-                                if (in_array($uploadedExtension, $validExtensions)) {
+                            if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
+                            {
+                                if (in_array($uploadedExtension, $validExtensions)) 
+                                {
                                     $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
 
-                                    if ($imageChapter) {
+                                    if ($imageChapter) 
+                                    {
                                         $newImageFile = $imageFile;
                                         $createContent = new \JForteroche\Blog\Model\PostManager();
                                         $newEntry = $createContent->newPost($titleChapter, $contentChapter, $newImageFile);
@@ -112,19 +120,24 @@ class PostsControl
 
     public function updateChapter()
     {
-        if (isset($_SESSION['isAdmin'])) {
-            if ($_SESSION['isAdmin'] == true) {
+        if (isset($_SESSION['isAdmin'])) 
+        {
+            if ($_SESSION['isAdmin'] == true) 
+            {
 
                 if (isset($_POST['submit_edited_chapter'])) {
-                    if (isset($_POST['author_post_title'], $_POST['author_post_content'])) {
-                        if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) {
+                    if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
+                    {
+                        if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
+                        {
                             $titleChapter = $_POST['author_post_title'];
                             $_SESSION['author_post_title'] = $_POST['author_post_title'];
 
                             $contentChapter = $_POST['author_post_content'];
                             $_SESSION['auhtor_post_content'] = $_POST['author_post_content'];
 
-                            if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) {
+                            if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
+                            {
 
                                 // Define constants to verify uploaded file
                                 $maxWeightFile = 2097152;
@@ -135,8 +148,10 @@ class PostsControl
 
                                 $pathToUpload = ROOT . 'public/images/chapters/';
 
-                                if ($_FILES['image_chapter']['size'] <= $maxWeightFile) {
-                                    if (in_array($uploadedExtension, $validExtensions)) {
+                                if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
+                                {
+                                    if (in_array($uploadedExtension, $validExtensions)) 
+                                    {
                                         $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
 
                                         if ($imageChapter) {
@@ -185,11 +200,12 @@ class PostsControl
     }
 
 
-
     public function editChapter()
     {
-        if (isset($_SESSION['isAdmin'])) {
-            if ($_SESSION['isAdmin'] = true) {
+        if (isset($_SESSION['isAdmin'])) 
+        {
+            if ($_SESSION['isAdmin'] = true) 
+            {
 
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $post = $postManager->getPost($_GET['id']);
@@ -208,11 +224,13 @@ class PostsControl
 
     public function deleteChapter()
     {
-        if (isset($_SESSION['isAdmin'])) {
+        if (isset($_SESSION['isAdmin'])) 
+        {
 
             $_SESSION['delete_status'] = 0;
 
-            if ($_SESSION['isAdmin'] = true) {
+            if ($_SESSION['isAdmin'] = true) 
+            {
 
                 $id = htmlspecialchars($_GET['id']);
 

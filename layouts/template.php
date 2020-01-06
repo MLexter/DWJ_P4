@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr">
 
+<html lang="fr" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,6 +27,18 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo ASSETCSS; ?>style.css" />
+
+    <meta name="description"
+        content="Bienvenue sur le blog de Jean Forteroche, l'auteur de 'Billet simple pour l'Alaska et désormais disponible en ligne ! Accédez à la lecture du roman du célèbre auteur en parcourant les chapitres de sa nouvelle histoire inspirée de ses voyages.">
+    <meta name="keywords" content="forteroche, billet simple, Alaska, auteur, livre">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://jean-forteroche.webagency-projet.fr" />
+    <meta property="og:title" content="Jean Forteroche - Le Blog de l'Auteur" />
+    
+    <meta property="og:image" content="../public/images/author_portait.jpg" />
+    <meta property="og:site_name" content="Jean Forteroche - Le Blog de l'auteur" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="shortcut icon" type="image/png" href="public/images/favicon/03242019-09.jpg">
 
     <title><?= $title_content ?></title>
 </head>

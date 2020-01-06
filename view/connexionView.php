@@ -14,11 +14,11 @@
 
                     <table class="table">
                         <tr class="inputs_connexion_responsive">
-                            <td><label for="user_id" class="connexion_labels">Identifiant :</label></td>
+                            <td class="text-label"><label for="user_id" class="connexion_labels">Identifiant :</label></td>
                             <td><input type="text" name="ID_user" class="form-control connexion_inputs"></td>
                         </tr>
                         <tr class="inputs_connexion_responsive">
-                            <td><label for="password_user" class="connexion_labels">Mot de passe:</label></td>
+                            <td class="text-label"><label for="password_user" class="connexion_labels">Mot de passe:</label></td>
                             <td><input type="password" name="password_user" class="form-control connexion_inputs"></td>
                         </tr>
 
