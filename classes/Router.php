@@ -55,7 +55,7 @@ class Router
             $currentController = new $controller();
             $currentController->$method();
         } else {
-            echo '404';
+            header('Location: ' . HOST . '404.php');
         }
     }
 }
