@@ -161,7 +161,7 @@ span#JF_main {
 @media screen and (max-width: 600px) {
     #main-titles {
         position: relative;
-        bottom: 3vh;
+        bottom: 13vh;
     }
     #title-list {
         flex-direction: column;
@@ -651,6 +651,14 @@ nav#navbar-responsive {
     #sub_logo_title {
         font-size: 1.3rem;
     }
+
+    #main_title {
+        font-size: 2.2em;;
+    }
+
+    #sub_title {
+        font-size: 1.4em;
+    }
 }
 
 @media screen and (max-width: 350px) {
@@ -750,6 +758,7 @@ nav#navbar-responsive {
     #illustration-chapter {
         margin-left: 0!important;
     }
+
 
 }
 
