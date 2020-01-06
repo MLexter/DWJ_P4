@@ -3,7 +3,7 @@
 <div class="col-12">
 
     <div id="main-listPosts" class="container rounded">
-        <div class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description">
+        <div class="shadow-sm border sm-12 p-3 mb-5 rounded container-main-title_description">
             <div id="main-title_description" class="text-center container title-section col-sm-12">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
                 <h2>Dernières lectures</h2>
@@ -66,4 +66,3 @@
         </div>
     </div>
 </div>
-<!-- A SUPPRIMER SI PARTIE SUPERIEURE OK -->

@@ -195,6 +195,7 @@ span#JF_main {
     border: 1px solid #bdc0d3;
     box-shadow: 1px 4px 12px 4px;
     background-color: white;
+    padding-bottom: 30px;
 }
 
 #container_list_chapters {

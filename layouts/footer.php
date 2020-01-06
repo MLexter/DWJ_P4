@@ -16,7 +16,7 @@
 
         <?php endif; ?>
 
-        <p class="footer-item text-center col" id="footer_mentions_legales">Mentions Légales</p>
+        <a class="footer-item text-center col" id="footer_mentions_legales" href="<?= HOST; ?>mentions-legales">Mentions Légales</a>
     </div>
 
 </div>

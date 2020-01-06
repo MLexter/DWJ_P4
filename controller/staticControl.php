@@ -133,4 +133,10 @@ class StaticControl
         }
     }
 
+    public function showLegalNoticeView()
+    {
+        $viewToDisplay = new ViewRenderer('mentions-legales');
+        $viewToDisplay->renderView();
+    }
+
 }

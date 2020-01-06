@@ -13,6 +13,7 @@ class Router
         "book" =>                           ["controller" => 'PostsControl', "method" => 'getAllPosts'],
         "readBook" =>                       ["controller" => 'PostsControl', "method" => 'getPostById'],
         "contact" =>                        ["controller" => 'StaticControl', "method" => 'showContactView'],
+        "mentions-legales" =>               ["controller" => 'StaticControl', "method" => 'showLegalNoticeView'],
         "send-message" =>                   ["controller" => 'StaticControl', "method" => 'sendMessage'],
         "signal-comment" =>                 ["controller" => 'CommentControl', "method" => 'signalComment'],
         
