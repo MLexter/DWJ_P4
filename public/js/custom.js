@@ -32,7 +32,7 @@ const scrollUp = scrollupBtn.addEventListener('click', () =>
 window.onresize =  function() {
     const footerItem = document.querySelectorAll('.footer-item');
     let windowWidth = window.innerWidth;
-    const maxScreenWidth = 350;
+    const maxScreenWidth = 400;
 
     if (windowWidth > maxScreenWidth) {
         document.getElementById('footer_infos').style.flexDirection = "row";
