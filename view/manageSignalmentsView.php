@@ -3,7 +3,7 @@
 
 
 <div id="main-comment-Manager" class="text-center col-12">
-    <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
+    <div class="shadow border p-3 mb-5 rounded container container-main-title_description col-12">
         <h1>Gérer les commentaires signalés</h1>
     </div>
     <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
@@ -13,18 +13,21 @@
 
         <hr class="hr-separation">
 
+        
         <?php if (@$_SESSION['delete_status'] == 1) : ?>
-
+            
             <div class="alert alert-success container text-center" role="alert">
                 <i class="fas fa-check"></i><?= $_SESSION['text-alert']; ?>
             </div>
-
+            
             <?php @$_SESSION['delete_status'] = 0; ?>
-
-        <?php endif; ?>
-
-        <div id="container-signalments" class="container">
-
+            
+            <?php endif; ?>
+            
+            <div id="container-signalments" class="container">
+                <h2>Commentaires signalés</h2>
+                <br />
+                
             <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
 
             <div id="table-comments" class="container">

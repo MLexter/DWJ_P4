@@ -4,7 +4,7 @@
 
   <div id="main-admin-page" class="container">
 
-    <div class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description" id="admin_banner-main">
+    <div class="shadow-sm border sm-12 p-3 mb-5 rounded container-main-title_description" id="admin_banner-main">
       <h1>ADMINISTRATION DU SITE</h1>
     </div>
 
@@ -36,8 +36,7 @@
 
     <?php if ($_SESSION['comSignaled'] == true) : ?>
       <div id="signaled-container" class="alert alert-danger container text-center" role="alert">
-        <span id="fa-horn">
-          <i class="fas fa-bullhorn"></i></span>
+          <i class="fas fa-bullhorn"></i>
         <span class="text-alert">Des commentaires ont été signalés dans vos chapitres. Pour les gérer, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a></span>
       </div>
     <?php endif; ?>
@@ -46,21 +45,22 @@
       <div class="alert alert-success container text-center" role="alert">
         <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['chapter_delete_message']; ?></span>
       </div>
-      
+
       <?php @$_SESSION['delete_status'] = 0; ?>
     <?php endif; ?>
+
+    <hr class="hr-separation">
 
 
     <div id="new_chapter" class="d-flex justify-content-center">
       <a id="new-chapter_button" class="btn btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
 
-
     <?php if (isset($posts)) : ?>
       <?php foreach ($posts as $post) : ?>
-        <div id="container-admin_chapter-list" class="shadow-sm border sm-12 p-3 mb-5 bg-white rounded container-main-title_description">
+        <div id="container-admin_chapter-list" class="shadow-sm border sm-12 p-3 mb-5 rounded container-main-title_description">
           <div id="thumbnail-post_admin" class="row post_thumbnail d-flex">
-            <figure class="col-md-4">
+            <figure class="col-md-4 img-thumbnail_custom">
               <a href="<?= HOST; ?>readBook&amp;id=<?= $post->getPostId(); ?>">
                 <img id="admin-thumbnail-chapter_image" class="img-thumbnail" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
               </a>
