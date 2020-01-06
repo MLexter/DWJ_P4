@@ -379,6 +379,10 @@ p.card-text {
     justify-content: center;
 }
 
+.text-alert {
+    position: relative;
+    left: 10px;
+}
 
 #backto_link {
     margin-top: 20px;
@@ -914,12 +918,6 @@ div#about-container_content {
 
 #signaled-container {
     margin-top: 1rem;
-}
-
-#fa-horn {
-    font-size: 1.4rem;
-    position: relative;
-    top: 2px;
 }
 
 #new_chapter {

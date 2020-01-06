@@ -58,7 +58,7 @@
 
              <?php if (@$_SESSION['comment_success'] == true) : ?>
 
-                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> Votre commentaire a bien été posté !</div>
+                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> <span class="text-alert">Votre commentaire a bien été posté !</span></div>
                  <?php @$_SESSION['comment_success'] = false; ?>
 
              <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
@@ -67,7 +67,7 @@
              <?php endif; ?>
 
              <?php if (@$_SESSION['comment_signalment'] == true) : ?>
-                 <div class="alert alert-primary text-center" role="alert"><?= @$_SESSION['signal_message']; ?></div>
+                 <div class="alert alert-primary text-center" role="alert"><i class="fas fa-info"></i> <span class="text-alert">Le commentaire a bien été signalé et sera traité par l'administrateur du site.</span></div>
                  <?php @$_SESSION['comment_signalment'] = false; ?>
 
              <?php endif; ?>

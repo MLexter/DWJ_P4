@@ -17,13 +17,19 @@
     </div>
 
     <?php if (@$_SESSION['success'] == 1) : ?>
-      <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= $_SESSION['success_upload']; ?> </div>
+      <div class="alert alert-success container text-center" role="alert">
+        <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['success_upload']; ?></span>
+      </div>
+
       <?php @$_SESSION['success'] = 0; ?>
     <?php endif; ?>
 
 
     <?php if (@$_SESSION['delete_status'] == 1) : ?>
-      <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= $_SESSION['chapter_delete_message']; ?> </div>
+      <div class="alert alert-success container text-center" role="alert">
+        <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['chapter_delete_message']; ?></span>
+      </div>
+
       <?php @$_SESSION['delete_status'] = 0; ?>
     <?php endif; ?>
 
@@ -31,14 +37,16 @@
     <?php if ($_SESSION['comSignaled'] == true) : ?>
       <div id="signaled-container" class="alert alert-danger container text-center" role="alert">
         <span id="fa-horn">
-          <i class="fas fa-bullhorn"></i>
-        </span>
-        Des commentaires ont été signalés dans vos chapitres. Pour les gérer, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a>
+          <i class="fas fa-bullhorn"></i></span>
+        <span class="text-alert">Des commentaires ont été signalés dans vos chapitres. Pour les gérer, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a></span>
       </div>
     <?php endif; ?>
 
     <?php if (@$_SESSION['delete_status'] == 1) : ?>
-      <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= $_SESSION['chapter_delete_message']; ?> </div>
+      <div class="alert alert-success container text-center" role="alert">
+        <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['chapter_delete_message']; ?></span>
+      </div>
+      
       <?php @$_SESSION['delete_status'] = 0; ?>
     <?php endif; ?>
 

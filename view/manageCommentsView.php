@@ -12,6 +12,15 @@
 
     <hr class="hr-separation">
 
+    <?php if (@$_SESSION['delete_status'] == 1) : ?>
+
+                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i><?= $_SESSION['text-alert']; ?>
+                 </div>
+                 
+                 <?php @$_SESSION['delete_status'] = 0; ?>
+
+    <?php endif; ?>
+        
     <div id='container_comments'>
         <h2>Commentaires du chapitre</h2>
 

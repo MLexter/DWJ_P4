@@ -81,6 +81,13 @@ class CommentManager
         $req = $db->prepare('DELETE FROM comments WHERE ID_comment = ?');
         $deleteComment = $req->execute((array($ID_comment)));
 
+        if ($req)
+        {
+            @$_SESSION['success-delete'] == true;
+        } else {
+            @$_SESSION['success-delete'] == false;
+        }
+
     }
 
     public function addCommentSignalment($ID_comment, $ID_chapter)

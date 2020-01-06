@@ -13,6 +13,16 @@
 
         <hr class="hr-separation">
 
+        <?php if (@$_SESSION['delete_status'] == 1) : ?>
+
+            <div class="alert alert-success container text-center" role="alert">
+                <i class="fas fa-check"></i><?= $_SESSION['text-alert']; ?>
+            </div>
+
+            <?php @$_SESSION['delete_status'] = 0; ?>
+
+        <?php endif; ?>
+
         <div id="container-signalments" class="container">
 
             <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
@@ -20,26 +30,26 @@
             <div id="table-comments" class="container">
 
 
-            <?php if (!empty($signalmentList)) : ?>
+                <?php if (!empty($signalmentList)) : ?>
 
                     <?php foreach ($signalmentList as $signalment) : ?>
 
                         <table class="table manage-table-display">
-                        <tr class="comment-row">
-                            <td id="left-section-comment">
-                                <h4> <?= $signalment->getAuthor_comment() ?> </h4>
-                                <p class="date_time_comment"> <?= $signalment->getCreation_date_comment() ?> </p>
-                            </td>
+                            <tr class="comment-row">
+                                <td id="left-section-comment">
+                                    <h4> <?= $signalment->getAuthor_comment() ?> </h4>
+                                    <p class="date_time_comment"> <?= $signalment->getCreation_date_comment() ?> </p>
+                                </td>
 
-                            <td id="comment-section">
-                                <p> <?= $signalment->getContent_comment() ?> </p>
-                                <div id="delete-comment-link">
-                                    <a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
-                                </div>
+                                <td id="comment-section">
+                                    <p> <?= $signalment->getContent_comment() ?> </p>
+                                    <div id="delete-comment-link">
+                                        <a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
+                                    </div>
 
-                            </td>
-                        </tr>
-                    </table>
+                                </td>
+                            </tr>
+                        </table>
 
                     <?php endforeach; ?>
 
@@ -50,6 +60,6 @@
                 <?php endif; ?>
 
                 </table>
+            </div>
         </div>
     </div>
-</div>
