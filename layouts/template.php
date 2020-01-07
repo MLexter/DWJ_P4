@@ -26,6 +26,7 @@
     <script src="https://kit.fontawesome.com/1d4b0efeb6.js" crossorigin="anonymous"></script>
 
     <!-- Custom CSS -->
+    <link rel="shortcut icon" type="image/png" href="public/images/favicon/03242019-09.jpg">
     <link rel="stylesheet" href="<?php echo ASSETCSS; ?>style.css" />
 
     <meta name="description"
@@ -38,7 +39,6 @@
     <meta property="og:image" content="../public/images/author_portait.jpg" />
     <meta property="og:site_name" content="Jean Forteroche - Le Blog de l'auteur" />
     <meta name="twitter:card" content="summary" />
-    <link rel="shortcut icon" type="image/png" href="public/images/favicon/03242019-09.jpg">
 
     <title><?= $title_content ?></title>
 </head>

@@ -15,10 +15,6 @@ class AdminControl
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $posts = $postManager->getPosts();
 
-                $commentManager = new \JForteroche\Blog\Model\CommentManager();
-                $signalments = $commentManager->getAllSignalments(); 
-                // $totalComments = $commentManager->getNbComments();
-       
                 $viewToDisplay = new ViewRenderer('adminView');
                 $viewToDisplay->renderView(array('posts' =>$posts)); 
             }
