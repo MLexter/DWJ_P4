@@ -1,4 +1,4 @@
-<h1>Jean Forteroche - Le blog de l'écrivain</h1>
+<h1>PROJET 4: Jean Forteroche - Le blog de l'écrivain</h1>
 <br>
   <hr>
 <br>
