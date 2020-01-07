@@ -3,34 +3,107 @@
     padding: 0;
 }
 
+.regular-subtitle-text {
+    font-family: 'Chau Philomene One', sans-serif;
+    margin: 15px auto 25px;
+    font-size: 1.4rem;
+}
+
 body {
+    font-family: 'Alconica', sans-serif;
+    background-color: #e7dfdf;
+}
+
+a, h1, h2, h3 {
     font-family: 'Chau Philomene One', sans-serif;
 }
 
-#main-position {
+h1, h2, h3, h4 {
+    color: black;
+}
+
+input, textarea {
+    font-family: 'Alconica', sans-serif;
+}
+
+/* ########### TEMPLATE ########## */
+
+a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
+    position: fixed;
+    right: 15px;
+    bottom: 60px;
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+/* ########### NAVBAR ########## */
+
+.navbar {
+    background-color: #002f44;
     height: auto;
+}
+
+.nav-item {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+a.nav-link {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+a.nav-link:hover {
+    color: #fff;
+}
+
+nav ul li.active {
+    background-color: none;
+}
+
+nav ul a:hover {
+    background-color: none;
+}
+
+li.nav-item {
+    padding: 0 25px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+#main-position {
+    min-height: 85vh;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 35px;
 }
 
 /* ########### MAIN INDEX ########## */
 
-
 #main_container {
+    position: fixed;
     background-image: url('../images/wood-landscape-mountains-nature.jpg');
     background-size: cover;
-    height: 87vh;
+    height: 100%;
 }
 
 #main-titles {
-    position: relative;
-    top: 30%;
-    width: 70%;
-    height: 50%;
-    margin: auto;
     text-align: center;
+    height: auto;
+    position: relative;
+    bottom: 75px;
 }
 
 .main_text_title {
     color: white;
+}
+
+span#JF_main {
+    color: #35a5dd;
 }
 
 #title_book {
@@ -41,13 +114,13 @@ body {
 #main_title {
     font-size: 3.5em;
     margin-bottom: 3%;
+    text-shadow: 2px 1px black;
 }
 
 #sub_title {
     font-size: 2em;
     margin: auto;
     margin-bottom: 3%;
-    width: 50%;
 }
 
 #sub_title::after {
@@ -58,39 +131,359 @@ body {
     top: 2%;
 }
 
+#getBook-link {
+    margin: 3vh auto;
+}
+
 #last_reads_button_link {
-    color: black;
     text-decoration: none;
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 15px;
-    position: relative;
-    top: 20px;
     font-size: 2.2vh;
+    height: auto;
+    padding: 10px 20px 10px 20px;
+    text-shadow: 1px 1px black;
+}
+
+.btn-outline-warning {
+    color: #ffd700;
+    border-color: #ffd700;
 }
 
 #last_reads_button_link:hover {
-    background-color: #c0c0c087;
-    transition-timing-function: ease-in-out;
+    background-color: #e8db62!important;
+    transition-timing-function: ease-out;
     transition-property: background-color;
     transition-duration: 0.2s;
+    text-shadow: none;
+}
+
+/* -------------- Media Queries --------------- */
+
+@media screen and (max-width: 600px) {
+    #main-titles {
+        position: relative;
+        bottom: 13vh;
+    }
+    #title-list {
+        flex-direction: column;
+    }
+}
+
+/* ########## CHAPTERS OVERALL ########## */
+
+#book_background {
+    background-image: url('public/images/book_background.png');
+    background-repeat: repeat;
+    position: absolute;
+}
+
+.container-main-title_description {
+    position: relative;
+    top: 30px;
+    color: #416fa1;
+    background-color: #f9f9fcfa;
+
+}
+
+.hr-separation {
+    border-top: 4px solid rgb(23, 162, 184);
+    width: 10vh;
+    margin: 1vh auto;
+    border-radius: 15%;
+}
+
+#main-listPosts {
+    border: 1px solid #bdc0d3;
+    box-shadow: 1px 4px 12px 4px;
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+#container_list_chapters {
+    flex-wrap: wrap;
 }
 
 
-/* ########## POSTS OVERALL ########## */
+
+#main-title_description {
+    margin: 30px auto;
+    border-left: 5px solid;
+    border-right: 5px solid;
+    border-radius: 20px;
+    width: 60%;
+}
+
+div#card-container {
+    padding: 0;
+}
 
 .post_thumbnail {
-    border: 2px solid;
-    padding: 20px;
-    width: 55%;
-    margin: 20px auto;
+    border-bottom: 1px solid #94a3ab;
 }
 
-/* ########## LAST POST ########## */
+.post_thumbnail:last-child {
+    border-bottom: none;
+}
 
+.img-thumbnail {
+    padding: 0;
+    border-radius: 0;
+    border: none;
+}
 
-#main-postView {
-    height: 87vh;
+img.img-thumbnail.mx-auto.d-block {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+    border: none;
+}
+
+.illustration-thumbnail {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.illustration-thumbnail img {
+    max-width: 100%;
+    object-fit: cover;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.illustration-thumbnail:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
+.txt_illustration {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+}
+
+#title_img {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.illustration-thumbnail:hover span.txt_illustration {
+    opacity: 1;
+    z-index: 100;
+}
+
+span.txt_illustration span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bottom-border {
+    position: relative;
+    bottom: 30px;
+    border-top: 7px solid #66bbc6;
+}
+
+.card a {
+    margin-top: 15px;
+}
+
+.card-body {
+    padding: 0 2vh 5vh 2vh;
+}
+
+.card.col-5 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-title {
+    margin-bottom: 0;
+}
+
+p.card-text {
+    padding-bottom: 30px;
+    font-size: 15px;
+}
+
+#content_text_thumbnail {
+    margin-left: 30px;
+    width: 81%;
+}
+
+#readmore-link {
+    position: absolute;
+    color: white;
+    right: 15px;
+    bottom: 15px;
+}
+
+.post_time-text {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 992px) {
+    #main-title_description {
+        width: 100%;
+    }
+    .regular-subtitle-text {
+        font-size: 1.3rem;
+    }
+
+    div#about-container_content {
+        height: 85vh;
+        overflow: scroll;
+
+    }
+}
+
+/* ########## CHAPTER DETAIL ########## */
+
+#container-chapterView {
+    background-color: white;
+}
+
+#main-chapterView {
+    padding-bottom: 40px;
+}
+
+#chapter-title-page {
+    padding-top: 30px;
+}
+
+#illustration-chapter {
+    float: right;
+    margin-left: 20px;
+}
+
+#chapter_content {
+    border-left: 7px solid #17a2b8;
+    border-radius: 50px;
+    padding: 15px;
+    margin: 30px auto;
+}
+
+#comment_box {
+    padding-bottom: 10px;
+}
+
+.separation_icon {
+    color: #26838f;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.text-alert {
+    position: relative;
+    left: 10px;
+}
+
+#backto_link {
+    margin-top: 20px;
+}
+
+#comment_part_title {
+    margin: 50px auto;
+}
+
+.comment-row {
+    display: flex;
+    min-height: 150px;
+    border: 3px solid #dee2e6;
+    box-shadow: 1px 0px 6px -1.5px;
+    flex-wrap: nowrap;
+}
+
+td#comment-section {
+    padding-bottom: 4vh;
+    padding-right: 5vh;
+    padding-left: 5px;
+}
+
+#comment-form_container {
+    border: 3px solid #dee2e6;
+    box-shadow: 1px 0px 6px -1.5px;
+    padding: 20px;
+}
+
+.signalment-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.signalment_link {
+    color: white;
+}
+
+.date_time_comment {
+    font-size: 11px;
+}
+
+.management_link {
+    margin: 30px auto;
+}
+
+/* ########## CREATE CHAPTER ########## */
+
+div#main-createNewPostView {
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+#inputs-container {
+    margin-top: 30px;
+}
+
+#container_image_update {
+    margin: 20px;
+}
+
+#creation_container {
+    width: 80%;
+}
+
+/* ########## EDIT CHAPTER ########## */
+
+div#main-editView {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#image-post-chapter {
+    height: 350px;
+    object-fit: cover;
+}
+
+#authorPostContent {
+    width: 60%;
+    min-height: 500px;
+}
+
+#edit_container {
+    width: 80%;
+    margin: auto;
+}
+
+.tox.tox-tinymce.tox-platform-touch {
+    margin-bottom: 10px;
+}
+
+div#edit-form {
+    margin-bottom: 20px;
+}
+
+div#cancel-submit_btn {
+    padding-bottom: 20px;
 }
 
 /* ########## EDIT POST ########## */
@@ -102,20 +495,65 @@ div#main-editView {
 
 /* ########## HEADER ########## */
 
+#container-brand_logo {
+    position: relative;
+    top: 6px;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    border: 2px solid;
+    height: 45px;
+    position: relative;
+    bottom: 1px;
+    right: 2px;
+    background-color: #315a7a;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-toggler-icon {
+    position: relative;
+    top: 0;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: white;
+    background-color: #002f44;
+}
+
+.navbar-toggler-icon {
+    position: relative;
+    bottom: 1.6px;
+}
+
+#navbarSupportedContent {
+    background-color: #002f44;
+    z-index: 9;
+}
+
+button:focus {
+    background-color: #17a2b8;
+}
+
+ul.navbar-nav.ml-lg-auto {
+    background-color: #002f44;
+}
+
 #logo_site_name {
     font-family: 'Aclonica', sans-serif;
     color: white;
+    margin-bottom: auto;
 }
 
-#logo_site_container {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    margin: 10px 20px;
-}
-
-h3 {
+#sub_logo_title {
     color: white;
+    text-align: center;
+    position: relative;
+    bottom: 5px;
 }
 
 #menu_container #main-menu li a {
@@ -152,28 +590,226 @@ h3 {
     transition-duration: 0.4s;
 }
 
+nav#navbar-responsive {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --------------- Media Queries --------------- */
+
+@media screen and (max-width: 992px) {
+    #navbarSupportedContent {
+        position: absolute;
+        top: 80px;
+        right: 0;
+    }
+    li.nav-item {
+        min-width: 35vh;
+    }
+    #header-menu_content {
+        position: relative;
+        right: 30px;
+        bottom: 6px;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    ul.navbar-nav.ml-lg-auto.text-center {
+        width: 35vh;
+    }
+    #logo_site_container {
+        height: 7.6vh;
+        position: absolute;
+        right: 8vh;
+        display: flex;
+        align-items: center;
+    }
+    #logo_site_name {
+        font-size: 2rem;
+    }
+    #sub_logo_title {
+        font-size: 1.8rem;
+        bottom: 0;
+    }
+    #header-menu_content {
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+    }
+    a.navbar-brand {
+        float: right;
+    }
+    #sub_logo_title {
+        font-size: 1.3rem;
+    }
+    #main-admin-page {
+        padding-top: 0!important;
+    }
+    #new-chapter_button {
+        height: auto;
+    }
+
+    #container_portrait {
+        float: none!important;
+        text-align: center;
+        margin-left: 0!important;
+        margin-right: 12px;
+    }
+
+    
+    
+}
+
+@media screen and (max-width: 400px) {
+    h1#logo_site_name {
+        font-size: 1.5rem;
+    }
+    #sub_logo_title {
+        font-size: 1.3rem;
+    }
+
+    #main_title {
+        font-size: 2.2em;;
+    }
+
+    #sub_title {
+        font-size: 1.4em;
+    }
+
+    .comment-row {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #logo_site_name {
+        font-size: 1.5rem;
+    }
+    #sub_logo_title {
+        font-size: 1.3rem;
+        bottom: 5px;
+    }
+    a.navbar-brand {
+        padding-top: 0;
+    }
+    #main_title {
+        font-size: 2.8em;
+        ;
+    }
+    #sub_title {
+        font-size: 1.7em;
+    }
+    #last_reads_button_link {
+        font-size: 2vh;
+    }
+    .footer-item {
+        margin: 5px 3px!important;
+        font-size: 0.7em!important;
+        padding: 0;
+    }
+    
+    p.card-text {
+        font-size: 13px;
+    }
+    .illustration-thumbnail:hover span.txt_illustration {
+        text-align: center;
+    }
+    #chapter_content {
+        padding: 0;
+    }
+    #illustration-chapter {
+        width: 100%;
+        float: none;
+    }
+    #chapter_content {
+        border-left: none;
+    }
+    #header-menu_content {
+        left: 10px;
+    }
+    #image-post-chapter {
+        height: 300px;
+    }
+    #portrait_container {
+        margin-left: 0!important;
+    }
+    #container_portrait {
+        float: unset!important;
+    }
+    .row.description-content {
+        line-height: 4vh!important;
+    }
+    #logo_site_container {
+        left: 15vh!important;
+        top: 2vh!important;
+    }
+    #edit_container {
+        width: 100%!important;
+    }
+    .box_menu {
+        position: relative;
+        right: 6px;
+    }
+    h2.thumbail-title {
+        text-align: center;
+    }
+    
+    #form_container {
+        padding: 20px 10px;
+    }
+
+    #main-connexion-screen {
+        align-items: unset!important;
+    }
+
+    #connexion_container {
+        overflow: scroll;
+    }
+    #container-connexion-btn {
+        justify-content: center!important;
+    }
+
+    #illustration-chapter {
+        margin-left: 0!important;
+    }
+
+
+}
 
 /* ########## FOOTER ########## */
 
 #footer-container {
     background-color: #002f44;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     height: auto;
 }
 
 #footer_infos {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    height: 41px;
+    min-height: 5vh;
 }
 
-#footer_copyright, #footer_mentions_legales {
+#footer_social, #footer_mentions_legales {
     color: white;
+    text-decoration: none;
+    font-family: 'Chau Philomene One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-item {
-    margin: 5px 30px;
-    font-size: 0.9em;;
+    margin: 5px;
+    font-size: 0.8em;
+    text-shadow: 1px 1px black;
 }
 
 #footer_connexion_link {
@@ -181,40 +817,265 @@ h3 {
     color: white;
 }
 
+#fa-logout {
+    color: #b40000;
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
+#footer_connexion_link:hover {
+    color: #ffd733;
+}
+
+.social-img {
+    width: 25px;
+    margin-left: 3px;
+}
 
 /* ########## ABOUT ########## */
 
-#main-about {
-    height: 87vh;
-    background-color: #16171c;
+div#main-about {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#about_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
+#separation_about {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.row.description-content {
+    line-height: 2.5vh;
+}
+
+img#background_about_img {
+    height: 85vh;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+#background_contact_img {
+    position: absolute;
+    object-fit: cover;
+    z-index: -10;
     height: 100%;
-    margin: auto;
+    width: 100%;
+}
+
+#container_portrait {
+    position: relative;
+    float: right;
+    margin-left: 30px;
 }
 
 #author_portrait {
-    width: 23vh;
-    border-radius: 20%;
+    width: 25vh;
+    height: 35vh;
 }
 
-#about_text_content {
-    text-align: center;
-    margin-left: 3em;
-    color: white;
+#portrait_container {
+    margin-left: 20px;
+}
+
+div#about-container_content {
+    padding: 30px;
+}
+
+#about_description {
+    color: black;
 }
 
 #quote_text_author {
     font-style: italic;
+    padding: 15px 20px;
+    background-color: #f0eff5;
+}
+
+#about_last-para {
+    position: relative;
+    padding-left: 20px;
+}
+²
+/* ########## CONTACT ########## */
+
+#container-contact {
+    min-height: 83vh;
+}
+
+
+.alert.alert-warning.col-md-8.container.container_error {
+    position: relative;
+    top: 15px;
+}
+
+#text_contact {
+    margin: 30px auto 20px;
+    top: 20px;
+    position: relative;
+}
+
+#title-form {
+    background-color: #e7e7bf;
+}
+
+#form_container {
+    padding: 20px;
+    border-top: 4px solid rgb(23, 162, 184);
+}
+
+#submit_contact_btn {
+    font-weight: 600;
 }
 
 /* ########## CONNEXION PAGE ########## */
 
 #main-connexion-screen {
-    height: 87vh;
+    height: 85vh;
+}
+
+#connexion_btn {
+    background-color: #205ea1;
+    border-color: #205ea1;
+}
+
+.text-label {
+    padding: 0!important;
+}
+
+
+
+/* ########## ADMIN MAINPAGE ########## */
+
+#main-admin-page {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+#overlay_admin {
+    background-color: white;
+}
+
+#signaled-container {
+    margin-top: 1rem;
+}
+
+#new_chapter {
+    margin: 30px auto 10px auto;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    height: 45px;
+}
+
+a#new-chapter_button:hover {
+    background-color: #1e9bf3;
+}
+
+a#new-chapter_button {
+    background-color: #48cd83;
+    text-shadow: 1px 1px white;
+}
+
+#admin_banner-main {
+    border: 2px solid;
+    margin: 0 auto 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.img-thumbnail_custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#thumbnail-post_admin {
+    margin-bottom: 0;
+}
+
+
+/* ########## ADMIN MANAGE COMMENTS ########## */
+
+div#main-comment-Manager {
+    background-color: white;
+    min-height: 82.5vh;
+    padding-bottom: 50px;
+}
+
+#main-comment-Manager {
+    height: auto;
+}
+
+a.fa-main_admin {
+    font-size: 1.8rem;
+    margin-left: 15px;
+}
+
+#left-section-comment {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#table-comments {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.manage-table-display {
+    position: relative;
+}
+
+#delete-comment-link {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+}
+
+#fa-delete-comment {
+    font-size: 1.4em;
+    color: red;
+    text-shadow: 1px 0px black;
+}
+
+#container_comments {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#title-list {
+    height: fit-content;
+}
+
+/* ########## ADMIN CONNEXION PAGE ########## */
+
+#connexion_container {
+    border: 2px solid;
+    padding: 20px;
+}
+
+#connexion-text {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+label.connexion_labels {
+    font-size: 1em;
+    color: black;
+}
+
+table.table {
+    margin-top: 10px;
+}
+
+.table td, .table th {
+    vertical-align: unset;
+    border-top: unset;
+}
+
+#error-container-connexion {
+    position: relative;
+    margin-top: 10px;;
 }

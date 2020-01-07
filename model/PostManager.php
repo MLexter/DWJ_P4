@@ -1,54 +1,98 @@
 <?php
 
 namespace JForteroche\Blog\Model;
+use \PDO;
 
-require_once(MODEL.'Manager.php');
 
-class PostManager extends Manager
+
+class PostManager
 {
+
+    private $db;
+
+
+
+    public function __construct()
+    {
+        $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+    }
+
+
+
     public function getPosts()
     {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT ID_post, author, author_post_title, author_post_content, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author ORDER BY date_post_author DESC LIMIT 0, 5');
+        $db = $this->db;
+        $req = $db->prepare('SELECT ID_post, author_post_title, author_post_content, image_chapter, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author ORDER BY date_post_author DESC');
+        $req->execute();
 
-        return $req;
+        while ($posts = $req->fetch(PDO::FETCH_ASSOC)) {
+            $chapter = new Post();
+            $chapter->setPostId($posts['ID_post']);
+            $chapter->setAuthor_post_title($posts['author_post_title']);
+            $chapter->setAuthor_post_content($posts['author_post_content']);
+            $chapter->setChapter_image($posts['image_chapter']);
+            $chapter->setDate_post_author($posts['creation_date_fr']);
+
+            $chapters[] = $chapter;
+        };
+        if (isset($chapters)) 
+        {
+            return $chapters;
+        }
     }
+
 
     public function getPost($postId)
     {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT ID_post, author, author_post_title, author_post_content, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author WHERE ID_post = ?');
+        $db = $this->db;
+        $req = $db->prepare('SELECT ID_post, author_post_title, author_post_content, image_chapter, DATE_FORMAT(date_post_author, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts_author WHERE ID_post = :id');
+        $req->bindValue('id', $postId, PDO::PARAM_INT);
+        $req->execute();
+
+        $post = $req->fetch(PDO::FETCH_ASSOC);
+        $chapter = new Post();
+            $chapter->setPostId($post['ID_post']);
+            $chapter->setAuthor_post_title($post['author_post_title']);
+            $chapter->setAuthor_post_content($post['author_post_content']);
+            $chapter->setChapter_image($post['image_chapter']);
+            $chapter->setDate_post_author($post['creation_date_fr']);
+
+        return $chapter;
+    }
+
+    public function newPost($titleChapter, $contentChapter, $newImageFile)
+    {
+        $db = $this->db;
+        $req = $db->prepare('INSERT INTO posts_author(date_post_author, author_post_title, author_post_content, image_chapter) VALUES (NOW(),?,?,?)');
+
+
+        $req->execute(array($titleChapter, $contentChapter, $newImageFile));
+
+        $createPost = $req->fetch(PDO::FETCH_ASSOC);
+        $chapter = new Post();
+            $chapter->setPostId($createPost['ID_post']);
+            $chapter->setAuthor_post_title($createPost['author_post_title']);
+            $chapter->setAuthor_post_content($createPost['author_post_content']);
+            $chapter->setChapter_image($createPost['image_chapter']);
+            $chapter->setDate_post_author($createPost['creation_date_fr']);
+            $chapter->setDate_post_author_modif($createPost['date_post_author_modif']);
+
+        return $chapter;
+    }
+
+    public function updatePost($postId, $author_post_title, $author_post_content, $newImageFile)
+    {
+        $db = $this->db;
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author_modif = NOW(), image_chapter = ? WHERE ID_post = ?');
+        $updatedPost = $req->execute(array($author_post_title, $author_post_content, $newImageFile, $postId));
+
+        return $updatedPost;
+    }
+
+    public function deletePost($postId)
+    {
+        $db = $this->db;
+        $req = $db->prepare('DELETE FROM posts_author WHERE ID_post = ?');
         $req->execute(array($postId));
-
-        $post = $req->fetch();
-
-        return $post;
-    }
-
-    public function updatePost($postId, $author_post_title, $author_post_content)
-    {
-        $db = $this->dbConnect();
-        $req = $db->execute('UPDATE posts_author SET author_post_title = :author_post_title, author_post_content = :author_post_content, date_post_author = NOW() WHERE ID_post = :id', 
-        array('id'                  => $postId,
-              'author_post_title'   => $author_post_title,
-              'author_post_content' => $author_post_content));
- 
-
-    }
-
-    public function addPost($ID_post, $author_post_content)
-    {
-        $db = $this->dbConnect();
-        $newContent = $db->prepare('INSERT INTO posts_author(ID_post, author, author_post_content, date_post_author) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $newContent->execute(array($ID_post, $author_post_content));
-
-        return $affectedLines;
-    }
-
-    public function deleteAuthorPost($postId) 
-    {
-        $db = $this->dbConnect();
-        $req = $db->execute('DELETE FROM `posts_author` WHERE `posts_author`.`ID_post` = $ID_post');
     }
 }
-

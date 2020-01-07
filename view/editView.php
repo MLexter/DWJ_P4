@@ -1,39 +1,60 @@
-<?php
+<?php $title_content = 'Modifier un chapitre' ?>
 
-$title = 'Modifier un chapitre' ?>
-
-<?php ob_start(); ?>
 
 <div id="main-editView">
-    <div id="edit_container">
-        <h1>Modifier un chapitre</h1>
-        <p><a href="index.php">Retour à l'écran principal</a></p>
+    <div id="edit_container" class="container text-center">
+        <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
+            <h1>Modifier un chapitre</h1>
+        </div>
+        <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal</a></p>
 
-
-
-        <h2>Modifier un chapitre</h2>
+        <hr class="hr-separation">
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
-        <form action="../controller/update.php" method="POST">
-            <div>
-                <label for="post-title" ><h3>Titre du chapitre :</h3></label>
-                <input type="text" name="author_post_title" value="<?= $post['author_post_title'] ?>">
+        <?php if (@$_SESSION['success'] == 0) : ?>
+            <?php if (@$_SESSION['error_upload'] !== null) : ?>
+                <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <div id="edit-illustration">
+            <figure>
+                <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+            </figure>
+        </div>
+
+        <form action="<?= HOST; ?>admin/post-update" method="POST" enctype="multipart/form-data">
+            <div id="edit-form">
+                <input type="hidden" name="postId" value="<?= $post->getPostId(); ?>">
+
+                <label for="post-title">
+                    <h3>Titre du chapitre :</h3>
+                </label><br />
+                <input type="text" class="col-6 text-center" name="author_post_title" value="<?= $post->getAuthor_post_title(); ?>" required>
                 <br />
-                <label for="chapter-content"><h3>Contenu du chapitre:</h3></label>
-                <textarea id="authorPostContent" name="author_post_content"><?= $post['author_post_content'] ?></textarea>
+
+                <label for="chapter-content">
+                    <h3>Contenu du chapitre:</h3>
+                </label>
+
+                <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
+                <label for="image_post">
+                    <h3>Choisir une image:</h3>
+                </label>
+
+                <input type="file" name="image_chapter" />
             </div>
-            <div>
+            <div id="cancel-submit_btn">
                 <button>
-                    <a href="<?= HOST; ?>book">Annuler</a>
-                </button> 
-                <input type="submit" value="Modifier" />
+                    <a class="btn" href="<?= HOST; ?>admin/dashboard">Annuler</a>
+                </button>
+                <input class="btn btn-info" type="submit" value="Enregistrer" name="submit_edited_chapter" />
             </div>
         </form>
+
+
+
+
     </div>
 </div>
-
-
-<?php $body_content = ob_get_clean(); ?>
-
-<?php require(LAYOUTS.'template.php'); ?>

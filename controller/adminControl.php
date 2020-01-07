@@ -1,19 +1,71 @@
 <?php
 
+require_once(MODEL . 'AdminManager.php');
 
-class Administration
-{
-    private $username;
-    private $password;
+class AdminControl
+{    
 
-    function chekData()
-    {
-        // vérifier que les 2 inputs sont remplis + expressions régulières
-        // Si ok , renvoyer sur fichier ".php" avec fonction qui renvoie l'affichage admin avec redirection
+    public function showMainAdmin()
+    {       
+        if(isset($_SESSION['isAdmin']))
+        {
+            if ($_SESSION['isAdmin'] == true)
+            {
+
+                $postManager = new \JForteroche\Blog\Model\PostManager();
+                $posts = $postManager->getPosts();
+
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $signalments = $commentManager->getAllSignalments(); 
+                // $totalComments = $commentManager->getNbComments();
+       
+                $viewToDisplay = new ViewRenderer('adminView');
+                $viewToDisplay->renderView(array('posts' =>$posts)); 
+            }
+        } else {
+            header('Location: ' . HOST . 'connexion');
+        }
     }
 
-    function adminLogout()
+    
+    function verifyConnexionInfos()
     {
-        // Fonction qui permet de se déconnecter de l'espace admin
+        
+            if (isset($_POST['ID_user'], $_POST['password_user']))
+            {
+                if (!empty($_POST['ID_user']) AND !empty($_POST['password_user']))
+                {
+                    $ID_user = htmlspecialchars($_POST['ID_user']);
+                    $password = ($_POST['password_user']);
+
+                    $connexion = new \JForteroche\Blog\Model\AdminManager();
+                    $checkValues = $connexion->connexionChecks($ID_user, $password);
+                
+                    if ($_SESSION['isAdmin'] == true)
+                    {
+                        header('Location: ' . HOST . 'admin/dashboard');                  
+        
+                    } else {
+                        header('Location: ' . HOST . 'connexion');
+                        $_SESSION['$error_login'] = 'Saisie incorrecte. Veuillez réessayer.';
+                    }
+                } else {
+                    header('Location: ' . HOST . 'connexion');
+                    $_SESSION['$error_login'] = 'Vous devez saisir un Identifiant et un Mot de passe.';
+                }    
+            } else {
+                header('Location: ' . HOST . 'connexion');
+            }
+        
     }
+
+    function logoutAdmin()
+    {
+       $_SESSION = array();
+       session_destroy();
+
+       header('Location: ' . HOST);
+    }
+
+
 }

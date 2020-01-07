@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 
 class ViewRenderer
@@ -12,13 +12,15 @@ class ViewRenderer
     }
 
 
-    public function renderView()
+    public function renderView($parameters = array())
     {
+        extract($parameters);
+
         $template = $this->template;
         ob_start();
-        include(LAYOUTS.$template.'.php');
+        include(VIEW.$template.'.php');
         $body_content = ob_get_clean();
         include_once(LAYOUTS.'template.php');
     }
     
-} -->
+}

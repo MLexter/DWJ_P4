@@ -1,22 +1,49 @@
 <?php
 
 namespace JForteroche\Blog\Model;
+use \PDO;
 
-require_once(MODEL.'Manager.php');
-
-class AdminManager extends Manager
-
+class AdminManager
 {
-    
 
-    
+    private $db;
+    public $error_login = "";
 
-    function connexionChecks()
+
+
+    public function __construct()
     {
-
-        // Fonction qui permet de vérifier si l'id et le mot de passe sont bons
-        // Alors on peut basculer le status de connexion à true, sinon false (permettra d'afficher les menus et pages si connecté)
+        $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
     }
 
-    
+
+
+    function connexionChecks($ID_user, $password)
+    {
+        $db = $this->db;
+        $req = $db->prepare('SELECT `username`, `pass_admin` FROM `admin`');
+        $req->execute();
+        $getAdminData = $req->fetch();
+        
+        if ($ID_user == $getAdminData['username']) 
+        {
+
+            if (password_verify($password, $getAdminData['pass_admin'])) 
+            {
+                
+                $_SESSION['isAdmin'] = true;
+                $_SESSION['user_admin'] = $ID_user;
+
+            } else {
+                header('Location: ' . HOST . 'connexion');
+                exit();
+            }
+
+        } else {
+            header('Location: ' . HOST . 'connexion');
+            $_SESSION['$error_login'] = 'Saisie incorrecte. Veuillez réessayer.';
+            exit();
+            
+        }
+    }
 }
