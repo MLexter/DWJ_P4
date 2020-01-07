@@ -36,12 +36,10 @@ window.onresize =  function() {
 
     if (windowWidth > maxScreenWidth) {
         document.getElementById('footer_infos').style.flexDirection = "row";
+        
 
-    } else if (windowWidth <= maxScreenWidth) {
-        if (footerItem.length > 3) {
+    } else if (windowWidth <= maxScreenWidth) {        
             document.getElementById('footer_infos').style.flexDirection = "column";
-
-        }
 
     }
 
