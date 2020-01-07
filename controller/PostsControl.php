@@ -15,8 +15,6 @@ class PostsControl
         $viewToDisplay->renderView(array('posts' => $posts));
     }
 
-
-
     public function getPostById()
     {
         $postManager = new \JForteroche\Blog\Model\PostManager();

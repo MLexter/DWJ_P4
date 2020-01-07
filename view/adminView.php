@@ -13,8 +13,11 @@
       <br />
       <p class="container col-md-10">Pour gérer vos chapitres, cliquez sur l'une des options proposées. <br />
       Des raccourcis sont présents dans vos chapitre pour accéder directement à leur gestion. <br />
-        Voici la liste des derniers chapitres publiés.</p>
+      Pour accéder rapidement à votre interface d'administration, cliquez sur <span id="espace_admin">'Espace Admin'</span> en bas du site. <br /></p>
     </div>
+
+    <hr class="hr-separation">
+
 
     <?php if (@$_SESSION['success'] == 1) : ?>
       <div class="alert alert-success container text-center" role="alert">
@@ -49,12 +52,13 @@
       <?php @$_SESSION['delete_status'] = 0; ?>
     <?php endif; ?>
 
-    <hr class="hr-separation">
-
 
     <div id="new_chapter" class="d-flex justify-content-center">
       <a id="new-chapter_button" class="btn btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
+
+    <br />
+<h3 class="text-center">Liste des derniers chapitres publiés</h3>
 
     <?php if (isset($posts)) : ?>
       <?php foreach ($posts as $post) : ?>

@@ -26,6 +26,7 @@ input, textarea {
     font-family: 'Alconica', sans-serif;
 }
 
+
 /* ########### TEMPLATE ########## */
 
 a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
@@ -79,7 +80,6 @@ p {
     min-height: 85vh;
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 35px;
 }
 
 /* ########### MAIN INDEX ########## */
@@ -195,11 +195,12 @@ span#JF_main {
     border: 1px solid #bdc0d3;
     box-shadow: 1px 4px 12px 4px;
     background-color: white;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 #container_list_chapters {
     flex-wrap: wrap;
+    padding-bottom: 40px;
 }
 
 
@@ -436,7 +437,7 @@ td#comment-section {
 
 div#main-createNewPostView {
     background-color: white;
-    padding-bottom: 30px;
+    padding-bottom: 70px;
 }
 
 #inputs-container {
@@ -676,6 +677,13 @@ nav#navbar-responsive {
     .comment-row {
         flex-direction: column;
     }
+    #connexion-text {
+        font-size: 1rem;
+    }
+
+    label.connexion_labels {
+        font-size: 0.8em!important;
+    }
 }
 
 @media screen and (max-width: 350px) {
@@ -770,7 +778,9 @@ nav#navbar-responsive {
         margin-left: 0!important;
     }
 
-
+    .social-img {
+        width: 16px!important;
+    }
 }
 
 /* ########## FOOTER ########## */
@@ -810,6 +820,10 @@ nav#navbar-responsive {
     color: white;
 }
 
+#footer_deconnexion_link {
+    color: white;
+}
+
 #fa-logout {
     color: #b40000;
     font-size: 1.1rem;
@@ -826,6 +840,10 @@ nav#navbar-responsive {
 }
 
 /* ########## ABOUT ########## */
+
+#contactView-main_container {
+    position: relative;
+}
 
 div#main-about {
     min-height: 85vh;
@@ -850,12 +868,13 @@ img#background_about_img {
     object-fit: cover;
 }
 
-#background_contact_img {
+#background-contact{
+    background-image: url(../images/fancy-pants.jpg);
+    background-repeat: repeat;
     position: absolute;
-    object-fit: cover;
     z-index: -10;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 #container_portrait {
@@ -891,11 +910,11 @@ div#about-container_content {
     position: relative;
     padding-left: 20px;
 }
-²
+
 /* ########## CONTACT ########## */
 
 #container-contact {
-    min-height: 83vh;
+    padding-bottom: 30px;
 }
 
 
@@ -916,6 +935,7 @@ div#about-container_content {
 
 #form_container {
     padding: 20px;
+    padding-bottom: 40px;
     border-top: 4px solid rgb(23, 162, 184);
 }
 
@@ -944,7 +964,13 @@ div#about-container_content {
 
 #main-admin-page {
     padding-top: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 70px;
+}
+
+#espace_admin {
+    color: #007bff;
+    font-family: 'Chau Philomene One', sans-serif;
+    font-size: 14px;
 }
 
 #overlay_admin {
@@ -1046,7 +1072,7 @@ a.fa-main_admin {
 
 #connexion_container {
     border: 2px solid;
-    padding: 20px;
+    padding: 10px 20px;
 }
 
 #connexion-text {
