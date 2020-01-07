@@ -18,7 +18,9 @@
             <a class="footer-item text-center col" id="footer_connexion_link" href="<?= HOST; ?>connexion"> Connexion</a>
                         
         <?php endif; ?>
-                        
+        
+            <a class="footer-item text-center col" id="footer_mentions_legales" href="<?= HOST; ?>mentions-legales">Mentions Légales</a>
+            
                         <p class="footer-item text-center col" id="footer_social">
                             <span class="social">
                                 <a class="social-link" href="http://www.facebook.com" title="Suivez-moi sur Facebook">
@@ -37,7 +39,6 @@
                             </span>
                         </p>
 
-            <a class="footer-item text-center col" id="footer_mentions_legales" href="<?= HOST; ?>mentions-legales">Mentions Légales</a>
 
     </div>
 </div>
