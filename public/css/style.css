@@ -790,13 +790,19 @@ nav#navbar-responsive {
     min-height: 5vh;
 }
 
-#footer_copyright, #footer_mentions_legales {
+#footer_social, #footer_mentions_legales {
     color: white;
+    text-decoration: none;
+    font-family: 'Chau Philomene One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-item {
     margin: 5px;
     font-size: 0.8em;
+    text-shadow: 1px 1px black;
 }
 
 #footer_connexion_link {
@@ -812,6 +818,11 @@ nav#navbar-responsive {
 
 #footer_connexion_link:hover {
     color: #ffd733;
+}
+
+.social-img {
+    width: 25px;
+    margin-left: 3px;
 }
 
 /* ########## ABOUT ########## */

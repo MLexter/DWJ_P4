@@ -57,7 +57,6 @@ class AdminControl
                 header('Location: ' . HOST . 'connexion');
             }
         
-        // $hashMdp = password_hash('LUNETTESNOIRES', PASSWORD_DEFAULT);
     }
 
     function logoutAdmin()
