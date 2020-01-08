@@ -813,6 +813,7 @@ nav#navbar-responsive {
     margin: 5px;
     font-size: 0.8em;
     text-shadow: 1px 1px black;
+    text-decoration: none;
 }
 
 #footer_connexion_link {
