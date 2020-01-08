@@ -23,18 +23,23 @@
             
                         <p class="footer-item text-center col" id="footer_social">
                             <span class="social">
-                                <a class="social-link" href="http://www.facebook.com" title="Suivez-moi sur Facebook">
+                                <a class="social-link" href="http://www.facebook.com" title="Suivez-moi sur Facebook" target="_blank">
                                 <img class="social-img" src="../public/images/social/facebook.png" alt="Facebook">
                             </a>
                             </span>
                             <span class="social">
-                                <a class="social-link" href="http://www.instagram.com" title="Suivez-moi sur Instagram">
+                                <a class="social-link" href="http://www.instagram.com" title="Suivez-moi sur Instagram" target="_blank">
                                     <img class="social-img" src="../public/images/social/instagram.png" alt="Instagram">
                                 </a>
                             </span>
                             <span class="social">
-                                <a class="social-link" href="http://www.twitter.com" title="Suivez-moi sur Twitter">
+                                <a class="social-link" href="http://www.twitter.com" title="Suivez-moi sur Twitter" target="_blank">
                                     <img class="social-img" src="../public/images/social/twitter.png" alt="Twitter">
+                                </a>
+                            </span>
+                            <span class="social">
+                                <a class="social-link" href="http://www.pinterest.com" title="Suivez-moi sur Pinterest" target="_blank">
+                                    <img class="social-img" src="../public/images/social/pinterest.png" alt="Pinterest">
                                 </a>
                             </span>
                         </p>

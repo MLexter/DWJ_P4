@@ -2,7 +2,7 @@
 
 <div id="contactView-main_container">
   <div id="background-contact">
-    <img id="background_contact_img" src="public/images/alaska-road-mountains.jpg" alt="">
+    <img id="background_contact_img" src="public/images/alaska-road-mountains.jpg" alt="Arrière plan d'Alaska">
   </div>
   
   <div id="container-contact">

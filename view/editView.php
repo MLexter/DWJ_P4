@@ -1,8 +1,8 @@
 <?php $title_content = 'Modifier un chapitre' ?>
 
 
-<div id="main-editView">
-    <div id="edit_container" class="container text-center">
+<div id="main-listPosts" class="container rounded">
+        <div id="edit_container" class="container text-center">
         <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
             <h1>Modifier un chapitre</h1>
         </div>
@@ -20,7 +20,7 @@
 
         <div id="edit-illustration">
             <figure>
-                <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_chapter" alt="Illustration du chapitre">
+                <img id="image-post-chapter" class="img-fluid" src="<?= HOST; ?>public/images/chapters/<?= $post->getChapter_image(); ?>" name="image_preview_chapter" alt="Illustration du chapitre">
             </figure>
         </div>
 
@@ -39,11 +39,13 @@
                 </label>
 
                 <textarea id="authorPostContent" name="author_post_content" required><?= $post->getAuthor_post_content(); ?></textarea>
-                <label for="image_post">
-                    <h3>Choisir une image:</h3>
-                </label>
+                <div id="container_image_update">
+                    <label for="image_post">
+                        <h3>Ajouter une image :</h3>
+                    </label>
 
-                <input type="file" name="image_chapter" />
+                    <input type="file" name="image_chapter" />
+                </div>
             </div>
             <div id="cancel-submit_btn">
                 <button>

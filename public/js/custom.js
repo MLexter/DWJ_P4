@@ -38,8 +38,13 @@ window.onresize =  function() {
         document.getElementById('footer_infos').style.flexDirection = "row";
         
 
-    } else if (windowWidth <= maxScreenWidth) {        
+    } else if (windowWidth <= maxScreenWidth) {   
+        if (footerItem.length > 3)
+        {
             document.getElementById('footer_infos').style.flexDirection = "column";
+        } else {
+            document.getElementById('footer_infos').style.flexDirection = "row";
+        }  
 
     }
 

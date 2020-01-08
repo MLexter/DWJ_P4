@@ -1,7 +1,7 @@
 <?php $title_content = 'Ecrire un nouveau chapitre' ?>
 
 
-<div id="main-createNewPostView">
+<div id="main-listPosts" class="container rounded">
     <div id="creation_container" class="text-center container title-section col-sm-12">
         <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
             <h1>Ecrire un nouveau chapitre</h1>

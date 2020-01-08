@@ -1,7 +1,6 @@
  <?php $title_content = 'Billet simple pour l\'Alaska'; ?>
 
- <div id="container-chapterView" class="container-fluid">
-
+ <div id="main-listPosts" class="container rounded">
      <div id="main-chapterView" class="container">
          <div id ="chapter-title-page" class="container text-center">
              <h1>"<?= $post->getAuthor_post_title(); ?>"</h1>
@@ -108,7 +107,7 @@
              <?php endif; ?>
          </div>
 
-         <div id="comment-form_container" class="container-fluid col-10">
+         <div id="comment-form_container" class="container-fluid col-12">
              <h3 class="text-center">Laisser un commentaire</h3>
 
              <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
