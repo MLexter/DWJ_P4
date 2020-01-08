@@ -26,6 +26,7 @@ input, textarea {
     font-family: 'Alconica', sans-serif;
 }
 
+
 /* ########### TEMPLATE ########## */
 
 a.scrollup-btn.btn-floating.btn-large.cyan.pulse {
@@ -843,6 +844,10 @@ nav#navbar-responsive {
 
 /* ########## ABOUT ########## */
 
+#contactView-main_container {
+    position: relative;
+}
+
 div#main-about {
     min-height: 85vh;
     display: flex;
@@ -866,11 +871,13 @@ img#background_about_img {
     object-fit: cover;
 }
 
-#background_contact_img {
+#background-contact{
+    background-image: url(../images/fancy-pants.jpg);
+    background-repeat: repeat;
     position: absolute;
     z-index: -10;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 #container_portrait {
@@ -906,7 +913,7 @@ div#about-container_content {
     position: relative;
     padding-left: 20px;
 }
-²
+
 /* ########## CONTACT ########## */
 
 #container-contact {
@@ -931,6 +938,7 @@ div#about-container_content {
 
 #form_container {
     padding: 20px;
+    padding-bottom: 40px;
     border-top: 4px solid rgb(23, 162, 184);
 }
 
