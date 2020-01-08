@@ -29,23 +29,17 @@ const scrollUp = scrollupBtn.addEventListener('click', () =>
 // ########## FOOTER DISPLAY ########## //
 
 
-window.onresize =  function() {
-    const footerItem = document.querySelectorAll('.footer-item');
-    let windowWidth = window.innerWidth;
-    const maxScreenWidth = 400;
+// window.onresize =  function() {
+//     const footerItem = document.querySelectorAll('.footer-item');
+//     let windowWidth = window.innerWidth;
+//     const maxScreenWidth = 400;
 
-    if (windowWidth > maxScreenWidth) {
-        document.getElementById('footer_infos').style.flexDirection = "row";
+//     if (windowWidth > maxScreenWidth) {
+//         document.getElementById('footer_infos').style.flexDirection = "row";
         
 
-    } else if (windowWidth <= maxScreenWidth) {   
-        if (footerItem.length > 3)
-        {
-            document.getElementById('footer_infos').style.flexDirection = "column";
-        } else {
-            document.getElementById('footer_infos').style.flexDirection = "row";
-        }  
+//     } else if (windowWidth <= maxScreenWidth) {   
+//             document.getElementById('footer_infos').style.flexDirection = "column";
+//         } 
+//     }
 
-    }
-
-}

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 require_once(MODEL . 'PostManager.php');
 require_once(MODEL . 'CommentManager.php');
@@ -13,10 +13,6 @@ class PostsControl
 
         $viewToDisplay = new ViewRenderer('listPostsView');
         $viewToDisplay->renderView(array('posts' => $posts));
-    }
-
-
-        require(VIEW . '/postView.php');
     }
 
     public function getPostById()
