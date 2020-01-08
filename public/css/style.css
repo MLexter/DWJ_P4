@@ -79,7 +79,6 @@ p {
     min-height: 85vh;
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 35px;
 }
 
 /* ########### MAIN INDEX ########## */
@@ -683,6 +682,13 @@ nav#navbar-responsive {
     .comment-row {
         flex-direction: column;
     }
+    #connexion-text {
+        font-size: 1rem;
+    }
+
+    label.connexion_labels {
+        font-size: 0.8em!important;
+    }
 }
 
 @media screen and (max-width: 350px) {
@@ -777,7 +783,9 @@ nav#navbar-responsive {
         margin-left: 0!important;
     }
 
-
+    .social-img {
+        width: 20px;
+    }
 }
 
 /* ########## FOOTER ########## */
@@ -859,7 +867,6 @@ img#background_about_img {
 
 #background_contact_img {
     position: absolute;
-    object-fit: cover;
     z-index: -10;
     height: 100%;
     width: 100%;
@@ -1053,7 +1060,7 @@ a.fa-main_admin {
 
 #connexion_container {
     border: 2px solid;
-    padding: 20px;
+    padding: 10px 20px;
 }
 
 #connexion-text {
