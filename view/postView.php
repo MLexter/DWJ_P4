@@ -13,7 +13,7 @@
 
          <?php if (!empty($_SESSION['isAdmin']) and $_SESSION['isAdmin'] == true) : ?>
              <div class="management_link d-flex justify-content-center">
-                 <a id="remove_comment_link" class="btn btn-info text-center" href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
+                 <a id="remove_comment_link" class="btn btn-dark text-center" href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
              </div>
          <?php endif; ?>
 
@@ -37,10 +37,6 @@
 
          </div>
 
-         <div class="text-center separation_icon">
-             <i class="material-icons">fiber_manual_record</i>
-         </div>
-
          <div id="container_comments">
              <div id="comment_part_title" class="text-center">
                  <h2>Espace Commentaires</h2>
@@ -52,7 +48,7 @@
 
              <?php if (!empty($_SESSION['isAdmin']) and $_SESSION['isAdmin'] == true) : ?>
                  <div class="management_link d-flex justify-content-center">
-                     <a id="remove_comment_link" class="btn btn-info text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
+                     <a id="remove_comment_link" class="btn btn-dark text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
                  </div>
              <?php endif; ?>
 
@@ -80,12 +76,12 @@
 
                          <table class="table">
                              <tr class="row comment-row">
-                                 <td id="left-section-comment" class="col-md-3">
+                                 <td id="left-section-comment" class="col-md-2">
                                      <h4> <?= $comment->getAuthor_comment() ?> </h4>
                                      <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
                                  </td>
 
-                                 <td id="comment-section" class="col-lg-9">
+                                 <td id="comment-section" class="col-lg-10">
                                      <p> <?= $comment->getContent_comment() ?> </p>
 
                                      <?php if ($comment->getSignaledComment() == 0) : ?>
@@ -106,6 +102,10 @@
 
                  <div class="alert alert-dark container text-center" role="alert">Aucun commentaire pour ce chapitre. Soyez le premier à laisser votre avis !</div>
              <?php endif; ?>
+         </div>
+
+         <div class="text-center separation_icon">
+             <i class="material-icons">fiber_manual_record</i>
          </div>
 
          <div id="comment-form_container" class="container-fluid col-10">
