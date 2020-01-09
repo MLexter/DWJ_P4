@@ -52,6 +52,7 @@
                  </div>
              <?php endif; ?>
 
+             <a href="#post-comment-anchor" id="get-to-anchor"></a>
              <?php if (@$_SESSION['comment_success'] == true) : ?>
 
                  <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> <span class="text-alert">Votre commentaire a bien été posté !</span></div>
