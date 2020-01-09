@@ -57,6 +57,10 @@
       <a id="new-chapter_button" class="btn btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
     </div>
 
+    <div id="drafts-btn" class="d-flex justify-content-center">
+      <a id="drafts-link" class="btn btn-secondary" href="<?= HOST; ?>admin/drafts">Voir les brouillons</a>
+    </div>
+
     <br />
 <h3 class="text-center">Liste des derniers chapitres publiés</h3>
 

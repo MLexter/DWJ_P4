@@ -1010,6 +1010,7 @@ a#new-chapter_button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 
 #thumbnail-post_admin {
