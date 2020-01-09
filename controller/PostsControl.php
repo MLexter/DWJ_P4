@@ -35,16 +35,11 @@ class PostsControl
         {
             if ($_SESSION['isAdmin'] == true) 
             {
-
-
                 $_SESSION['author_post_title'] = "";
                 $_SESSION['author_post_content'] = "";
 
-
                 if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
                 {
-
-
                     if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
                     {
                         $titleChapter = $_POST['author_post_title'];
@@ -55,15 +50,14 @@ class PostsControl
 
                         if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
                         {
-
                             // Define constants to verify uploaded file
                             $maxWeightFile = 2097152;
                             $validExtensions = array('jpg', 'jpeg', 'png', 'gif');
                             $imageInfos = pathinfo($_FILES['image_chapter']['name']);
                             $uploadedExtension = $imageInfos['extension'];
                             $imageFile = '' . time() . '.' . $uploadedExtension;
-
                             $pathToUpload = ROOT . 'public/images/chapters/';
+
 
                             if ($_FILES['image_chapter']['size'] <= $maxWeightFile) 
                             {
@@ -76,13 +70,14 @@ class PostsControl
                                         $newImageFile = $imageFile;
                                         $createContent = new \JForteroche\Blog\Model\PostManager();
                                         $newEntry = $createContent->newPost($titleChapter, $contentChapter, $newImageFile);
+                                    }
 
                                         $_SESSION['success'] = 1;
                                         $_SESSION['success_upload'] = 'Votre chapitre a été publié avec succès !';
                                         $_SESSION['author_post_title'] = "";
                                         $_SESSION['author_post_content'] = "";
                                         header('Location: ' . HOST . 'admin/dashboard');
-                                    }
+                                    
                                 } else {
                                     $_SESSION['success'] = 0;
                                     header('Location: ' . HOST . 'admin/create');
@@ -123,19 +118,30 @@ class PostsControl
             if ($_SESSION['isAdmin'] == true) 
             {
 
-                if (isset($_POST['submit_edited_chapter'])) {
+                if (isset($_POST['submit_edited_chapter'])) 
+                {
                     if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
                     {
                         if (!empty($_POST['author_post_title']) and !empty($_POST['author_post_content'])) 
                         {
+                            $postId = $_POST['postId'];
                             $titleChapter = $_POST['author_post_title'];
                             $_SESSION['author_post_title'] = $_POST['author_post_title'];
 
                             $contentChapter = $_POST['author_post_content'];
                             $_SESSION['auhtor_post_content'] = $_POST['author_post_content'];
 
-                            if (isset($_FILES['image_chapter']) and !empty($_FILES['image_chapter']['name'])) 
+                            if (empty($_FILES['image_chapter']['name'])) 
                             {
+                                $simpleEdit = new \JForteroche\Blog\Model\PostManager();
+                                $simpleEdit->quickPostEdit($postId, $titleChapter, $contentChapter);
+
+                                $_SESSION['success'] = 1;
+                                $_SESSION['success_upload'] = 'Votre chapitre a été modifié avec succès !';
+                                $_SESSION['author_post_title'] = null;
+                                $_SESSION['author_post_content'] = null;
+                                header('Location:' . HOST . 'admin/dashboard');
+                            } else {
 
                                 // Define constants to verify uploaded file
                                 $maxWeightFile = 2097152;
@@ -152,7 +158,8 @@ class PostsControl
                                     {
                                         $imageChapter = move_uploaded_file($_FILES['image_chapter']['tmp_name'], $pathToUpload . $imageFile);
 
-                                        if ($imageChapter) {
+                                        if ($imageChapter) 
+                                        {
                                             $newImageFile = $imageFile;
                                             $insertContent = new \JForteroche\Blog\Model\PostManager();
                                             $insertContent->updatePost($_POST['postId'], $titleChapter, $contentChapter, $newImageFile);
@@ -163,6 +170,7 @@ class PostsControl
                                             $_SESSION['author_post_content'] = null;
                                             header('Location:' . HOST . 'admin/dashboard');
                                         }
+                                    
                                     } else {
                                         $_SESSION['success'] = 0;
                                         header('Location: ' . HOST . 'admin/edit-post&id=' . $_SESSION['id_chapter']);
@@ -175,24 +183,24 @@ class PostsControl
                                     $_SESSION['error_upload'] = 'Votre photo ne doit pas dépaser 2Mo.';
                                     exit();
                                 }
-                            } else {
-                                $_SESSION['success'] = 0;
-                                header('Location: ' . HOST . 'admin/edit-post&id=' . $_SESSION['id_chapter']);
-                                $_SESSION['error_upload'] = 'Vous devez sélectionner une image à joindre à votre chapitre.';
-                                exit();
+                            
                             }
+                        
                         } else {
                             $_SESSION['success'] = 0;
                             header('Location: ' . HOST . 'admin/edit-post&id=' . $_SESSION['id_chapter']);
                             $_SESSION['error_upload'] = 'Vous devez donner un titre, un contenu et une image à votre chapitre.';
                             exit();
                         }
-                    }
-                }
-            } else {
+                    }        
+                     
+                    
+                        
+                } else {
                 $_SESSION['success'] = 0;
                 header('Location: ' . HOST . 'connexion');
                 exit();
+                }
             }
         }
     }
