@@ -10,8 +10,13 @@
 }
 
 body {
-    font-family: 'Alconica', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     background-color: #e7dfdf;
+}
+
+p {
+    font-family: 'Fira Sans', sans-serif;
+
 }
 
 a, h1, h2, h3 {
@@ -976,6 +981,7 @@ div#about-container_content {
 
 #overlay_admin {
     background-color: white;
+    min-height: 85vh;
 }
 
 #signaled-container {
@@ -1010,6 +1016,7 @@ a#new-chapter_button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 
 #thumbnail-post_admin {
