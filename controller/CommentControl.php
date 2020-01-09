@@ -142,7 +142,7 @@ class CommentControl
                 $ID_comment = htmlspecialchars($_GET['id']);
 
                 $commentManager = new \JForteroche\Blog\Model\CommentManager();
-                $removeSignalment = $commentManager->removeSignalment($ID_comment);
+                $commentManager->removeSignalment($ID_comment);
 
                 header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
             }

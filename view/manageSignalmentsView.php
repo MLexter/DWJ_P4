@@ -17,7 +17,7 @@
         <?php if (@$_SESSION['delete_status'] == 1) : ?>
             
             <div class="alert alert-success container text-center" role="alert">
-                <i class="fas fa-check"></i><?= $_SESSION['text-alert']; ?>
+                <i class="fas fa-check"></i><?= @$_SESSION['text-alert']; ?>
             </div>
             
             <?php @$_SESSION['delete_status'] = 0; ?>
@@ -28,7 +28,7 @@
                 <h2>Commentaires signalés</h2>
                 <br />
                 
-            <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires de la liste</a>
+            <a href="<?= HOST; ?>admin/delete-all-signalments">Effacer tous les commentaires signalés</a>
 
             <div id="table-comments" class="container">
 
@@ -48,6 +48,7 @@
                                     <p> <?= $signalment->getContent_comment() ?> </p>
                                     <div id="delete-comment-link">
                                         <a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
+                                        <a href="<?= HOST; ?>admin/remove-signalment"><i class="far fa-comment"></i></a>
                                     </div>
 
                                 </td>

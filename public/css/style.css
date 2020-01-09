@@ -195,7 +195,7 @@ span#JF_main {
     border: 1px solid #bdc0d3;
     box-shadow: 1px 4px 12px 4px;
     background-color: white;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 #container_list_chapters {
@@ -437,7 +437,7 @@ td#comment-section {
 
 div#main-createNewPostView {
     background-color: white;
-    padding-bottom: 30px;
+    padding-bottom: 70px;
 }
 
 #inputs-container {
@@ -820,10 +820,15 @@ nav#navbar-responsive {
     margin: 5px;
     font-size: 0.8em;
     text-shadow: 1px 1px black;
+    text-decoration: none;
 }
 
 #footer_connexion_link {
     text-decoration: none;
+    color: white;
+}
+
+#footer_deconnexion_link {
     color: white;
 }
 
@@ -967,7 +972,13 @@ div#about-container_content {
 
 #main-admin-page {
     padding-top: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 70px;
+}
+
+#espace_admin {
+    color: #007bff;
+    font-family: 'Chau Philomene One', sans-serif;
+    font-size: 14px;
 }
 
 #overlay_admin {
@@ -1006,6 +1017,7 @@ a#new-chapter_button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 
 #thumbnail-post_admin {

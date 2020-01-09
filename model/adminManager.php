@@ -13,7 +13,7 @@ class AdminManager
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=db5000248792.hosting-data.io;dbname=dbs243022;charset=utf8', 'dbu406069', 'IOlexter!87');
     }
 
 

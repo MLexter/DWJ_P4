@@ -17,7 +17,7 @@ class CommentManager
 
     public function __construct()
     {
-        $db = new \PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=db5000248792.hosting-data.io;dbname=dbs243022;charset=utf8', 'dbu406069', 'IOlexter!87');
     }
 
 
@@ -119,7 +119,9 @@ class CommentManager
         $db = $this->db;
         $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
 
-        $req->execute(array(0, $ID_comment));
+        $unsignalment = $req->execute(array(0, $ID_comment));
+
+        return $unsignalment;
     }
 
 
