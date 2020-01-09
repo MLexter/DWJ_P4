@@ -16,6 +16,7 @@ class Router
         "mentions-legales" =>               ["controller" => 'StaticControl', "method" => 'showLegalNoticeView'],
         "send-message" =>                   ["controller" => 'StaticControl', "method" => 'sendMessage'],
         "signal-comment" =>                 ["controller" => 'CommentControl', "method" => 'signalComment'],
+        "remove-signalment" =>              ["controller" => 'CommentControl', "method" => 'cancelSignalment'],
         
         "admin/edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],
         "admin/post-update" =>              ["controller" => 'PostsControl', "method" => 'updateChapter'],

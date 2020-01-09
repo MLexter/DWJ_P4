@@ -144,7 +144,8 @@ class CommentControl
                 $commentManager = new \JForteroche\Blog\Model\CommentManager();
                 $removeSignalment = $commentManager->removeSignalment($ID_comment);
 
-                header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
+                $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+                $viewToDisplay->renderView();
             }
         }
     }

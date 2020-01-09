@@ -48,6 +48,7 @@
                                     <p> <?= $signalment->getContent_comment() ?> </p>
                                     <div id="delete-comment-link">
                                         <a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
+                                        <a href="<?= HOST; ?>admin/remove-signalment&amp;id=<?= $signalment->getId_comment(); ?>" id="signalment-remove" title="Ne plus signaler"><i class="far fa-comment"></i></a>
                                     </div>
 
                                 </td>

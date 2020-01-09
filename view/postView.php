@@ -3,13 +3,29 @@
  <div id="container-chapterView" class="container-fluid">
 
      <div id="main-chapterView" class="container">
-         <div id ="chapter-title-page" class="container text-center">
+         <div id="chapter-title-page" class="container text-center">
              <h1>"<?= $post->getAuthor_post_title(); ?>"</h1>
          </div>
 
          <hr class="hr-separation">
 
          <p id="backto_link" class="text-center"><a href="<?= HOST; ?>book">Retour à la liste des dernières lectures</a></p>
+
+         <?php if (@$_SESSION['comment_success'] == true) : ?>
+
+             <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> <span class="text-alert">Votre commentaire a bien été posté !</span></div>
+             <?php @$_SESSION['comment_success'] = false; ?>
+
+         <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
+             <div class="alert alert-info text-center" role="alert"><?= @$_SESSION['comment_error_message']; ?> </div>
+
+         <?php endif; ?>
+
+         <?php if (@$_SESSION['comment_signalment'] == true) : ?>
+             <div class="alert alert-primary text-center" role="alert"><i class="fas fa-info"></i> <span class="text-alert">Le commentaire a bien été signalé et sera traité par l'administrateur du site.</span></div>
+             <?php @$_SESSION['comment_signalment'] = false; ?>
+
+         <?php endif; ?>
 
          <?php if (!empty($_SESSION['isAdmin']) and $_SESSION['isAdmin'] == true) : ?>
              <div class="management_link d-flex justify-content-center">
@@ -50,22 +66,6 @@
                  <div class="management_link d-flex justify-content-center">
                      <a id="remove_comment_link" class="btn btn-dark text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
                  </div>
-             <?php endif; ?>
-
-             <?php if (@$_SESSION['comment_success'] == true) : ?>
-
-                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> <span class="text-alert">Votre commentaire a bien été posté !</span></div>
-                 <?php @$_SESSION['comment_success'] = false; ?>
-
-             <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
-                 <div class="alert alert-info text-center" role="alert"><?= @$_SESSION['comment_error_message']; ?> </div>
-
-             <?php endif; ?>
-
-             <?php if (@$_SESSION['comment_signalment'] == true) : ?>
-                 <div class="alert alert-primary text-center" role="alert"><i class="fas fa-info"></i> <span class="text-alert">Le commentaire a bien été signalé et sera traité par l'administrateur du site.</span></div>
-                 <?php @$_SESSION['comment_signalment'] = false; ?>
-
              <?php endif; ?>
 
 
@@ -109,7 +109,7 @@
          </div>
 
          <div id="comment-form_container" class="container-fluid col-10">
-             <h3 class="text-center">Laisser un commentaire</h3>
+             <h3 class="text-center">Laissez un commentaire</h3>
 
              <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
                  <div class="form-group">

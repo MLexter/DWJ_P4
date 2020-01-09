@@ -119,6 +119,7 @@ class CommentManager
         $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
 
         $req->execute(array(0, $ID_comment));
+        return $req;
     }
 
 
