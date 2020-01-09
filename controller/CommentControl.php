@@ -14,7 +14,7 @@ class CommentControl
         {
             $ID_chapter = htmlspecialchars($_GET['id']);
             $author_comment = htmlspecialchars($_POST['comment_author']);
-            $content_comment = htmlspecialchars($_POST['comment_content']);
+            $content_comment = nl2br(htmlspecialchars($_POST['comment_content']));
             $_SESSION['comment_success'] = null;
 
 
@@ -39,6 +39,7 @@ class CommentControl
         }
     }
 
+
     public function manageComments()
     {
         if (isset($_SESSION['isAdmin'])) 
@@ -62,6 +63,7 @@ class CommentControl
         }
     }
 
+
     public function deleteComment()
     {
         if (isset($_SESSION['isAdmin'])) 
@@ -84,6 +86,7 @@ class CommentControl
         }
     }
 
+
     public function signalComment()
     {
         $comment_ID = htmlspecialchars($_GET['comment']);
@@ -96,6 +99,7 @@ class CommentControl
         $_SESSION['signal_message'] = '';
         header('Location: ' . HOST . 'readBook&id=' . $ID_chapter);
     }
+
 
     public function manageSignalments()
     {
@@ -111,6 +115,25 @@ class CommentControl
             }
         }
     }
+    
+
+    public function cancelSignalment()
+    {
+        if (isset($_SESSION['isAdmin'])) 
+        {
+            if ($_SESSION['isAdmin'] = true) 
+            {
+                $ID_comment = htmlspecialchars($_GET['id']);
+
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $removeSignalment = $commentManager->removeSignalment($ID_comment);
+
+                $viewToDisplay = new ViewRenderer('manageSignalmentsView');
+                $viewToDisplay->renderView();
+            }
+        }
+    }
+
 
     public function deleteSignaledComment()
     {
@@ -133,22 +156,6 @@ class CommentControl
         }
     }
 
-    public function cancelSignalment()
-    {
-        if (isset($_SESSION['isAdmin'])) 
-        {
-            if ($_SESSION['isAdmin'] = true) 
-            {
-                $ID_comment = htmlspecialchars($_GET['id']);
-
-                $commentManager = new \JForteroche\Blog\Model\CommentManager();
-                $removeSignalment = $commentManager->removeSignalment($ID_comment);
-
-                $viewToDisplay = new ViewRenderer('manageSignalmentsView');
-                $viewToDisplay->renderView();
-            }
-        }
-    }
 
     public function deleteAllSignalments()
     {
@@ -164,4 +171,6 @@ class CommentControl
             }
         }
     }
+
+    
 }

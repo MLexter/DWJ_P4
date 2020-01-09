@@ -23,6 +23,13 @@
             <?php @$_SESSION['delete_status'] = 0; ?>
             
             <?php endif; ?>
+
+        <?php if (@$_SESSION['unsignal-success'] == true) : ?>
+            <div class="alert alert-primary text-center" role="alert">
+                <i class="fas fa-check"></i><?= $_SESSION['unsignal-message']; ?>
+            </div>
+            <?php @$_SESSION['unsignal-success'] = false; ?>
+        <?php endif; ?>
             
             <div id="container-signalments" class="container">
                 <h2>Commentaires signalés</h2>

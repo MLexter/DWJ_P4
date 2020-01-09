@@ -116,10 +116,20 @@ class CommentManager
     public function removeSignalment($ID_comment)
     {
         $db = $this->db;
-        $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
+        $req = $db->prepare('UPDATE comments SET signal_comment = 0 WHERE ID_comment = ?');
 
-        $req->execute(array(0, $ID_comment));
-        return $req;
+        $unsignaled = $req->execute(array($ID_comment));
+
+        if ($unsignaled)
+        {
+            $_SESSION['unsignal-success'] = true;
+            $_SESSION['unsignal-message'] = "Le message n'est plus signalé.";
+        } else {
+            $_SESSION['unsignal-success'] = false;
+            $_SESSION['unsignal-message'] = "Le message n'a pas pu être traité.";
+        }
+
+        return $unsignaled;
     }
 
 
