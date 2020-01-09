@@ -7,11 +7,16 @@
             <h1>Ecrire un nouveau chapitre</h1>
         </div>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour au menu d'administration</a></p>
-
+        
         <p>Ecrivez un nouveau chapitre et utilisez les outils d'édition de texte à votre disposition pour le mettre en forme. <br>
-            Terminez par 'Poster ce chapitre'</p>
-
+        Terminez par 'Poster ce chapitre'</p>
+        
         <hr class="hr-separation">
+        <?php if (@$_SESSION['success'] == 0) : ?>
+            <?php if (@$_SESSION['error_upload'] !== "") : ?>
+                <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
+            <?php endif; ?>
+        <?php endif; ?>
 
         <form action="<?= HOST; ?>admin/create-valid" method="POST" enctype="multipart/form-data">
             <div id="inputs-container">
@@ -48,11 +53,6 @@
 
 
 
-        <?php if (@$_SESSION['success'] == 0) : ?>
-            <?php if (@$_SESSION['error_upload'] !== null) : ?>
-                <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
-            <?php endif; ?>
-        <?php endif; ?>
 
 
     </div>

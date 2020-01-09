@@ -14,7 +14,7 @@ class PostManager
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=db5000248792.hosting-data.io;dbname=dbs243022;charset=utf8', 'dbu406069', 'IOlexter!87');
     }
 
 
@@ -58,6 +58,15 @@ class PostManager
             $chapter->setDate_post_author($post['creation_date_fr']);
 
         return $chapter;
+    }
+
+    public function quickPostEdit($postId, $titleChapter, $contentChapter)
+    {
+        $db = $this->db;
+        $req = $db->prepare('UPDATE posts_author SET author_post_title = ?, author_post_content = ?, date_post_author_modif = NOW() WHERE ID_post = ?');
+        $quickUpdate = $req->execute(array($titleChapter, $contentChapter, $postId));
+
+        return $quickUpdate;
     }
 
     public function newPost($titleChapter, $contentChapter, $newImageFile)
