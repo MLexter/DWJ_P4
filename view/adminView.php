@@ -21,7 +21,7 @@
 
     <?php if (@$_SESSION['success'] == 1) : ?>
       <div class="alert alert-success container text-center" role="alert">
-        <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['success_upload']; ?></span>
+        <i class="fas fa-check"></i><span class="text-alert"><?= @$_SESSION['success_upload']; ?></span>
       </div>
 
       <?php @$_SESSION['success'] = 0; ?>
@@ -30,7 +30,7 @@
 
     <?php if (@$_SESSION['delete_status'] == 1) : ?>
       <div class="alert alert-success container text-center" role="alert">
-        <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['chapter_delete_message']; ?></span>
+        <i class="fas fa-check"></i><span class="text-alert"><?= @$_SESSION['chapter_delete_message']; ?></span>
       </div>
 
       <?php @$_SESSION['delete_status'] = 0; ?>
@@ -46,7 +46,7 @@
 
     <?php if (@$_SESSION['delete_status'] == 1) : ?>
       <div class="alert alert-success container text-center" role="alert">
-        <i class="fas fa-check"></i><span class="text-alert"><?= $_SESSION['chapter_delete_message']; ?></span>
+        <i class="fas fa-check"></i><span class="text-alert"><?= @$_SESSION['chapter_delete_message']; ?></span>
       </div>
 
       <?php @$_SESSION['delete_status'] = 0; ?>

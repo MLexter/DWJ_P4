@@ -12,9 +12,9 @@
         Terminez par 'Poster ce chapitre'</p>
         
         <hr class="hr-separation">
-        <?php if ($_SESSION['success'] == 0) : ?>
-            <?php if ($_SESSION['error_upload'] !== null) : ?>
-                <div class="alert alert-warning" role="alert"><?= $_SESSION['error_upload']; ?> </div>
+        <?php if (@$_SESSION['success'] == 0) : ?>
+            <?php if (@$_SESSION['error_upload'] !== "") : ?>
+                <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
             <?php endif; ?>
         <?php endif; ?>
 
