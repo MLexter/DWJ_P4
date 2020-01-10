@@ -10,8 +10,13 @@
 }
 
 body {
-    font-family: 'Alconica', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     background-color: #e7dfdf;
+}
+
+p {
+    font-family: 'Fira Sans', sans-serif;
+
 }
 
 a, h1, h2, h3 {
@@ -349,6 +354,7 @@ p.card-text {
 
 #container-chapterView {
     background-color: white;
+    padding-bottom: 50px;
 }
 
 #main-chapterView {
@@ -368,7 +374,6 @@ p.card-text {
     border-left: 7px solid #17a2b8;
     border-radius: 50px;
     padding: 15px;
-    margin: 30px auto;
 }
 
 #comment_box {
@@ -380,6 +385,7 @@ p.card-text {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 0 auto 40px;
 }
 
 .text-alert {
@@ -404,9 +410,9 @@ p.card-text {
 }
 
 td#comment-section {
-    padding-bottom: 4vh;
+    padding-bottom: 8vh;
     padding-right: 5vh;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 #comment-form_container {
@@ -983,6 +989,7 @@ div#about-container_content {
 
 #overlay_admin {
     background-color: white;
+    min-height: 85vh;
 }
 
 #signaled-container {
@@ -1044,7 +1051,10 @@ a.fa-main_admin {
 
 #left-section-comment {
     padding-right: 5px;
-    padding-left: 5px;
+    padding-left: 10px;
+    border-right: 3px solid #c7c8c9;
+    background-color: #fff3f4;
+    border-radius: 0;
 }
 
 #table-comments {
@@ -1066,11 +1076,6 @@ a.fa-main_admin {
     font-size: 1.4em;
     color: red;
     text-shadow: 1px 0px black;
-}
-
-#container_comments {
-    padding-top: 20px;
-    padding-bottom: 30px;
 }
 
 #title-list {

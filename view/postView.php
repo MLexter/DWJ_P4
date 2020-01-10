@@ -2,7 +2,7 @@
 
  <div id="main-listPosts" class="container rounded">
      <div id="main-chapterView" class="container">
-         <div id ="chapter-title-page" class="container text-center">
+         <div id="chapter-title-page" class="container text-center">
              <h1>"<?= $post->getAuthor_post_title(); ?>"</h1>
          </div>
 
@@ -10,9 +10,25 @@
 
          <p id="backto_link" class="text-center"><a href="<?= HOST; ?>book">Retour à la liste des dernières lectures</a></p>
 
+         <?php if (@$_SESSION['comment_success'] == true) : ?>
+
+             <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> <span class="text-alert">Votre commentaire a bien été posté !</span></div>
+             <?php @$_SESSION['comment_success'] = false; ?>
+
+         <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
+             <div class="alert alert-info text-center" role="alert"><?= @$_SESSION['comment_error_message']; ?> </div>
+
+         <?php endif; ?>
+
+         <?php if (@$_SESSION['comment_signalment'] == true) : ?>
+             <div class="alert alert-primary text-center" role="alert"><i class="fas fa-info"></i> <span class="text-alert">Le commentaire a bien été signalé et sera traité par l'administrateur du site.</span></div>
+             <?php @$_SESSION['comment_signalment'] = false; ?>
+
+         <?php endif; ?>
+
          <?php if (!empty($_SESSION['isAdmin']) and $_SESSION['isAdmin'] == true) : ?>
              <div class="management_link d-flex justify-content-center">
-                 <a id="remove_comment_link" class="btn btn-info text-center" href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
+                 <a id="remove_comment_link" class="btn btn-dark text-center" href="<?= HOST; ?>admin/edit-post&amp;id=<?= $post->getPostId(); ?>">Modifier ce chapitre</a>
              </div>
          <?php endif; ?>
 
@@ -36,10 +52,6 @@
 
          </div>
 
-         <div class="text-center separation_icon">
-             <i class="material-icons">fiber_manual_record</i>
-         </div>
-
          <div id="container_comments">
              <div id="comment_part_title" class="text-center">
                  <h2>Espace Commentaires</h2>
@@ -51,24 +63,8 @@
 
              <?php if (!empty($_SESSION['isAdmin']) and $_SESSION['isAdmin'] == true) : ?>
                  <div class="management_link d-flex justify-content-center">
-                     <a id="remove_comment_link" class="btn btn-info text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
+                     <a id="remove_comment_link" class="btn btn-dark text-center" href="<?= HOST; ?>admin/manage-comments&amp;id=<?= $post->getPostId(); ?>">Gérer les commentaires</a>
                  </div>
-             <?php endif; ?>
-
-             <?php if (@$_SESSION['comment_success'] == true) : ?>
-
-                 <div class="alert alert-success container text-center" role="alert"><i class="fas fa-check"></i> <span class="text-alert">Votre commentaire a bien été posté !</span></div>
-                 <?php @$_SESSION['comment_success'] = false; ?>
-
-             <?php elseif (@$_SESSION['comment_error_message'] !== null) : ?>
-                 <div class="alert alert-info text-center" role="alert"><?= @$_SESSION['comment_error_message']; ?> </div>
-
-             <?php endif; ?>
-
-             <?php if (@$_SESSION['comment_signalment'] == true) : ?>
-                 <div class="alert alert-primary text-center" role="alert"><i class="fas fa-info"></i> <span class="text-alert">Le commentaire a bien été signalé et sera traité par l'administrateur du site.</span></div>
-                 <?php @$_SESSION['comment_signalment'] = false; ?>
-
              <?php endif; ?>
 
 
@@ -79,12 +75,12 @@
 
                          <table class="table">
                              <tr class="row comment-row">
-                                 <td id="left-section-comment" class="col-md-3">
+                                 <td id="left-section-comment" class="col-md-2">
                                      <h4> <?= $comment->getAuthor_comment() ?> </h4>
                                      <p class="date_time_comment"> <?= $comment->getCreation_date_comment() ?> </p>
                                  </td>
 
-                                 <td id="comment-section" class="col-lg-9">
+                                 <td id="comment-section" class="col-lg-10">
                                      <p> <?= $comment->getContent_comment() ?> </p>
 
                                      <?php if ($comment->getSignaledComment() == 0) : ?>
@@ -107,8 +103,12 @@
              <?php endif; ?>
          </div>
 
-         <div id="comment-form_container" class="container-fluid col-12">
-             <h3 class="text-center">Laisser un commentaire</h3>
+         <div class="text-center separation_icon">
+             <i class="material-icons">fiber_manual_record</i>
+         </div>
+
+         <div id="comment-form_container" class="container-fluid col-10">
+             <h3 class="text-center">Laissez un commentaire</h3>
 
              <form action="<?= HOST; ?>post-comment&amp;id=<?= $post->getPostId(); ?>" method="post">
                  <div class="form-group">

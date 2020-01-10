@@ -17,14 +17,13 @@ class CommentManager
 
     public function __construct()
     {
-        $db = new \PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
-    }
+        $this->db = new PDO('mysql:host=db5000248792.hosting-data.io;dbname=dbs243022;charset=utf8', 'dbu406069', 'IOlexter!87');    }
 
 
     public function getComments($ID_chapter)
     {
         $db = $this->db;
-        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr, id_chapter, signal_comment FROM comments WHERE id_chapter = ? ORDER BY comment_date_fr DESC');
+        $req = $db->prepare('SELECT ID_comment, author_comment, comment_content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr, id_chapter, signal_comment FROM comments WHERE id_chapter = ? ORDER BY comment_date_fr');
         $req->execute(array($ID_chapter));
 
         while ($comments = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -34,7 +33,6 @@ class CommentManager
             $commentData->setContent_comment($comments['comment_content']);
             $commentData->setCreation_date_comment($comments['comment_date_fr']);
             $commentData->setSignaledComment($comments['signal_comment']);
-
 
             $commentsData[] = $commentData;
         }
@@ -119,7 +117,16 @@ class CommentManager
         $db = $this->db;
         $req = $db->prepare('UPDATE comments SET signal_comment = ? WHERE ID_comment = ?');
 
-        $req->execute(array(0, $ID_comment));
+        $unsignaled = $req->execute(array(0, $ID_comment));
+
+        if ($unsignaled)
+        {
+            $_SESSION['unsignal-success'] = true;
+        } else {
+            $_SESSION['unsignal-success'] = false;
+        }
+
+        return $unsignaled;
     }
 
 

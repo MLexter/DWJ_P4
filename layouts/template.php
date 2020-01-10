@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Aclonica|Chau+Philomene+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica|Chau+Philomene+One|Fira+Sans&display=swap" rel="stylesheet">
 
     <!-- Compiled and minified Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -26,7 +26,6 @@
     <script src="https://kit.fontawesome.com/1d4b0efeb6.js" crossorigin="anonymous"></script>
 
     <!-- Custom CSS -->
-    <link rel="shortcut icon" type="image/png" href="public/images/favicon/03242019-09.jpg">
     <link rel="stylesheet" href="<?php echo ASSETCSS; ?>style.css" />
 
     <meta name="description"
@@ -36,11 +35,13 @@
     <meta property="og:url" content="http://jean-forteroche.webagency-projet.fr" />
     <meta property="og:title" content="Jean Forteroche - Le Blog de l'Auteur" />
     
-    <meta property="og:image" content="../public/images/author_portait.jpg" />
+    <meta property="og:image" content="public/images/author_portait.jpg" />
     <meta property="og:site_name" content="Jean Forteroche - Le Blog de l'auteur" />
     <meta name="twitter:card" content="summary" />
+    <link rel="shortcut icon" type="image/png" href="<?= HOST; ?>public/images/favicon/03242019-09.jpg">
 
     <title><?= $title_content ?></title>
+    
 </head>
 
 <body>

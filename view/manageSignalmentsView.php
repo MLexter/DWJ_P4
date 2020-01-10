@@ -23,6 +23,13 @@
             <?php @$_SESSION['delete_status'] = 0; ?>
             
             <?php endif; ?>
+
+        <?php if (@$_SESSION['unsignal-success'] == true) : ?>
+            <div class="alert alert-primary text-center container" role="alert">
+                <i class="fas fa-check"></i><?= $_SESSION['unsignal-message']; ?>
+            </div>
+            <?php @$_SESSION['unsignal-success'] = false; ?>
+        <?php endif; ?>
             
             <div id="container-signalments" class="container">
                 <h2>Commentaires signalés</h2>
@@ -48,6 +55,7 @@
                                     <p> <?= $signalment->getContent_comment() ?> </p>
                                     <div id="delete-comment-link">
                                         <a href="<?= HOST; ?>admin/delete-signaled-comment&amp;id=<?= $signalment->getId_comment(); ?>" id="fa-delete-comment" title="Supprimer le commentaire"><i class="far fa-window-close"></i></a>
+                                        <a href="<?= HOST; ?>admin/remove-signalment&amp;id=<?= $signalment->getId_comment(); ?>" id="signalment-remove" title="Ne plus signaler"><i class="far fa-comment"></i></a>
                                     </div>
 
                                 </td>
