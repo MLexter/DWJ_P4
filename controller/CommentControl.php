@@ -14,7 +14,7 @@ class CommentControl
         {
             $ID_chapter = htmlspecialchars($_GET['id']);
             $author_comment = htmlspecialchars($_POST['comment_author']);
-            $content_comment = htmlspecialchars($_POST['comment_content']);
+            $content_comment = nl2br(htmlspecialchars($_POST['comment_content']));
             $_SESSION['comment_success'] = null;
 
 
@@ -39,6 +39,7 @@ class CommentControl
         }
     }
 
+
     public function manageComments()
     {
         if (isset($_SESSION['isAdmin'])) 
@@ -62,6 +63,7 @@ class CommentControl
         }
     }
 
+
     public function deleteComment()
     {
         if (isset($_SESSION['isAdmin'])) 
@@ -84,6 +86,7 @@ class CommentControl
         }
     }
 
+
     public function signalComment()
     {
         $comment_ID = htmlspecialchars($_GET['comment']);
@@ -96,6 +99,7 @@ class CommentControl
         $_SESSION['signal_message'] = '';
         header('Location: ' . HOST . 'readBook&id=' . $ID_chapter);
     }
+
 
     public function manageSignalments()
     {
@@ -111,6 +115,56 @@ class CommentControl
             }
         }
     }
+    
+
+    public function cancelSignalment()
+    {
+        if (isset($_SESSION['isAdmin'])) 
+        {
+            if ($_SESSION['isAdmin'] = true) 
+            {
+                $ID_comment = $_GET['id'];
+
+                $commentManager = new \JForteroche\Blog\Model\CommentManager();
+                $removeSignalment = $commentManager->removeSignalment($ID_comment);
+
+
+                if ($removeSignalment)
+                {
+                    $_SESSION['unsignal-message'] = " Ce commentaire n'est plus signalé.";
+                } else {
+                    $_SESSION['unsignal-message'] = "Le message n'a pas pu être traité.";
+                    
+                }
+                header('Location: ' . HOST . 'admin/manage-signalments&signal-comment=1');
+            } else {
+                $_SESSION['unsignal-message'] = "Erreur lors du traitement.";
+                
+            }
+        }
+    }
+
+    public function cancelSignalmentAll()
+    {
+        if (isset($_SESSION['isAdmin']))
+        {
+
+            $commentManager = new \JForteroche\Blog\Model\CommentManager();
+            $removeSignalmentAll = $commentManager->removeSignalmentAll();
+
+            if ($removeSignalmentAll)
+                {
+                    $_SESSION['unsignal-message'] = " Les commentaires ne sont plus signalés.";
+                } else {
+                    $_SESSION['unsignal-message'] = "Les messages n'ont pas pu être traités.";
+                    
+                }
+
+            header('Location: ' . HOST . 'admin/manage-signalments&signal-comment=1');
+
+        }
+    }
+
 
     public function deleteSignaledComment()
     {
@@ -133,21 +187,6 @@ class CommentControl
         }
     }
 
-    public function cancelSignalment()
-    {
-        if (isset($_SESSION['isAdmin'])) 
-        {
-            if ($_SESSION['isAdmin'] = true) 
-            {
-                $ID_comment = htmlspecialchars($_GET['id']);
-
-                $commentManager = new \JForteroche\Blog\Model\CommentManager();
-                $removeSignalment = $commentManager->removeSignalment($ID_comment);
-
-                header('Location: ' . HOST . 'admin/manage-signalments&amp;signal-comment=1');
-            }
-        }
-    }
 
     public function deleteAllSignalments()
     {

@@ -1,5 +1,6 @@
 <?php
 include_once(CONTROLLER.'PostsControl.php');
+include_once(CONTROLLER.'StaticControl.php');
 
 /** Création des routes et trouver le controller */
 class Router
@@ -16,7 +17,9 @@ class Router
         "mentions-legales" =>               ["controller" => 'StaticControl', "method" => 'showLegalNoticeView'],
         "send-message" =>                   ["controller" => 'StaticControl', "method" => 'sendMessage'],
         "signal-comment" =>                 ["controller" => 'CommentControl', "method" => 'signalComment'],
-        
+
+        "admin/remove-signalment" =>        ["controller" => 'CommentControl', "method" => 'cancelSignalment'],
+        "admin/remove-signalment-all" =>    ["controller" => 'CommentControl', "method" => 'cancelSignalmentAll'],  
         "admin/edit-post" =>                ["controller" => 'PostsControl', "method" => 'editChapter'],
         "admin/post-update" =>              ["controller" => 'PostsControl', "method" => 'updateChapter'],
         "admin/create" =>                   ["controller" => 'StaticControl', "method" => 'showcreateChapter'],
@@ -31,10 +34,7 @@ class Router
         "admin/delete-all-signalments" =>   ["controller" => 'CommentControl', "method" => 'deleteAllSignalments'],   
         "admin/delete-comment" =>           ["controller" => 'CommentControl', "method" => 'deleteComment'],
         "admin/connexion" =>                ["controller" => 'AdminControl', "method" => 'verifyConnexionInfos'],
-        "admin/deconnexion" =>              ["controller" => 'AdminControl', "method" => 'logoutAdmin'],
-
-
-        
+        "admin/deconnexion" =>              ["controller" => 'AdminControl', "method" => 'logoutAdmin'],  
     ];
 
     public function __construct($request)
