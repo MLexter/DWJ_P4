@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 require_once(MODEL . 'PostManager.php');
 require_once(MODEL . 'CommentManager.php');

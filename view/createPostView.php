@@ -13,8 +13,9 @@
         
         <hr class="hr-separation">
         <?php if (@$_SESSION['success'] == 0) : ?>
-            <?php if (@$_SESSION['error_upload'] !== "") : ?>
+            <?php if (@$_SESSION['error_upload'] !== NULL) : ?>
                 <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
+                <?php @$_SESSION['error_upload'] = ""; ?>
             <?php endif; ?>
         <?php endif; ?>
 

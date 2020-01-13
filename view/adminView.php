@@ -13,7 +13,8 @@
       <br />
       <p class="container col-md-10">Pour gérer vos chapitres, cliquez sur l'une des options proposées. <br />
       Des raccourcis sont présents dans vos chapitre pour accéder directement à leur gestion. <br />
-      Pour accéder rapidement à votre interface d'administration, cliquez sur <span id="espace_admin">'Espace Admin'</span> en bas du site. <br /></p>
+      Pour accéder rapidement à votre interface d'administration, cliquez sur <span id="espace_admin">'Espace Admin'</span> en bas du site. <br />
+    <span id="signalment-text">Commentaires signalés: </span>Si des commentaires sont signalés parmis vos chapitres, vous pourrez les gérer en cliquant dans le lien de la fenêtre d'avertissement.</p>
     </div>
 
     <hr class="hr-separation">
@@ -37,7 +38,7 @@
     <?php endif; ?>
 
 
-    <?php if ($_SESSION['comSignaled'] == true) : ?>
+    <?php if (@$_SESSION['comSignaled'] == 'true') : ?>
       <div id="signaled-container" class="alert alert-danger container text-center" role="alert">
           <i class="fas fa-bullhorn"></i>
         <span class="text-alert">Des commentaires ont été signalés dans vos chapitres. Pour les gérer, <a href="<?= HOST; ?>admin/manage-signalments&amp;signal-comment=1">cliquez ici.</a></span>
@@ -55,10 +56,6 @@
 
     <div id="new_chapter" class="d-flex justify-content-center">
       <a id="new-chapter_button" class="btn btn-lg" href="<?= HOST; ?>admin/create">Ajouter un nouveau chapitre</a>
-    </div>
-
-    <div id="drafts-btn" class="d-flex justify-content-center">
-      <a id="drafts-link" class="btn btn-secondary" href="<?= HOST; ?>admin/drafts">Voir les brouillons</a>
     </div>
 
     <br />
