@@ -26,20 +26,3 @@ const scrollUp = scrollupBtn.addEventListener('click', () =>
     return anchorTop;
 });
 
-// ########## FOOTER DISPLAY ########## //
-
-
-// window.onresize =  function() {
-//     const footerItem = document.querySelectorAll('.footer-item');
-//     let windowWidth = window.innerWidth;
-//     const maxScreenWidth = 400;
-
-//     if (windowWidth > maxScreenWidth) {
-//         document.getElementById('footer_infos').style.flexDirection = "row";
-        
-
-//     } else if (windowWidth <= maxScreenWidth) {   
-//             document.getElementById('footer_infos').style.flexDirection = "column";
-//         } 
-//     }
-
