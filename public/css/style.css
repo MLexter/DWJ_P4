@@ -794,6 +794,10 @@ nav#navbar-responsive {
     .social-img {
         width: 16px!important;
     }
+
+    .container-main-title_description {
+        max-width: 100%!important;
+    }
 }
 
 /* ########## FOOTER ########## */

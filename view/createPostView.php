@@ -4,7 +4,7 @@
 <div id="main-listPosts" class="container rounded">
     <div id="creation_container" class="text-center container title-section col-sm-12">
         <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
-            <h1>ECRIRE UN NOUVEEAU CHAPITRE</h1>
+            <h1>Ecrire un nouveau chapitre</h1>
         </div>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour au menu d'administration</a></p>
         
