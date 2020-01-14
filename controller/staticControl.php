@@ -139,4 +139,10 @@ class StaticControl
         $viewToDisplay->renderView();
     }
 
+    public function showNotFound()
+    {
+        $viewToDisplay = new ViewRenderer('404');
+        $viewToDisplay->renderView();
+    }
+
 }
