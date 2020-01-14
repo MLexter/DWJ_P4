@@ -11,7 +11,6 @@ class AdminControl
         {
             if ($_SESSION['isAdmin'] == true)
             {
-
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $posts = $postManager->getPosts();
 
@@ -55,6 +54,7 @@ class AdminControl
         
     }
 
+    
     function logoutAdmin()
     {
        $_SESSION = array();

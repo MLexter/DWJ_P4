@@ -14,10 +14,10 @@ class CommentManager
     private $db;
 
 
-
     public function __construct()
     {
         $this->db = new PDO('mysql:host=localhost;dbname=p4_blog_forteroche;charset=utf8', 'root', '');
+    }
 
 
     public function getComments($ID_chapter)
@@ -41,6 +41,7 @@ class CommentManager
         }
     }
 
+
     public function createComment($ID_chapter, $author_comment, $content_comment)
     {
         $db = $this->db;
@@ -57,6 +58,7 @@ class CommentManager
         return $comment;
     }
 
+
     public function deletePostComment($ID_comment)
     {
         $db = $this->db;
@@ -70,6 +72,7 @@ class CommentManager
         }
     }
 
+
     public function addCommentSignalment($ID_comment, $ID_chapter)
     {
         $db = $this->db;
@@ -82,6 +85,7 @@ class CommentManager
             @$_SESSION['comment_signalment'] = false;
         }
     }
+
 
     public function getAllSignalments()
     {
@@ -112,6 +116,7 @@ class CommentManager
         }
     }
 
+
     public function removeSignalment($ID_comment)
     {
         $db = $this->db;
@@ -128,6 +133,7 @@ class CommentManager
 
         return $unsignaled;
     }
+
 
     public function removeSignalmentAll()
     {
@@ -156,4 +162,5 @@ class CommentManager
 
         return $deleteListSignalments;
     }
+
 }

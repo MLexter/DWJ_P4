@@ -8,7 +8,7 @@ class CommentControl
 {
 
 
-    function postComment()
+    public function postComment()
     {
         if (isset($_POST['comment_author'], $_POST['comment_content']) and !empty($_POST['comment_author']) and !empty($_POST['comment_content'])) 
         {
@@ -48,7 +48,6 @@ class CommentControl
 
             if ($_SESSION['isAdmin'] = true) 
             {
-
                 if (isset($_GET['id'])) 
                 {
                     $_SESSION['ID_chapitre'] = htmlspecialchars($_GET['id']);
@@ -72,7 +71,6 @@ class CommentControl
 
             if ($_SESSION['isAdmin'] = true) 
             {
-
                 if (isset($_GET['id'])) {
                     $ID_post_comment = $_GET['id'];
                     $commentManager = new \JForteroche\Blog\Model\CommentManager();
@@ -148,7 +146,6 @@ class CommentControl
     {
         if (isset($_SESSION['isAdmin']))
         {
-
             $commentManager = new \JForteroche\Blog\Model\CommentManager();
             $removeSignalmentAll = $commentManager->removeSignalmentAll();
 
@@ -159,7 +156,6 @@ class CommentControl
                     $_SESSION['unsignal-message'] = "Les messages n'ont pas pu être traités.";
                     
                 }
-
             header('Location: ' . HOST . 'admin/manage-signalments&signal-comment=1');
 
         }

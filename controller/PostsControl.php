@@ -15,6 +15,7 @@ class PostsControl
         $viewToDisplay->renderView(array('posts' => $posts));
     }
 
+
     public function getPostById()
     {
         $postManager = new \JForteroche\Blog\Model\PostManager();
@@ -26,7 +27,6 @@ class PostsControl
         $viewToDisplay = new ViewRenderer('postView');
         $viewToDisplay->renderView(array('post' => $post, 'comments' => $comments));
     }
-
 
 
     public function createChapter()
@@ -118,7 +118,6 @@ class PostsControl
         {
             if ($_SESSION['isAdmin'] == true) 
             {
-
                 if (isset($_POST['submit_edited_chapter'])) 
                 {
                     if (isset($_POST['author_post_title'], $_POST['author_post_content'])) 
@@ -185,8 +184,7 @@ class PostsControl
                                     exit();
                                 }
                             
-                            }
-                        
+                            }                       
                         } else {
                             $_SESSION['success'] = 0;
                             header('Location: ' . HOST . 'admin/edit-post&id=' . $_SESSION['id_chapter']);
@@ -211,7 +209,6 @@ class PostsControl
         {
             if ($_SESSION['isAdmin'] = true) 
             {
-
                 $postManager = new \JForteroche\Blog\Model\PostManager();
                 $post = $postManager->getPost($_GET['id']);
                 $_SESSION['id_chapter'] = $_GET['id'];
@@ -236,11 +233,9 @@ class PostsControl
 
             if ($_SESSION['isAdmin'] = true) 
             {
-
                 $id = htmlspecialchars($_GET['id']);
 
                 $postManager = new \JForteroche\Blog\Model\PostManager();
-                // Vérifier que l'action de suppression avec un message d'alerte avant de valider le traitement de la suppression du post de la db
                 $post = $postManager->deletePost($id);
 
                 header('Location:' . HOST . 'admin/dashboard');

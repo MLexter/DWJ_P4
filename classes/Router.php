@@ -2,7 +2,6 @@
 include_once(CONTROLLER.'PostsControl.php');
 include_once(CONTROLLER.'StaticControl.php');
 
-/** Création des routes et trouver le controller */
 class Router
 {
     private $request;
@@ -15,6 +14,7 @@ class Router
         "readBook" =>                       ["controller" => 'PostsControl', "method" => 'getPostById'],
         "contact" =>                        ["controller" => 'StaticControl', "method" => 'showContactView'],
         "mentions-legales" =>               ["controller" => 'StaticControl', "method" => 'showLegalNoticeView'],
+        "post-comment" =>                   ["controller" => 'CommentControl', "method" => 'postComment'],
         "send-message" =>                   ["controller" => 'StaticControl', "method" => 'sendMessage'],
         "signal-comment" =>                 ["controller" => 'CommentControl', "method" => 'signalComment'],
 
@@ -26,7 +26,6 @@ class Router
         "admin/create-valid" =>             ["controller" => 'PostsControl', "method" => 'createChapter'],
         "admin/dashboard" =>                ["controller" => 'AdminControl', "method" => 'showMainAdmin'],
         "admin/delete-post" =>              ["controller" => 'PostsControl', "method" => 'deleteChapter'],
-        "post-comment" =>                   ["controller" => 'CommentControl', "method" => 'postComment'],
         "admin/manage-comments" =>          ["controller" => 'CommentControl', "method" => 'manageComments'],                               
         "admin/manage-signalments" =>       ["controller" => 'CommentControl', "method" => 'manageSignalments'],
         "admin/delete-signaled-comment" =>  ["controller" => 'CommentControl', "method" => 'deleteSignaledComment'],
@@ -45,13 +44,11 @@ class Router
 
     public function renderController()
     {
-
         $request = $this->request;
 
         if (key_exists($request, $this->routes)) {
             $controller = $this->routes[$request]['controller'];
             $method = $this->routes[$request]['method'];
-
 
             $currentController = new $controller();
             $currentController->$method();

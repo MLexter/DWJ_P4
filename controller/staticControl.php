@@ -32,6 +32,7 @@ class StaticControl
         $viewToDisplay->renderView();
     }
 
+
     public function showCreateChapter()
     {
         
@@ -39,6 +40,7 @@ class StaticControl
         $viewToDisplay->renderView();
     }
     
+
     public function showContactView()
     {
         $_SESSION['contact_success'] = false;
@@ -133,12 +135,14 @@ class StaticControl
         }
     }
 
+
     public function showLegalNoticeView()
     {
         $viewToDisplay = new ViewRenderer('mentions-legales');
         $viewToDisplay->renderView();
     }
 
+    
     public function showNotFound()
     {
         $viewToDisplay = new ViewRenderer('404');

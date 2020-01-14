@@ -60,6 +60,7 @@ class PostManager
         return $chapter;
     }
 
+
     public function quickPostEdit($postId, $titleChapter, $contentChapter)
     {
         $db = $this->db;
@@ -68,6 +69,7 @@ class PostManager
 
         return $quickUpdate;
     }
+
 
     public function newPost($titleChapter, $contentChapter, $newImageFile)
     {
@@ -89,6 +91,7 @@ class PostManager
         return $chapter;
     }
 
+
     public function updatePost($postId, $author_post_title, $author_post_content, $newImageFile)
     {
         $db = $this->db;
@@ -98,10 +101,12 @@ class PostManager
         return $updatedPost;
     }
 
+
     public function deletePost($postId)
     {
         $db = $this->db;
         $req = $db->prepare('DELETE FROM posts_author WHERE ID_post = ?');
         $req->execute(array($postId));
     }
+    
 }
