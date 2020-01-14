@@ -667,6 +667,10 @@ nav#navbar-responsive {
         margin-right: 12px;
     }
 
+    #illustration-in-chapter {
+        text-align: center;
+    }
+
     
     
 }
@@ -747,6 +751,7 @@ nav#navbar-responsive {
     }
     #image-post-chapter {
         height: 300px;
+        width: 50vh;
     }
     #portrait_container {
         margin-left: 0!important;

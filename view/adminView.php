@@ -83,7 +83,7 @@
 
                   if (!empty($dataContent)) : ?>
 
-                    <?php $shorterContent = substr($post->getAuthor_post_content(), 0, 400);
+                    <?php $shorterContent = nl2br(substr($post->getAuthor_post_content(), 0, 400));
                     echo strip_tags($shorterContent . '...'); ?>
                   <?php endif; ?>
                 </p>
