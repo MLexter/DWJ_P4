@@ -12,8 +12,8 @@
 
         <p>Saisissez vos modifications dans l'espace de rédaction et cliquez sur le bouton 'Valider' pour modifier votre article.</p>
 
-        <?php if (@$_SESSION['success'] == 0) : ?>
-            <?php if (@$_SESSION['error_upload'] !== null) : ?>
+        <?php if (@$_SESSION['success'] != 1) : ?>
+            <?php if (@$_SESSION['error_upload'] != null) : ?>
                 <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>
                 <?php $_SESSION['error_upload'] = ""; ?>
             <?php endif; ?>

@@ -798,6 +798,10 @@ nav#navbar-responsive {
     .container-main-title_description {
         max-width: 100%!important;
     }
+
+    #navbarSupportedContent {
+        top: 70px;
+    }
 }
 
 /* ########## FOOTER ########## */
