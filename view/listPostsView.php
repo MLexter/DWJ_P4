@@ -6,12 +6,11 @@
         <div class="shadow-sm border sm-12 p-3 mb-5 rounded container-main-title_description">
             <div id="main-title_description" class="text-center container title-section col-sm-12">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
-                <h2>Dernières lectures</h2>
             </div>
 
         </div>
         <p class="text-center regular-subtitle-text container col-md-9">Retrouvez ici la liste de tous les chapitres publiés sur le roman 'Billet simple pour l'Alaska'. <br />
-            N'hésitez pas vous exprimer dans l'espace commentaire des chapitres afin de laisser votre ressenti à l'auteur !</p>
+            N'hésitez pas à vous exprimer dans l'espace commentaire des chapitres et laissez votre ressenti à l'auteur !</p>
 
         <hr class="hr-separation">
 

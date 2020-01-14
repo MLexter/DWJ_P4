@@ -3,7 +3,7 @@
 <div id="main-connexion-screen" class="container-fluid d-flex align-items-center">
     <div id="connexion_container" class="container col-md-6 shadow border bg-white rounded ">
         <div id="connexion_form">
-            <h1 class="text-center">Connectez-vous à votre espace:</h1>
+            <h1 class="text-center">CONNEXION</h1>
             <br />
             <p id="connexion-text" class="container text-center">Pour vous connecter en tant qu'administrateur du site, veuillez saisir votre 'Identifiant' et votre 'Mot de passe':</p>
 

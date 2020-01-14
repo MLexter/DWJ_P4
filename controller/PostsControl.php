@@ -194,8 +194,6 @@ class PostsControl
                             exit();
                         }
                     }        
-                     
-                    
                         
                 } else {
                 $_SESSION['success'] = 0;

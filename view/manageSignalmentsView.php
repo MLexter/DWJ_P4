@@ -4,7 +4,7 @@
 
 <div id="main-comment-Manager" class="text-center col-12">
     <div class="shadow border p-3 mb-5 rounded container container-main-title_description col-12">
-        <h1>Gérer les commentaires signalés</h1>
+        <h1>GERER LES COMMENTAIRES SIGNALES</h1>
     </div>
     <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal d'administration</a></p>
     <div id='container_comments'>

@@ -4,14 +4,15 @@
 <div id="main-listPosts" class="container rounded">
     <div id="creation_container" class="text-center container title-section col-sm-12">
         <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
-            <h1>Ecrire un nouveau chapitre</h1>
+            <h1>ECRIRE UN NOUVEEAU CHAPITRE</h1>
         </div>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour au menu d'administration</a></p>
         
+        <hr class="hr-separation">
+
         <p>Ecrivez un nouveau chapitre et utilisez les outils d'édition de texte à votre disposition pour le mettre en forme. <br>
         Terminez par 'Poster ce chapitre'</p>
         
-        <hr class="hr-separation">
         <?php if (@$_SESSION['success'] != 1) : ?>
             <?php if (@$_SESSION['error_upload'] != null) : ?>
                 <div class="alert alert-warning" role="alert"><?= @$_SESSION['error_upload']; ?> </div>

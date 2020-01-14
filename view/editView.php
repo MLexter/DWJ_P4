@@ -4,7 +4,7 @@
 <div id="main-listPosts" class="container rounded">
         <div id="edit_container" class="container text-center">
         <div class="shadow border p-3 mb-5 bg-white rounded container container-main-title_description col-8">
-            <h1>Modifier un chapitre</h1>
+            <h1>MODIFIER UN CHAPITRE</h1>
         </div>
         <p><a href="<?= HOST; ?>admin/dashboard">Retour à l'écran principal</a></p>
 
