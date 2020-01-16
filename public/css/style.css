@@ -1096,6 +1096,7 @@ a.fa-main_admin {
     padding-left: 10px;
     background-color: #fff3f4;
     border-radius: 0;
+    min-width: 14vh;
 }
 
 #table-comments {

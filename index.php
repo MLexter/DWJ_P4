@@ -1,8 +1,8 @@
 <?php
 
+include_once('_config.php');
 session_start();
 
-include_once('_config.php');
 
 try {
 
