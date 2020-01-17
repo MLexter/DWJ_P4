@@ -25,3 +25,7 @@
 </ul>
 <br>
 <br>
+<hr>
+<h3>En local:</h3>
+<br>
+<p>Modifier la RewriteRule du .htaccess et les chemins d'accès dans _config.php</p>
